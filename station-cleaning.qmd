@@ -1,0 +1,120 @@
+---
+title: "station-cleaning"
+---
+
+## Goals of this notebook
+
+What we'll do to prepare the data:
+
+- Download the data
+- Import it into our notebook
+- Clean up data types and columns 
+- Export data into our next notebook
+
+## Loading in library
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(dplyr)
+library(lubridate)
+```
+
+## Importing NWS Data
+
+We only need name, date, temperature and humidity from the NWS csv's
+
+```{r}
+#| label: columns
+col_list <- c(
+  "NAME",
+  "DATE",
+  "HourlyDryBulbTemperature",
+  "HourlyRelativeHumidity"
+  )
+```
+
+This will create a file list to be able to import all of our data from my `station_data` folder
+
+```{r}
+#| label: files
+
+## Create a list of files in the station_data folder
+station_files_list <- list.files(
+  "data-raw/stations",
+  pattern = "\\.csv",
+  full.name = TRUE
+) 
+```
+
+## Put them together
+
+```{r}
+combined_stations <- station_files_list |>
+  set_names(basename) |> 
+  map(
+    read_csv,
+    col_select = col_list,
+    col_types = cols(.default = "c")
+    ) |> 
+  list_rbind(names_to = "station_code") |> 
+  clean_names()
+  
+combined_stations
+```
+
+## Clean them up
+
+```{r}
+all_stations <- combined_stations |> 
+  mutate(
+    date = ymd_hms(date),
+    station_code = str_remove(station_code, ".csv"), 
+    station_temp = parse_number(hourly_dry_bulb_temperature),
+    rh = parse_number(hourly_relative_humidity)
+  ) |> 
+  rename(datetime = date) |>
+  filter(hour(datetime) == 14) |> 
+  group_by(station_code, date = date(datetime)) |> 
+  slice_max(minute(datetime)) |> 
+  ungroup() |> 
+  select(!c(hourly_dry_bulb_temperature, hourly_relative_humidity))
+
+all_stations
+```
+
+I didn't read out the datetime column yet so that we can have record of what time our included recordings are. We can remove that column now.
+
+```{r}
+stations_cleaned <- all_stations |> 
+  select(!datetime) |> 
+  filter("2023-03-31" < date & date < "2023-10-01")
+
+stations_cleaned
+```
+
+```{r}
+# A CHECK
+stations_cleaned |> 
+  count(date, station_code, sort = T)
+
+stations_cleaned |> 
+  count(station_code)
+```
+
+## Export
+
+We are done with this lets do some analysis!
+
+```{r}
+#| label: export
+
+stations_cleaned |> write_rds("data-processed/station-all.rds")
+
+output_folder <- "data-processed/station-processed" # Specify the output folder
+
+
+```

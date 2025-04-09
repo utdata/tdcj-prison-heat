@@ -1,0 +1,56 @@
+---
+title: "unit-analysis"
+---
+
+## Setup
+
+Loading in our libraries!
+
+```{r}
+#| message: false
+#| label: setup
+library(ggplot2)
+library(tidyverse)
+library(plotly)
+```
+
+## Importing our data
+
+Importing the data with the new relative humidity column.
+
+```{r}
+#| label: joining data
+jail_data <- read_rds("data-processed/unit-station-data.rds")
+```
+
+## Graphs w/ indoor, outdoor & feels like
+
+Now that we have all of our data, we can create the graphs to have the `feels like` column and add points to showcase when extreme heat protocols days were active. Also, makes it interactive so that we can see each date.
+
+```{r}
+units <- unique(all_combined$unit)
+for (unit_name in units) {
+  df <- subset(all_combined, unit == unit_name)
+  
+p <- ggplot(df, aes(x = date)) +
+  geom_line(aes(y = unit_temp, color = "Unit Temp")) +
+  geom_line(aes(y = station_temp, color = "Station Temp")) +
+  geom_line(aes(y = feels_like, color = "Feels Like Temp")) +
+  geom_point(data = subset(df, status == "active"), # only rows with an active status are plotted as points
+             aes(y = unit_temp, color = "Unit Temp"), size = 2) +
+  geom_point(data = subset(df, status == "active"), 
+             aes(y = station_temp, color = "Station Temp"), size = 2) +
+  geom_point(data = subset(df, status == "active"), 
+             aes(y = feels_like, color = "Feels Like Temp"), size = 2) +
+  labs(
+    title = paste("Temperature Trends for Unit:", unit_name),
+    x = "Date",
+    y = "Temperature"
+  ) +
+  ylim(0, 120) +
+  theme_minimal()
+
+p_interactive <- ggplotly(p)
+  print(p_interactive)
+}
+```
