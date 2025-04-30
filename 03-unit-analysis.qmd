@@ -9,7 +9,6 @@ Loading in our libraries!
 ```{r}
 #| message: false
 #| label: setup
-library(ggplot2)
 library(tidyverse)
 library(plotly)
 ```

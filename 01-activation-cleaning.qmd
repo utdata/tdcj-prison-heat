@@ -2,7 +2,7 @@
 title: "activation-cleaning"
 ---
 
-It's time to add in a new data source: the heat protocol activation logs. 
+It's time to add in a new data source: the heat protocol activation logs. This data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
 
 ## Set up
 
@@ -14,8 +14,6 @@ You know the drill!
 
 library(tidyverse)
 library(janitor)
-library(purrr)
-library(dplyr)
 library(data.table)
 ```
 
@@ -77,8 +75,6 @@ activation_log_dates <- clean_activation_log |>
 activation_log_dates
 ```
 
-<!-- We should discuss how to note the initial_extreme_temp in the cleaned activation log. In some instances it's the same as the activation day, so that complicates charting it. -->
-
 ## Document active days
 
 We need to turn our initial_extreme_temp column, implementation_date column and our deactivation_date column into date ranges.
@@ -89,7 +85,8 @@ dirty_actives <- activation_log_dates |>
   mutate(occurence = dense_rank(initial_extreme_temp)) |> 
   mutate(start = as.Date(activation_date), end = as.Date(deactivation_date)) |> 
   mutate(
-    activated = map2(start, end, ~seq(from = .x, to = .y, by = "day"))) |> 
+    activated = map2(start, end, ~seq(from = .x, to = .y, by = "day"))
+    ) |> 
   unnest(activated) 
 
 dirty_actives
@@ -105,7 +102,6 @@ clean_actives <- dirty_actives |>
   mutate(status = "active") |> 
   mutate(date = activated) |> 
   select(!activated)
-  
 
 clean_actives |> 
   filter(unit == "Byrd")

@@ -12,8 +12,6 @@ We've cleaned up all of our relevant data files! Now we need to add them all tog
 
 library(tidyverse)
 library(janitor)
-library(purrr)
-library(dplyr)
 library(data.table)
 ```
 
@@ -66,7 +64,7 @@ joined_file_1
 Now let's add in our unit information.
 
 ```{r}
-joined_file_2 <- combo_file_1 |> 
+joined_file_2 <- joined_file_1 |> 
   left_join(unit_info, by = "unit") 
 
 joined_file_2
@@ -112,6 +110,51 @@ combined_final <- all_combined |>
 
 combined_final
 ```
+
+## Create a flag
+
+We know that one form of criteria for our heat protocol is if the feels like is greater than or equal to 113 for three days. Let's create a flag for days greater than or equal to 113 and then count the number of consecutive days.
+
+```{r}
+consecutive_heat <- combined_final |> 
+  mutate(index_flag = (case_when(
+    feels_like >= 113 ~ TRUE,
+    .default = FALSE
+  ))) |> 
+   mutate(temp_flag = (case_when(
+    station_temp >= 105 ~ TRUE,
+    .default = FALSE
+  ))) 
+  
+consecutive_heat
+```
+
+Create if either are true column Add another column that showsd if true is along with active
+
+```{r}
+consecutive_heat |> 
+  mutate(
+  protocol_flag = case_when(
+   temp_flag == "TRUE" | index_flag == "TRUE" ~ TRUE,
+    .default = FALSE
+  )) |> 
+  mutate(
+    run_protocol = accumulate(protocol_flag, ~if_else(.y, .x + 1, 0))
+  ) |> 
+  mutate(
+    conditions_met = case_when(
+    run_protocol >= 3 ~ TRUE,
+    .default = FALSE
+  )) |> 
+  mutate(
+    failure_to_launch = case_when(
+      conditions_met == TRUE & status == "inactive" ~ "YES",
+      .default = "NO"
+    )
+  ) |> 
+  count(failure_to_launch == "YES")
+```
+
 
 ## Export
 

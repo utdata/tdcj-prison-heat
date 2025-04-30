@@ -19,8 +19,6 @@ What we'll do to prepare the data:
 
 library(tidyverse)
 library(janitor)
-library(dplyr)
-library(lubridate)
 ```
 
 ## Importing NWS Data
