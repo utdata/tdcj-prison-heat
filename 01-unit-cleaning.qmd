@@ -2,6 +2,8 @@
 title: "unit-cleaning"
 ---
 
+This data is the record indoor temperatures at each unit from April to September. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
+
 ## Goals of this notebook
 
 What we'll do to prepare the data:

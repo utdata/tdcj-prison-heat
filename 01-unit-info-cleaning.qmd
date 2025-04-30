@@ -2,6 +2,8 @@
 title: "unit-info-cleaning"
 ---
 
+This data piece will help us join together our unit-focused data and our weather station-focused data. The data was compiled by Media Innovation Group data fellows. The information came from the Texas Department of Criminal Justice website, a TDCJ unit prototype list and the National Weather Service website.
+
 ## Goals of this notebook
 
 Clean up our column names so we can easily combine with our other data.
