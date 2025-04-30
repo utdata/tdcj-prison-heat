@@ -1,0 +1,153 @@
+---
+title: "Logs cleaning"
+format: html
+---
+
+This notebook downloads a tracking spreadsheet of our outdoor temperature logs for prisons. It then tries to download all of the individual log sheets referenced in the tracking sheet, then combines them into a single file.
+
+## Things I would do differently
+
+- Include the prison short code on each log spreadsheet.
+- Use 0 to 23 instead of 1-24 to indicate the hour OR a real datetime field. I got around this with coding.
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(janitor)
+library(httr)
+```
+
+## Download the tracking sheet
+
+This sheet is in MIG Data > Jail Logs > Outdoor Logs Data. It is called Outdoor Logs Tracking Sheet.
+
+```{r}
+download.file("https://docs.google.com/spreadsheets/d/e/2PACX-1vRQBIKas7s5Wwe4bd9tMlAheCsjqeFU2JMZfk6h8Hc_QH6Dx02SEZmP6ieny13hCyZQosmsRirDEu9P/pub?output=csv", "data-raw/outdoor-jail-logs-urls.csv")
+```
+
+Read in the tracking sheet url
+
+```{r}
+#| label: read-tracking
+#| warning: false
+#| message: false
+
+log_urls <- read_csv("data-raw/outdoor-jail-logs-urls.csv") |> clean_names()
+
+log_urls |> glimpse()
+```
+## Download all the files
+
+This code below was courtesy of ChatGPT, based on the following prompt: "I'm using R. I have a data frame that has a list of urls and slugs, which are short file names. Please write me a loop or other code that will download all the files at those urls, with their names as the slug. These are all csv files." 
+
+I changed ChatGPTs tryCatch on the download to an if else for, and put the files in a specified directory.
+
+```{r}
+#| label: download-logs
+#| warning: false
+
+# set our urls to df
+df <- log_urls
+
+# Download loop
+for (i in seq_len(nrow(df))) {
+  url <- df$url[i]
+  slug <- df$slug[i]
+  file_name <- paste0("data-raw/2023_logs/", slug, ".csv")
+  
+  if (is.na(url)) {
+    # message(paste("No URL for slug:", slug))
+    next
+  } else {
+    tryCatch({
+      download.file(url, destfile = file_name, mode = "wb")
+    }, error = function(e) {
+      message(paste("Failed to download:", url, "-", e$message, "\n"))
+    })
+  }
+}
+
+```
+
+## Read in the logs
+
+Make a list of files:
+
+```{r}
+logs_list <- list.files(
+  "data-raw/2023_logs",
+  pattern = ".csv",
+  full.names = TRUE
+  )
+
+logs_list
+```
+
+```{r}
+logs_raw <- logs_list |>  #set_names(basename) |>
+  map(
+  read_csv,
+  col_types = cols(.default = col_character())
+) |> list_rbind() |>
+  clean_names()
+
+logs_raw
+```
+
+## Fix date, time, rec
+
+Two decisions in the formatting of our log necessitate this:
+
+- We configured our date and time columns like the form itself instead of datetime formats that easily import.
+- We originally numbered the `rec` column from 1 to 24 thinking we needed to label each reading, but the weather station data will be labeled 0 to 23 because it is the hour of time.
+
+Here we create a real datetime, date and proper hour
+
+
+```{r}
+logs_dates <- logs_raw |> 
+  mutate(
+    new_time = case_when(
+      time == "12:30 a.m." ~ "00:30:00",
+      time == "12:30 p.m." ~ "12:30:00",
+      str_sub(time, -4, -1) == "a.m." ~ paste0(str_extract(time, "^(\\d+)"),":30:00"),
+      str_sub(time, -4, -1) == "p.m." ~ paste0(str_extract(time, "^(\\d+)") |> as.numeric() + 12, ":30:00"),
+      .default = NA
+    )
+  ) |> 
+  mutate(
+    datetime = mdy_hms(paste(date, new_time)),
+    date = date(datetime),
+    hour = hour(datetime),
+    .after = time
+  ) |> 
+  select(!c(rec, time, new_time))
+
+logs_dates |> slice_sample(n = 10)
+```
+
+## Convert the numbers
+
+Our various readings come in as text. Also, and extra blank column has come in at some point which we remove.
+
+```{r}
+logs_numbs <- logs_dates |> 
+  mutate(
+    # temp = temp |> parse_number()
+    across(c(temp, humid, wind, hi_wc, hi_wc_n), parse_number)
+  ) |> 
+  select(-x12)
+
+logs_numbs |> slice_sample(n = 10)
+```
+
+
+
+## Export the logs
+
+```{r}
+logs_numbs |> write_rds("data-processed/01-logs.rds")
+```
+
