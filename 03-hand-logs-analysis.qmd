@@ -1,0 +1,262 @@
+---
+title: "03-hand-logs-analysis"
+format: html
+---
+
+## Goals of this notebook
+
+- Import all the hand written logs 
+- Compare the recorded temp, humidity and feels like to the the nearest weather station
+- Summarize the hourly data to a single day to see if heat protocols should've gone into place based on these readings.
+- See if protocols were put into place and how many days they were off.
+
+## Setup
+
+Downloading libraries...
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(dplyr)
+library(hms)
+```
+
+## Importing hand logs
+
+Importing the hand written logs from the `01-logs-cleaning.qmd` file
+
+```{r}
+#| label: handlogs
+
+hl <- read_rds("data-processed/01-logs.rds")
+
+hl
+```
+
+## Cleaning for analysis
+
+I am now selecting the column I need for analysis and in the order I want them. Then, I'm mutating the datetime column to separate them into `date` and `time`. Lastly, filtering each day for the 14th hour for the single day analysis.
+
+```{r}
+#| label: filtering
+
+f_hl <- hl |> 
+  select(c(unit, date, datetime, hour, temp, humid)) |>
+  mutate(date =as.Date(datetime),
+  time = hms::as_hms(datetime)) |> 
+  select(unit, date, time, hour, temp, humid) |> 
+  filter(hour == "14")
+
+f_hl
+```
+
+## Importing in `unit info`
+
+I'm importing unit info data for the NWS `station_code` and filtering for only station_code and unit.
+
+```{r}
+#| label: station_code
+unit_info <- read_rds("data-processed/unit_info.rds")
+
+station <- unit_info |> 
+  mutate(station_id = station_code) |> 
+  select(c(unit, station_id))
+
+station
+```
+## Importing unit counties
+
+I'm importing unit counties, so I can use later in my analysis
+
+```{r}
+#| label: counties
+
+locations <- read_csv("data-raw/unit_locations.csv")
+
+locations
+```
+
+## Joining station code into the hand written logs 
+
+I'm doing this, so that I can later connect the NWS data into the hand written logs.
+
+```{r}
+#| label: join
+
+hls <- f_hl |> 
+  left_join(station, by = "unit") |> 
+  left_join(locations, by = "unit") |> 
+  select(unit, locations, date, time, hour, temp, humid, station_id)
+
+
+hls
+```
+
+## Importing NWS Data
+
+Importing the NWS data from the `weather-logs` project.
+
+```{r}
+#| label: importing nws
+
+nws <- read_rds("data-processed/station-all.rds")
+
+c_nws <- nws |> 
+  mutate(station_id = station_code) |> 
+  filter(date >= ("2023-07-24") & date <= ("2023-07-31")) |> 
+  select(station_id, date, station_temp, rh)
+
+c_nws
+```
+
+## Joining nws and our hand made logs
+
+Now, I'm finally joining the national weather service data to the hand made logs. By joining them through the station code and date.
+
+```{r}
+#| label: nws join
+
+os <- hls |> 
+  left_join(c_nws, by = c("station_id", "date"))
+
+os
+```
+
+## Adding `feels_like`
+
+I am making a feels like column on the joined data to showcase the feels like temp that the NWS would have reported. The formula below was provided by the [NWS](https://www.weather.gov/media/epz/wxcalc/heatIndex.pdf)
+
+```{r}
+#| label: feels like
+
+outdoor_stations <- os |> 
+mutate(
+    feels_like = 
+      - 42.379 + (2.04901523 * station_temp) + (10.14333127 * rh) 
+      - (0.22475541 * station_temp * rh) - (6.83783 * 10^(-3) * station_temp^2) 
+      - (5.481717 * 10^(-2) * rh^2) + (1.22874 * 10^(-3) * station_temp^2 * rh) 
+      + (8.5282 * 10^(-4) * station_temp * rh^2) - (1.99 * 10^(-6) * station_temp^2 * rh^2)
+  )
+
+outdoor_stations
+```
+
+## Making a diff column
+
+I am making a `diff` column to see the differences between the outside recorded temp from the hand written logs and the recorded temp from the NWS.
+
+```{r}
+#| label: diff column
+
+hand_logs <- outdoor_stations |> 
+  mutate(diff = abs(temp - station_temp))
+
+hand_logs
+```
+
+## Importing Activation_logs
+
+Now we are joining activation_logs to see whether there were any times these places should have been activated 
+
+```{r}
+#| label: activation
+
+activation <- # importing data
+  read_rds("data-processed/activation-log.rds") 
+
+ca <- activation |> # cleaning data for certain timeframe
+  filter(date >= ("2023-07-24") & date <= ("2023-07-31"))
+
+ca
+```
+
+## Joining in the activation date 
+
+I was checking which prison from the hand written log was part of the activation data to set a baseline on days we knew were activated.
+
+```{r}
+#| label: joining activation
+
+hand_logs |> 
+  left_join(ca, by = c("unit", "date")) |> 
+  filter(status == "active") |> 
+  arrange(unit)
+```
+
+## Importing `extreme_weather` data
+
+This data is being imported from the `weather_logs` repo.
+
+```{r}
+#| label: importing exw
+
+loc <- read_rds("data-processed/2023_ex_w.rds")
+
+loc
+```
+
+## Filtering for timeframe
+
+Under the current time frame there were no days that were in the three days of protocol, but looking further ahead on the `2023_ex_w` data, 07-31-2023 was the start of a extreme heat warning.
+
+```{r}
+#| label: ex_w
+
+loc |> 
+  filter(date >= ("2023-07-24") & date <= ("2023-07-31"))
+```
+
+## Importing feels like 105+
+
+Importing the 105+ feels like protocol data from the `weather_logs` repo.
+
+```{r}
+feels <- read_rds("data-processed/station_accumulation.rds")
+
+feels
+```
+
+## Joining 105+ protocol
+
+
+
+```{r}
+#| label: protocol 
+
+short_feels <- feels |> 
+  filter(date >= ("2023-07-24") & date <= ("2023-07-31")) |> 
+  select(c(station_id, date, hour, heat_flag, fl_flag, protocol_flag, p_count)) |> 
+  filter(p_count >=1)
+
+short_feels
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

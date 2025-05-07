@@ -1,0 +1,193 @@
+unit,date,rec,time,temp,humid,wind,hi_wc,hi_wc_n,person,notes
+Torres,7/24/2023,1,12:30 a.m.,79,71,6,78,,Hinton,
+Torres,7/24/2023,2,1:30 a.m.,78,76,6,78,,Hinton,
+Torres,7/24/2023,3,2:30 a.m.,78,79,7,78,,Hinton,
+Torres,7/24/2023,4,3:30 a.m.,77,82,6,77,,Hinton,
+Torres,7/24/2023,5,4:30 a.m.,74,87,5,74,,Hinton,
+Torres,7/24/2023,6,5:30 a.m.,73,90,6,73,,Hinton,
+Torres,7/24/2023,7,6:30 a.m.,73,90,,N/A,,Dodd,
+Torres,7/24/2023,8,7:30 a.m.,71,90,,N/A,,Dodd,
+Torres,7/24/2023,9,8:30 a.m.,75,84,,N/A,,Dodd,
+Torres,7/24/2023,10,9:30 a.m.,81,76,,N/A,,Dodd,
+Torres,7/24/2023,11,10:30 a.m.,85,69,,92,,Dodd,
+Torres,7/24/2023,12,11:30 a.m.,89,59,,97,,Dodd,
+Torres,7/24/2023,13,12:30 p.m.,92,50,,98,,Dodd,
+Torres,7/24/2023,14,1:30 p.m.,94,45,,100,,Dodd,
+Torres,7/24/2023,15,2:30 p.m.,96,41,,102,,Dodd,
+Torres,7/24/2023,16,3:30 p.m.,99,36,,104,,Dodd,
+Torres,7/24/2023,17,4:30 p.m.,100,32,,104,,Dodd,
+Torres,7/24/2023,18,5:30 p.m.,100,32,,104,,Dodd,
+Torres,7/24/2023,19,6:30 p.m.,101,25,,101,,Dodd,humid legibility
+Torres,7/24/2023,20,7:30 p.m.,100,27,8,101,,Hinton,hi_wc_n legibility
+Torres,7/24/2023,21,8:30 p.m.,97,30,8,97,,Hinton,temp corrected
+Torres,7/24/2023,22,9:30 p.m.,92,36,7,92,,Hinton,
+Torres,7/24/2023,23,10:30 p.m.,89,55,15,95,,Hinton,
+Torres,7/24/2023,24,11:30 p.m.,87,58,13,93,,Hinton,
+Torres,7/25/2023,1,12:30 a.m.,85,63,12,85,,Hinton,person corrected
+Torres,7/25/2023,2,1:30 a.m.,83,69,8,83,,Hinton,person corrected
+Torres,7/25/2023,3,2:30 a.m.,81,74,5,81,,Hinton,person corrected
+Torres,7/25/2023,4,3:30 a.m.,77,79,5,77,,Hinton,person corrected
+Torres,7/25/2023,5,4:30 a.m.,77,82,3,77,,Hinton,person corrected
+Torres,7/25/2023,6,5:30 a.m.,76,81,3,76,,Hinton,person corrected
+Torres,7/25/2023,7,6:30 a.m.,76,80,4,76,,Urbina,
+Torres,7/25/2023,8,7:30 a.m.,77,81,5,80,,Urbina,
+Torres,7/25/2023,9,8:30 a.m.,78,82,6,83,,Urbina,
+Torres,7/25/2023,10,9:30 a.m.,82,74,6,87,,Urbina,
+Torres,7/25/2023,11,10:30 a.m.,87,61,7,92,,Urbina,
+Torres,7/25/2023,12,11:30 a.m.,89,56,7,95,,Urbina,
+Torres,7/25/2023,13,12:30 p.m.,94,45,8,99,,Urbina,
+Torres,7/25/2023,14,1:30 p.m.,96,40,8,101,,Urbina,
+Torres,7/25/2023,15,2:30 p.m.,98,36,9,102,,Urbina,
+Torres,7/25/2023,16,3:30 p.m.,98,36,9,102,,Urbina,
+Torres,7/25/2023,17,4:30 p.m.,99,34,9,103,,Urbina,
+Torres,7/25/2023,18,5:30 p.m.,99,34,9,103,,Urbina,
+Torres,7/25/2023,19,6:30 p.m.,100,29,8,102,,Hinton,person corrected
+Torres,7/25/2023,20,7:30 p.m.,98,31,8,100,,Hinton,person corrected
+Torres,7/25/2023,21,8:30 p.m.,92,32,8,98,,Hinton,person corrected
+Torres,7/25/2023,22,9:30 p.m.,92,38,6,93,,Hinton,person corrected
+Torres,7/25/2023,23,10:30 p.m.,91,44,10,94,,Hinton,person corrected
+Torres,7/25/2023,24,11:30 p.m.,91,44,10,91,,Hinton,
+Torres,7/26/2023,1,12:30 a.m.,86,62,14,92,,Hinton,
+Torres,7/26/2023,2,1:30 a.m.,84,69,14,90,,Hinton,
+Torres,7/26/2023,3,2:30 a.m.,83,69,8,,,Hinton,hi_wc legibility
+Torres,7/26/2023,4,3:30 a.m.,81,74,8,74,,Hinton,
+Torres,7/26/2023,5,4:30 a.m.,80,76,8,80,,Hinton,
+Torres,7/26/2023,6,5:30 a.m.,79,75,,79,,Hinton,
+Torres,7/26/2023,7,6:30 a.m.,77,84,6,77,,Hinton,
+Torres,7/26/2023,8,7:30 a.m.,77,87,6,77,,Hinton,
+Torres,7/26/2023,9,8:30 a.m.,78,87,8,78,,Hinton,
+Torres,7/26/2023,10,9:30 a.m.,81,82,9,81,,Sowell,person corrected
+Torres,7/26/2023,11,10:30 a.m.,85,67,9,91,,Sowell,"humid legibility, person corrected"
+Torres,7/26/2023,12,11:30 a.m.,89,56,9,96,,Sowell,person corrected
+Torres,7/26/2023,13,12:30 p.m.,93,45,8,98,,Sowell,person corrected
+Torres,7/26/2023,14,1:30 p.m.,96,38,10,100,,Sowell,person corrected
+Torres,7/26/2023,15,2:30 p.m.,97,34,13,99,,Sowell,person corrected
+Torres,7/26/2023,16,3:30 p.m.,101,27,24,102,,Sowell,"wind legibility, person corrected"
+Torres,7/26/2023,17,4:30 p.m.,100,24,12,99,,Sowell,person corrected
+Torres,7/26/2023,18,5:30 p.m.,101,20,15,100,,Sowell,"humid legibility, person corrected"
+Torres,7/26/2023,19,6:30 p.m.,101,20,13,99,,Hinton,hi_wc legibility
+Torres,7/26/2023,20,7:30 p.m.,101,20,9,99,,Hinton,
+Torres,7/26/2023,21,8:30 p.m.,97,23,7,95,,Hinton,
+Torres,7/26/2023,22,9:30 p.m.,93,28,8,91,,Hinton,
+Torres,7/26/2023,23,10:30 p.m.,89,43,13,90,,Hinton,
+Torres,7/26/2023,24,11:30 p.m.,88,49,18,91,,Hinton,
+Torres,7/27/2023,1,12:30 a.m.,85,54,15,85,,Hinton,
+Torres,7/27/2023,2,1:30 a.m.,83,58,8,83,,Hinton,
+Torres,7/27/2023,3,2:30 a.m.,81,64,9,81,,Hinton,
+Torres,7/27/2023,4,3:30 a.m.,79,69,6,79,,Hinton,
+Torres,7/27/2023,5,4:30 a.m.,77,73,5,77,,Hinton,humid legibility
+Torres,7/27/2023,6,5:30 a.m.,75,78,5,75,,Hinton,
+Torres,7/27/2023,7,6:30 a.m.,74,85,6,74,,Hinton,temp corrected
+Torres,7/27/2023,8,7:30 a.m.,74,87,,N/A,,Dodd,
+Torres,7/27/2023,9,8:30 a.m.,76,88,,N/A,,Dodd,
+Torres,7/27/2023,10,9:30 a.m.,80,79,,N/A,,Dodd,
+Torres,7/27/2023,11,10:30 a.m.,83,72,,N/A,,Dodd,
+Torres,7/27/2023,12,11:30 a.m.,86,62,,92,,Dodd,
+Torres,7/27/2023,13,12:30 p.m.,89,55,,95,,Dodd,
+Torres,7/27/2023,14,1:30 p.m.,93,42,,96,,Dodd,
+Torres,7/27/2023,15,2:30 p.m.,94,42,,98,,Dodd,
+Torres,7/27/2023,16,3:30 p.m.,97,32,,98,,Dodd,temp corrected
+Torres,7/27/2023,17,4:30 p.m.,99,31,,101,,Dodd,
+Torres,7/27/2023,18,5:30 p.m.,99,30,,101,,Dodd,
+Torres,7/27/2023,19,6:30 p.m.,100,29,14,102,,Hinton,hi_wc legibility
+Torres,7/27/2023,20,7:30 p.m.,98,98,13,98,,Hinton,
+Torres,7/27/2023,21,8:30 p.m.,96,30,9,96,,Hinton,
+Torres,7/27/2023,22,9:30 p.m.,92,35,8,92,,Hinton,
+Torres,7/27/2023,23,10:30 p.m.,90,36,12,90,,Hinton,
+Torres,7/27/2023,24,11:30 p.m.,87,44,15,87,,Hinton,
+Torres,7/28/2023,1,12:30 a.m.,86,69,13,95,,Hinton,
+Torres,7/28/2023,2,1:30 a.m.,84,72,9,84,,Hinton,
+Torres,7/28/2023,3,2:30 a.m.,82,76,8,82,,Hinton,
+Torres,7/28/2023,4,3:30 a.m.,82,79,9,82,,Hinton,
+Torres,7/28/2023,5,4:30 a.m.,79,83,7,79,,Hinton,
+Torres,7/28/2023,6,5:30 a.m.,76,85,5,85,,Hinton,
+Torres,7/28/2023,7,6:30 a.m.,74,86,5,N/A,,Talcon,
+Torres,7/28/2023,8,7:30 a.m.,75,72,8,N/A,,Talcon,wind legibility
+Torres,7/28/2023,9,8:30 a.m.,76,85,8,N/A,,Talcon,
+Torres,7/28/2023,10,9:30 a.m.,80,84,7,N/A,,Talcon,
+Torres,7/28/2023,11,10:30 a.m.,83,77,6,90,,Talcon,temp corrected
+Torres,7/28/2023,12,11:30 a.m.,86,67,6,94,,Talcon,
+Torres,7/28/2023,13,12:30 p.m.,90,57,,98,,Talcon,temp corrected
+Torres,7/28/2023,14,1:30 p.m.,92,55,,101,,Talcon,
+Torres,7/28/2023,15,2:30 p.m.,97,44,,105,,Talcon,humid corrected
+Torres,7/28/2023,16,3:30 p.m.,99,52,,107,,Talcon,
+Torres,7/28/2023,17,4:30 p.m.,102,33,,108,,Talcon,
+Torres,7/28/2023,18,5:30 p.m.,103,30,,109,,Talcon,"temp corrected, humid corrected"
+Torres,7/28/2023,19,6:30 p.m.,102,28,5,105,,Hinton,
+Torres,7/28/2023,20,7:30 p.m.,102,25,12,103,,Hinton,
+Torres,7/28/2023,21,8:30 p.m.,100,26,10,100,,Hinton,
+Torres,7/28/2023,22,9:30 p.m.,96,30,12,96,,Hinton,
+Torres,7/28/2023,23,10:30 p.m.,92,34,8,91,,Hinton,
+Torres,7/28/2023,24,11:30 p.m.,90,59,16,99,,Hinton,
+Torres,7/29/2023,1,12:30 a.m.,83,62,10,83,,Hinton,
+Torres,7/29/2023,2,1:30 a.m.,83,62,13,83,,Hinton,
+Torres,7/29/2023,3,2:30 a.m.,80,74,7,80,,Hinton,
+Torres,7/29/2023,4,3:30 a.m.,79,79,5,79,,Hinton,humid corrected
+Torres,7/29/2023,5,4:30 a.m.,76,85,,76,,Hinton,wind legibility
+Torres,7/29/2023,6,5:30 a.m.,72,87,3,72,,Hinton,
+Torres,7/29/2023,7,6:30 a.m.,72,90,5,72,,Sowell,
+Torres,7/29/2023,8,7:30 a.m.,72,90,5,72,,Sowell,
+Torres,7/29/2023,9,8:30 a.m.,74,87,5,74,,Sowell,
+Torres,7/29/2023,10,9:30 a.m.,79,76,3,79,,Sowell,temp legibility
+Torres,7/29/2023,11,10:30 a.m.,84,84,5,84,,Sowell,humid legibility
+Torres,7/29/2023,12,11:30 a.m.,88,41,10,88,,Sowell,
+Torres,7/29/2023,13,12:30 p.m.,90,39,17,90,,Sowell,
+Torres,7/29/2023,14,1:30 p.m.,92,38,9,93,,Sowell,
+Torres,7/29/2023,15,2:30 p.m.,95,34,6,96,,Sowell,
+Torres,7/29/2023,16,3:30 p.m.,97,30,7,97,,Sowell,
+Torres,7/29/2023,17,4:30 p.m.,97,30,13,97,,Sowell,
+Torres,7/29/2023,18,5:30 p.m.,96,31,13,96,,Sowell,
+Torres,7/29/2023,19,6:30 p.m.,96,30,7,96,,Jaco,
+Torres,7/29/2023,20,7:30 p.m.,96,29,8,95,,Jaco,wind legibility
+Torres,7/29/2023,21,8:30 p.m.,94,31,8,93,,Jaco,
+Torres,7/29/2023,22,9:30 p.m.,89,37,5,N/A,,Jaco,
+Torres,7/29/2023,23,10:30 p.m.,87,41,5,N/A,,Jaco,
+Torres,7/29/2023,24,11:30 p.m.,87,52,17,90,,Jaco,
+Torres,7/30/2023,1,12:30 a.m.,85,56,13,N/A,,Jaco,
+Torres,7/30/2023,2,1:30 a.m.,83,64,10,N/A,,Jaco,
+Torres,7/30/2023,3,2:30 a.m.,81,69,5,N/A,,Jaco,
+Torres,7/30/2023,4,3:30 a.m.,79,76,3,N/A,,Jaco,
+Torres,7/30/2023,5,4:30 a.m.,78,76,5,N/A,,Jaco,
+Torres,7/30/2023,6,5:30 a.m.,77,76,5,N/A,,Jaco,
+Torres,7/30/2023,7,6:30 a.m.,74,81,3,74,,Sowell,humid legibility
+Torres,7/30/2023,8,7:30 a.m.,71,87,,71,,Sowell,wind legibility
+Torres,7/30/2023,9,8:30 a.m.,76,82,,76,,Sowell,wind legibility
+Torres,7/30/2023,10,9:30 a.m.,79,84,6,79,,Sowell,
+Torres,7/30/2023,11,10:30 a.m.,83,72,5,83,,Sowell,
+Torres,7/30/2023,12,11:30 a.m.,86,60,6,91,,Sowell,
+Torres,7/30/2023,13,12:30 p.m.,90,50,7,94,,Sowell,
+Torres,7/30/2023,14,1:30 p.m.,94,42,5,98,,Sowell,
+Torres,7/30/2023,15,2:30 p.m.,97,36,9,100,,Sowell,temp corrected
+Torres,7/30/2023,16,3:30 p.m.,97,33,7,99,,Sowell,
+Torres,7/30/2023,17,4:30 p.m.,99,28,6,100,,Sowell,"humid legibility, wind legibility"
+Torres,7/30/2023,18,5:30 p.m.,99,24,17,100,,Sowell,"humid legibility, wind legibility"
+Torres,7/30/2023,19,6:30 p.m.,99,28,10,100,,Licon,"hi_wc legibility, person legibility"
+Torres,7/30/2023,20,7:30 p.m.,99,30,10,100,,Licon,
+Torres,7/30/2023,21,8:30 p.m.,98,28,10,100,,Licon,
+Torres,7/30/2023,22,9:30 p.m.,95,30,5,83,,Licon,hi_wc legibility
+Torres,7/30/2023,23,10:30 p.m.,92,32,10,75,,Licon,wind legibility
+Torres,7/30/2023,24,11:30 p.m.,90,28,10,70,,Licon,wind legibility
+Torres,7/31/2023,1,12:30 a.m.,85,56,7,N/A,,Licon,hi_wc corrected
+Torres,7/31/2023,2,1:30 a.m.,84,65,10,N/A,,Licon,
+Torres,7/31/2023,3,2:30 a.m.,84,65,10,N/A,,Licon,
+Torres,7/31/2023,4,3:30 a.m.,82,66,10,N/A,,Licon,
+Torres,7/31/2023,5,4:30 a.m.,80,68,12,N/A,,Licon,
+Torres,7/31/2023,6,5:30 a.m.,79,68,10,N/A,,Licon,temp corrected
+Torres,7/31/2023,7,6:30 a.m.,74,68,10,N/A,,Jones,
+Torres,7/31/2023,8,7:30 a.m.,76,69,10,N/A,,Jones,
+Torres,7/31/2023,9,8:30 a.m.,79,79,10,N/A,,Jones,"humid corrected, hi_wc corrected"
+Torres,7/31/2023,10,9:30 a.m.,82,76,10,N/A,,Jones,
+Torres,7/31/2023,11,10:30 a.m.,85,69,,92,,Jones,
+Torres,7/31/2023,12,11:30 a.m.,89,60,,98,,Jones,
+Torres,7/31/2023,13,12:30 p.m.,92,47,,97,,Jones,
+Torres,7/31/2023,14,1:30 p.m.,96,42,,102,,Jones,
+Torres,7/31/2023,15,2:30 p.m.,99,54,,104,,Jones,
+Torres,7/31/2023,16,3:30 p.m.,100,35,,105,,Jones,
+Torres,7/31/2023,17,4:30 p.m.,100,31,,103,,Jones,
+Torres,7/31/2023,18,5:30 p.m.,102,30,,105,,Jones,temp corrected
+Torres,7/31/2023,19,6:30 p.m.,102,27,10,104,,Hinton,hi_wc legibility
+Torres,7/31/2023,20,7:30 p.m.,100,29,10,102,,Hinton,
+Torres,7/31/2023,21,8:30 p.m.,98,31,12,100,,Hinton,
+Torres,7/31/2023,22,9:30 p.m.,92,35,8,92,,Hinton,
+Torres,7/31/2023,23,10:30 p.m.,89,40,6,89,,Hinton,
+Torres,7/31/2023,24,11:30 p.m.,89,40,7,89,,Hinton,

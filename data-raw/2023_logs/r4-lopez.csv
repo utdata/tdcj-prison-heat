@@ -1,0 +1,193 @@
+unit,date,rec,time,temp,humid,wind,hi_wc,hi_wc_n,person,notes
+Lopez,7/24/2023,1,12:30 a.m.,82,92,,87,,"Ortiz, L","humid legibility, person legibility"
+Lopez,7/24/2023,2,1:30 a.m.,81,84,,91,,"Ortiz, L",humid legibility
+Lopez,7/24/2023,3,2:30 a.m.,80,89,,90,,"Ortiz, L",humid legibility
+Lopez,7/24/2023,4,3:30 a.m.,79,94,,N/A,,"Ortiz, L","hi_wc corrected, humid legibility"
+Lopez,7/24/2023,5,4:30 a.m.,80,94,,92,,"Ortiz, L",humid legibility
+Lopez,7/24/2023,6,5:30 a.m.,80,93,,93,,"Ortiz, L",humid legibility
+Lopez,7/24/2023,7,6:30 a.m.,78,96,,N/A,,E Esquirel,person legibility
+Lopez,7/24/2023,8,7:30 a.m.,79,88,,N/A,,E Esquirel,
+Lopez,7/24/2023,9,8:30 a.m.,88,76,,100,,E Esquirel,
+Lopez,7/24/2023,10,9:30 a.m.,93,66,,105,,E Esquirel,
+Lopez,7/24/2023,11,10:30 a.m.,95,56,,102,,E Esquirel,
+Lopez,7/24/2023,12,11:30 a.m.,100,45,,107,,E Esquirel,
+Lopez,7/24/2023,13,12:30 p.m.,101,45,,108,,E Esquirel,
+Lopez,7/24/2023,14,1:30 p.m.,95,54,,100,,E Esquirel,
+Lopez,7/24/2023,15,2:30 p.m.,99,48,,105,,E Esquirel,
+Lopez,7/24/2023,16,3:30 p.m.,103,39,,108,,E Esquirel,humid legibility
+Lopez,7/24/2023,17,4:30 p.m.,86,73,,95,,E Esquirel,
+Lopez,7/24/2023,18,5:30 p.m.,88,73,,96,,E Esquirel,
+Lopez,7/24/2023,19,6:30 p.m.,84,84,,95,,"Ortiz, L",humid legibility
+Lopez,7/24/2023,20,7:30 p.m.,87,69,,94,,"Ortiz, L","hi_wc legibility, humid legibility"
+Lopez,7/24/2023,21,8:30 p.m.,87,63,,93,,"Ortiz, L",humid legibility
+Lopez,7/24/2023,22,9:30 p.m.,85,69,,92,,"Ortiz, L",humid legibility
+Lopez,7/24/2023,23,10:30 p.m.,83,78,,91,,"Ortiz, L",humid legibility
+Lopez,7/24/2023,24,11:30 p.m.,81,84,,90,,"Ortiz, L",humid legibility
+Lopez,7/25/2023,1,12:30 a.m.,80,87,,91,,"Ortiz, L",humid legibility
+Lopez,7/25/2023,2,1:30 a.m.,79,88,,N/A,,"Ortiz, L","humid legibility, hi_wc corrected"
+Lopez,7/25/2023,3,2:30 a.m.,78,90,,N/A,,"Ortiz, L","humid legibility, hi_wc corrected"
+Lopez,7/25/2023,4,3:30 a.m.,77,91,,N/A,,"Ortiz, L","humid legibility, hi_wc corrected"
+Lopez,7/25/2023,5,4:30 a.m.,77,93,,N/A,,"Ortiz, L","humid corrected, humid legibility, hi_wc corrected"
+Lopez,7/25/2023,6,5:30 a.m.,77,94,,N/A,,"Ortiz, L","humid legibility, hi_wc corrected"
+Lopez,7/25/2023,7,6:30 a.m.,77,96,,N/A,,E Esquirel,
+Lopez,7/25/2023,8,7:30 a.m.,77,97,,N/A,,E Esquirel,
+Lopez,7/25/2023,9,8:30 a.m.,83,86,,92,,E Esquirel,
+Lopez,7/25/2023,10,9:30 a.m.,90,70,,100,,E Esquirel,
+Lopez,7/25/2023,11,10:30 a.m.,94,56,,103,,E Esquirel,
+Lopez,7/25/2023,12,11:30 a.m.,96,50,,101,,E Esquirel,
+Lopez,7/25/2023,13,12:30 p.m.,96,48,,105,,E Esquirel,
+Lopez,7/25/2023,14,1:30 p.m.,101,40,,104,,E Esquirel,
+Lopez,7/25/2023,15,2:30 p.m.,104,35,,109,,Herrera L,
+Lopez,7/25/2023,16,3:30 p.m.,104,35,,109,,Herrera L,
+Lopez,7/25/2023,17,4:30 p.m.,104,35,,109,,Herrera L,
+Lopez,7/25/2023,18,5:30 p.m.,102,37,,110,,Herrera L,
+Lopez,7/25/2023,19,6:30 p.m.,100,40,,109,,Herrera L,
+Lopez,7/25/2023,20,7:30 p.m.,95,47,,101,,Herrera L,
+Lopez,7/25/2023,21,8:30 p.m.,92,54,,100,,Herrera L,
+Lopez,7/25/2023,22,9:30 p.m.,87,66,,94,,Herrera L,
+Lopez,7/25/2023,23,10:30 p.m.,87,67,,95,,Guerra C,
+Lopez,7/25/2023,24,11:30 p.m.,88,67,,95,,Guerra C,
+Lopez,7/26/2023,1,12:30 a.m.,85,84,,93,,Guerra C,
+Lopez,7/26/2023,2,1:30 a.m.,83,86,,92,,Guerra C,
+Lopez,7/26/2023,3,2:30 a.m.,82,90,,93,,Guerra C,
+Lopez,7/26/2023,4,3:30 a.m.,81,90,,91,,Guerra C,
+Lopez,7/26/2023,5,4:30 a.m.,80,90,,90,,Guerra C,
+Lopez,7/26/2023,6,5:30 a.m.,80,90,,90,,E Esquirel,
+Lopez,7/26/2023,7,6:30 a.m.,77,96,,N/A,,E Esquirel,
+Lopez,7/26/2023,8,7:30 a.m.,77,98,,N/A,,E Esquirel,
+Lopez,7/26/2023,9,8:30 a.m.,84,85,,95,,E Esquirel,
+Lopez,7/26/2023,10,9:30 a.m.,91,59,,98,,E Esquirel,
+Lopez,7/26/2023,11,10:30 a.m.,93,54,,101,,E Esquirel,
+Lopez,7/26/2023,12,11:30 a.m.,97,44,,101,,E Esquirel,temp corrected
+Lopez,7/26/2023,13,12:30 p.m.,100,37,,104,,E Esquirel,
+Lopez,7/26/2023,14,1:30 p.m.,104,29,,104,,E Esquirel,
+Lopez,7/26/2023,15,2:30 p.m.,105,30,,108,,E Esquirel,
+Lopez,7/26/2023,16,3:30 p.m.,104,30,,105,,E Esquirel,
+Lopez,7/26/2023,17,4:30 p.m.,103,32,,106,,E Esquirel,
+Lopez,7/26/2023,18,5:30 p.m.,101,36,,103,,E Esquirel,
+Lopez,7/26/2023,19,6:30 p.m.,100,37,,102,,"Ortiz, L",humid legibility
+Lopez,7/26/2023,20,7:30 p.m.,94,41,,94,,"Ortiz, L",humid legibility
+Lopez,7/26/2023,21,8:30 p.m.,90,47,,91,,"Ortiz, L",humid legibility
+Lopez,7/26/2023,22,9:30 p.m.,87,56,,92,,"Ortiz, L",humid legibility
+Lopez,7/26/2023,23,10:30 p.m.,84,72,,91,,"Ortiz, L",humid legibility
+Lopez,7/26/2023,24,11:30 p.m.,82,81,,91,,"Ortiz, L",humid legibility
+Lopez,7/27/2023,1,12:30 a.m.,81,84,,89,,"Ortiz, L",humid legibility
+Lopez,7/27/2023,2,1:30 a.m.,80,87,,90,,"Ortiz, L",humid legibility
+Lopez,7/27/2023,3,2:30 a.m.,80,81,,90,,"Ortiz, L",humid legibility
+Lopez,7/27/2023,4,3:30 a.m.,79,90,,88,,"Ortiz, L",humid legibility
+Lopez,7/27/2023,5,4:30 a.m.,78,93,,87,,"Ortiz, L",humid legibility
+Lopez,7/27/2023,6,5:30 a.m.,78,94,,89,,"Ortiz, L",humid legibility
+Lopez,7/27/2023,7,6:30 a.m.,77,96,,N/A,,E Esquirel,
+Lopez,7/27/2023,8,7:30 a.m.,77,97,,N/A,,E Esquirel,
+Lopez,7/27/2023,9,8:30 a.m.,85,80,,96,,E Esquirel,
+Lopez,7/27/2023,10,9:30 a.m.,92,62,,97,,E Esquirel,
+Lopez,7/27/2023,11,10:30 a.m.,94,52,,102,,E Esquirel,
+Lopez,7/27/2023,12,11:30 a.m.,97,47,,103,,E Esquirel,
+Lopez,7/27/2023,13,12:30 p.m.,94,48,,102,,E Esquirel,
+Lopez,7/27/2023,14,1:30 p.m.,97,43,,105,,E Esquirel,
+Lopez,7/27/2023,15,2:30 p.m.,104,31,,106,,A. Valduvin,person legibility
+Lopez,7/27/2023,16,3:30 p.m.,104,25,,105,,A. Valduvin,"hi_wc legibility, hi_wc corrected"
+Lopez,7/27/2023,17,4:30 p.m.,100,29,,101,,A. Valduvin,hi_wc legibility
+Lopez,7/27/2023,18,5:30 p.m.,100,30,,101,,A. Valduvin,
+Lopez,7/27/2023,19,6:30 p.m.,99,30,,100,,A. Valduvin,
+Lopez,7/27/2023,20,7:30 p.m.,97,42,,99,,A. Valduvin,
+Lopez,7/27/2023,21,8:30 p.m.,89,53,,92,,A. Valduvin,
+Lopez,7/27/2023,22,9:30 p.m.,85,65,,89,,A. Valduvin,hi_wc corrected
+Lopez,7/27/2023,23,10:30 p.m.,83,75,,87,,"flores, C.",person legibility
+Lopez,7/27/2023,24,11:30 p.m.,82,80,,91,,"flores, C.",
+Lopez,7/28/2023,1,12:30 a.m.,81,84,,88,,"flores, C.",
+Lopez,7/28/2023,2,1:30 a.m.,81,87,,90,,"flores, C.",
+Lopez,7/28/2023,3,2:30 a.m.,80,87,,90,,"flores, C.",
+Lopez,7/28/2023,4,3:30 a.m.,78,90,,89,,"Benitez, R",person legibility
+Lopez,7/28/2023,5,4:30 a.m.,77,94,,86,,"Benitez, R",humid legibility
+Lopez,7/28/2023,6,5:30 a.m.,76,96,,83,,"Benitez, R",
+Lopez,7/28/2023,7,6:30 a.m.,75,97,,N/A,,E Esquirel,
+Lopez,7/28/2023,8,7:30 a.m.,77,96,,N/A,,E Esquirel,
+Lopez,7/28/2023,9,8:30 a.m.,83,82,,93,,E Esquirel,
+Lopez,7/28/2023,10,9:30 a.m.,90,67,,99,,E Esquirel,
+Lopez,7/28/2023,11,10:30 a.m.,92,56,,102,,E Esquirel,
+Lopez,7/28/2023,12,11:30 a.m.,96,46,,100,,E Esquirel,
+Lopez,7/28/2023,13,12:30 p.m.,94,46,,100,,E Esquirel,
+Lopez,7/28/2023,14,1:30 p.m.,96,37,,101,,E Esquirel,humid corrected
+Lopez,7/28/2023,15,2:30 p.m.,100,31,,100,,E Esquirel,
+Lopez,7/28/2023,16,3:30 p.m.,85,58,,89,,E Esquirel,
+Lopez,7/28/2023,17,4:30 p.m.,85,66,,91,,E Esquirel,
+Lopez,7/28/2023,18,5:30 p.m.,84,65,,88,,E Esquirel,
+Lopez,7/28/2023,19,6:30 p.m.,90,60,,93,,Perez K.,
+Lopez,7/28/2023,20,7:30 p.m.,87,54,,90,,Perez K.,
+Lopez,7/28/2023,21,8:30 p.m.,84,63,,89,,Perez K.,
+Lopez,7/28/2023,22,9:30 p.m.,82,67,,89,,Perez K.,
+Lopez,7/28/2023,23,10:30 p.m.,78,N/A,,N/A,,"flores, C.","humid corrected, hi_wc corrected"
+Lopez,7/28/2023,24,11:30 p.m.,77,N/A,,N/A,,"flores, C.","humid corrected, hi_wc corrected"
+Lopez,7/29/2023,1,12:30 a.m.,77,85,,N/A,,"flores, C.",
+Lopez,7/29/2023,2,1:30 a.m.,78,80,,N/A,,"flores, C.",
+Lopez,7/29/2023,3,2:30 a.m.,78,81,,N/A,,"Charles, J",
+Lopez,7/29/2023,4,3:30 a.m.,78,80,,N/A,,"Charles, J",
+Lopez,7/29/2023,5,4:30 a.m.,77,84,,N/A,,"Charles, J",
+Lopez,7/29/2023,6,5:30 a.m.,75,90,,N/A,,"Charles, J",
+Lopez,7/29/2023,7,6:30 a.m.,75,92,,N/A,,"Charles, J",
+Lopez,7/29/2023,8,7:30 a.m.,74,94,,N/A,,"Charles, J",
+Lopez,7/29/2023,9,8:30 a.m.,86,72,,94,,"Charles, J",
+Lopez,7/29/2023,10,9:30 a.m.,85,73,,90,,"Charles, J",
+Lopez,7/29/2023,11,10:30 a.m.,90,64,,99,,"Benitez, R",
+Lopez,7/29/2023,12,11:30 a.m.,91,61,,101,,"Benitez, R",
+Lopez,7/29/2023,13,12:30 p.m.,99,50,,102,,"Benitez, R",humid legibility
+Lopez,7/29/2023,14,1:30 p.m.,99,43,,104,,"Benitez, R",
+Lopez,7/29/2023,15,2:30 p.m.,100,39,,107,,"Benitez, R",
+Lopez,7/29/2023,16,3:30 p.m.,100,39,,104,,"Benitez, R",temp legibility
+Lopez,7/29/2023,17,4:30 p.m.,99,49,,103,,"Benitez, R",
+Lopez,7/29/2023,18,5:30 p.m.,98,49,,103,,"Benitez, R",
+Lopez,7/29/2023,19,6:30 p.m.,95,49,,100,,"Benitez, R",
+Lopez,7/29/2023,20,7:30 p.m.,92,53,,97,,"Benitez, R",
+Lopez,7/29/2023,21,8:30 p.m.,87,66,,94,,"Benitez, R",
+Lopez,7/29/2023,22,9:30 p.m.,86,70,,93,,"Benitez, R",temp corrected
+Lopez,7/29/2023,23,10:30 p.m.,82,79,,90,,"flores, C.",
+Lopez,7/29/2023,24,11:30 p.m.,82,80,,91,,"flores, C.",
+Lopez,7/30/2023,1,12:30 a.m.,80,86,,90,,"flores, C.",
+Lopez,7/30/2023,2,1:30 a.m.,80,90,,89,,"flores, C.",
+Lopez,7/30/2023,3,2:30 a.m.,78,92,,N/A,,"flores, C.",
+Lopez,7/30/2023,4,3:30 a.m.,77,94,,N/A,,"flores, C.",
+Lopez,7/30/2023,5,4:30 a.m.,77,94,,N/A,,"flores, C.",
+Lopez,7/30/2023,6,5:30 a.m.,77,94,,N/A,,"flores, C.",
+Lopez,7/30/2023,7,6:30 a.m.,75,95,,N/A,,E Esquirel,
+Lopez,7/30/2023,8,7:30 a.m.,78,92,,N/A,,E Esquirel,
+Lopez,7/30/2023,9,8:30 a.m.,84,84,,95,,E Esquirel,
+Lopez,7/30/2023,10,9:30 a.m.,90,71,,99,,E Esquirel,
+Lopez,7/30/2023,11,10:30 a.m.,95,53,,102,,E Esquirel,
+Lopez,7/30/2023,12,11:30 a.m.,97,49,,104,,E Esquirel,
+Lopez,7/30/2023,13,12:30 p.m.,102,42,,106,,E Esquirel,
+Lopez,7/30/2023,14,1:30 p.m.,104,39,,109,,E Esquirel,
+Lopez,7/30/2023,15,2:30 p.m.,105,37,,110,,E Esquirel,
+Lopez,7/30/2023,16,3:30 p.m.,104,37,,108,,E Esquirel,
+Lopez,7/30/2023,17,4:30 p.m.,103,37,,107,,E Esquirel,
+Lopez,7/30/2023,18,5:30 p.m.,101,44,,105,,E Esquirel,
+Lopez,7/30/2023,19,6:30 p.m.,99,56,,99,,E Esquirel,
+Lopez,7/30/2023,20,7:30 p.m.,91,62,,98,,E Esquirel,
+Lopez,7/30/2023,21,8:30 p.m.,89,67,,95,,E Esquirel,
+Lopez,7/30/2023,22,9:30 p.m.,87,72,,95,,"Charles, J",
+Lopez,7/30/2023,23,10:30 p.m.,85,78,,95,,"Charles, J",
+Lopez,7/30/2023,24,11:30 p.m.,84,82,,94,,"Charles, J",
+Lopez,7/31/2023,1,12:30 a.m.,82,90,,91,,"Charles, J",temp corrected
+Lopez,7/31/2023,2,1:30 a.m.,81,90,,91,,"Charles, J",
+Lopez,7/31/2023,3,2:30 a.m.,80,91,,91,,"Charles, J",
+Lopez,7/31/2023,4,3:30 a.m.,78,95,,N/A,,"Charles, J",
+Lopez,7/31/2023,5,4:30 a.m.,78,96,,N/A,,"Charles, J",
+Lopez,7/31/2023,6,5:30 a.m.,78,97,,N/A,,"Charles, J",
+Lopez,7/31/2023,7,6:30 a.m.,78,98,,N/A,,"Salinas, S",
+Lopez,7/31/2023,8,7:30 a.m.,78,98,,N/A,,"Salinas, S",
+Lopez,7/31/2023,9,8:30 a.m.,85,87,,95,,"Salinas, S",
+Lopez,7/31/2023,10,9:30 a.m.,90,72,,99,,"Salinas, S",
+Lopez,7/31/2023,11,10:30 a.m.,93,57,,101,,"Salinas, S",
+Lopez,7/31/2023,12,11:30 a.m.,98,46,,105,,"Salinas, S",
+Lopez,7/31/2023,13,12:30 p.m.,99,47,,107,,"Salinas, S",
+Lopez,7/31/2023,14,1:30 p.m.,104,39,,111,,"Salinas, S",
+Lopez,7/31/2023,15,2:30 p.m.,106,35,,111,,Herrera L,hi_wc corrected
+Lopez,7/31/2023,16,3:30 p.m.,107,33,,112,,Herrera L,
+Lopez,7/31/2023,17,4:30 p.m.,105,33,,110,,Herrera L,
+Lopez,7/31/2023,18,5:30 p.m.,101,45,,104,,Herrera L,
+Lopez,7/31/2023,19,6:30 p.m.,95,50,,100,,Herrera L,
+Lopez,7/31/2023,20,7:30 p.m.,93,53,,98,,Herrera L,
+Lopez,7/31/2023,21,8:30 p.m.,90,60,,97,,Herrera L,
+Lopez,7/31/2023,22,9:30 p.m.,88,71,,96,,Herrera L,
+Lopez,7/31/2023,23,10:30 p.m.,86,77,,95,,Herrera L,
+Lopez,7/31/2023,24,11:30 p.m.,84,81,,94,,Herrera L,

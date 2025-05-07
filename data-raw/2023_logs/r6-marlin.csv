@@ -1,0 +1,193 @@
+unit,date,rec,time,temp,humid,wind,hi_wc,hi_wc_n,person,notes
+Marlin,7/24/2023,1,12:30 a.m.,80,50,2,81,,Williams,
+Marlin,7/24/2023,2,1:30 a.m.,78,66,,79,,Williams,wind legibility
+Marlin,7/24/2023,3,2:30 a.m.,77,65,,78,,Myers,wind legibility
+Marlin,7/24/2023,4,3:30 a.m.,74,71,,75,,Myers,
+Marlin,7/24/2023,5,4:30 a.m.,73,78,,73,,Myers,
+Marlin,7/24/2023,6,5:30 a.m.,71,81,,71,,Myers,
+Marlin,7/24/2023,7,6:30 a.m.,71,84,,70,,Taylor,
+Marlin,7/24/2023,8,7:30 a.m.,73,82,,73,,Taylor,
+Marlin,7/24/2023,9,8:30 a.m.,81,71,2,84,1,Taylor,
+Marlin,7/24/2023,10,9:30 a.m.,87,64,5,92,1,Taylor,
+Marlin,7/24/2023,11,10:30 a.m.,92,57,6,102,2,Taylor,
+Marlin,7/24/2023,12,11:30 a.m.,95,52,7,106,2,Jackson LM III,
+Marlin,7/24/2023,13,12:30 p.m.,98,47,11,110,3,Jackson LM III,
+Marlin,7/24/2023,14,1:30 p.m.,100,41,7,110,3,Jackson LM III,
+Marlin,7/24/2023,15,2:30 p.m.,100,40,6,113,3,Jackson LM III,
+Marlin,7/24/2023,16,3:30 p.m.,100,39,5,108,3,Jackson LM III,
+Marlin,7/24/2023,17,4:30 p.m.,102,34,7,108,3,Jackson LM III,
+Marlin,7/24/2023,18,5:30 p.m.,103,34,7,110,3,Jackson LM III,
+Marlin,7/24/2023,19,6:30 p.m.,101,36,7,108,3,York SST,
+Marlin,7/24/2023,20,7:30 p.m.,98,38,5,103,3,York SST,
+Marlin,7/24/2023,21,8:30 p.m.,94,42,4,98,2,York SST,hi_wc legibility
+Marlin,7/24/2023,22,9:30 p.m.,91,49,2,94,2,Huffman,
+Marlin,7/24/2023,23,10:30 p.m.,86,58,2,90,1,Huffman,
+Marlin,7/24/2023,24,11:30 p.m.,85,65,7,90,1,Huffman,
+Marlin,7/25/2023,1,12:30 a.m.,83,71,5,88,1,York,
+Marlin,7/25/2023,2,1:30 a.m.,82,74,6,87,1,Huffman,
+Marlin,7/25/2023,3,2:30 a.m.,82,76,6,87,1,Huffman,
+Marlin,7/25/2023,4,3:30 a.m.,82,77,4,88,1,Huffman,
+Marlin,7/25/2023,5,4:30 a.m.,79,81,1,82,,Huffman,
+Marlin,7/25/2023,6,5:30 a.m.,77,84,3,78,,Huffman,
+Marlin,7/25/2023,7,6:30 a.m.,76,87,,76,,Huffman,
+Marlin,7/25/2023,8,7:30 a.m.,77,87,5,78,,Taylor,
+Marlin,7/25/2023,9,8:30 a.m.,82,87,9,89,1,Bailos,person legibility
+Marlin,7/25/2023,10,9:30 a.m.,86,77,10,98,1,Bailos,
+Marlin,7/25/2023,11,10:30 a.m.,89,65,14,100,2,Bailos,
+Marlin,7/25/2023,12,11:30 a.m.,93,57,9,101,2,Bailos,humid legibility
+Marlin,7/25/2023,13,12:30 p.m.,96,48,15,106,2,Markam,person legibility
+Marlin,7/25/2023,14,1:30 p.m.,98,42,7,106,3,Bailos,humid legibility
+Marlin,7/25/2023,15,2:30 p.m.,99,39,4,106,3,Bailos,
+Marlin,7/25/2023,16,3:30 p.m.,100,40,7,109,3,Bailos,
+Marlin,7/25/2023,17,4:30 p.m.,100,40,9,109,3,Bailos,
+Marlin,7/25/2023,18,5:30 p.m.,100,39,7,108,3,Bailos,
+Marlin,7/25/2023,19,6:30 p.m.,99,39,11,106,3,Bailey,
+Marlin,7/25/2023,20,7:30 p.m.,96,38,5,99,2,Bailey,
+Marlin,7/25/2023,21,8:30 p.m.,93,42,5,96,2,Huffman,
+Marlin,7/25/2023,22,9:30 p.m.,90,50,5,92,,Huffman,
+Marlin,7/25/2023,23,10:30 p.m.,90,50,5,92,,Huffman,
+Marlin,7/25/2023,24,11:30 p.m.,85,54,5,90,,Huffman,
+Marlin,7/26/2023,1,12:30 a.m.,82,70,4,83,,Huffman,
+Marlin,7/26/2023,2,1:30 a.m.,81,70,5,85,,Huffman,
+Marlin,7/26/2023,3,2:30 a.m.,80,73,5,82,,Huffman,
+Marlin,7/26/2023,4,3:30 a.m.,79,78,4,80,,Huffman,
+Marlin,7/26/2023,5,4:30 a.m.,79,81,4,80,,Huffman,
+Marlin,7/26/2023,6,5:30 a.m.,78,80,4,81,,Huffman,humid corrected
+Marlin,7/26/2023,7,6:30 a.m.,78,53,6,85,,Cox,
+Marlin,7/26/2023,8,7:30 a.m.,78,53,6,85,,Cox,
+Marlin,7/26/2023,9,8:30 a.m.,80,53,10,85,,Cox,
+Marlin,7/26/2023,10,9:30 a.m.,87,53,15,100,1,Cox,
+Marlin,7/26/2023,11,10:30 a.m.,89,44,8,80,1,Cox,
+Marlin,7/26/2023,12,11:30 a.m.,93,43,7,105,2,Cox,hi_wc_n corrected
+Marlin,7/26/2023,13,12:30 p.m.,93,51,7,105,2,Cox,
+Marlin,7/26/2023,14,1:30 p.m.,98,37,11,105,2,Cox,
+Marlin,7/26/2023,15,2:30 p.m.,100,36,6,106,3,Cox,
+Marlin,7/26/2023,16,3:30 p.m.,100,39,7,108,3,Heavon,person legibility
+Marlin,7/26/2023,17,4:30 p.m.,100,34,6,106,3,Cox,
+Marlin,7/26/2023,18,5:30 p.m.,102,31,9,110,3,Cox,
+Marlin,7/26/2023,19,6:30 p.m.,101,32,7,108,,Wynn,
+Marlin,7/26/2023,20,7:30 p.m.,97,31,6,102,,Wynn,
+Marlin,7/26/2023,21,8:30 p.m.,93,31,4,95,,Wynn,
+Marlin,7/26/2023,22,9:30 p.m.,90,32,6,92,,Wynn,
+Marlin,7/26/2023,23,10:30 p.m.,87,51,5,89,,Wynn,
+Marlin,7/26/2023,24,11:30 p.m.,85,54,5,87,,Wynn,
+Marlin,7/27/2023,1,12:30 a.m.,83,65,7,88,,Wynn,
+Marlin,7/27/2023,2,1:30 a.m.,82,71,4,86,,Wynn,
+Marlin,7/27/2023,3,2:30 a.m.,81,75,3,85,,Wynn,
+Marlin,7/27/2023,4,3:30 a.m.,80,79,4,84,,Wynn,
+Marlin,7/27/2023,5,4:30 a.m.,79,81,4,N/A,,Bailos,
+Marlin,7/27/2023,6,5:30 a.m.,78,83,3,N/A,,Bailos,
+Marlin,7/27/2023,7,6:30 a.m.,76,86,4,N/A,,Bailos,
+Marlin,7/27/2023,8,7:30 a.m.,78,86,4,N/A,,Bailos,
+Marlin,7/27/2023,9,8:30 a.m.,82,83,6,89,1,Bailos,
+Marlin,7/27/2023,10,9:30 a.m.,86,75,12,97,2,Bailos,
+Marlin,7/27/2023,11,10:30 a.m.,88,65,10,96,2,Bailos,humid corrected
+Marlin,7/27/2023,12,11:30 a.m.,91,66,6,100,2,Bailos,
+Marlin,7/27/2023,13,12:30 p.m.,96,46,8,104,2,Bailos,
+Marlin,7/27/2023,14,1:30 p.m.,96,47,7,105,3,Lieby,person legibility
+Marlin,7/27/2023,15,2:30 p.m.,97,41,8,103,3,Bailos,
+Marlin,7/27/2023,16,3:30 p.m.,97,41,8,103,3,Bailos,
+Marlin,7/27/2023,17,4:30 p.m.,99,39,9,106,3,Bailos,
+Marlin,7/27/2023,18,5:30 p.m.,100,34,5,104,3,Bailos,
+Marlin,7/27/2023,19,6:30 p.m.,100,55,6,105,3,Vessey,
+Marlin,7/27/2023,20,7:30 p.m.,96,67,9,99,3,Vessey,
+Marlin,7/27/2023,21,8:30 p.m.,92,73,3,95,3,Vessey,
+Marlin,7/27/2023,22,9:30 p.m.,88,60,2,91,2,Vessey,
+Marlin,7/27/2023,23,10:30 p.m.,85,65,5,90,2,Williams,
+Marlin,7/27/2023,24,11:30 p.m.,84,67,4,89,1,Vessey,
+Marlin,7/28/2023,1,12:30 a.m.,81,71,4,84,1,Vessey,
+Marlin,7/28/2023,2,1:30 a.m.,81,74,6,84,1,Vessey,
+Marlin,7/28/2023,3,2:30 a.m.,80,75,4,83,1,Vessey,
+Marlin,7/28/2023,4,3:30 a.m.,79,77,6,N/A,,Vessey,
+Marlin,7/28/2023,5,4:30 a.m.,78,80,4,N/A,,Vessey,
+Marlin,7/28/2023,6,5:30 a.m.,76,83,2,N/A,,Vessey,
+Marlin,7/28/2023,7,6:30 a.m.,75,85,,N/A,,Taylor,wind legibility
+Marlin,7/28/2023,8,7:30 a.m.,77,84,,N/A,,Taylor,wind legibility
+Marlin,7/28/2023,9,8:30 a.m.,86,74,5,96,1,Taylor,
+Marlin,7/28/2023,10,9:30 a.m.,87,69,7,97,2,Taylor,humid corrected
+Marlin,7/28/2023,11,10:30 a.m.,92,55,4,102,2,Taylor,
+Marlin,7/28/2023,12,11:30 a.m.,94,47,7,101,2,Taylor,
+Marlin,7/28/2023,13,12:30 p.m.,96,40,9,100,2,Taylor,hi_wc corrected
+Marlin,7/28/2023,14,1:30 p.m.,98,39,7,104,3,Taylor,
+Marlin,7/28/2023,15,2:30 p.m.,98,37,7,102,3,Taylor,
+Marlin,7/28/2023,16,3:30 p.m.,98,36,12,102,3,Taylor,
+Marlin,7/28/2023,17,4:30 p.m.,99,38,7,105,3,Taylor,
+Marlin,7/28/2023,18,5:30 p.m.,99,38,6,105,3,Taylor,wind corrected
+Marlin,7/28/2023,19,6:30 p.m.,98,38,11,103,3,Vessey,
+Marlin,7/28/2023,20,7:30 p.m.,96,38,9,99,2,Vessey,hi_wc_n corrected
+Marlin,7/28/2023,21,8:30 p.m.,93,41,3,95,2,Vessey,
+Marlin,7/28/2023,22,9:30 p.m.,89,48,2,91,2,Vessey,
+Marlin,7/28/2023,23,10:30 p.m.,86,62,2,88,1,Vessey,
+Marlin,7/28/2023,24,11:30 p.m.,85,65,8,87,1,Vessey,
+Marlin,7/29/2023,1,12:30 a.m.,84,64,7,88,1,"Testa, S",
+Marlin,7/29/2023,2,1:30 a.m.,82,70,6,86,1,"Testa, S",
+Marlin,7/29/2023,3,2:30 a.m.,81,75,7,85,1,Vessey,
+Marlin,7/29/2023,4,3:30 a.m.,79,78,4,N/A,,"Testat, S",person legibility
+Marlin,7/29/2023,5,4:30 a.m.,75,81,2,N/A,,Vessey,
+Marlin,7/29/2023,6,5:30 a.m.,77,82,3,N/A,,Vessey,
+Marlin,7/29/2023,7,6:30 a.m.,76,,,N/A,,Cox,wind legibility
+Marlin,7/29/2023,8,7:30 a.m.,77,52,,N/A,,Cox,wind legibility
+Marlin,7/29/2023,9,8:30 a.m.,82,52,,83,1,Cox,
+Marlin,7/29/2023,10,9:30 a.m.,86,52,,88,1,Cox,
+Marlin,7/29/2023,11,10:30 a.m.,92,52,,99,1,Cox,
+Marlin,7/29/2023,12,11:30 a.m.,93,45,,100,1,Cox,
+Marlin,7/29/2023,13,12:30 p.m.,97,42,,104,2,D Markam,hi_wc corrected
+Marlin,7/29/2023,14,1:30 p.m.,97,42,,104,2,Cox,
+Marlin,7/29/2023,15,2:30 p.m.,102,35,,106,3,Cox,
+Marlin,7/29/2023,16,3:30 p.m.,103,32,,107,3,Cox,hi_wc corrected
+Marlin,7/29/2023,17,4:30 p.m.,104,32,,107,3,Cox,
+Marlin,7/29/2023,18,5:30 p.m.,104,32,,107,3,Cox,
+Marlin,7/29/2023,19,6:30 p.m.,100,35,7,105,3,Cox,
+Marlin,7/29/2023,20,7:30 p.m.,97,37,6,101,2,Cox,
+Marlin,7/29/2023,21,8:30 p.m.,93,41,3,95,2,Cox,
+Marlin,7/29/2023,22,9:30 p.m.,88,49,3,90,1,Moody,
+Marlin,7/29/2023,23,10:30 p.m.,86,54,3,89,1,Moody,
+Marlin,7/29/2023,24,11:30 p.m.,84,58,2,87,1,Moody,
+Marlin,7/30/2023,1,12:30 a.m.,85,63,7,90,1,Moody,
+Marlin,7/30/2023,2,1:30 a.m.,83,68,5,87,1,York,
+Marlin,7/30/2023,3,2:30 a.m.,81,72,2,84,1,Moody,
+Marlin,7/30/2023,4,3:30 a.m.,79,76,3,84,1,Moody,
+Marlin,7/30/2023,5,4:30 a.m.,77,80,3,78,1,Moody,
+Marlin,7/30/2023,6,5:30 a.m.,76,82,2,76,1,Moody,
+Marlin,7/30/2023,7,6:30 a.m.,77,82,1,78,1,Valencia,
+Marlin,7/30/2023,8,7:30 a.m.,78,82,1,80,1,Valencia,"temp corrected, hi_wc corrected"
+Marlin,7/30/2023,9,8:30 a.m.,85,70,5,92,1,Valencia,
+Marlin,7/30/2023,10,9:30 a.m.,89,72,6,93,1,Valencia,
+Marlin,7/30/2023,11,10:30 a.m.,92,53,6,97,2,Valencia,
+Marlin,7/30/2023,12,11:30 a.m.,98,42,6,110,3,Valencia,
+Marlin,7/30/2023,13,12:30 p.m.,99,43,5,113,3,Valencia,
+Marlin,7/30/2023,14,1:30 p.m.,99,44,4,113,3,Valencia,
+Marlin,7/30/2023,15,2:30 p.m.,100,46,4,111,3,Valencia,hi_wc corrected
+Marlin,7/30/2023,16,3:30 p.m.,104,33,4,112,3,Valencia,
+Marlin,7/30/2023,17,4:30 p.m.,104,33,4,112,3,Valencia,
+Marlin,7/30/2023,18,5:30 p.m.,103,33,4,111,3,Valencia,
+Marlin,7/30/2023,19,6:30 p.m.,100,36,6,104,3,Moden,person legibility
+Marlin,7/30/2023,20,7:30 p.m.,99,37,7,105,3,Moden,
+Marlin,7/30/2023,21,8:30 p.m.,95,49,6,99,2,Moden,
+Marlin,7/30/2023,22,9:30 p.m.,92,45,4,94,2,York,
+Marlin,7/30/2023,23,10:30 p.m.,89,50,2,92,2,York,
+Marlin,7/30/2023,24,11:30 p.m.,86,55,2,89,1,York,
+Marlin,7/31/2023,1,12:30 a.m.,84,59,3,87,1,York,humid legibility
+Marlin,7/31/2023,2,1:30 a.m.,85,60,7,89,,York,hi_wc_n legibility
+Marlin,7/31/2023,3,2:30 a.m.,84,64,4,88,1,Bailos,humid legibility
+Marlin,7/31/2023,4,3:30 a.m.,82,61,4,86,1,Bailos,"temp corrected, humid corrected, wind corrected, hi_wc corrected"
+Marlin,7/31/2023,5,4:30 a.m.,80,75,2,83,1,Bailos,
+Marlin,7/31/2023,6,5:30 a.m.,79,77,3,N/A,,Bailos,
+Marlin,7/31/2023,7,6:30 a.m.,77,81,1,N/A,,Bailos,
+Marlin,7/31/2023,8,7:30 a.m.,79,80,2,N/A,,Bailos,
+Marlin,7/31/2023,9,8:30 a.m.,88,65,4,97,2,Bailos,
+Marlin,7/31/2023,10,9:30 a.m.,92,61,4,102,2,Bailos,temp corrected
+Marlin,7/31/2023,11,10:30 a.m.,96,52,0,109,3,Bailos,wind legibility
+Marlin,7/31/2023,12,11:30 a.m.,100,43,2,113,3,Bailos,
+Marlin,7/31/2023,13,12:30 p.m.,101,89,4,110,3,Jackson,
+Marlin,7/31/2023,14,1:30 p.m.,103,87,7,113,3,Bailos,
+Marlin,7/31/2023,15,2:30 p.m.,107,80,2,115,3,Bailos,
+Marlin,7/31/2023,16,3:30 p.m.,105,78,,113,3,Bailos,"wind legibility, hi_wc corrected"
+Marlin,7/31/2023,17,4:30 p.m.,104,75,4,107,3,Bailos,
+Marlin,7/31/2023,18,5:30 p.m.,104,35,,105,3,Bailos,wind legibility
+Marlin,7/31/2023,19,6:30 p.m.,103,35,5,111,3,Coursey,person legibility
+Marlin,7/31/2023,20,7:30 p.m.,101,35,4,109,3,Coursey,hi_wc corrected
+Marlin,7/31/2023,21,8:30 p.m.,97,42,2,104,3,Coursey,
+Marlin,7/31/2023,22,9:30 p.m.,93,47,2,98,2,Coursey,
+Marlin,7/31/2023,23,10:30 p.m.,91,50,2,96,2,Coursey,
+Marlin,7/31/2023,24,11:30 p.m.,87,61,4,93,2,Coursey,
