@@ -4,5 +4,5 @@ title: "index"
 
 This is for a group project under UT's Media Innovation Group. 
 
-It is an examination of recorded and actual temperatures in jails across the state of Texas using documents obtained through the Texas Department of Criminal Justice and National Weather Service data.
+It is an examination of recorded and actual temperatures in jails across the state of Texas using documents obtained through the Texas Department of Criminal Justice and National Weather Service data. More extensive sourcing information can be found on the project's cleaning files.
 
