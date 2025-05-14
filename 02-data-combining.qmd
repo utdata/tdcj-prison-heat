@@ -82,6 +82,8 @@ complete_join <- joined_file_2 |>
 complete_join
 ```
 
+You'll notice that the station name, temperature, humidity and difference is missing for some days and units altogether. This is because there were either no recorded station temperatures in our time frame or there were no read-outs for the station. This was the case for the weather stations associated with Allred, San Saba, Henley, Hightower, Plane, Connally, Smith, Luther, Pack, Cole and Moore C.
+
 ## Add in the feels like column
 
 Now that we have all of our data together. Let's add in our feels like column and the temperature category.

@@ -134,6 +134,8 @@ mutate(unit = case_when(
 ramsey
 ```
 
+We don't have recordings for every unit. These are the units we do not have readings for: Baten, Bell, Bridgeport, Coleman, Cotulla, Diboll, Duncan, East Texas, Estes, Fort Stockton, Garza East, Glossbrenner, Halbert, Hamilton, Havins, Henley, Hodge, Hospital Galveston, Kegans, Kyle, LeBlanc, Lindsey, Marlin, Mechler, Moore, B., Ney, Pack, San Saba, Sayle, Scott, Skyview, Travis, Willacy.
+
 ## Export the data
 
 We did it! Now let's export our data and place it in our processed data folder.

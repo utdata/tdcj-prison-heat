@@ -1,0 +1,25 @@
+project:
+  type: website
+  render:
+  - "01-activation-cleaning.qmd"
+  - "01-station-cleaning.qmd"
+  - "01-unit-cleaning.qmd"
+  - "01-unit-info-cleaning.qmd"
+  - "02-data-combining.qmd"
+  - "03-unit-analysis.qmd"
+
+website:
+  title: "Prison Heat Analysis"
+  sidebar:
+    contents:
+      - href: index.qmd
+        text: Home
+      - auto: "*.qmd"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    df-print: paged
+    code-overflow: wrap
