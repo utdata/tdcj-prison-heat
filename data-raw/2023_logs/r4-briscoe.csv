@@ -101,30 +101,30 @@ Briscoe,7/28/2023,3,2:30 a.m.,80,67,,82,,Q. Balogun,
 Briscoe,7/28/2023,4,3:30 a.m.,79,72,,81,,Q. Balogun,
 Briscoe,7/28/2023,5,4:30 a.m.,78,75,,N/A,,Q. Balogun,
 Briscoe,7/28/2023,6,5:30 a.m.,76,79,,N/A,,Q. Balogun,
-Briscoe,7/28/2023,7,6:30 a.m.,75,84,,,,Mendoza,
-Briscoe,7/28/2023,8,7:30 a.m.,76,87,,,,Mendoza,
-Briscoe,7/28/2023,9,8:30 a.m.,78,79,,,,Mendoza,wind legibility
-Briscoe,7/28/2023,10,9:30 a.m.,83,65,,89,,Mendoza,wind legibility
-Briscoe,7/28/2023,11,10:30 a.m.,89,57,,95,,Mendoza,wind legibility
-Briscoe,7/28/2023,12,11:30 a.m.,91,49,,96,,Mendoza,wind legibility
-Briscoe,7/28/2023,13,12:30 p.m.,95,41,,99,,Mendoza,wind legibility
-Briscoe,7/28/2023,14,1:30 p.m.,98,33,,101,,Mendoza,wind legibility
-Briscoe,7/28/2023,15,2:30 p.m.,101,24,,101,,Mendoza,wind legibility
-Briscoe,7/28/2023,16,3:30 p.m.,103,24,,104,,Mendoza,wind legibility
-Briscoe,7/28/2023,17,4:30 p.m.,104,21,,104,,Mendoza,wind legibility
-Briscoe,7/28/2023,18,5:30 p.m.,104,20,,103,,Mendoza,"humid legibility, wind legibility"
-Briscoe,7/28/2023,19,6:30 p.m.,105,24,,106,,I. Martinez,wind legibility
-Briscoe,7/28/2023,20,7:30 p.m.,100,26,,100,,I. Martinez,wind legibility
-Briscoe,7/28/2023,21,8:30 p.m.,93,44,,97,,I. Martinez,wind legibility
-Briscoe,7/28/2023,22,9:30 p.m.,88,61,,95,,I. Martinez,wind legibility
-Briscoe,7/28/2023,23,10:30 p.m.,87,65,,95,,I. Martinez,wind legibility
-Briscoe,7/28/2023,24,11:30 p.m.,85,66,,91,,I. Martinez,wind legibility
-Briscoe,7/29/2023,1,12:30 a.m.,83,68,,87,,I. Martinez,wind legibility
-Briscoe,7/29/2023,2,1:30 a.m.,82,69,,86,,I. Martinez,wind legibility
-Briscoe,7/29/2023,3,2:30 a.m.,80,71,,83,,I. Martinez,wind legibility
-Briscoe,7/29/2023,4,3:30 a.m.,78,74,,80,,I. Martinez,"temp corrected, wind legibility"
-Briscoe,7/29/2023,5,4:30 a.m.,77,78,,78,,I. Martinez,wind legibility
-Briscoe,7/29/2023,6,5:30 a.m.,75,83,,75,,I. Martinez,wind legibility
+Briscoe,7/28/2023,7,6:30 a.m.,75,84,,,,Mendoza,hi_wc dash
+Briscoe,7/28/2023,8,7:30 a.m.,76,87,,,,Mendoza,hi_wc dash
+Briscoe,7/28/2023,9,8:30 a.m.,78,79,9,,,Mendoza,hi_wc dash
+Briscoe,7/28/2023,10,9:30 a.m.,83,65,4,89,,Mendoza,
+Briscoe,7/28/2023,11,10:30 a.m.,89,57,7,95,,Mendoza,
+Briscoe,7/28/2023,12,11:30 a.m.,91,49,15,96,,Mendoza,
+Briscoe,7/28/2023,13,12:30 p.m.,95,41,9,99,,Mendoza,
+Briscoe,7/28/2023,14,1:30 p.m.,98,33,12,101,,Mendoza,
+Briscoe,7/28/2023,15,2:30 p.m.,101,24,18,101,,Mendoza,"wind legibility, wind expressed as range (10-18)"
+Briscoe,7/28/2023,16,3:30 p.m.,103,24,23,104,,Mendoza,"wind legibility, wind expressed as range (12-23)"
+Briscoe,7/28/2023,17,4:30 p.m.,104,21,Calm,104,,Mendoza,wind legibility
+Briscoe,7/28/2023,18,5:30 p.m.,104,20,Calm,103,,Mendoza,"humid legibility, wind legibility"
+Briscoe,7/28/2023,19,6:30 p.m.,105,24,0,106,,I. Martinez,
+Briscoe,7/28/2023,20,7:30 p.m.,100,26,0,100,,I. Martinez,
+Briscoe,7/28/2023,21,8:30 p.m.,93,44,0,97,,I. Martinez,
+Briscoe,7/28/2023,22,9:30 p.m.,88,61,0,95,,I. Martinez,
+Briscoe,7/28/2023,23,10:30 p.m.,87,65,0,95,,I. Martinez,
+Briscoe,7/28/2023,24,11:30 p.m.,85,66,0,91,,I. Martinez,
+Briscoe,7/29/2023,1,12:30 a.m.,83,68,0,87,,I. Martinez,
+Briscoe,7/29/2023,2,1:30 a.m.,82,69,0,86,,I. Martinez,
+Briscoe,7/29/2023,3,2:30 a.m.,80,71,0,83,,I. Martinez,
+Briscoe,7/29/2023,4,3:30 a.m.,78,74,0,80,,I. Martinez,temp corrected
+Briscoe,7/29/2023,5,4:30 a.m.,77,78,0,78,,I. Martinez,
+Briscoe,7/29/2023,6,5:30 a.m.,75,83,0,75,,I. Martinez,
 Briscoe,7/29/2023,7,6:30 a.m.,74,86,,73,,Walker,person corrected
 Briscoe,7/29/2023,8,7:30 a.m.,76,76,,76,,Walker,"hi_wc corrected, person corrected"
 Briscoe,7/29/2023,9,8:30 a.m.,78,73,,78,,Walker,"hi_wc corrected, person corrected"

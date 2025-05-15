@@ -1,5 +1,6 @@
 ---
-title: "unit-info-cleaning"
+title: "Unit info cleaning"
+author: "Media Innovation Group"
 ---
 
 This data piece will help us join together our unit-focused data and our weather station-focused data. The data was compiled by Media Innovation Group data fellows. The information came from the Texas Department of Criminal Justice website, a TDCJ unit prototype list and the National Weather Service website.
@@ -18,16 +19,29 @@ library(tidyverse)
 library(janitor)
 ```
 
+## Download unit info
+
+> Option `eval: fasle` set to avoid re-download. Change to true for updates.
+
+```{r}
+#| label: download-unit
+#| eval: false
+
+download.file(
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRebFs9O2i0HoygXTtIvuzdVTmyrjX3MeUorU9d4fpYkGX7Bb026OradFQ1MMk2ltcGnyILih6ow4F4/pub?gid=1653039441&single=true&output=csv",
+  "data-raw/unit-nws-info.csv")
+```
+
 ## Importing unit info
 
 Let's bring in our unit info sheet. This was compiled by us to be used in this project.
 
 ```{r}
-units <- read_csv("data-raw/unit-info.csv")
+#| label: import-unit-file
 
-unit_info <- units |> clean_names()
+nws_unit_raw <- read_csv("data-raw/unit-nws-info.csv") |> clean_names()
 
-unit_info
+nws_unit_raw |> head()
 ```
 
 ## Select columns
@@ -35,9 +49,8 @@ unit_info
 I'm gonna change column names and only keep the columns we need.
 
 ```{r}
-unit_info_clean <- unit_info |> 
-  rename(unit = unit_name) |> 
-  select(unit, type, region, established, station_code)
+unit_info_clean <- nws_unit_raw |> 
+  select(unit_name, unit_code, type, nws, nws_id, county)
 
 unit_info_clean
 ```

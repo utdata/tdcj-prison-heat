@@ -1,0 +1,206 @@
+---
+title: "Outdoor log cleaning"
+author: "Media Innovation Group"
+---
+
+This notebook compiles data collected from one week of outdoor temperature logs collected by the Texas Department of Criminal Justice. The dates considered were July 24, 2023 through July 31, 2023. The logs are hand-written and data could not be accurately pulled from them using AI, so a group of Media Innovaiton Group fellows transcribed the week of logs for each prison we had records for, XXX in total. Those records were acquired through a public information request by Lauren McGaughey of the Texas Newsroom public radio collaborative.
+
+We created a Google Spreadsheet file for each prison, recording the temperatures for each hour as best as we could decipher them. Here we download a tracking spreadsheet, which is then used to download all of the individual log sheets, combining them into a single file. When then prepare that file for analysis.
+
+## Setup
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(janitor)
+```
+
+## Download the tracking sheet
+
+This sheet is in MIG Data > Jail Logs > Outdoor Logs Data. It is called Outdoor Logs Tracking Sheet.
+
+> Options are set to `eval: false` to avoid re-downloading. Set to `true` to update.
+
+```{r}
+#| label: tracking-file
+#| eval: false
+
+download.file("https://docs.google.com/spreadsheets/d/e/2PACX-1vRQBIKas7s5Wwe4bd9tMlAheCsjqeFU2JMZfk6h8Hc_QH6Dx02SEZmP6ieny13hCyZQosmsRirDEu9P/pub?output=csv", "data-raw/outdoor-jail-logs-urls.csv")
+```
+
+Read in the tracking sheet url
+
+```{r}
+#| label: read-tracking
+#| warning: false
+#| message: false
+
+log_urls <- read_csv("data-raw/outdoor-jail-logs-urls.csv") |> clean_names()
+
+log_urls |> glimpse()
+```
+
+Some space for checks ... In some cases we had the urls formatted incorrectly. Result should be 0 rows.
+
+```{r}
+log_urls |> 
+  filter(str_detect(url, "pubhtml"))
+```
+
+## Download all the files
+
+This code below was courtesy of ChatGPT, based on the following prompt: "I'm using R. I have a data frame that has a list of urls and slugs, which are short file names. Please write me a loop or other code that will download all the files at those urls, with their names as the slug. These are all csv files." There were some edits.
+
+> Options are set to `eval: false` to avoid re-downloading. Set to `true` to update.
+
+```{r}
+#| label: download-logs
+#| warning: false
+#| message: false
+#| eval: false
+
+# set our urls to df
+df <- log_urls
+
+# Download loop
+for (i in seq_len(nrow(df))) {
+  url <- df$url[i]
+  slug <- df$slug[i]
+  file_name <- paste0("data-raw/2023_logs/", slug, ".csv")
+  
+  if (is.na(url)) {
+    # message(paste("No URL for slug:", slug))
+    next
+  } else {
+    tryCatch({
+      download.file(url, destfile = file_name, mode = "wb")
+    }, error = function(e) {
+      message(paste("Failed to download:", url, "-", e$message, "\n"))
+    })
+  }
+}
+
+```
+
+### Make a files list
+
+Make a list of files:
+
+```{r}
+logs_list <- list.files(
+  "data-raw/2023_logs",
+  pattern = ".csv",
+  full.names = TRUE
+  )
+
+logs_list
+```
+
+### File checks
+
+A little ChatGPT help here to find a way to count the number of lines in each file. There should be 193 in each one. In some cases our spreadsheets included blank rows, which we fixed. There is still a blank column, but we take care of that later.
+
+This takes the list of files above and counts the lines. When then filter the list for any that aren't 193 lines long. The result _should_ be 0 rows.
+
+```{r}
+count_lines <- function(file) {
+  length(readLines(file, warn = FALSE))
+}
+
+line_counts <- map_chr(logs_list, count_lines)
+line_counts_data <- tibble(file = basename(names(line_counts)), lines = line_counts)
+
+line_counts_data |> filter(lines != 193)
+```
+
+Sometimes we needed to check a specific file being downloaded.
+
+```{r}
+# download.file(
+#   "https://docs.google.com/spreadsheets/d/e/2PACX-1vToj_YKfQlL_ZvNFPKItQQDR01HhQu5Fsp0Z2xSSXvaYZrn_Xuw1kh0JDwBV-wSk-uoZhdG7C4Rytw1/pub?output=csv",
+#   "data-raw/2023_logs/r5-montford.csv"
+# )
+```
+
+
+## Combine the files
+
+Again uses the logs_list from above.
+
+```{r}
+logs_raw <- logs_list |>  #set_names(basename) |>
+  map(
+  read_csv,
+  col_types = cols(.default = col_character())
+) |> list_rbind() |>
+  clean_names()
+
+logs_raw
+```
+
+## Fix date, time, rec
+
+Two decisions in the formatting of our log necessitate this:
+
+- We configured our date and time columns like the form itself instead of datetime formats that easily import.
+- We originally numbered the `rec` column from 1 to 24 thinking we needed to label each reading, but the weather station data will be labeled 0 to 23 because it is the hour of time.
+
+Here we create a real datetime, date and proper hour.
+
+Also, we remove artifact columns and any blank columns by specifying the columns we do need.
+
+```{r}
+logs_dates <- logs_raw |> 
+  mutate(
+    new_time = case_when(
+      time == "12:30 a.m." ~ "00:30:00",
+      time == "12:30 p.m." ~ "12:30:00",
+      str_sub(time, -4, -1) == "a.m." ~ paste0(str_extract(time, "^(\\d+)"),":30:00"),
+      str_sub(time, -4, -1) == "p.m." ~ paste0(str_extract(time, "^(\\d+)") |> as.numeric() + 12, ":30:00"),
+      .default = NA
+    )
+  ) |> 
+  mutate(
+    datetime = mdy_hms(paste(date, new_time)),
+    date = date(datetime),
+    hour = hour(datetime),
+    .after = time
+  ) |> 
+  select(
+    unit,
+    date,
+    datetime,
+    hour,
+    temp,
+    humid,
+    wind,
+    hi_wc,
+    hi_wc_n,
+    person,
+    notes
+  )
+
+logs_dates |> slice_sample(n = 10)
+```
+
+## Convert the numbers
+
+Our various readings come in as text. We convert them to numbers.
+
+```{r}
+logs_numbs <- logs_dates |> 
+  mutate(
+    across(c(temp, humid, wind, hi_wc, hi_wc_n), parse_number)
+  )
+
+logs_numbs |> slice_sample(n = 10)
+```
+
+## Export the logs
+
+```{r}
+logs_numbs |> write_rds("data-processed/01-logs.rds")
+```
+
