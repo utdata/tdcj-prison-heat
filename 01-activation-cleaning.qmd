@@ -1,5 +1,6 @@
 ---
 title: "activation-cleaning"
+author: "Ali Juell"
 ---
 
 It's time to add in a new data source: the heat protocol activation logs. This data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
@@ -22,7 +23,8 @@ library(data.table)
 Let's add our activation log file in.
 
 ```{r}
-raw_activation_log <- read_csv("data-raw/unit-activation-log.csv")
+raw_activation_log <- read_csv("data-raw/unit-activation-log.csv", skip = 1) |> 
+  clean_names()
 
 raw_activation_log
 ```
@@ -32,27 +34,19 @@ raw_activation_log
 Our column names didn't translate perfectly, so let's work on cleaning them up and remove the last two unnecessary columns.
 
 ```{r}
-activation_log <- raw_activation_log |> 
-  rename(initial_extreme_temp = ...1) |> 
-  rename(initiation_date = ...2) |> 
-  rename(county = ...3) |> 
-  rename(unit = ...4) |> 
-  rename(activation_date = "ICS Initiated") |> 
-  rename(activation_time = ...6) |> 
-  rename(deactivation_date = "ICS Deactivated") |> 
-  rename(deactivation_time = ...8) |> 
-  select(!c(...9, ...10))
-
-activation_log
+clean_activation_log <- raw_activation_log |> 
+  select(
+    initial_extreme_temp = initial_date_of_extreme_temperature,
+    initiation_date = ics_implementation_date,
+    county,
+    unit = unit_affected,
+    activation_date = date_5, 
+    activation_time = time_6,
+    deactivation_date = date_7,
+    deactivation_time = time_8 
+  )
 ```
 
-Now let's remove the first row since that repeats our column information.
-
-```{r}
-clean_activation_log <- activation_log[-c(1), ]
-
-clean_activation_log
-```
 
 ## Change date columns
 
@@ -61,16 +55,11 @@ We need our dates to be date columns instead of character columns. Let's adjust.
 ```{r}
 activation_log_dates <- clean_activation_log |> 
   mutate(
-    initial_extreme_temp = mdy(initial_extreme_temp)
-  ) |> 
-  mutate(
-    initiation_date = mdy(initiation_date)
-    ) |> 
-  mutate(
-    activation_date = mdy(activation_date)
-    ) |> 
-  mutate(
-    deactivation_date = mdy(deactivation_date)) 
+    initial_extreme_temp = mdy(initial_extreme_temp),
+    initiation_date = mdy(initiation_date),
+    activation_date = mdy(activation_date),
+    deactivation_date = mdy(deactivation_date)
+  ) 
 
 activation_log_dates
 ```
