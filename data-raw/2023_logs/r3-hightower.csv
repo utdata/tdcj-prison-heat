@@ -95,30 +95,30 @@ Hightower,7/27/2023,21,8:30 p.m.,89,56,,85,,Edoung,
 Hightower,7/27/2023,22,9:30 p.m.,87,58,,82,,Edoung,
 Hightower,7/27/2023,23,10:30 p.m.,87.6,58,,86,,Edoung,
 Hightower,7/27/2023,24,11:30 p.m.,78.8,82,,82,,Songs,temp corrected
-Hightower,7/28/2023,1,12:30 a.m.,81,77,,3,,Jordan,
-Hightower,7/28/2023,2,1:30 a.m.,80,No wind,,N/A,,Jordan,
+Hightower,7/28/2023,1,12:30 a.m.,81,77,3,,,Jordan,hi_wc used for wind instead
+Hightower,7/28/2023,2,1:30 a.m.,80,,No wind,N/A,,Jordan,humid used for wind
 Hightower,7/28/2023,3,2:30 a.m.,79,N/A,,N/A,,Jordan,
 Hightower,7/28/2023,4,3:30 a.m.,80,N/A,,N/A,,Jordan,
 Hightower,7/28/2023,5,4:30 a.m.,80,N/A,,N/A,,Jordan,
 Hightower,7/28/2023,6,5:30 a.m.,79,N/A,,N/A,,Jordan,
 Hightower,7/28/2023,7,6:30 a.m.,79,N/A,,N/A,,Jordan,
-Hightower,7/28/2023,8,7:30 a.m.,82,77,,No wind,,Brooks,
-Hightower,7/28/2023,9,8:30 a.m.,85,72,,5,,Brooks,
-Hightower,7/28/2023,10,9:30 a.m.,87,61,,No wind,,Brooks,
-Hightower,7/28/2023,11,10:30 a.m.,90,52,,3,,Brooks,
-Hightower,7/28/2023,12,11:30 a.m.,92,46,,7,,Brooks,
-Hightower,7/28/2023,13,12:30 p.m.,94,43,,3,,Brooks,
-Hightower,7/28/2023,14,1:30 p.m.,95,40,,5,,Brooks,
-Hightower,7/28/2023,15,2:30 p.m.,95,47,,15,,Edoung,
-Hightower,7/28/2023,16,3:30 p.m.,94,46,,9,,Edoung,
-Hightower,7/28/2023,17,4:30 p.m.,93,50,,12,,Edoung,
-Hightower,7/28/2023,18,5:30 p.m.,91,52,,10,,Edoung,
-Hightower,7/28/2023,19,6:30 p.m.,88,52,,10,,Edoung,
-Hightower,7/28/2023,20,7:30 p.m.,86,65,,6,,D. Carter,
-Hightower,7/28/2023,21,8:30 p.m.,84,65,,7,,D. Carter,
-Hightower,7/28/2023,22,9:30 p.m.,84,72,,8,,D. Carter,
-Hightower,7/28/2023,23,10:30 p.m.,83,72,,6,,D. Carter,
-Hightower,7/28/2023,24,11:30 p.m.,83,74,,5,,D. Carter,
+Hightower,7/28/2023,8,7:30 a.m.,82,77,No wind,,,Brooks,hi_wc used for wind instead
+Hightower,7/28/2023,9,8:30 a.m.,85,72,5,,,Brooks,hi_wc used for wind instead
+Hightower,7/28/2023,10,9:30 a.m.,87,61,No wind,,,Brooks,hi_wc used for wind instead
+Hightower,7/28/2023,11,10:30 a.m.,90,52,3,,,Brooks,hi_wc used for wind instead
+Hightower,7/28/2023,12,11:30 a.m.,92,46,7,,,Brooks,hi_wc used for wind instead
+Hightower,7/28/2023,13,12:30 p.m.,94,43,3,,,Brooks,hi_wc used for wind instead
+Hightower,7/28/2023,14,1:30 p.m.,95,40,5,,,Brooks,hi_wc used for wind instead
+Hightower,7/28/2023,15,2:30 p.m.,95,47,15,,,Edoung,hi_wc used for wind instead
+Hightower,7/28/2023,16,3:30 p.m.,94,46,9,,,Edoung,hi_wc used for wind instead
+Hightower,7/28/2023,17,4:30 p.m.,93,50,12,,,Edoung,hi_wc used for wind instead
+Hightower,7/28/2023,18,5:30 p.m.,91,52,10,,,Edoung,hi_wc used for wind instead
+Hightower,7/28/2023,19,6:30 p.m.,88,52,10,,,Edoung,hi_wc used for wind instead
+Hightower,7/28/2023,20,7:30 p.m.,86,65,6,,,D. Carter,hi_wc used for wind instead
+Hightower,7/28/2023,21,8:30 p.m.,84,65,7,,,D. Carter,hi_wc used for wind instead
+Hightower,7/28/2023,22,9:30 p.m.,84,72,8,,,D. Carter,hi_wc used for wind instead
+Hightower,7/28/2023,23,10:30 p.m.,83,72,6,,,D. Carter,hi_wc used for wind instead
+Hightower,7/28/2023,24,11:30 p.m.,83,74,5,,,D. Carter,hi_wc used for wind instead
 Hightower,7/29/2023,1,12:30 a.m.,77.5,88,,73.3,,Songs,
 Hightower,7/29/2023,2,1:30 a.m.,77.5,88,,77.7,,Songs,
 Hightower,7/29/2023,3,2:30 a.m.,74.8,93,,74.8,,Songs,

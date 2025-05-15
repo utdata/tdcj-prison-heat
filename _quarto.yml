@@ -1,12 +1,9 @@
 project:
   type: website
   render:
-  - "01-activation-cleaning.qmd"
-  - "01-station-cleaning.qmd"
-  - "01-unit-cleaning.qmd"
-  - "01-unit-info-cleaning.qmd"
-  - "02-data-combining.qmd"
-  - "03-unit-analysis.qmd"
+  - "!x-*.qmd"
+  - "01-*.qmd"
+  # - "*.qmd"
 
 website:
   title: "Prison Heat Analysis"

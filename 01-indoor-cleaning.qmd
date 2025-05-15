@@ -1,8 +1,11 @@
 ---
-title: "unit-cleaning"
+title: "Indoor logs cleaning"
+author: "Media Innovation Group"
 ---
 
-This data is the record indoor temperatures at each unit from April to September. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
+This data is the record indoor temperatures at each unit from April to September. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+
+The original PDFs were transcribed into data using Google Pinpoint, resulting in the csv files found in `data-raw`. The original documents are found in `data-original`.
 
 ## Goals of this notebook
 
@@ -143,5 +146,4 @@ We did it! Now let's export our data and place it in our processed data folder.
 ```{r}
 ramsey |> write_rds("data-processed/01-heat-all.rds")
 ```
-
 

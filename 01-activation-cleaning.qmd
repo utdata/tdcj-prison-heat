@@ -1,7 +1,13 @@
 ---
-title: "activation-cleaning"
-author: "Ali Juell"
+title: "Activations cleaning"
+author: "Media Innovation Group"
 ---
+
+## to do
+
+Could directly download [activation data](https://docs.google.com/spreadsheets/d/1vv81AaFwSzLl8lEDYHxI3ANkV2Gf08bh-i_LVDkseH8/edit?usp=sharing). Might require some reworking.
+
+## Overview
 
 It's time to add in a new data source: the heat protocol activation logs. This data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
 
