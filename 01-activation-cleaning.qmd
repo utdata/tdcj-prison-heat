@@ -3,13 +3,13 @@ title: "Activations cleaning"
 author: "Media Innovation Group"
 ---
 
-## to do
-
-Could directly download [activation data](https://docs.google.com/spreadsheets/d/1vv81AaFwSzLl8lEDYHxI3ANkV2Gf08bh-i_LVDkseH8/edit?usp=sharing). Might require some reworking.
-
 ## Overview
 
-It's time to add in a new data source: the heat protocol activation logs. This data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
+It's time to add in a new data source: the heat protocol activation logs. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice. 
+
+## Possible update
+
+Could directly download and use [Activation Data](https://docs.google.com/spreadsheets/d/1vv81AaFwSzLl8lEDYHxI3ANkV2Gf08bh-i_LVDkseH8/edit?usp=sharing) from our MIG TDCJ Basic Information sheet, but it would force some reworking and it is missing one record for some reason.
 
 ## Set up
 
@@ -24,9 +24,36 @@ library(janitor)
 library(data.table)
 ```
 
+## Download activation log directly
+
+This copy was downloaded from our [MIG = TDCJ Basic Information](https://docs.google.com/spreadsheets/d/1vv81AaFwSzLl8lEDYHxI3ANkV2Gf08bh-i_LVDkseH8/edit?usp=sharing) on the "Activation" tab.
+
+It is missing a 9/5/2023 record that is in `unit-activation-log.csv`.
+
+```{r}
+#| label: download-activation-direct
+#| eval: false
+
+download.file(
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRebFs9O2i0HoygXTtIvuzdVTmyrjX3MeUorU9d4fpYkGX7Bb026OradFQ1MMk2ltcGnyILih6ow4F4/pub?gid=1968960884&single=true&output=csv",
+  "data-raw/unit-activation-direct.csv"
+      )
+```
+Import direct log
+
+```{r}
+
+raw_activation_direct <- read_csv("data-raw/unit-activation-direct.csv") |> 
+  clean_names()
+
+raw_activation_direct
+```
+
+This original files lacks on activation that is in our already-downloaded `unit-activation-log.csv`. We'll continue to use the -log version while we track down an original.
+
 ## Import activation log
 
-Let's add our activation log file in.
+Let's add our activation log file in. (This file was downloaded directly into the repo, but we lost track of the original file. It has an additional record or other copies don't have.)
 
 ```{r}
 raw_activation_log <- read_csv("data-raw/unit-activation-log.csv", skip = 1) |> 
