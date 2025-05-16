@@ -123,18 +123,24 @@ daily_indoor_dated <- daily_indoor |>
 daily_indoor_dated |> glimpse()
 ```
 
-## Combine Ramsey rows
+## Clean some unit names
 
 It looks like the Ramsey unit was recorded with slightly different names in each csv. Let's combine both of those columns so all of the data is together and then remove any leftover NA's.
 
-```{r}
-ramsey <- daily_indoor_dated |> 
-mutate(unit = case_when(
-  grepl('ram', unit, ignore.case = TRUE) == TRUE ~ "Ramsey",
-  TRUE ~ unit
-))
+Mcconnell	183			
+O’Daniel	91			
+Wainwright	183	
 
-ramsey
+```{r}
+daily_indoor_named <- daily_indoor_dated |> 
+  mutate(
+    unit = case_match(
+      unit,
+      "Mcconnell" ~ "McConnell",
+      "O’Daniel" ~ "O'Daniel",
+      .default = unit
+    )
+  )
 ```
 
 We don't have recordings for every unit. These are the units we do not have readings for: Baten, Bell, Bridgeport, Coleman, Cotulla, Diboll, Duncan, East Texas, Estes, Fort Stockton, Garza East, Glossbrenner, Halbert, Hamilton, Havins, Henley, Hodge, Hospital Galveston, Kegans, Kyle, LeBlanc, Lindsey, Marlin, Mechler, Moore, B., Ney, Pack, San Saba, Sayle, Scott, Skyview, Travis, Willacy.
@@ -144,6 +150,6 @@ We don't have recordings for every unit. These are the units we do not have read
 We did it! Now let's export our data and place it in our processed data folder.
 
 ```{r}
-ramsey |> write_rds("data-processed/01-heat-all.rds")
+daily_indoor_named |> write_rds("data-processed/01-indoor-cleaned.rds")
 ```
 
