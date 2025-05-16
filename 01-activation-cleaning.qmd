@@ -121,7 +121,7 @@ We need to create a status column, so let's remove everything other than unit an
 ```{r}
 clean_actives <- dirty_actives |> 
   select(c(unit, activated)) |> 
-  mutate(status = "active") |> 
+  mutate(protocol_active = T) |> 
   mutate(date = activated) |> 
   select(!activated)
 
@@ -132,7 +132,7 @@ clean_actives |>
 ## Export
 
 ```{r}
-clean_actives |> write_rds("data-processed/activation-log.rds")
+clean_actives |> write_rds("data-processed/01-activation-cleaned.rds")
 ```
 
 

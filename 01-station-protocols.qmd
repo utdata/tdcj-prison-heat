@@ -1,0 +1,117 @@
+---
+title: "01-station-protocols"
+---
+
+Here we enhance our weather station data to include prison protocol data. We do this both for our hourly readings and our daily summaries.
+
+Will decide later if we add the prison info. That may need to be in more specific analysis.
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(janitor)
+```
+
+
+## Flag function
+
+Here we want a function that will create the flags, once fed a tmp and heat index.
+
+```{r}
+set_protocol_flag <- function(df, tmp_name, hi_name) {
+    df |> mutate(
+    tmp_flag = (case_when(
+      tmp_name >= 105 ~ TRUE,
+      .default = FALSE)),
+    hi_flag = (case_when(
+      hi_name >= 113 ~ TRUE,
+      .default = FALSE)),
+    protocol_flag = case_when(
+      tmp_flag == TRUE | hi_flag == TRUE ~ TRUE,
+      .default = FALSE)
+    )
+}
+```
+
+## Hourly data
+
+### Import hourly data
+
+```{r}
+#| label: imports
+stations_hourly <- read_rds("data-processed/weather-logs/01-station-hourly-readings.rds")
+```
+
+### Add protocol flags
+
+```{r}
+#| label: set-flags
+stations_hourly_protocol <- stations_hourly |> 
+   mutate(
+    tmp_flag = (case_when(
+      tmp >= 105 ~ TRUE,
+      .default = FALSE)),
+    hi_flag = (case_when(
+      hi >= 113 ~ TRUE,
+      .default = FALSE)),
+    protocol_flag = case_when(
+      tmp_flag == TRUE | hi_flag == TRUE ~ TRUE,
+      .default = FALSE)
+    )
+
+# check results
+stations_hourly_protocol |>
+  select(-name) |> 
+  filter(tmp > 100) |> 
+  slice_sample(n = 10)
+```
+
+### Export hourly
+
+```{r}
+stations_hourly_protocol |> 
+  write_rds("data-processed/01-station-hourly-protocols.rds")
+```
+
+## Daily summarized data
+
+### Import daily summaries
+
+```{r}
+stations_daily <- read_rds("data-processed/weather-logs/01-station-daily-summary.rds")
+
+stations_daily |> glimpse()
+```
+
+### Add daily protocols
+
+```{r}
+stations_daily_protocol <- stations_daily |> 
+  mutate(
+    tmp_flag = (case_when(
+      tmp_high >= 105 ~ TRUE,
+      .default = FALSE)),
+    hi_flag = (case_when(
+      hi_high >= 113 ~ TRUE,
+      .default = FALSE)),
+    protocol_flag = case_when(
+      tmp_flag == "TRUE" | hi_flag == "TRUE" ~ TRUE,
+      .default = FALSE)
+  )
+
+# check results
+stations_daily_protocol |> 
+  select(-name) |> 
+  filter(tmp_high > 100) |> 
+  slice_sample(n = 10)
+```
+
+### Export daily
+
+```{r}
+stations_daily_protocol |> write_rds("data-processed/01-station-daily-protocols.rds")
+```
+

@@ -109,7 +109,7 @@ count_lines <- function(file) {
   length(readLines(file, warn = FALSE))
 }
 
-line_counts <- map_chr(logs_list, count_lines)
+line_counts <- sapply(logs_list, count_lines)
 line_counts_data <- tibble(file = basename(names(line_counts)), lines = line_counts)
 
 line_counts_data |> filter(lines != 193)
@@ -201,6 +201,6 @@ logs_numbs |> slice_sample(n = 10)
 ## Export the logs
 
 ```{r}
-logs_numbs |> write_rds("data-processed/01-logs.rds")
+logs_numbs |> write_rds("data-processed/01-outdoor-cleaned.rds")
 ```
 

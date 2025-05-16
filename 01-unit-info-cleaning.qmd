@@ -60,6 +60,6 @@ unit_info_clean
 Our cleaning was pretty easy! Let's export the data and put it into our processed folder now.
 
 ```{r}
-unit_info_clean |> write_rds("data-processed/unit_info.rds")
+unit_info_clean |> write_rds("data-processed/01-unit-info-cleaned.rds")
 ```
 
