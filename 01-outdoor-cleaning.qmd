@@ -42,7 +42,7 @@ log_urls <- read_csv("data-raw/outdoor-jail-logs-urls.csv") |> clean_names()
 log_urls |> glimpse()
 ```
 
-Some space for checks ... In some cases we had the urls formatted incorrectly. Result should be 0 rows.
+In some cases we had the urls formatted incorrectly. Result should be 0 rows.
 
 ```{r}
 log_urls |> 
@@ -137,8 +137,22 @@ logs_raw <- logs_list |>  #set_names(basename) |>
 ) |> list_rbind() |>
   clean_names()
 
-logs_raw
+logs_raw |> glimpse()
 ```
+
+### Check and remove extra column
+
+```{r}
+logs_raw |> filter(!is.na(x12))
+```
+
+```{r}
+logs_tight <- logs_raw |> select(-x12)
+
+logs_tight |> glimpse()
+```
+
+
 
 ## Fix date, time, rec
 
@@ -152,7 +166,7 @@ Here we create a real datetime, date and proper hour.
 Also, we remove artifact columns and any blank columns by specifying the columns we do need.
 
 ```{r}
-logs_dates <- logs_raw |> 
+logs_dates <- logs_tight |> 
   mutate(
     new_time = case_when(
       time == "12:30 a.m." ~ "00:30:00",
@@ -164,13 +178,14 @@ logs_dates <- logs_raw |>
   ) |> 
   mutate(
     datetime = mdy_hms(paste(date, new_time)),
-    date = date(datetime),
+    date = mdy(date),
     hour = hour(datetime),
     .after = time
   ) |> 
   select(
     unit,
     date,
+    rec,
     datetime,
     hour,
     temp,
@@ -198,9 +213,51 @@ logs_numbs <- logs_dates |>
 logs_numbs |> slice_sample(n = 10)
 ```
 
+```{r}
+logs_numbs |> filter(str_detect(unit, "Moore"))
+```
+
+
+## Fix names
+
+In some cases the name on the outdoor log sheet did not match our tracking sheet, which means we have trouble later when we need to match that information.
+
+```{r}
+logs_fixes <- logs_numbs |> 
+  mutate(
+    unit = case_match(
+      unit,
+      "Travis State Jail" ~ "Travis County",
+      "Choice Moore" ~ "Moore, C.",
+      "Jester 3" ~ "Jester III",
+      "Lane Murray" ~ "Murray",
+      "Wallace Pack" ~ "Pack",
+      "Mt. View" ~ "Woodman",
+      .default = unit)
+  )
+
+logs_fixes |> filter(str_detect(unit, "Jordan"))
+```
+
+
+## Add the region
+
+It's helpful later to have the region of the prison as part of this dataset, so I'm going to add it here from the unit info.
+
+```{r}
+regions <- read_rds("data-processed/01-unit-info-cleaned.rds") |> 
+  select(unit_name, region)
+
+logs_regions <- logs_fixes |> 
+  left_join(regions, by = join_by(unit == unit_name)) |> 
+  relocate(region, .after = unit)
+
+logs_regions |> filter(str_detect(unit, "Jordan"))
+```
+
 ## Export the logs
 
 ```{r}
-logs_numbs |> write_rds("data-processed/01-outdoor-cleaned.rds")
+logs_regions |> write_rds("data-processed/01-outdoor-cleaned.rds")
 ```
 

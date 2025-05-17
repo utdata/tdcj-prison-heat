@@ -1,0 +1,378 @@
+---
+title: "02-outdoor-analysis"
+author: "Media Innovation Group"
+---
+
+## Overview
+
+We hand-coded one week of temperatures logs (7/24/2023 to 7/31/2023) for XX of XXX Texas prisons.
+
+- In the logs, how many cases did we find where the records were hard to read or had problems?
+- How do log temperature readings compare to the nearest weather station?
+    - diff in temp
+    - diff in heat index
+- Which days should've been under protocol according to log records?
+- How does that compare to actual protocols that were place?
+- How does that compare to days that should be in protocol based on weather station?
+
+## Setup
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(janitor)
+library(scales)
+```
+
+## Import
+
+We're bringing in:
+
+- Our coded and cleaned outdoor log data
+- Activation records
+- Hourly weather readings
+
+```{r}
+logs_all <- read_rds("data-processed/01-outdoor-cleaned.rds")
+activations <- read_rds("data-processed/01-activation-cleaned.rds")
+hourly <- read_rds("data-processed/01-station-hourly-protocols.rds")
+units <- read_rds("data-processed/01-unit-info-cleaned.rds")
+```
+
+## Basic information
+
+Peek at a sample
+
+```{r}
+logs_all |> slice_sample(n = 5)
+```
+
+and glimpse the columns ...
+
+```{r}
+logs_all |> glimpse()
+```
+
+Date range of the data
+
+```{r}
+logs_all$date |> summary()
+```
+
+### Count units
+
+```{r}
+logs_all |> count(unit)
+```
+
+### Clip log data
+
+We'll remove July 24th so we have the last seven days of July, 2023.
+
+```{r}
+logs <- logs_all |> filter(date != "2023-07-24")
+
+logs |> count(date) |> adorn_totals() |> tibble()
+```
+
+### TA: Basics
+
+We transcribed outdoor temperature logs from 82 different units within the Texas prison system. Each log had 192 entries (24 hours for 8 days). We've clipped these records to be the last 7 days of July 2023, for a total of 13,776 recrods.
+
+## Record quality
+
+When we transcribed the outdoor temperature logs, we added notes when something was illegible or corrected on the form.
+
+### Records with notes
+
+Here we set flags if a record (an hour within a log) had a note, along with some categories.
+
+```{r}
+logs_notes <- logs |>
+  mutate(
+    notes_a = if_else(is.na(notes), F, T),
+    notes_c = case_when(str_detect(notes, "correct") ~ T, .default = F),
+    notes_l = case_when(str_detect(notes, "legi") ~ T, .default = F),
+  )
+
+logs_notes |> 
+  select(unit, date, starts_with("notes")) |> 
+  slice_sample(n = 20)
+```
+
+This is the percentage of records where we included some kind of note.
+
+```{r}
+logs_notes |> 
+  tabyl(notes_a)
+```
+
+This is the percentage of records where something was corrected, per our notes.
+
+```{r}
+logs_notes |> 
+  tabyl(notes_c)
+```
+
+This is the percentage of records where we noted some kind of legibility problem.
+
+```{r}
+logs_notes |> 
+  tabyl(notes_l)
+```
+
+### Types of notes
+
+Some records have more than one note. Here we "explode" those to count the notes individually. In some cases we had some standard notes, in other cases we didn't.
+
+```{r}
+notes_exploded <- logs |> 
+  select(unit, date, notes) |> 
+  filter(!is.na(notes)) |> 
+  group_by(unit, date) |> 
+  separate_longer_delim(notes, delim = ", ") |> 
+  ungroup()
+
+# number of rows in new tibble
+notes_exploded |> nrow()
+
+# sample rows
+notes_exploded |> slice_sample(n = 10)
+```
+
+Let's look at the kinds of notes we recorded.
+
+```{r}
+notes_exploded_cnts <- notes_exploded |> count(notes, sort = T)
+
+notes_exploded_cnts
+```
+
+### Note type counts
+
+#### Numbers as ranges
+
+```{r}
+notes_exploded |> filter(str_detect(notes, "double")) |> nrow()
+```
+
+A range was recorded instead of a single number on 92 occaisions.
+
+#### Temperature at issue
+
+```{r}
+notes_exploded_cnts |> 
+  filter(str_detect(notes, "temp")) |> 
+  adorn_totals() |> tibble()
+```
+
+Temperatures were an issue in 589 cases. Of those, 360 were on-log corrections.
+
+#### Heat index/Wind chill
+
+The heat index/wind chill record is already challenging because it measures two different things. Records would also sometimes include the category, which we recorded in a separate column.
+
+Here we see how and how much that field was at issue.
+
+```{r}
+notes_exploded_cnts |> 
+  filter(str_detect(notes, "hi_wc")) |> 
+  adorn_totals() |> tibble()
+```
+
+The heat index/wind chill columns was at issue 652 times, with 318 (about half) being corrections
+
+## Notes comparisons by prison?
+
+This look at the percentage of records that had a note of some kind.
+
+```{r}
+logs_notes |> 
+  count(unit, notes_a) |> 
+  pivot_wider(names_from = notes_a, values_from = n) |> 
+  mutate(pct_notes = ((`TRUE` / (`FALSE` + `TRUE`)) * 100) |> round(1)) |> 
+  arrange(pct_notes |> desc())
+```
+
+Let's look at these notes by Stevenson unit to see what they are. It looks like there are many "corrections". These are actually done well where someone has come afterward and cleard up any legibility issues. The logs are also signed.
+
+```{r}
+logs_notes |> 
+  filter(unit == "Stevenson") |> 
+  select(unit, region, date, hour, notes)
+```
+
+Let's look at Garza West
+
+```{r}
+logs_notes |> 
+  filter(unit == "Garza West") |> 
+  select(unit, region, date, hour, notes)
+```
+
+Could this be more about the person who recorded the info? Let's find the percentage of record with any note based on region. We could track down who did the trascribing.
+
+```{r}
+logs_notes |> 
+  count(region, notes_a) |> 
+  pivot_wider(names_from = notes_a, values_from = n) |> 
+  mutate(pct_notes = ((`TRUE` / (`FALSE` + `TRUE`)) * 100) |> round(1))
+```
+
+
+
+## Comparing to NOAA
+
+We tried to find the nearest weather station to each prison and download their hourly recordings for temperature and humidity. Here we try to compare what was recorded in the log to that station.
+
+### Combining files
+
+```{r}
+# getting station from units
+logs_expanded <- logs |> 
+  left_join(units, by = join_by(unit == unit_name, region)) |> 
+  # removing some unneeded cols
+  select(!c(unit_code, type, county, nws))
+
+# joining to get weather info
+logs_nws <- logs_expanded |> 
+  left_join(hourly, by = join_by(nws_id == station_id, date == date, hour == hr))
+
+logs_expanded |> filter(str_detect(unit, "Jordan"))
+```
+
+### Context on matches
+
+Here we find the percentage of records with not NWS data
+
+```{r}
+match_checks <- logs_nws |> 
+  mutate(match_null = if_else(is.na(name), T, F))
+
+match_checks |> 
+  tabyl(match_null)
+```
+
+About 15 percent of our hourly logs don't have a station match. Here `TRUE` values means there is missing station data.
+
+```{r}
+match_checks |> 
+  tabyl(unit, match_null) |> 
+  adorn_percentages() |> 
+  adorn_pct_formatting() |> 
+  adorn_ns() |> 
+  tibble()
+```
+
+In some cases we didn't have a prison close enough. In other cases -- like Jordan -- we had a station, but there were no recordings for the time period.
+
+Here is a list of units that have no NWS readings
+
+```{r}
+no_compare <- match_checks |> 
+  tabyl(unit, match_null) |> 
+  filter(`TRUE` == 168) |> 
+  tibble()
+
+no_compare
+```
+
+We're going to remove these units going forward, leaving us with XX units.
+
+```{r}
+no_compare_units <- no_compare |> pull(unit)
+
+logs_nws_compare <- logs_nws |> 
+  filter(!unit %in% no_compare_units)
+```
+
+
+### Building comparison variables
+
+Here we find the difference in the prison recorded temp and heat index compared to the nearest station, if we have one. In some cases the diffs are NA because we don't have a nearby station, or one of the calculating numbers is missing for whatever reason.
+
+```{r}
+logs_diffs <- logs_nws_compare |> 
+  mutate(
+    tmp_diff = temp - tmp,
+    hi_diff = case_when(
+      temp >= 80 | tmp >= 80 ~ hi_wc - hi,
+      .default = NA
+    )
+  )
+
+logs_diffs |> slice_sample(n = 50)
+```
+
+### Average differences
+
+```{r}
+logs_diffs |> 
+  summarise(
+    max_tmp_diff = max(tmp_diff, na.rm = T),
+    avg_tmp_diff = mean(tmp_diff, na.rm = T),
+    med_tmp_diff = median(tmp_diff, na.rm = T)
+  )
+```
+
+let's do a quick plot of these to see how the are distributed
+
+```{r}
+ggplot(logs_diffs, aes(x = tmp_diff)) +
+  geom_histogram(binwidth = 1, fill = "lightblue", color = "black")
+```
+
+I can see that there are a just a couple of anomolies. Let's remove those and see the spread more betta.
+
+There are only five records (out of 11,928) where the temp is 20 or more degrees off.
+
+```{r}
+# the outliers
+logs_diffs |> 
+  filter(abs(tmp_diff) >= 20)
+
+# standard deviation (outliers removed)
+logs_diffs |> 
+  filter(abs(tmp_diff) < 20) |> 
+  pull(tmp_diff) |> 
+  sd()
+
+# chart it
+logs_diffs |> 
+  filter(abs(tmp_diff) < 20) |> 
+  ggplot() +
+  aes(x = tmp_diff) +
+  geom_histogram(binwidth = 2, fill = "lightblue", color = "black") +
+  scale_x_continuous(breaks = seq(-20, 20, 2))
+```
+
+How many rows negative vs positive?
+
+```{r}
+logs_diffs |> filter(tmp_diff <= 0) |> nrow()
+logs_diffs |> filter(tmp_diff > 0) |> nrow()
+```
+
+
+Let's do the same for heat index. There are 50 records outside a 20 degree difference.
+
+```{r}
+logs_diffs |> 
+  filter(abs(hi_diff) >= 20)
+
+logs_diffs |> 
+  filter(abs(hi_diff) < 20) |>
+  pull(hi_diff) |> 
+  sd(na.rm = T)
+
+logs_diffs |> 
+  filter(abs(hi_diff) < 20) |>
+  ggplot() +
+  aes(x = hi_diff) +
+  geom_histogram(binwidth = 2, fill = "lightblue", color = "black") +
+  scale_x_continuous(breaks = seq(-20, 20, 2))
+```
+

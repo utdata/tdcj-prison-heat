@@ -50,7 +50,7 @@ I'm gonna change column names and only keep the columns we need.
 
 ```{r}
 unit_info_clean <- nws_unit_raw |> 
-  select(unit_name, unit_code, type, nws, nws_id, county)
+  select(unit_name, region, unit_code, type, nws, nws_id, county)
 
 unit_info_clean
 ```
