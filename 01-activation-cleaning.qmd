@@ -5,11 +5,11 @@ author: "Media Innovation Group"
 
 ## Overview
 
-It's time to add in a new data source: the heat protocol activation logs. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice. 
+These are the days that a unit was under ICS protocols like providing extra ice water and access to cooler areas during extreme heat events. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice. 
 
 ## Possible update
 
-Could directly download and use [Activation Data](https://docs.google.com/spreadsheets/d/1vv81AaFwSzLl8lEDYHxI3ANkV2Gf08bh-i_LVDkseH8/edit?usp=sharing) from our MIG TDCJ Basic Information sheet, but it would force some reworking and it is missing one record for some reason.
+This pulls from a CSV of unknown provenance. We do have the original Excel spreadsheet now but have not yet updated the list to use this. FWIW, at a glance they look the same. 
 
 ## Set up
 
@@ -28,7 +28,7 @@ library(data.table)
 
 This copy was downloaded from our [MIG = TDCJ Basic Information](https://docs.google.com/spreadsheets/d/1vv81AaFwSzLl8lEDYHxI3ANkV2Gf08bh-i_LVDkseH8/edit?usp=sharing) on the "Activation" tab.
 
-It is missing a 9/5/2023 record that is in `unit-activation-log.csv`.
+It is missing a 9/5/2023 record that is in `unit-activation-log.csv`. WE AREN'T USING THIS. It's just to check.
 
 ```{r}
 #| label: download-activation-direct

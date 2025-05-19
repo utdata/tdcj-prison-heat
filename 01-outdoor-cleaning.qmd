@@ -1,6 +1,8 @@
 ---
-title: "Outdoor log cleaning"
+title: "Outdoor logs cleaning"
 author: "Media Innovation Group"
+code-fold: true
+code-summary: "Expand this to see code"
 ---
 
 This notebook compiles data collected from one week of outdoor temperature logs collected by the Texas Department of Criminal Justice. The dates considered were July 24, 2023 through July 31, 2023. The logs are hand-written and data could not be accurately pulled from them using AI, so a group of Media Innovaiton Group fellows transcribed the week of logs for each prison we had records for, XXX in total. Those records were acquired through a public information request by Lauren McGaughey of the Texas Newsroom public radio collaborative.
@@ -42,7 +44,7 @@ log_urls <- read_csv("data-raw/outdoor-jail-logs-urls.csv") |> clean_names()
 log_urls |> glimpse()
 ```
 
-Some space for checks ... In some cases we had the urls formatted incorrectly. Result should be 0 rows.
+In some cases we had the urls formatted incorrectly. Result should be 0 rows.
 
 ```{r}
 log_urls |> 
@@ -137,8 +139,22 @@ logs_raw <- logs_list |>  #set_names(basename) |>
 ) |> list_rbind() |>
   clean_names()
 
-logs_raw
+logs_raw |> glimpse()
 ```
+
+### Check and remove extra column
+
+```{r}
+logs_raw |> filter(!is.na(x12))
+```
+
+```{r}
+logs_tight <- logs_raw |> select(-x12)
+
+logs_tight |> glimpse()
+```
+
+
 
 ## Fix date, time, rec
 
@@ -152,7 +168,7 @@ Here we create a real datetime, date and proper hour.
 Also, we remove artifact columns and any blank columns by specifying the columns we do need.
 
 ```{r}
-logs_dates <- logs_raw |> 
+logs_dates <- logs_tight |> 
   mutate(
     new_time = case_when(
       time == "12:30 a.m." ~ "00:30:00",
@@ -164,13 +180,14 @@ logs_dates <- logs_raw |>
   ) |> 
   mutate(
     datetime = mdy_hms(paste(date, new_time)),
-    date = date(datetime),
+    date = mdy(date),
     hour = hour(datetime),
     .after = time
   ) |> 
   select(
     unit,
     date,
+    rec,
     datetime,
     hour,
     temp,
@@ -198,9 +215,153 @@ logs_numbs <- logs_dates |>
 logs_numbs |> slice_sample(n = 10)
 ```
 
+```{r}
+logs_numbs |> filter(str_detect(unit, "Moore"))
+```
+
+
+## Fix names
+
+In some cases the name on the outdoor log sheet did not match our tracking sheet, which means we have trouble later when we need to match that information.
+
+```{r}
+logs_fixes <- logs_numbs |> 
+  mutate(
+    unit = case_match(
+      unit,
+      "Travis State Jail" ~ "Travis County",
+      "Choice Moore" ~ "Moore, C.",
+      "Jester 3" ~ "Jester III",
+      "Lane Murray" ~ "Murray",
+      "Wallace Pack" ~ "Pack",
+      "Mt. View" ~ "Woodman",
+      .default = unit)
+  )
+
+logs_fixes |> filter(str_detect(unit, "Jordan"))
+```
+
+
+## Add the region
+
+It's helpful later to have the region of the prison as part of this dataset, so I'm going to add it here from the unit info.
+
+```{r}
+regions <- read_rds("data-processed/01-unit-info-cleaned.rds") |> 
+  select(unit_name, region)
+
+logs_regions <- logs_fixes |> 
+  left_join(regions, by = join_by(unit == unit_name)) |> 
+  relocate(region, .after = unit)
+
+logs_regions |> filter(str_detect(unit, "Jordan"))
+```
+
 ## Export the logs
 
 ```{r}
-logs_numbs |> write_rds("data-processed/01-outdoor-cleaned.rds")
+logs_regions |> write_rds("data-processed/01-outdoor-cleaned.rds")
+```
+
+## Notes pages
+
+When we transcribed the logs, we also included a notes sheet where we added any overall relavant or interesting information.
+
+We will be following the same steps as above, except that we have to piece together the download url from our tracking sheet.
+
+```{r}
+#| label: notes-urls
+
+notes_urls <- log_urls |> 
+  # filter(region == "II") |> # filters to region for testing
+  select(slug, url, notes_gid) |> 
+  mutate(
+    pub_url = str_extract(url, "(.*pub\\?)", group = 1),
+    notes_url = paste0(pub_url, "gid=", notes_gid, "&output=csv")
+  ) |> 
+  filter(!is.na(url)) |> 
+  select(slug, notes_url) 
+
+notes_urls
+```
+
+Then we download all the files. `eval: false` is set here so files won't be re-downloaded.
+
+```{r}
+#| label: notes-download
+#| warning: false
+#| message: false
+#| eval: false
+
+# set our urls to df
+notes_df <- notes_urls
+
+
+# Download loop
+for (i in seq_len(nrow(notes_df))) {
+  url <- df$notes_url[i]
+  slug <- df$slug[i]
+  file_name <- paste0("data-raw/2023_notes/", slug, ".csv")
+  
+  if (is.na(url)) {
+    # message(paste("No URL for slug:", slug))
+    next
+  } else {
+    tryCatch({
+      download.file(url, destfile = file_name, mode = "wb")
+    }, error = function(e) {
+      message(paste("Failed to download:", url, "-", e$message, "\n"))
+    })
+  }
+}
+
+```
+
+Make a list of file paths to combine.
+
+```{r}
+notes_list <- list.files(
+  "data-raw/2023_notes",
+  pattern = ".csv",
+  full.names = TRUE
+  )
+
+notes_list
+```
+
+Now we put those files together into a single tibble.
+
+```{r}
+notes_raw <- notes_list |> 
+  set_names(basename) |>
+  map(
+  read_csv,
+  col_types = cols(.default = col_character()),
+  col_names = c("notes")
+) |> list_rbind(names_to = "unit") |>
+  clean_names()
+
+notes_raw |> glimpse()
+```
+
+We have a little cleanup here for the unit and region. We drop the x columns, which are empty.
+
+```{r}
+notes_cleaned <- notes_raw |> 
+  filter(!is.na(notes)) |> 
+  mutate(
+    region = str_extract(unit, pattern = "(.*)-", group = 1),
+    unit = str_extract(unit, pattern = ".*-(.*).csv", group = 1)
+  ) |> 
+  select(unit, region, notes)
+
+notes_cleaned |> head()
+```
+
+We'll export this as both a csv and an rds because we may just put these into a spreadsheet for review.
+
+```{r}
+notes_cleaned |> write_rds("data-processed/01-outdoor-notes.rds")
+notes_cleaned |> write_csv("data-processed/01-outdoor-notes.csv")
 ```
 

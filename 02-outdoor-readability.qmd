@@ -1,0 +1,305 @@
+---
+title: "Outdoor log readability"
+author: "Media Innovation Group"
+code-fold: true
+code-summary: "Expand this to see code"
+---
+
+We hand-coded eight days of temperatures logs (7/24/2023 to 7/31/2023) for 82 Texas prisons. Here we take those logs and try to answer the following questions.
+
+## Questions to answer
+
+- In the logs, how many cases did we find where the records were hard to read or had problems?
+- What were those problems, generally?
+- Do certain units have more legibility problems?
+
+> Something we've yet to look at: there are cases where the log does not have a heat index `hi_wc1` recorded, but there is a temperature and humidity. We could calculate that heat index when we have the data (and then compare to what the prison log has when it is present.)
+
+## Setup
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(janitor)
+library(scales)
+library(DT)
+```
+
+## Import
+
+We're bringing in:
+
+- Our coded and cleaned outdoor log data
+- Activation records
+- Hourly weather readings
+- Prison unit information
+
+```{r}
+logs_all <- read_rds("data-processed/01-outdoor-cleaned.rds")
+activations <- read_rds("data-processed/01-activation-cleaned.rds")
+hourly <- read_rds("data-processed/01-station-hourly-protocols.rds")
+units <- read_rds("data-processed/01-unit-info-cleaned.rds")
+```
+
+## Basic information
+
+Peek at a sample
+
+```{r}
+logs_all |> slice_sample(n = 5)
+```
+
+and glimpse the columns ...
+
+```{r}
+logs_all |> glimpse()
+```
+
+Date range of the data
+
+```{r}
+logs_all$date |> summary()
+```
+
+### Count units
+
+```{r}
+logs_all |> count(unit)
+```
+
+### Clip log data
+
+We'll remove July 24th so we have the last seven days of July, 2023.
+
+```{r}
+logs <- logs_all |> filter(date != "2023-07-24")
+
+logs |> count(date) |> adorn_totals() |> tibble()
+```
+
+### TA: Basics
+
+We transcribed outdoor temperature logs from 82 different units within the Texas prison system. Each log had 192 entries (24 hours for 8 days). We've clipped these records to be the last 7 days of July 2023, for a total of 13,776 records.
+
+## Readability answers
+
+When we transcribed the outdoor temperature logs, we added notes when something was illegible or corrected on the form. Here we analyze those notes.
+
+### Records with notes
+
+Here we set flags if a record (an hour within a log) had a note, along with some categories. The result here is just a record sample to check our work.
+
+```{r}
+logs_notes <- logs |>
+  mutate(
+    notes_a = if_else(is.na(notes), F, T),
+    notes_c = case_when(str_detect(notes, "correct") ~ T, .default = F),
+    notes_l = case_when(str_detect(notes, "legi") ~ T, .default = F),
+  )
+
+logs_notes |> 
+  select(unit, date, starts_with("notes")) |> 
+  slice_sample(n = 20)
+```
+
+This is the total percentage of records where we included some kind of note. `TRUE` means we included a note.
+
+```{r}
+logs_notes |> 
+  tabyl(notes_a) |> 
+  adorn_pct_formatting()
+```
+
+When we recorded notes, we had some standardization. We included the term "corrected" if a record was scratched out and replaced with a new value or otherwise amended.
+
+This is the percentage of records where something was corrected, per our notes.
+
+```{r}
+logs_notes |> 
+  tabyl(notes_c) |> 
+  adorn_pct_formatting()
+```
+
+If there was a legibility problem, we included the term "legibility". This is the percentage of records where we noted some kind of legibility problem.
+
+```{r}
+logs_notes |> 
+  tabyl(notes_l) |> 
+  adorn_pct_formatting()
+```
+
+### TA: Notes statistics
+
+We have some kind of note in about 15% of all records. About 7.5% of records had a correction of some kind, and about 6.5% had legibility issues. (Some records might have both.). We should remember that data fellows had to use personal judgement on what to record and how, and that four different individuals performed the transcriptions. We tried our best to be consistent, but we are humans.
+
+
+### Types of notes
+
+Some records have more than one note. Here we "explode" those to count the notes individually. In some cases we had some standard notes, in other cases we didn't.
+
+The result here is just a sample to check our work.
+
+```{r}
+notes_exploded <- logs |> 
+  select(unit, date, notes) |> 
+  filter(!is.na(notes)) |> 
+  group_by(unit, date) |> 
+  separate_longer_delim(notes, delim = ", ") |> 
+  ungroup()
+
+# number of rows in new tibble
+notes_exploded |> nrow()
+
+# sample rows
+notes_exploded |> slice_sample(n = 10)
+```
+
+Let's look at the kinds of notes we recorded.
+
+```{r}
+notes_exploded_cnts <- notes_exploded |> count(notes, sort = T)
+
+notes_exploded_cnts
+```
+
+Here we count how many individual records we labeled as "corrected" or had a "legibility" concern. I also counted a couple of other instances I saw, like where a "double" or "range" of values were recorded.
+
+```{r}
+notes_exploded_cnts |>
+  # filter(str_detect(notes, "corrected")) |> 
+  summarise(
+    total_indiv_corrected = sum(n[str_detect(notes, "correct")]),
+    total_indiv_legibility = sum(n[str_detect(notes, "legib")]),
+    total_indiv_double = sum(n[str_detect(notes, "double")]),
+    total_indiv_range = sum(n[str_detect(notes, "range")]),
+    ) |> 
+  pivot_longer(cols = everything())
+```
+
+### TA: Types statistics
+
+Most of the individual notes identified (about 1,300) were corrections of some kind. About 1,000 of them concerned legibility.
+
+### Variable counts
+
+Here we try to get a handle on which variables recorded had the most notes (i.e., temp vs wind, etc.). We are counting how many times our variable terms were included in individual notes.
+
+```{r}
+
+notes_exploded_cnts |>
+  # filter(str_detect(notes, "corrected")) |> 
+  summarise(
+    total_indiv_temp = sum(n[str_detect(notes, "temp")]),
+    total_indiv_humid = sum(n[str_detect(notes, "humid")]),
+    total_indiv_wind = sum(n[str_detect(notes, "wind")]),
+    total_indiv_hi_wc = sum(n[str_detect(notes, "hi_wc")]),
+    total_indiv_hi_wc_n = sum(n[str_detect(notes, "hi_wc_n")]),
+    total_indiv_person = sum(n[str_detect(notes, "person")]),
+  ) |> 
+  pivot_longer(everything()) |> 
+  arrange(value |> desc())
+```
+
+We had more notes on the `hi_wc` variable (Heat index/Wind chill) than any other, followed by temperature.
+
+The heat index/wind chill record is already challenging because it measures two different things. Some records would also sometimes include what we determined was a heat index "category", which we recorded in a separate column.
+
+Here we see how much that field was at issue by counting any notes that included `hi_wc`. The heat index category notes show up in this list, too.
+
+```{r}
+notes_exploded_cnts |> 
+  filter(str_detect(notes, "hi_wc")) |> 
+  adorn_totals() |> tibble()
+```
+
+### TA: Variable statistics
+
+The heat index/wind chill columns was at issue about 650 times, with about half of these being corrections.
+
+### Notes by unit
+
+#### Units with most notes
+
+This looks at which units had the most notes of any kind. The `pct_notes` is the percetage of rows that had a note of any kind.
+
+```{r}
+logs_notes |> 
+  count(unit, notes_a) |> 
+  pivot_wider(names_from = notes_a, values_from = n) |> 
+  mutate(pct_notes = ((`TRUE` / (`FALSE` + `TRUE`)) * 100) |> round(1)) |> 
+  arrange(pct_notes |> desc())
+```
+
+To gain some insight on what these might be, let's look at these notes by Stevenson unit.
+
+```{r}
+logs_notes |> 
+  filter(unit == "Stevenson" & !is.na(notes)) |> 
+  select(unit, region, date, hour, notes)
+```
+
+It _looks like_ there are many "corrections". When you look at the [original documents](https://drive.google.com/file/d/1s3pSZ7aU7lZHyKedz-P7DmVJIRmSUkSg/view?usp=drive_link), it appears the unit must review the logs and regularly clears up any legibility issues. The logs are also signed. i.e. having more corrections could be a positive thing.
+
+#### Unit corrections, legibilty
+
+Here we explode all the notes for all the units and count how many are for corrections and legibility.
+
+We sort the same list twice ... once by corrections and once by legibility.
+
+```{r}
+units_cor_leg <- logs_notes |> 
+  filter(!is.na(notes)) |> 
+  separate_longer_delim(notes, delim = ", ") |> 
+  count(unit, region, notes, sort = T) |> 
+  group_by(unit, region) |> 
+  summarise(
+    total_indiv_correct = sum(n[str_detect(notes, "correct")]),
+    total_indiv_legibility = sum(n[str_detect(notes, "legib")]),
+    .groups = "drop"
+    )
+
+units_cor_leg |> 
+  arrange(total_indiv_correct |> desc())
+
+units_cor_leg |> 
+  arrange(total_indiv_legibility |> desc())
+```
+
+Let's look at bit more at Telford to see the legibility issues.
+
+```{r}
+logs_notes |> 
+  filter(unit == "Telford" & !is.na(notes)) |> 
+  separate_longer_delim(notes, delim = ", ") |> 
+  count(notes, sort = T)
+```
+
+And then Glossbrenner ...
+
+```{r}
+logs_notes |> 
+  filter(unit == "Glossbrenner" & !is.na(notes)) |> 
+  separate_longer_delim(notes, delim = ", ") |> 
+  count(notes, sort = T)
+```
+
+### TA: Notes by unit
+
+The units with the most correction notes include Garza West, Briscoe, Stevenson, Connally, Dominguez. Given what we found with Stevenson, this may mean they are more accurate, but they should be reviewed.
+
+When it comes to legibility, the Telford unit stands out. Most of the issues are around the signature of the person recording the record.
+
+## Unit notes
+
+In some cases we recorded an overall note about the unit as opposed to notes for each individual line. I'm just printing all of these out for perusal.
+
+```{r}
+overall_notes <- read_rds("data-processed/01-outdoor-notes.rds")
+
+overall_notes |> datatable()
+```
+
+

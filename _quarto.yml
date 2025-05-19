@@ -1,17 +1,24 @@
 project:
   type: website
+  output-dir: docs
   render:
   - "!x-*.qmd"
-  - "01-*.qmd"
+  - "01*.qmd"
+  - "02*.qmd"
+  - index.qmd
   # - "*.qmd"
 
 website:
   title: "Prison Heat Analysis"
   sidebar:
+    style: "docked"
     contents:
-      - href: index.qmd
-        text: Home
-      - auto: "*.qmd"
+      - text: "Overview"
+        href: index.qmd
+      - section: "Cleaning"
+        contents: "01-*qmd"
+      - section: "Analysis"
+        contents: "02-*qmd"
 
 format:
   html:
