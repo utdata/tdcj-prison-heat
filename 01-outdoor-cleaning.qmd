@@ -1,6 +1,8 @@
 ---
-title: "Outdoor log cleaning"
+title: "Outdoor logs cleaning"
 author: "Media Innovation Group"
+code-fold: true
+code-summary: "Expand this to see code"
 ---
 
 This notebook compiles data collected from one week of outdoor temperature logs collected by the Texas Department of Criminal Justice. The dates considered were July 24, 2023 through July 31, 2023. The logs are hand-written and data could not be accurately pulled from them using AI, so a group of Media Innovaiton Group fellows transcribed the week of logs for each prison we had records for, XXX in total. Those records were acquired through a public information request by Lauren McGaughey of the Texas Newsroom public radio collaborative.
@@ -259,5 +261,107 @@ logs_regions |> filter(str_detect(unit, "Jordan"))
 
 ```{r}
 logs_regions |> write_rds("data-processed/01-outdoor-cleaned.rds")
+```
+
+## Notes pages
+
+When we transcribed the logs, we also included a notes sheet where we added any overall relavant or interesting information.
+
+We will be following the same steps as above, except that we have to piece together the download url from our tracking sheet.
+
+```{r}
+#| label: notes-urls
+
+notes_urls <- log_urls |> 
+  # filter(region == "II") |> # filters to region for testing
+  select(slug, url, notes_gid) |> 
+  mutate(
+    pub_url = str_extract(url, "(.*pub\\?)", group = 1),
+    notes_url = paste0(pub_url, "gid=", notes_gid, "&output=csv")
+  ) |> 
+  filter(!is.na(url)) |> 
+  select(slug, notes_url) 
+
+notes_urls
+```
+
+Then we download all the files. `eval: false` is set here so files won't be re-downloaded.
+
+```{r}
+#| label: notes-download
+#| warning: false
+#| message: false
+#| eval: false
+
+# set our urls to df
+notes_df <- notes_urls
+
+
+# Download loop
+for (i in seq_len(nrow(notes_df))) {
+  url <- df$notes_url[i]
+  slug <- df$slug[i]
+  file_name <- paste0("data-raw/2023_notes/", slug, ".csv")
+  
+  if (is.na(url)) {
+    # message(paste("No URL for slug:", slug))
+    next
+  } else {
+    tryCatch({
+      download.file(url, destfile = file_name, mode = "wb")
+    }, error = function(e) {
+      message(paste("Failed to download:", url, "-", e$message, "\n"))
+    })
+  }
+}
+
+```
+
+Make a list of file paths to combine.
+
+```{r}
+notes_list <- list.files(
+  "data-raw/2023_notes",
+  pattern = ".csv",
+  full.names = TRUE
+  )
+
+notes_list
+```
+
+Now we put those files together into a single tibble.
+
+```{r}
+notes_raw <- notes_list |> 
+  set_names(basename) |>
+  map(
+  read_csv,
+  col_types = cols(.default = col_character()),
+  col_names = c("notes")
+) |> list_rbind(names_to = "unit") |>
+  clean_names()
+
+notes_raw |> glimpse()
+```
+
+We have a little cleanup here for the unit and region. We drop the x columns, which are empty.
+
+```{r}
+notes_cleaned <- notes_raw |> 
+  filter(!is.na(notes)) |> 
+  mutate(
+    region = str_extract(unit, pattern = "(.*)-", group = 1),
+    unit = str_extract(unit, pattern = ".*-(.*).csv", group = 1)
+  ) |> 
+  select(unit, region, notes)
+
+notes_cleaned |> head()
+```
+
+We'll export this as both a csv and an rds because we may just put these into a spreadsheet for review.
+
+```{r}
+notes_cleaned |> write_rds("data-processed/01-outdoor-notes.rds")
+notes_cleaned |> write_csv("data-processed/01-outdoor-notes.csv")
 ```
 

@@ -1,8 +1,80 @@
 ---
-title: "index"
+title: "TDCJ Prison Heat"
 ---
 
 This is for a group project under UT's Media Innovation Group. 
 
 It is an examination of recorded and actual temperatures in jails across the state of Texas using documents obtained through the Texas Department of Criminal Justice and National Weather Service data. More extensive sourcing information can be found on the project's cleaning files.
+
+Looking at the navigation of this site, you'll mainly want to look at the files under the Analysis heading.
+
+## Outdoor logs
+
+Lauren McGaughey of the Texas Newsroom public radio collaborative acquired through a public information request the outdoor temperature logs kept by Texas prisons. The logs are hand-written and the data could not be accurately pulled from them using AI, so a group of Media Innovation Group fellows transcribed about a week of logs for each prison, from July 24, 2023 through July 31, 2023.
+
+We wanted to explore several angles:
+
+- How well are the logs kept?
+    - Are the legible and accurate?
+    - Are they accurate?
+
+Here is what we found:
+
+### Basics and legibility
+
+- We transcribed 8 days of logs for 82 units, making up about [15,700 rows of data](02-outdoor-readability.qmd#basic-information). For some analysis we used just the last 7 days of the month.
+- If we a row of the data was corrected or there was a question about the legibility, [we included a note](02-outdoor-readability.qmd#records-with-notes) within that row. We included some consistent-worded notes so we could count them, but also had some more free-form when those categories didn't fit. These are 7-day figures. We tried to be consistent, but different humans were involved, so variability is inevitable.
+    - About 15% of the records had notes.
+    - About 1,300 records (7.5%) had corrections.
+    - About 1,000 records (6.5%) we marked with legibility issues.
+- Of those with notes, we also counted [what was at issue](02-outdoor-readability.qmd#variable-counts).    
+    - There were about 650 notes concerning the heat index/wind chill column. That column is challenging because it measures two different things. Some records would also sometimes include what we determined was a heat index category, which we recorded in a separate column.
+    - There were about 590 notes about the temperature column.
+- We wanted to see [for which units we added notes](02-outdoor-readability.qmd#notes-by-unit).
+    - More than 60% of the records for the Stevenson unit had notes, and many of those were flagged as "corrections". However, when you look at the [original document](https://drive.google.com/file/d/1s3pSZ7aU7lZHyKedz-P7DmVJIRmSUkSg/view?usp=drive_link), it appears the unit reviews the logs and clears up any legibility issues. The logs are also signed. i.e. having more corrections could be a positive thing.
+    - In some cases we recorded an overall note about the unit as opposed to notes for each individual line. [They are printed in browsable form here](02-outdoor-readability.qmd#unit-notes).
+
+
+### Reliability
+
+The first thing we wanted to do was calculate a nuanced "protocol flag" which factors into whether prisons put in protocols to mitgate exteme heat. If units have three days of 105 degree temperatures OR a heat index of 113, then they go into protocols to mitigate the heat.
+
+Since we only have 8 days of logs, [we just calculated the protocol flag](02-outdoor-reliability.qmd#protocols) and didn't do the run, but you can see them easily enough.
+
+- There were 19 units that had three or more protocol flag days.
+- Only a few of those units ever went into active protocol on those days
+    - In some cases the flag was true for 7 or 8 days, yet protocols never went active.
+
+To guage accuracy we paired each prison unit with a "nearby" weather station so we could compare the  tempartures.
+
+> I'd like to take another crack at pairing these weather stations and include the distance the weather station is from the prison unit. [I've found a few issues](02-outdoor-reliability.qmd#ta-missing-weather-stations), along with some solutions to them, but they've yet to be implemented. For now, consider these stats with caution.
+
+- On average, temperatures are recorded [-2.9 degrees lower](02-outdoor-reliability.qmd#average-temp-difference) than the closest weather station.
+- [About half](02-outdoor-reliability.qmd#percent-temp-within-range) of the temperatures are within 2 degrees, and 3/4ths are within 4 degrees.
+    - You can [peruse these ranges by unit](02-outdoor-reliability.qmd#within-range-degrees-by-unit).
+- The [heat index differences](02-outdoor-reliability.qmd#heat-index) are a little harder because of so much missing data, but we've charted them.
+
+## Indoor temperatures
+
+We do have indoor temperatures but there were a lot of changes in the other data like activations and weather so it needs to be reworked. That will have to come later.
+
+## Collaborators
+
+Working on the data analysis for indoor logs and weather station data:
+
+- Pearson Neal
+- Johan Villatoro
+- Ali Juell
+- Karina Kumar
+
+Ali Juell served as project lead and Christian McDonald mentored and edited.
+
+Those transcribing the outdoor logs included:
+
+- Emily deMotte
+- Teresa Do
+- Nicolas Pinto
+- Diego Torrealba
+
+
 
