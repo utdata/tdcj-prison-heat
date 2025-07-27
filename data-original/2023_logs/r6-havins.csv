@@ -1,0 +1,193 @@
+unit,date,rec,time,temp,humid,wind,hi_wc,hi_wc_n,person,notes
+Havins,7/24/2023,1,12:30 a.m.,84,38,,82,,Arnold/west,
+Havins,7/24/2023,2,1:30 a.m.,77,49,,78,,Arnold/west,
+Havins,7/24/2023,3,2:30 a.m.,76,50,,78,,Arnold/west,
+Havins,7/24/2023,4,3:30 a.m.,72,59,,76,,Arnold/west,
+Havins,7/24/2023,5,4:30 a.m.,70,65,,75,,Arnold/west,
+Havins,7/24/2023,6,5:30 a.m.,69,69,,73,,Arnold/west,
+Havins,7/24/2023,7,6:30 a.m.,69,68,,74,,Hernandez,wind legibility
+Havins,7/24/2023,8,7:30 a.m.,74,61,,N/A,,Hernandez,wind legibility
+Havins,7/24/2023,9,8:30 a.m.,86,46,,86,1,Hernandez,wind corrected
+Havins,7/24/2023,10,9:30 a.m.,94,42,5,98,2,Hernandez,
+Havins,7/24/2023,11,10:30 a.m.,94,43,5,100,2,Hernandez,
+Havins,7/24/2023,12,11:30 a.m.,98,33,,100,3,Hernandez,wind legibility
+Havins,7/24/2023,13,12:30 p.m.,105,23,7,106,3,Hernandez,
+Havins,7/24/2023,14,1:30 p.m.,106,21,3,106,3,Hernandez,
+Havins,7/24/2023,15,2:30 p.m.,106,20,6,105,3,Hernandez,
+Havins,7/24/2023,16,3:30 p.m.,108,18,8,107,4,Hernandez,
+Havins,7/24/2023,17,4:30 p.m.,107,18,,105,4,Hernandez,wind legibility
+Havins,7/24/2023,18,5:30 p.m.,107,17,6,107,4,Hernandez,
+Havins,7/24/2023,19,6:30 p.m.,104,18,5,101,2,Arnold,wind corrected
+Havins,7/24/2023,20,7:30 p.m.,101,19,4,98,2,Arnold,
+Havins,7/24/2023,21,8:30 p.m.,97,23,5,95,2,Arnold,
+Havins,7/24/2023,22,9:30 p.m.,93,27,6,90,2,Arnold,
+Havins,7/24/2023,23,10:30 p.m.,91,31,6,89,1,Arnold,
+Havins,7/24/2023,24,11:30 p.m.,89,33,6,87,1,Arnold,
+Havins,7/25/2023,1,12:30 a.m.,87,37,,85,,West,
+Havins,7/25/2023,2,1:30 a.m.,85,41,,84,,West,
+Havins,7/25/2023,3,2:30 a.m.,83,48,,83,,West,
+Havins,7/25/2023,4,3:30 a.m.,82,52,,82,,West,
+Havins,7/25/2023,5,4:30 a.m.,81,59,,80,,West,
+Havins,7/25/2023,6,5:30 a.m.,76,71,,77,,West,
+Havins,7/25/2023,7,6:30 a.m.,73,79,,73,,Castillo,wind legibility
+Havins,7/25/2023,8,7:30 a.m.,80,66,,85,1,Castillo,wind legibility
+Havins,7/25/2023,9,8:30 a.m.,87,58,,92,2,Castillo,wind legibility
+Havins,7/25/2023,10,9:30 a.m.,93,47,7,97,2,Castillo,hi_wc corrected
+Havins,7/25/2023,11,10:30 a.m.,94,43,6,99,2,Castillo,
+Havins,7/25/2023,12,11:30 a.m.,96,41,5,101,2,Castillo,
+Havins,7/25/2023,13,12:30 p.m.,101,32,5,105,3,Castillo,
+Havins,7/25/2023,14,1:30 p.m.,103,27,10,106,3,Castillo,
+Havins,7/25/2023,15,2:30 p.m.,102,25,4,102,2,Castillo,
+Havins,7/25/2023,16,3:30 p.m.,104,23,9,104,3,Hernandez,
+Havins,7/25/2023,17,4:30 p.m.,105,22,6,105,3,Hernandez,
+Havins,7/25/2023,18,5:30 p.m.,105,20,11,104,3,Hernandez,
+Havins,7/25/2023,19,6:30 p.m.,102,21,11,100,,Jones,
+Havins,7/25/2023,20,7:30 p.m.,100,22,5,98,,Jones,
+Havins,7/25/2023,21,8:30 p.m.,95,26,2,93,,Jones,
+Havins,7/25/2023,22,9:30 p.m.,91,31,2,89,,Jones,
+Havins,7/25/2023,23,10:30 p.m.,89,34,8,87,,Jones,
+Havins,7/25/2023,24,11:30 p.m.,88,37,5,87,,Jones,
+Havins,7/26/2023,1,12:30 a.m.,84,42,3,83,,Jones,
+Havins,7/26/2023,2,1:30 a.m.,84,42,1,83,,Jones,
+Havins,7/26/2023,3,2:30 a.m.,82,46,,82,,West,
+Havins,7/26/2023,4,3:30 a.m.,82,52,,83,,West,
+Havins,7/26/2023,5,4:30 a.m.,80,57,,81,,West,
+Havins,7/26/2023,6,5:30 a.m.,79,64,,80,,West,
+Havins,7/26/2023,7,6:30 a.m.,78,70,4,80,,Hernandez,
+Havins,7/26/2023,8,7:30 a.m.,79,70,5,81,,Hernandez,
+Havins,7/26/2023,9,8:30 a.m.,85,63,6,90,1,Hernandez,
+Havins,7/26/2023,10,9:30 a.m.,89,56,5,95,2,Hernandez,
+Havins,7/26/2023,11,10:30 a.m.,92,49,7,98,2,Hernandez,temp legibility
+Havins,7/26/2023,12,11:30 a.m.,101,46,7,102,3,Castillo,hi_wc legibility
+Havins,7/26/2023,13,12:30 p.m.,100,39,6,106,3,Castillo,
+Havins,7/26/2023,14,1:30 p.m.,103,31,,108,3,Castillo,wind legibility
+Havins,7/26/2023,15,2:30 p.m.,105,26,5,108,3,Castillo,
+Havins,7/26/2023,16,3:30 p.m.,106,24,6,108,3,Castillo,
+Havins,7/26/2023,17,4:30 p.m.,102,24,7,102,3,Castillo,
+Havins,7/26/2023,18,5:30 p.m.,105,23,5,106,3,Castillo,
+Havins,7/26/2023,19,6:30 p.m.,102,25,,102,,Arnold,"temp corrected, wind corrected"
+Havins,7/26/2023,20,7:30 p.m.,99,27,,99,,Arnold,
+Havins,7/26/2023,21,8:30 p.m.,95,28,,93,,Arnold,
+Havins,7/26/2023,22,9:30 p.m.,91,34,,90,,West,
+Havins,7/26/2023,23,10:30 p.m.,91,37,,91,,West,
+Havins,7/26/2023,24,11:30 p.m.,89,39,,88,,Arnold,humid corrected
+Havins,7/27/2023,1,12:30 a.m.,88,42,6,88,,Jones,
+Havins,7/27/2023,2,1:30 a.m.,86,44,5,86,,Jones,
+Havins,7/27/2023,3,2:30 a.m.,84,48,5,84,,Jones,
+Havins,7/27/2023,4,3:30 a.m.,82,52,4,83,,Jones,
+Havins,7/27/2023,5,4:30 a.m.,81,54,6,82,,Jones,
+Havins,7/27/2023,6,5:30 a.m.,80,56,4,81,,Jones,
+Havins,7/27/2023,7,6:30 a.m.,77,62,,78,,Welch,wind legibility
+Havins,7/27/2023,8,7:30 a.m.,78,63,3,79,,Welch,
+Havins,7/27/2023,9,8:30 a.m.,85,52,5,86,,Welch,
+Havins,7/27/2023,10,9:30 a.m.,89,43,6,90,1,Welch,
+Havins,7/27/2023,11,10:30 a.m.,93,38,6,94,,Welch,
+Havins,7/27/2023,12,11:30 a.m.,97,32,5,98,,Seaton,
+Havins,7/27/2023,13,12:30 p.m.,100,29,5,101,,Welch,
+Havins,7/27/2023,14,1:30 p.m.,104,26,6,106,,Welch,temp corrected
+Havins,7/27/2023,15,2:30 p.m.,105,25,6,104,,Welch,temp corrected
+Havins,7/27/2023,16,3:30 p.m.,103,25,5,101,,Welch,
+Havins,7/27/2023,17,4:30 p.m.,100,26,9,100,,Welch,
+Havins,7/27/2023,18,5:30 p.m.,103,24,6,103,,Welch,
+Havins,7/27/2023,19,6:30 p.m.,103,25,10,104,,O'Quin,
+Havins,7/27/2023,20,7:30 p.m.,99,26,6,98,,O'Quin,
+Havins,7/27/2023,21,8:30 p.m.,95,29,4,94,,O'Quin,
+Havins,7/27/2023,22,9:30 p.m.,92,33,7,91,,O'Quin,
+Havins,7/27/2023,23,10:30 p.m.,90,35,4,89,,O'Quin,
+Havins,7/27/2023,24,11:30 p.m.,88,37,5,87,,O'Quin,
+Havins,7/28/2023,1,12:30 a.m.,86,41,4,85,,Senkirik,
+Havins,7/28/2023,2,1:30 a.m.,84,43,5,83,,Senkirik,
+Havins,7/28/2023,3,2:30 a.m.,83,45,7,83,,Senkirik,
+Havins,7/28/2023,4,3:30 a.m.,81,49,3,81,,O'Quin,
+Havins,7/28/2023,5,4:30 a.m.,79,54,3,80,,O'Quin,
+Havins,7/28/2023,6,5:30 a.m.,78,58,,79,,O'Quin,wind legibility
+Havins,7/28/2023,7,6:30 a.m.,76,62,,77,,House,"wind legibility, person legibility"
+Havins,7/28/2023,8,7:30 a.m.,77,61,,78,,House,wind legibility
+Havins,7/28/2023,9,8:30 a.m.,85,48,2,85,,House,
+Havins,7/28/2023,10,9:30 a.m.,89,39,4,88,,House,
+Havins,7/28/2023,11,10:30 a.m.,93,35,2,93,,House,
+Havins,7/28/2023,12,11:30 a.m.,95,33,2,95,,House,
+Havins,7/28/2023,13,12:30 p.m.,98,29,5,98,,House,
+Havins,7/28/2023,14,1:30 p.m.,104,25,7,105,,Woosley,
+Havins,7/28/2023,15,2:30 p.m.,106,22,7,106,,Woosley,
+Havins,7/28/2023,16,3:30 p.m.,104,22,8,104,,Woosley,
+Havins,7/28/2023,17,4:30 p.m.,103,22,7,103,,Woosley,
+Havins,7/28/2023,18,5:30 p.m.,102,21,7,102,,Woosley,
+Havins,7/28/2023,19,6:30 p.m.,101,21,5,99,,Watson,
+Havins,7/28/2023,20,7:30 p.m.,94,24,5,95,,Watson,temp legibility
+Havins,7/28/2023,21,8:30 p.m.,94,25,5,91,,Watson,humid legibility
+Havins,7/28/2023,22,9:30 p.m.,89,28,5,86,,Watson,
+Havins,7/28/2023,23,10:30 p.m.,87,32,5,85,,Knight,
+Havins,7/28/2023,24,11:30 p.m.,85,36,5,83,,Watson,
+Havins,7/29/2023,1,12:30 a.m.,84,39,5,83,,Humphries,
+Havins,7/29/2023,2,1:30 a.m.,83,41,5,82,,Humphries,
+Havins,7/29/2023,3,2:30 a.m.,83,44,7,82,,Humphries,
+Havins,7/29/2023,4,3:30 a.m.,80,49,4,80,,Humphries,
+Havins,7/29/2023,5,4:30 a.m.,77,55,0,78,,Humphries,
+Havins,7/29/2023,6,5:30 a.m.,76,58,0,78,,Humphries,
+Havins,7/29/2023,7,6:30 a.m.,74,63,2,76,1,Shope,
+Havins,7/29/2023,8,7:30 a.m.,74,66,0,76,1,Shope,
+Havins,7/29/2023,9,8:30 a.m.,85,53,4,87,1,Shope,
+Havins,7/29/2023,10,9:30 a.m.,90,47,2,92,1,Shope,
+Havins,7/29/2023,11,10:30 a.m.,93,41,6,95,2,Shope,
+Havins,7/29/2023,12,11:30 a.m.,97,36,2,99,2,Shope,
+Havins,7/29/2023,13,12:30 p.m.,101,30,4,104,2,Shope,
+Havins,7/29/2023,14,1:30 p.m.,103,28,1,105,3,Shope,
+Havins,7/29/2023,15,2:30 p.m.,105,24,2,106,3,Shope,
+Havins,7/29/2023,16,3:30 p.m.,105,24,5,106,3,Shope,
+Havins,7/29/2023,17,4:30 p.m.,99,26,4,98,3,Shope,
+Havins,7/29/2023,18,5:30 p.m.,104,22,5,104,3,Shope,
+Havins,7/29/2023,19,6:30 p.m.,103,24,4,103,3,Humphries,
+Havins,7/29/2023,20,7:30 p.m.,99,24,5,97,,Humphries,
+Havins,7/29/2023,21,8:30 p.m.,95,27,5,93,,Humphries,
+Havins,7/29/2023,22,9:30 p.m.,89,34,3,87,,Humphries,
+Havins,7/29/2023,23,10:30 p.m.,87,37,2,84,,Humphries,
+Havins,7/29/2023,24,11:30 p.m.,86,38,5,85,,Humphries,
+Havins,7/30/2023,1,12:30 a.m.,85,38,2,83,,Watson,
+Havins,7/30/2023,2,1:30 a.m.,81,42,,80,,Watson,wind legibility
+Havins,7/30/2023,3,2:30 a.m.,75,52,,N/A,,Watson,wind legibility
+Havins,7/30/2023,4,3:30 a.m.,72,58,,N/A,,Watson,wind legibility
+Havins,7/30/2023,5,4:30 a.m.,71,58,,N/A,,Watson,wind legibility
+Havins,7/30/2023,6,5:30 a.m.,71,57,,N/A,,Watson,wind legibility
+Havins,7/30/2023,7,6:30 a.m.,71,61,,N/A,,House,wind legibility
+Havins,7/30/2023,8,7:30 a.m.,77,57,,N/A,,House,wind legibility
+Havins,7/30/2023,9,8:30 a.m.,87,46,2,88,1,House,
+Havins,7/30/2023,10,9:30 a.m.,94,39,2,96,,House,
+Havins,7/30/2023,11,10:30 a.m.,94,41,7,97,,House,
+Havins,7/30/2023,12,11:30 a.m.,98,33,4,100,,House,
+Havins,7/30/2023,13,12:30 p.m.,102,29,7,104,2,Shope,
+Havins,7/30/2023,14,1:30 p.m.,103,26,8,104,3,Shope,
+Havins,7/30/2023,15,2:30 p.m.,104,24,2,105,3,Shope,
+Havins,7/30/2023,16,3:30 p.m.,105,21,,104,3,Shope,wind legibility
+Havins,7/30/2023,17,4:30 p.m.,106,21,6,107,3,Shope,
+Havins,7/30/2023,18,5:30 p.m.,105,22,,105,3,Shope,wind legibility
+Havins,7/30/2023,19,6:30 p.m.,103,23,7,103,3,Watson,
+Havins,7/30/2023,20,7:30 p.m.,100,25,7,99,,Watson,
+Havins,7/30/2023,21,8:30 p.m.,95,31,2,94,,Watson,
+Havins,7/30/2023,22,9:30 p.m.,92,34,5,91,,Watson,
+Havins,7/30/2023,23,10:30 p.m.,89,37,6,88,,Watson,
+Havins,7/30/2023,24,11:30 p.m.,88,39,6,87,,Watson,
+Havins,7/31/2023,1,12:30 a.m.,87,42,6,87,,Senkirik,
+Havins,7/31/2023,2,1:30 a.m.,86,43,4,86,,Senkirik,
+Havins,7/31/2023,3,2:30 a.m.,84,45,2,84,,Senkirik,
+Havins,7/31/2023,4,3:30 a.m.,78,51,0,N/A,,Senkirik,
+Havins,7/31/2023,5,4:30 a.m.,79,54,2,N/A,,Senkirik,
+Havins,7/31/2023,6,5:30 a.m.,80,52,2,80,,Senkirik,
+Havins,7/31/2023,7,6:30 a.m.,78,55,3,79,,Reynolds,wind legibility
+Havins,7/31/2023,8,7:30 a.m.,80,55,,81,,Reynolds,wind legibility
+Havins,7/31/2023,9,8:30 a.m.,91,47,,93,,Reynolds,"temp corrected, wind legibility, hi_wc corrected"
+Havins,7/31/2023,10,9:30 a.m.,93,44,6,97,,Reynolds,
+Havins,7/31/2023,11,10:30 a.m.,95,42,5,100,,Reynolds,
+Havins,7/31/2023,12,11:30 a.m.,100,33,7,104,2,Reynolds,
+Havins,7/31/2023,13,12:30 p.m.,103,27,9,104,2,Thompson,
+Havins,7/31/2023,14,1:30 p.m.,103,28,8,106,3,Chrane,wind legibility
+Havins,7/31/2023,15,2:30 p.m.,105,25,6,107,3,Chrane,humid legibility
+Havins,7/31/2023,16,3:30 p.m.,106,24,6,108,3,Chrane,
+Havins,7/31/2023,17,4:30 p.m.,106,24,5,108,3,Chrane,
+Havins,7/31/2023,18,5:30 p.m.,103,25,7,104,3,Chrane,
+Havins,7/31/2023,19,6:30 p.m.,102,25,,102,,West,
+Havins,7/31/2023,20,7:30 p.m.,101,26,11,101,,West,
+Havins,7/31/2023,21,8:30 p.m.,97,29,,96,,West,
+Havins,7/31/2023,22,9:30 p.m.,94,31,,93,,West,
+Havins,7/31/2023,23,10:30 p.m.,92,35,,91,,West,
+Havins,7/31/2023,24,11:30 p.m.,90,38,,90,,West,

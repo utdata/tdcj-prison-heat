@@ -1,0 +1,98 @@
+
+
+# Counting days
+
+I use R with tidyverse. In the attached data, I would like to group by the unit and add a column that counts how many days in a row there is a TRUE value in the u_tmp_flag. How might I do that?
+
+
+```{r}
+library(tidyverse)
+
+logs <- read_csv("logs_flags_sample.csv")
+
+logs <- logs %>%
+  mutate(date = as.Date(date)) %>%
+  arrange(unit, date) %>%
+  group_by(unit) %>%
+  mutate(
+    consec_true_tmp_flag = {
+      count <- 0L
+      map_int(u_tmp_flag, ~ {
+        if (.x) {
+          count <<- count + 1L
+        } else {
+          count <<- 0L
+        }
+        count
+      })
+    }
+  ) %>%
+  ungroup()
+
+
+```
+
+I then asked it to explain what is happening inside mutate
+
+
+
+
+Step-by-step explanation:
+
+1. mutate(...)
+We're creating a new column called consec_true_tmp_flag.
+
+2. { count <- 0L ... }
+We define a local variable count inside the curly braces. This count starts at 0 and will track how many TRUE values in a row we’ve seen within each group.
+
+0L means it’s stored as an integer (not strictly necessary, but efficient).
+
+3. map_int(u_tmp_flag, ~ { ... })
+We loop over each value in u_tmp_flag using the purrr function map_int():
+
+u_tmp_flag is a logical vector like: TRUE, TRUE, FALSE, TRUE, ...
+
+~ { ... } is a shorthand for an anonymous function — the .x inside refers to each element of u_tmp_flag.
+
+4. Inside the function:
+
+if (.x) {
+  count <<- count + 1L
+} else {
+  count <<- 0L
+}
+
+If the current value .x is TRUE, we increment count by 1.
+
+If it’s FALSE, we reset count to 0.
+
+The special operator <<- updates the external count variable from inside the function — that’s how the count carries over across rows.
+
+5. count is returned each time
+The map_int() function collects the count at each step and returns an integer vector of the same length.
+
+6. The result is stored in consec_true_tmp_flag
+This new column tells you how many consecutive TRUE values have occurred up to and including each row.
+
+## Making a function
+
+I later made this into a function because I found I need to count streaks multiple times. To do this I had to pass in the new column name and the variable we were counting. I again used ChatGPT to help build this.
+
+It first helped me use the passed in var in the function with `{{ var }}`.
+
+Then, to pass in the new variable name it suggested including the rlang library.
+
+Here is the example code:
+
+```r
+library(dplyr)
+library(rlang)
+
+# Function definition
+count_true_named <- function(data, var, new_var_name) {
+  data %>%
+    summarise(!!new_var_name := sum({{ var }}, na.rm = TRUE))
+}
+
+```
+

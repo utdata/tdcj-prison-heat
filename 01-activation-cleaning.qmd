@@ -3,13 +3,27 @@ title: "Activations cleaning"
 author: "Media Innovation Group"
 ---
 
+::: callout-warning
+
+## Things to check
+
+I need to check some things with Lauren:
+
+- Where is the original file from TDCJ with the activations data?
+- Confirm what these dates are for.
+
+:::
+
+
 ## Overview
 
 These are the days that a unit was under ICS protocols like providing extra ice water and access to cooler areas during extreme heat events. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice. 
 
 ## Possible update
 
-This pulls from a CSV of unknown provenance. We do have the original Excel spreadsheet now but have not yet updated the list to use this. FWIW, at a glance they look the same. 
+**We don't have a complete record of where the activations CSV comes from.** Pretty sure this came from Lauren.
+
+In our tracking Google sheet we do have the same data, except there are errors on the last line.
 
 ## Set up
 
@@ -24,26 +38,24 @@ library(janitor)
 library(data.table)
 ```
 
-## Download activation log directly
+## Comparison activation log
 
-This copy was downloaded from our [MIG = TDCJ Basic Information](https://docs.google.com/spreadsheets/d/1vv81AaFwSzLl8lEDYHxI3ANkV2Gf08bh-i_LVDkseH8/edit?usp=sharing) on the "Activation" tab.
-
-It is missing a 9/5/2023 record that is in `unit-activation-log.csv`. WE AREN'T USING THIS. It's just to check.
+We'll check about the original CSV with Lauren, but in the meantime we'll compare that with the Activation records we also have in our tracking sheet. This copy was downloaded from our [MIG = TDCJ Basic Information](https://docs.google.com/spreadsheets/d/1vv81AaFwSzLl8lEDYHxI3ANkV2Gf08bh-i_LVDkseH8/edit?gid=1968960884#gid=1968960884) on the "Activation" tab. The Google Sheet has errors on the last record for 9/5/2023, but that record is in full in our csv log.
 
 ```{r}
 #| label: download-activation-direct
 #| eval: false
 
-download.file(
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRebFs9O2i0HoygXTtIvuzdVTmyrjX3MeUorU9d4fpYkGX7Bb026OradFQ1MMk2ltcGnyILih6ow4F4/pub?gid=1968960884&single=true&output=csv",
-  "data-raw/unit-activation-direct.csv"
-      )
+# download.file(
+#   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRebFs9O2i0HoygXTtIvuzdVTmyrjX3MeUorU9d4fpYkGX7Bb026OradFQ1MMk2ltcGnyILih6ow4F4/pub?gid=1968960884&single=true&output=csv",
+#   "data-original/unit-activation-direct.csv"
+#       )
 ```
+
 Import direct log
 
 ```{r}
-
-raw_activation_direct <- read_csv("data-raw/unit-activation-direct.csv") |> 
+raw_activation_direct <- read_csv("data-original/unit-activation-direct.csv") |> 
   clean_names()
 
 raw_activation_direct
@@ -56,7 +68,7 @@ This original files lacks on activation that is in our already-downloaded `unit-
 Let's add our activation log file in. (This file was downloaded directly into the repo, but we lost track of the original file. It has an additional record or other copies don't have.)
 
 ```{r}
-raw_activation_log <- read_csv("data-raw/unit-activation-log.csv", skip = 1) |> 
+raw_activation_log <- read_csv("data-original/unit-activation-log.csv", skip = 1) |> 
   clean_names()
 
 raw_activation_log

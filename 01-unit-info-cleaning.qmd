@@ -27,9 +27,9 @@ library(janitor)
 #| label: download-unit
 #| eval: false
 
-download.file(
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRebFs9O2i0HoygXTtIvuzdVTmyrjX3MeUorU9d4fpYkGX7Bb026OradFQ1MMk2ltcGnyILih6ow4F4/pub?gid=1653039441&single=true&output=csv",
-  "data-raw/unit-nws-info.csv")
+# download.file(
+#   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRebFs9O2i0HoygXTtIvuzdVTmyrjX3MeUorU9d4fpYkGX7Bb026OradFQ1MMk2ltcGnyILih6ow4F4/pub?gid=1653039441&single=true&output=csv",
+#   "data-original/unit-nws-info.csv")
 ```
 
 ## Importing unit info
@@ -39,7 +39,7 @@ Let's bring in our unit info sheet. This was compiled by us to be used in this p
 ```{r}
 #| label: import-unit-file
 
-nws_unit_raw <- read_csv("data-raw/unit-nws-info.csv") |> clean_names()
+nws_unit_raw <- read_csv("data-original/unit-nws-info.csv") |> clean_names()
 
 nws_unit_raw |> head()
 ```
