@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Media Innovation Group">
+
+<title>Outdoor log readability – Prison Heat Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-db28514442a269a5326d2653acc58a27.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-outdoor-protocols.html">Analysis</a></li><li class="breadcrumb-item"><a href="./02-outdoor-readability.html">Outdoor log readability</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Prison Heat Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cleaning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-activation-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Activations cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-indoor-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indoor logs cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-outdoor-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outdoor logs cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-station-protocols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stations cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-unit-info-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit info cleaning</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-outdoor-protocols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Precautionary measures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-outdoor-readability.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Outdoor log readability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-outdoor-reliability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outdoor log reliability</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#questions-to-answer" id="toc-questions-to-answer" class="nav-link active" data-scroll-target="#questions-to-answer">Questions to answer</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
+  <li><a href="#basic-information" id="toc-basic-information" class="nav-link" data-scroll-target="#basic-information">Basic information</a>
+  <ul class="collapse">
+  <li><a href="#count-units" id="toc-count-units" class="nav-link" data-scroll-target="#count-units">Count units</a></li>
+  <li><a href="#clip-log-data" id="toc-clip-log-data" class="nav-link" data-scroll-target="#clip-log-data">Clip log data</a></li>
+  <li><a href="#ta-basics" id="toc-ta-basics" class="nav-link" data-scroll-target="#ta-basics">TA: Basics</a></li>
+  </ul></li>
+  <li><a href="#readability-answers" id="toc-readability-answers" class="nav-link" data-scroll-target="#readability-answers">Readability answers</a>
+  <ul class="collapse">
+  <li><a href="#records-with-notes" id="toc-records-with-notes" class="nav-link" data-scroll-target="#records-with-notes">Records with notes</a></li>
+  <li><a href="#ta-notes-statistics" id="toc-ta-notes-statistics" class="nav-link" data-scroll-target="#ta-notes-statistics">TA: Notes statistics</a></li>
+  <li><a href="#types-of-notes" id="toc-types-of-notes" class="nav-link" data-scroll-target="#types-of-notes">Types of notes</a></li>
+  <li><a href="#ta-types-statistics" id="toc-ta-types-statistics" class="nav-link" data-scroll-target="#ta-types-statistics">TA: Types statistics</a></li>
+  <li><a href="#variable-counts" id="toc-variable-counts" class="nav-link" data-scroll-target="#variable-counts">Variable counts</a></li>
+  <li><a href="#ta-variable-statistics" id="toc-ta-variable-statistics" class="nav-link" data-scroll-target="#ta-variable-statistics">TA: Variable statistics</a></li>
+  <li><a href="#notes-by-unit" id="toc-notes-by-unit" class="nav-link" data-scroll-target="#notes-by-unit">Notes by unit</a></li>
+  <li><a href="#ta-notes-by-unit" id="toc-ta-notes-by-unit" class="nav-link" data-scroll-target="#ta-notes-by-unit">TA: Notes by unit</a></li>
+  </ul></li>
+  <li><a href="#unit-notes" id="toc-unit-notes" class="nav-link" data-scroll-target="#unit-notes">Unit notes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-outdoor-protocols.html">Analysis</a></li><li class="breadcrumb-item"><a href="./02-outdoor-readability.html">Outdoor log readability</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Outdoor log readability</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Media Innovation Group </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We hand-coded eight days of temperatures logs (7/24/2023 to 7/31/2023) for 82 Texas prisons. Here we take those logs and try to answer the following questions.</p>
+<section id="questions-to-answer" class="level2">
+<h2 class="anchored" data-anchor-id="questions-to-answer">Questions to answer</h2>
+<ul>
+<li>In the logs, how many cases did we find where the records were hard to read or had problems?</li>
+<li>What were those problems, generally?</li>
+<li>Do certain units have more legibility problems?</li>
+</ul>
+<blockquote class="blockquote">
+<p>Something we’ve yet to look at: there are cases where the log does not have a heat index <code>hi_wc1</code> recorded, but there is a temperature and humidity. We could calculate that heat index when we have the data (and then compare to what the prison log has when it is present.)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Also, we perhaps need to go back to cleaning to see when units recorded <code>hi_wc</code> as categories, which would</p>
+</blockquote>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="import" class="level2">
+<h2 class="anchored" data-anchor-id="import">Import</h2>
+<p>We’re bringing in:</p>
+<ul>
+<li>Our coded and cleaned outdoor log data</li>
+<li>Activation records</li>
+<li>Hourly weather readings</li>
+<li>Prison unit information</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>logs_all <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/01-outdoor-cleaned.rds"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>activations <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/01-activation-cleaned.rds"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hourly <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/01-station-hourly-protocols.rds"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>units <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/01-unit-info-cleaned.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="basic-information" class="level2">
+<h2 class="anchored" data-anchor-id="basic-information">Basic information</h2>
+<p>Peek at a sample</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>logs_all <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["region"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["rec"],"name":[4],"type":["chr"],"align":["left"]},{"label":["datetime"],"name":[5],"type":["dttm"],"align":["right"]},{"label":["hour"],"name":[6],"type":["int"],"align":["right"]},{"label":["temp"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["humid"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["wind"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["hi_wc"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["hi_wc_n"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["person"],"name":[12],"type":["chr"],"align":["left"]},{"label":["notes"],"name":[13],"type":["chr"],"align":["left"]}],"data":[{"1":"Hutchins","2":"II","3":"2023-07-30","4":"19","5":"2023-07-30 18:30:00","6":"18","7":"102","8":"26","9":"NA","10":"77","11":"NA","12":"Caldwell","13":"hi_wc legibility"},{"1":"Hutchins","2":"II","3":"2023-07-29","4":"23","5":"2023-07-29 22:30:00","6":"22","7":"94","8":"35","9":"NA","10":"95","11":"NA","12":"Olugbenro","13":"NA"},{"1":"Hughes","2":"VI","3":"2023-07-26","4":"16","5":"2023-07-26 15:30:00","6":"15","7":"99","8":"29","9":"7","10":"101","11":"2","12":"Wheeler","13":"NA"},{"1":"Allred","2":"V","3":"2023-07-24","4":"20","5":"2023-07-24 19:30:00","6":"19","7":"100","8":"20","9":"NA","10":"100","11":"NA","12":"Wherry","13":"NA"},{"1":"Goodman","2":"I","3":"2023-07-26","4":"17","5":"2023-07-26 16:30:00","6":"16","7":"98","8":"NA","9":"8","10":"100","11":"NA","12":"R Samuel","13":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>and glimpse the columns …</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>logs_all <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 15,744
+Columns: 13
+$ unit     &lt;chr&gt; "Byrd", "Byrd", "Byrd", "Byrd", "Byrd", "Byrd", "Byrd", "Byrd…
+$ region   &lt;chr&gt; "I", "I", "I", "I", "I", "I", "I", "I", "I", "I", "I", "I", "…
+$ date     &lt;date&gt; 2023-07-24, 2023-07-24, 2023-07-24, 2023-07-24, 2023-07-24, …
+$ rec      &lt;chr&gt; "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"…
+$ datetime &lt;dttm&gt; 2023-07-24 00:30:00, 2023-07-24 01:30:00, 2023-07-24 02:30:0…
+$ hour     &lt;int&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,…
+$ temp     &lt;dbl&gt; 83, 82, 81, 81, 80, 79, 79, 80, 83, 86, 90, 91, 92, 96, 100, …
+$ humid    &lt;dbl&gt; 54, 62, 67, 71, 74, 76, NA, 79, 72, 69, 61, 57, 53, 44, 36, 3…
+$ wind     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ hi_wc    &lt;dbl&gt; 65, 68, 69, 71, 71, 71, NA, 84, 86, 95, 100, 100, 100, 103, 1…
+$ hi_wc_n  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ person   &lt;chr&gt; "E. Johnson", "E. Johnson", "E. Johnson", "E. Johnson", "E. J…
+$ notes    &lt;chr&gt; NA, NA, NA, NA, "hi_wc corrected", "humid corrected", NA, NA,…</code></pre>
+</div>
+</div>
+<p>Date range of the data</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>logs_all<span class="sc">$</span>date <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
+"2023-07-24" "2023-07-25" "2023-07-27" "2023-07-27" "2023-07-29" "2023-07-31" </code></pre>
+</div>
+</div>
+<section id="count-units" class="level3">
+<h3 class="anchored" data-anchor-id="count-units">Count units</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>logs_all <span class="sc">|&gt;</span> <span class="fu">count</span>(unit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Allred","2":"192"},{"1":"Beto","2":"192"},{"1":"Boyd","2":"192"},{"1":"Briscoe","2":"192"},{"1":"Byrd","2":"192"},{"1":"Clemens","2":"192"},{"1":"Cole","2":"192"},{"1":"Connally","2":"192"},{"1":"Cotulla","2":"192"},{"1":"Crain","2":"192"},{"1":"Dalhart","2":"192"},{"1":"Daniel","2":"192"},{"1":"Dominguez","2":"192"},{"1":"Duncan","2":"192"},{"1":"Ellis","2":"192"},{"1":"Estelle","2":"192"},{"1":"Ferguson","2":"192"},{"1":"Formby","2":"192"},{"1":"Fort Stockton","2":"192"},{"1":"Garza West","2":"192"},{"1":"Gist","2":"192"},{"1":"Glossbrenner","2":"192"},{"1":"Goodman","2":"192"},{"1":"Goree","2":"192"},{"1":"Halbert","2":"192"},{"1":"Hamilton","2":"192"},{"1":"Havins","2":"192"},{"1":"Henley","2":"192"},{"1":"Hightower","2":"192"},{"1":"Hilltop","2":"192"},{"1":"Hobby","2":"192"},{"1":"Hodge","2":"192"},{"1":"Holliday","2":"192"},{"1":"Hospital Galveston","2":"192"},{"1":"Hughes","2":"192"},{"1":"Huntsville","2":"192"},{"1":"Hutchins","2":"192"},{"1":"Jester III","2":"192"},{"1":"Johnston","2":"192"},{"1":"Jordan","2":"192"},{"1":"Kegans","2":"192"},{"1":"LeBlanc","2":"192"},{"1":"Lewis","2":"192"},{"1":"Lopez","2":"192"},{"1":"Luther","2":"192"},{"1":"Lychner","2":"192"},{"1":"Lynaugh","2":"192"},{"1":"Marlin","2":"192"},{"1":"McConnell","2":"192"},{"1":"Mechler","2":"192"},{"1":"Memorial","2":"192"},{"1":"Michael","2":"192"},{"1":"Middleton","2":"192"},{"1":"Montford","2":"192"},{"1":"Moore, C.","2":"192"},{"1":"Murray","2":"192"},{"1":"Pack","2":"192"},{"1":"Plane","2":"192"},{"1":"Polunsky","2":"192"},{"1":"Powledge","2":"192"},{"1":"Ramsey","2":"192"},{"1":"Roach","2":"192"},{"1":"Robertson","2":"192"},{"1":"San Saba","2":"192"},{"1":"Sanchez","2":"192"},{"1":"Sayle","2":"192"},{"1":"Scott","2":"192"},{"1":"Smith","2":"192"},{"1":"Stevenson","2":"192"},{"1":"Stiles","2":"192"},{"1":"Stringfellow","2":"192"},{"1":"Telford","2":"192"},{"1":"Terrell","2":"192"},{"1":"Torres","2":"192"},{"1":"Travis County","2":"192"},{"1":"Vance","2":"192"},{"1":"Wainwright","2":"192"},{"1":"Wallace","2":"192"},{"1":"Wheeler","2":"192"},{"1":"Woodman","2":"192"},{"1":"Wynne","2":"192"},{"1":"Young","2":"192"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="clip-log-data" class="level3">
+<h3 class="anchored" data-anchor-id="clip-log-data">Clip log data</h3>
+<p>We’ll remove July 24th so we have the last seven days of July, 2023.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>logs <span class="ot">&lt;-</span> logs_all <span class="sc">|&gt;</span> <span class="fu">filter</span>(date <span class="sc">!=</span> <span class="st">"2023-07-24"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>logs <span class="sc">|&gt;</span> <span class="fu">count</span>(date) <span class="sc">|&gt;</span> <span class="fu">adorn_totals</span>() <span class="sc">|&gt;</span> <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2023-07-25","2":"1968"},{"1":"2023-07-26","2":"1968"},{"1":"2023-07-27","2":"1968"},{"1":"2023-07-28","2":"1968"},{"1":"2023-07-29","2":"1968"},{"1":"2023-07-30","2":"1968"},{"1":"2023-07-31","2":"1968"},{"1":"Total","2":"13776"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="ta-basics" class="level3">
+<h3 class="anchored" data-anchor-id="ta-basics">TA: Basics</h3>
+<p>We transcribed outdoor temperature logs from 82 different units within the Texas prison system. Each log had 192 entries (24 hours for 8 days). We’ve clipped these records to be the last 7 days of July 2023, for a total of 13,776 records.</p>
+</section>
+</section>
+<section id="readability-answers" class="level2">
+<h2 class="anchored" data-anchor-id="readability-answers">Readability answers</h2>
+<p>When we transcribed the outdoor temperature logs, we added notes when something was illegible or corrected on the form. Here we analyze those notes.</p>
+<section id="records-with-notes" class="level3">
+<h3 class="anchored" data-anchor-id="records-with-notes">Records with notes</h3>
+<p>Here we set flags if a record (an hour within a log) had a note, along with some categories. The result here is just a record sample to check our work.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="ot">&lt;-</span> logs <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes_a =</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(notes), F, T),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes_c =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(notes, <span class="st">"correct"</span>) <span class="sc">~</span> T, <span class="at">.default =</span> F),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes_l =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(notes, <span class="st">"legi"</span>) <span class="sc">~</span> T, <span class="at">.default =</span> F),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(unit, date, <span class="fu">starts_with</span>(<span class="st">"notes"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["notes"],"name":[3],"type":["chr"],"align":["left"]},{"label":["notes_a"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["notes_c"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["notes_l"],"name":[6],"type":["lgl"],"align":["right"]}],"data":[{"1":"Sanchez","2":"2023-07-30","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Hilltop","2":"2023-07-27","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Glossbrenner","2":"2023-07-26","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Plane","2":"2023-07-28","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Allred","2":"2023-07-31","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Lynaugh","2":"2023-07-27","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Cole","2":"2023-07-31","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Robertson","2":"2023-07-29","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Hospital Galveston","2":"2023-07-30","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Garza West","2":"2023-07-30","3":"person corrected","4":"TRUE","5":"TRUE","6":"FALSE"},{"1":"Hightower","2":"2023-07-26","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Crain","2":"2023-07-31","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Lynaugh","2":"2023-07-25","3":"person corrected","4":"TRUE","5":"TRUE","6":"FALSE"},{"1":"Lynaugh","2":"2023-07-31","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Cole","2":"2023-07-30","3":"temp corrected","4":"TRUE","5":"TRUE","6":"FALSE"},{"1":"Moore, C.","2":"2023-07-28","3":"temp corrected","4":"TRUE","5":"TRUE","6":"FALSE"},{"1":"Hughes","2":"2023-07-31","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Cole","2":"2023-07-25","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Kegans","2":"2023-07-29","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"},{"1":"Smith","2":"2023-07-27","3":"NA","4":"FALSE","5":"FALSE","6":"FALSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>This is the total percentage of records where we included some kind of note. <code>TRUE</code> means we included a note.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(notes_a) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["notes_a"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"11686","3":"84.8%"},{"1":"TRUE","2":"2090","3":"15.2%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>When we recorded notes, we had some standardization. We included the term “corrected” if a record was scratched out and replaced with a new value or otherwise amended.</p>
+<p>This is the percentage of records where something was corrected, per our notes.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(notes_c) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["notes_c"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"12763","3":"92.6%"},{"1":"TRUE","2":"1013","3":"7.4%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>If there was a legibility problem, we included the term “legibility”. This is the percentage of records where we noted some kind of legibility problem.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(notes_l) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["notes_l"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"12860","3":"93.4%"},{"1":"TRUE","2":"916","3":"6.6%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="ta-notes-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="ta-notes-statistics">TA: Notes statistics</h3>
+<p>We have some kind of note in about 15% of all records. About 7.5% of records had a correction of some kind, and about 6.5% had legibility issues. (Some records might have both.). We should remember that data fellows had to use personal judgement on what to record and how, and that four different individuals performed the transcriptions. We tried our best to be consistent, but we are humans.</p>
+</section>
+<section id="types-of-notes" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-notes">Types of notes</h3>
+<p>Some records have more than one note. Here we “explode” those to count the notes individually. In some cases we had some standard notes, in other cases we didn’t.</p>
+<p>The result here is just a sample to check our work.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>notes_exploded <span class="ot">&lt;-</span> logs <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(unit, date, notes) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(notes)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(unit, date) <span class="sc">|&gt;</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_longer_delim</span>(notes, <span class="at">delim =</span> <span class="st">", "</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># number of rows in new tibble</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>notes_exploded <span class="sc">|&gt;</span> <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2652</code></pre>
+</div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sample rows</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>notes_exploded <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["notes"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Duncan","2":"2023-07-27","3":"humid legibility"},{"1":"Hightower","2":"2023-07-28","3":"hi_wc used for wind instead"},{"1":"Connally","2":"2023-07-31","3":"person corrected"},{"1":"Marlin","2":"2023-07-31","3":"humid legibility"},{"1":"Hospital Galveston","2":"2023-07-28","3":"humid corrected"},{"1":"Wallace","2":"2023-07-25","3":"person legibility"},{"1":"Glossbrenner","2":"2023-07-29","3":"person legibility"},{"1":"Telford","2":"2023-07-27","3":"wind legibility"},{"1":"Woodman","2":"2023-07-31","3":"hi_wc_corrected"},{"1":"Hughes","2":"2023-07-30","3":"humid legibility"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Let’s look at the kinds of notes we recorded.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>notes_exploded_cnts <span class="ot">&lt;-</span> notes_exploded <span class="sc">|&gt;</span> <span class="fu">count</span>(notes, <span class="at">sort =</span> T)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>notes_exploded_cnts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["notes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"temp corrected","2":"360"},{"1":"hi_wc corrected","2":"318"},{"1":"person corrected","2":"284"},{"1":"humid corrected","2":"265"},{"1":"person legibility","2":"247"},{"1":"wind legibility","2":"232"},{"1":"humid legibility","2":"209"},{"1":"hi_wc legibility","2":"122"},{"1":"temp legibility","2":"119"},{"1":"hi_wc_n legibility","2":"66"},{"1":"hi_wc_n corrected","2":"41"},{"1":"wind corrected","2":"39"},{"1":"hi_wc dash","2":"27"},{"1":"hi_wc_n recorded in temp column","2":"19"},{"1":"hi_wc used for wind instead","2":"18"},{"1":"double temp reported with 52","2":"17"},{"1":"temp reported with \"clear\"","2":"17"},{"1":"double temp reported with 54","2":"12"},{"1":"double temp reported with 48","2":"9"},{"1":"check marks by time","2":"8"},{"1":"humid supposed to be hi_wc?","2":"8"},{"1":"wind speed recorded in hi_wc_n","2":"8"},{"1":"double temp reported with 55","2":"7"},{"1":"double temp reported with 50","2":"6"},{"1":"double wind reported with 16","2":"6"},{"1":"hi_wc reported with \"HI\"","2":"6"},{"1":"temp reported with \"sunny\"","2":"6"},{"1":"wind \"calm\"","2":"6"},{"1":"double wind reported with 15","2":"5"},{"1":"wind calm","2":"5"},{"1":"wind expressed as range","2":"5"},{"1":"double temp reported with 57","2":"4"},{"1":"double wind reported with 13","2":"4"},{"1":"extra text in humid and wind: G-21","2":"4"},{"1":"humid legiblity","2":"4"},{"1":"text in humid and wing: G23","2":"4"},{"1":"took higher","2":"4"},{"1":"wind blank","2":"4"},{"1":"\"HI\" marker added in hi_wc","2":"3"},{"1":"double temp reported with 59 (legibility)","2":"3"},{"1":"double temp reported with 61","2":"3"},{"1":"double wind reported with 14","2":"3"},{"1":"wind recorded as fraction","2":"3"},{"1":"wind recorded as fraction?","2":"3"},{"1":"double temp reported with 54 (corrected)","2":"2"},{"1":"double wind reported with 20","2":"2"},{"1":"double wind reported with 21","2":"2"},{"1":"extra text in humid and wind: G-25","2":"2"},{"1":"extra text in humid and wind: G-28","2":"2"},{"1":"forgetting a t?","2":"2"},{"1":"hi_wc line","2":"2"},{"1":"hi_wc_corrected","2":"2"},{"1":"humid blank","2":"2"},{"1":"person signature changed","2":"2"},{"1":"row faint","2":"2"},{"1":"same as Oladejo","2":"2"},{"1":"same person as Clear","2":"2"},{"1":"text in humid and wing: G21","2":"2"},{"1":"text in humid and wing: G28","2":"2"},{"1":"wind reported with \"variable\"","2":"2"},{"1":"D","2":"1"},{"1":"both corrected from N/A with something else written but illegible","2":"1"},{"1":"couldn't read the name at all so left blank","2":"1"},{"1":"date corrected","2":"1"},{"1":"double temp reported with 46","2":"1"},{"1":"double temp reported with 53 (legibility)","2":"1"},{"1":"double wind reported 16","2":"1"},{"1":"double wind reported with 12","2":"1"},{"1":"double wind reported with 17","2":"1"},{"1":"double wind reported with 18","2":"1"},{"1":"double wind reported with 6","2":"1"},{"1":"extra text in hi_wc: G-23","2":"1"},{"1":"extra text in humid and wind: G-22","2":"1"},{"1":"extra text in humid and wind: G-23","2":"1"},{"1":"extra text in humid and wind: G-26","2":"1"},{"1":"hi_wc blank","2":"1"},{"1":"hi_wc correced","2":"1"},{"1":"hi_wc corrected (originally N/A)","2":"1"},{"1":"hi_wc corrected; replaced 78 with N/A","2":"1"},{"1":"hi_wc legib ility","2":"1"},{"1":"hi_wc orrected","2":"1"},{"1":"hi_wc reported with HI","2":"1"},{"1":"hi_wc single digit?","2":"1"},{"1":"hi_wc/hi_wc_n corrected","2":"1"},{"1":"hi_wc_n says \"calm\"","2":"1"},{"1":"hi_wi legibility","2":"1"},{"1":"humid","2":"1"},{"1":"humid correction","2":"1"},{"1":"humid has more writing in it? OT","2":"1"},{"1":"humid used for wind","2":"1"},{"1":"humin legibility","2":"1"},{"1":"name legibility","2":"1"},{"1":"not sure what 0 is supposed to mean here (both also have cat. but no number after)","2":"1"},{"1":"person blank","2":"1"},{"1":"person could be same as Herrera","2":"1"},{"1":"person handwriting","2":"1"},{"1":"person initial?","2":"1"},{"1":"person legibiltiy","2":"1"},{"1":"person legibllity","2":"1"},{"1":"person not recorded (same handwriting as Guiterrez","2":"1"},{"1":"person shortened to Ba here","2":"1"},{"1":"person signed without last initial","2":"1"},{"1":"person started signing differently","2":"1"},{"1":"pretty sure this is Marshall with the name cutoff?","2":"1"},{"1":"pretty sure this is Turner","2":"1"},{"1":"previous signature as Free (even if this one looks like Frec)","2":"1"},{"1":"replaced 78 with N/A","2":"1"},{"1":"replaced 80 with N/A","2":"1"},{"1":"same as Ramiy","2":"1"},{"1":"temp reported with \"fair\"","2":"1"},{"1":"temp suspicious","2":"1"},{"1":"temp/humid corrected","2":"1"},{"1":"text in humid and wing: G18","2":"1"},{"1":"text in humid and wing: G20","2":"1"},{"1":"text in humid and wing: G25","2":"1"},{"1":"text margin","2":"1"},{"1":"whole row left blank","2":"1"},{"1":"wind also included \"calm\"","2":"1"},{"1":"wind expressed as range (10-18)","2":"1"},{"1":"wind expressed as range (12-23)","2":"1"},{"1":"wind expressed as range (12-25)","2":"1"},{"1":"wind expressed as range (12-34)","2":"1"},{"1":"wind expressed as range (14-24)","2":"1"},{"1":"wind expressed as range (14-26)","2":"1"},{"1":"wind expressed as range (15-23)","2":"1"},{"1":"wind expressed as range (15-24)","2":"1"},{"1":"wind expressed as range (15-34) (corrected)","2":"1"},{"1":"wind expressed as range (16-22)","2":"1"},{"1":"wind expressed as range (16-25)","2":"1"},{"1":"wind expressed as range (16-26)","2":"1"},{"1":"wind expressed as range (17-25)","2":"1"},{"1":"wind expressed as range (19-29)","2":"1"},{"1":"wind expressed as range (20-28)","2":"1"},{"1":"wind expressed as range (5-16)","2":"1"},{"1":"wind legibility (could be 1.8?)","2":"1"},{"1":"wind placed in hi_wc column","2":"1"},{"1":"wind recorded as range","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Here we count how many individual records we labeled as “corrected” or had a “legibility” concern. I also counted a couple of other instances I saw, like where a “double” or “range” of values were recorded.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>notes_exploded_cnts <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter(str_detect(notes, "corrected")) |&gt; </span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_corrected =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"correct"</span>)]),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_legibility =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"legib"</span>)]),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_double =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"double"</span>)]),</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_range =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"range"</span>)]),</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["value"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"total_indiv_corrected","2":"1319"},{"1":"total_indiv_legibility","2":"1011"},{"1":"total_indiv_double","2":"92"},{"1":"total_indiv_range","2":"22"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="ta-types-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="ta-types-statistics">TA: Types statistics</h3>
+<p>Most of the individual notes identified (about 1,300) were corrections of some kind. About 1,000 of them concerned legibility.</p>
+</section>
+<section id="variable-counts" class="level3">
+<h3 class="anchored" data-anchor-id="variable-counts">Variable counts</h3>
+<p>Here we try to get a handle on which variables recorded had the most notes (i.e., temp vs wind, etc.). We are counting how many times our variable terms were included in individual notes.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>notes_exploded_cnts <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter(str_detect(notes, "corrected")) |&gt; </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_temp =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"temp"</span>)]),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_humid =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"humid"</span>)]),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_wind =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"wind"</span>)]),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_hi_wc =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"hi_wc"</span>)]),</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_hi_wc_n =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"hi_wc_n"</span>)]),</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_person =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"person"</span>)]),</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(value <span class="sc">|&gt;</span> <span class="fu">desc</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["value"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"total_indiv_hi_wc","2":"652"},{"1":"total_indiv_temp","2":"589"},{"1":"total_indiv_person","2":"545"},{"1":"total_indiv_humid","2":"515"},{"1":"total_indiv_wind","2":"384"},{"1":"total_indiv_hi_wc_n","2":"136"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>We had more notes on the <code>hi_wc</code> variable (Heat index/Wind chill) than any other, followed by temperature.</p>
+<p>The heat index/wind chill record is already challenging because it measures two different things. Some records would also sometimes include what we determined was a heat index “category”, which we recorded in a separate column.</p>
+<p>Here we see how much that field was at issue by counting any notes that included <code>hi_wc</code>. The heat index category notes show up in this list, too.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>notes_exploded_cnts <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(notes, <span class="st">"hi_wc"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>() <span class="sc">|&gt;</span> <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["notes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"hi_wc corrected","2":"318"},{"1":"hi_wc legibility","2":"122"},{"1":"hi_wc_n legibility","2":"66"},{"1":"hi_wc_n corrected","2":"41"},{"1":"hi_wc dash","2":"27"},{"1":"hi_wc_n recorded in temp column","2":"19"},{"1":"hi_wc used for wind instead","2":"18"},{"1":"humid supposed to be hi_wc?","2":"8"},{"1":"wind speed recorded in hi_wc_n","2":"8"},{"1":"hi_wc reported with \"HI\"","2":"6"},{"1":"\"HI\" marker added in hi_wc","2":"3"},{"1":"hi_wc line","2":"2"},{"1":"hi_wc_corrected","2":"2"},{"1":"extra text in hi_wc: G-23","2":"1"},{"1":"hi_wc blank","2":"1"},{"1":"hi_wc correced","2":"1"},{"1":"hi_wc corrected (originally N/A)","2":"1"},{"1":"hi_wc corrected; replaced 78 with N/A","2":"1"},{"1":"hi_wc legib ility","2":"1"},{"1":"hi_wc orrected","2":"1"},{"1":"hi_wc reported with HI","2":"1"},{"1":"hi_wc single digit?","2":"1"},{"1":"hi_wc/hi_wc_n corrected","2":"1"},{"1":"hi_wc_n says \"calm\"","2":"1"},{"1":"wind placed in hi_wc column","2":"1"},{"1":"Total","2":"652"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="ta-variable-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="ta-variable-statistics">TA: Variable statistics</h3>
+<p>The heat index/wind chill columns was at issue about 650 times, with about half of these being corrections.</p>
+</section>
+<section id="notes-by-unit" class="level3">
+<h3 class="anchored" data-anchor-id="notes-by-unit">Notes by unit</h3>
+<section id="units-with-most-notes" class="level4">
+<h4 class="anchored" data-anchor-id="units-with-most-notes">Units with most notes</h4>
+<p>This looks at which units had the most notes of any kind. The <code>pct_notes</code> is the percetage of rows that had a note of any kind.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(unit, notes_a) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> notes_a, <span class="at">values_from =</span> n) <span class="sc">|&gt;</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_notes =</span> ((<span class="st">`</span><span class="at">TRUE</span><span class="st">`</span> <span class="sc">/</span> (<span class="st">`</span><span class="at">FALSE</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">TRUE</span><span class="st">`</span>)) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pct_notes <span class="sc">|&gt;</span> <span class="fu">desc</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["FALSE"],"name":[2],"type":["int"],"align":["right"]},{"label":["TRUE"],"name":[3],"type":["int"],"align":["right"]},{"label":["pct_notes"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Stevenson","2":"64","3":"104","4":"61.9"},{"1":"Garza West","2":"67","3":"101","4":"60.1"},{"1":"Telford","2":"74","3":"94","4":"56.0"},{"1":"Dalhart","2":"85","3":"83","4":"49.4"},{"1":"Briscoe","2":"88","3":"80","4":"47.6"},{"1":"Connally","2":"100","3":"68","4":"40.5"},{"1":"Dominguez","2":"105","3":"63","4":"37.5"},{"1":"Glossbrenner","2":"108","3":"60","4":"35.7"},{"1":"Jordan","2":"108","3":"60","4":"35.7"},{"1":"Formby","2":"117","3":"51","4":"30.4"},{"1":"Roach","2":"117","3":"51","4":"30.4"},{"1":"Torres","2":"117","3":"51","4":"30.4"},{"1":"Ellis","2":"127","3":"41","4":"24.4"},{"1":"Lynaugh","2":"129","3":"39","4":"23.2"},{"1":"Fort Stockton","2":"132","3":"36","4":"21.4"},{"1":"Wheeler","2":"132","3":"36","4":"21.4"},{"1":"Lopez","2":"134","3":"34","4":"20.2"},{"1":"Marlin","2":"135","3":"33","4":"19.6"},{"1":"Sanchez","2":"135","3":"33","4":"19.6"},{"1":"Hilltop","2":"136","3":"32","4":"19.0"},{"1":"Michael","2":"136","3":"32","4":"19.0"},{"1":"Havins","2":"137","3":"31","4":"18.5"},{"1":"Hobby","2":"137","3":"31","4":"18.5"},{"1":"Powledge","2":"137","3":"31","4":"18.5"},{"1":"Cotulla","2":"138","3":"30","4":"17.9"},{"1":"Ramsey","2":"138","3":"30","4":"17.9"},{"1":"Moore, C.","2":"140","3":"28","4":"16.7"},{"1":"Duncan","2":"141","3":"27","4":"16.1"},{"1":"Hughes","2":"141","3":"27","4":"16.1"},{"1":"Cole","2":"142","3":"26","4":"15.5"},{"1":"Hightower","2":"142","3":"26","4":"15.5"},{"1":"Daniel","2":"144","3":"24","4":"14.3"},{"1":"Plane","2":"144","3":"24","4":"14.3"},{"1":"Robertson","2":"144","3":"24","4":"14.3"},{"1":"Woodman","2":"146","3":"22","4":"13.1"},{"1":"Hutchins","2":"147","3":"21","4":"12.5"},{"1":"Crain","2":"148","3":"20","4":"11.9"},{"1":"Ferguson","2":"148","3":"20","4":"11.9"},{"1":"Middleton","2":"148","3":"20","4":"11.9"},{"1":"Halbert","2":"149","3":"19","4":"11.3"},{"1":"Hamilton","2":"149","3":"19","4":"11.3"},{"1":"Wallace","2":"149","3":"19","4":"11.3"},{"1":"McConnell","2":"150","3":"18","4":"10.7"},{"1":"Murray","2":"150","3":"18","4":"10.7"},{"1":"Byrd","2":"152","3":"16","4":"9.5"},{"1":"Gist","2":"152","3":"16","4":"9.5"},{"1":"Young","2":"152","3":"16","4":"9.5"},{"1":"Holliday","2":"153","3":"15","4":"8.9"},{"1":"Hospital Galveston","2":"153","3":"15","4":"8.9"},{"1":"Kegans","2":"153","3":"15","4":"8.9"},{"1":"Sayle","2":"153","3":"15","4":"8.9"},{"1":"Huntsville","2":"155","3":"13","4":"7.7"},{"1":"Jester III","2":"155","3":"13","4":"7.7"},{"1":"Estelle","2":"156","3":"12","4":"7.1"},{"1":"Lychner","2":"156","3":"12","4":"7.1"},{"1":"Pack","2":"156","3":"12","4":"7.1"},{"1":"Smith","2":"156","3":"12","4":"7.1"},{"1":"Wainwright","2":"156","3":"12","4":"7.1"},{"1":"Goree","2":"157","3":"11","4":"6.5"},{"1":"Johnston","2":"157","3":"11","4":"6.5"},{"1":"Mechler","2":"157","3":"11","4":"6.5"},{"1":"Montford","2":"157","3":"11","4":"6.5"},{"1":"Beto","2":"159","3":"9","4":"5.4"},{"1":"Hodge","2":"159","3":"9","4":"5.4"},{"1":"Luther","2":"159","3":"9","4":"5.4"},{"1":"San Saba","2":"159","3":"9","4":"5.4"},{"1":"Travis County","2":"159","3":"9","4":"5.4"},{"1":"LeBlanc","2":"160","3":"8","4":"4.8"},{"1":"Stringfellow","2":"160","3":"8","4":"4.8"},{"1":"Terrell","2":"161","3":"7","4":"4.2"},{"1":"Allred","2":"162","3":"6","4":"3.6"},{"1":"Clemens","2":"162","3":"6","4":"3.6"},{"1":"Boyd","2":"163","3":"5","4":"3.0"},{"1":"Lewis","2":"163","3":"5","4":"3.0"},{"1":"Memorial","2":"163","3":"5","4":"3.0"},{"1":"Polunsky","2":"163","3":"5","4":"3.0"},{"1":"Wynne","2":"164","3":"4","4":"2.4"},{"1":"Henley","2":"165","3":"3","4":"1.8"},{"1":"Goodman","2":"166","3":"2","4":"1.2"},{"1":"Scott","2":"166","3":"2","4":"1.2"},{"1":"Stiles","2":"166","3":"2","4":"1.2"},{"1":"Vance","2":"166","3":"2","4":"1.2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>To gain some insight on what these might be, let’s look at these notes by Stevenson unit.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(unit <span class="sc">==</span> <span class="st">"Stevenson"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(notes)) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(unit, region, date, hour, notes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["region"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["hour"],"name":[4],"type":["int"],"align":["right"]},{"label":["notes"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"0","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"2","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"3","5":"temp corrected, wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"4","5":"temp legibility, wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"5","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"7","5":"temp legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"8","5":"hi_wc corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"14","5":"temp legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"18","5":"temp corrected, wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"19","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"20","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-25","4":"21","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-26","4":"0","5":"temp corrected, wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-26","4":"1","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-26","4":"9","5":"humid legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-26","4":"18","5":"person legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-26","4":"22","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-26","4":"23","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"0","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"1","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"2","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"3","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"4","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"5","5":"temp corrected, wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"6","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"7","5":"temp corrected, wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"9","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"10","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"11","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"13","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"14","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"15","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"16","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"17","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"18","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"19","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"20","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"21","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"22","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-27","4":"23","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"0","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"1","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"2","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"3","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"5","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"6","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"7","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"9","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"13","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"15","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"16","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"17","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"22","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-28","4":"23","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"2","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"3","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"4","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"5","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"6","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"7","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"10","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"11","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"18","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"19","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"20","5":"temp corrected, hi_wc corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"21","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"22","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-29","4":"23","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"0","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"1","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"2","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"3","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"4","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"5","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"6","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"12","5":"temp corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"18","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"19","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"20","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"21","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"22","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-30","4":"23","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"0","5":"hi_wc corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"1","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"4","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"5","5":"wind legibility"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"6","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"7","5":"wind legibility, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"8","5":"temp corrected, hi_wc corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"9","5":"temp corrected, hi_wc corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"10","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"11","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"12","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"13","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"14","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"15","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"16","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"17","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"18","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"19","5":"wind corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"20","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"21","5":"temp corrected, person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"22","5":"person corrected"},{"1":"Stevenson","2":"IV","3":"2023-07-31","4":"23","5":"person corrected"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>It <em>looks like</em> there are many “corrections”. When you look at the <a href="https://drive.google.com/file/d/1s3pSZ7aU7lZHyKedz-P7DmVJIRmSUkSg/view?usp=drive_link">original documents</a>, it appears the unit must review the logs and regularly clears up any legibility issues. The logs are also signed. i.e.&nbsp;having more corrections could be a positive thing.</p>
+</section>
+<section id="unit-corrections-legibilty" class="level4">
+<h4 class="anchored" data-anchor-id="unit-corrections-legibilty">Unit corrections, legibilty</h4>
+<p>Here we explode all the notes for all the units and count how many are for corrections and legibility.</p>
+<p>We sort the same list twice … once by corrections and once by legibility.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>units_cor_leg <span class="ot">&lt;-</span> logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(notes)) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_longer_delim</span>(notes, <span class="at">delim =</span> <span class="st">", "</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(unit, region, notes, <span class="at">sort =</span> T) <span class="sc">|&gt;</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(unit, region) <span class="sc">|&gt;</span> </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_correct =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"correct"</span>)]),</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_indiv_legibility =</span> <span class="fu">sum</span>(n[<span class="fu">str_detect</span>(notes, <span class="st">"legib"</span>)]),</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>units_cor_leg <span class="sc">|&gt;</span> </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(total_indiv_correct <span class="sc">|&gt;</span> <span class="fu">desc</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["region"],"name":[2],"type":["chr"],"align":["left"]},{"label":["total_indiv_correct"],"name":[3],"type":["int"],"align":["right"]},{"label":["total_indiv_legibility"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Garza West","2":"IV","3":"122","4":"25"},{"1":"Briscoe","2":"IV","3":"115","4":"39"},{"1":"Stevenson","2":"IV","3":"114","4":"30"},{"1":"Connally","2":"IV","3":"93","4":"5"},{"1":"Dominguez","2":"IV","3":"73","4":"11"},{"1":"Torres","2":"IV","3":"34","4":"25"},{"1":"Ramsey","2":"III","3":"28","4":"0"},{"1":"Moore, C.","2":"II","3":"26","4":"6"},{"1":"Woodman","2":"VI","3":"26","4":"12"},{"1":"Powledge","2":"II","3":"25","4":"20"},{"1":"Sanchez","2":"IV","3":"24","4":"14"},{"1":"Lynaugh","2":"IV","3":"23","4":"25"},{"1":"Michael","2":"II","3":"23","4":"14"},{"1":"Ellis","2":"I","3":"21","4":"26"},{"1":"Jordan","2":"V","3":"21","4":"18"},{"1":"Hobby","2":"VI","3":"20","4":"14"},{"1":"Marlin","2":"VI","3":"19","4":"19"},{"1":"Byrd","2":"I","3":"18","4":"2"},{"1":"Duncan","2":"I","3":"17","4":"18"},{"1":"Fort Stockton","2":"IV","3":"17","4":"24"},{"1":"Lopez","2":"IV","3":"17","4":"26"},{"1":"Roach","2":"V","3":"16","4":"22"},{"1":"Hamilton","2":"VI","3":"15","4":"8"},{"1":"Huntsville","2":"I","3":"15","4":"3"},{"1":"Holliday","2":"I","3":"14","4":"5"},{"1":"Lychner","2":"III","3":"14","4":"2"},{"1":"Crain","2":"VI","3":"13","4":"20"},{"1":"Gist","2":"III","3":"13","4":"9"},{"1":"Hilltop","2":"VI","3":"12","4":"25"},{"1":"Hughes","2":"VI","3":"12","4":"16"},{"1":"Hutchins","2":"II","3":"12","4":"10"},{"1":"Murray","2":"VI","3":"12","4":"15"},{"1":"Daniel","2":"V","3":"11","4":"6"},{"1":"Jester III","2":"III","3":"11","4":"2"},{"1":"Hospital Galveston","2":"III","3":"10","4":"5"},{"1":"Pack","2":"VI","3":"10","4":"3"},{"1":"Estelle","2":"I","3":"9","4":"6"},{"1":"Kegans","2":"III","3":"9","4":"4"},{"1":"Smith","2":"V","3":"9","4":"0"},{"1":"Travis County","2":"VI","3":"9","4":"3"},{"1":"Wainwright","2":"I","3":"9","4":"3"},{"1":"Cotulla","2":"IV","3":"8","4":"27"},{"1":"Glossbrenner","2":"IV","3":"8","4":"52"},{"1":"Havins","2":"VI","3":"8","4":"27"},{"1":"Johnston","2":"II","3":"8","4":"5"},{"1":"Polunsky","2":"I","3":"8","4":"1"},{"1":"Robertson","2":"VI","3":"8","4":"4"},{"1":"Stringfellow","2":"III","3":"8","4":"1"},{"1":"Wheeler","2":"V","3":"8","4":"22"},{"1":"Beto","2":"II","3":"7","4":"2"},{"1":"Cole","2":"II","3":"7","4":"14"},{"1":"Ferguson","2":"I","3":"7","4":"13"},{"1":"LeBlanc","2":"III","3":"7","4":"1"},{"1":"Mechler","2":"V","3":"7","4":"6"},{"1":"Montford","2":"V","3":"7","4":"5"},{"1":"Young","2":"III","3":"7","4":"9"},{"1":"Allred","2":"V","3":"6","4":"0"},{"1":"Hightower","2":"III","3":"6","4":"5"},{"1":"Luther","2":"VI","3":"6","4":"7"},{"1":"Plane","2":"III","3":"6","4":"10"},{"1":"Sayle","2":"VI","3":"6","4":"12"},{"1":"Clemens","2":"III","3":"5","4":"3"},{"1":"Middleton","2":"VI","3":"5","4":"5"},{"1":"San Saba","2":"VI","3":"5","4":"4"},{"1":"Telford","2":"II","3":"5","4":"121"},{"1":"Dalhart","2":"V","3":"4","4":"13"},{"1":"Formby","2":"V","3":"4","4":"25"},{"1":"Hodge","2":"II","3":"4","4":"4"},{"1":"McConnell","2":"IV","3":"4","4":"16"},{"1":"Vance","2":"III","3":"4","4":"1"},{"1":"Boyd","2":"II","3":"3","4":"2"},{"1":"Halbert","2":"VI","3":"3","4":"17"},{"1":"Lewis","2":"I","3":"3","4":"2"},{"1":"Memorial","2":"III","3":"3","4":"4"},{"1":"Goodman","2":"I","3":"2","4":"1"},{"1":"Goree","2":"I","3":"2","4":"1"},{"1":"Stiles","2":"III","3":"2","4":"1"},{"1":"Terrell","2":"III","3":"2","4":"2"},{"1":"Wallace","2":"V","3":"2","4":"19"},{"1":"Wynne","2":"I","3":"2","4":"3"},{"1":"Scott","2":"III","3":"1","4":"1"},{"1":"Henley","2":"III","3":"0","4":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>units_cor_leg <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(total_indiv_legibility <span class="sc">|&gt;</span> <span class="fu">desc</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["region"],"name":[2],"type":["chr"],"align":["left"]},{"label":["total_indiv_correct"],"name":[3],"type":["int"],"align":["right"]},{"label":["total_indiv_legibility"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Telford","2":"II","3":"5","4":"121"},{"1":"Glossbrenner","2":"IV","3":"8","4":"52"},{"1":"Briscoe","2":"IV","3":"115","4":"39"},{"1":"Stevenson","2":"IV","3":"114","4":"30"},{"1":"Cotulla","2":"IV","3":"8","4":"27"},{"1":"Havins","2":"VI","3":"8","4":"27"},{"1":"Ellis","2":"I","3":"21","4":"26"},{"1":"Lopez","2":"IV","3":"17","4":"26"},{"1":"Formby","2":"V","3":"4","4":"25"},{"1":"Garza West","2":"IV","3":"122","4":"25"},{"1":"Hilltop","2":"VI","3":"12","4":"25"},{"1":"Lynaugh","2":"IV","3":"23","4":"25"},{"1":"Torres","2":"IV","3":"34","4":"25"},{"1":"Fort Stockton","2":"IV","3":"17","4":"24"},{"1":"Roach","2":"V","3":"16","4":"22"},{"1":"Wheeler","2":"V","3":"8","4":"22"},{"1":"Crain","2":"VI","3":"13","4":"20"},{"1":"Powledge","2":"II","3":"25","4":"20"},{"1":"Marlin","2":"VI","3":"19","4":"19"},{"1":"Wallace","2":"V","3":"2","4":"19"},{"1":"Duncan","2":"I","3":"17","4":"18"},{"1":"Jordan","2":"V","3":"21","4":"18"},{"1":"Halbert","2":"VI","3":"3","4":"17"},{"1":"Hughes","2":"VI","3":"12","4":"16"},{"1":"McConnell","2":"IV","3":"4","4":"16"},{"1":"Murray","2":"VI","3":"12","4":"15"},{"1":"Cole","2":"II","3":"7","4":"14"},{"1":"Hobby","2":"VI","3":"20","4":"14"},{"1":"Michael","2":"II","3":"23","4":"14"},{"1":"Sanchez","2":"IV","3":"24","4":"14"},{"1":"Dalhart","2":"V","3":"4","4":"13"},{"1":"Ferguson","2":"I","3":"7","4":"13"},{"1":"Sayle","2":"VI","3":"6","4":"12"},{"1":"Woodman","2":"VI","3":"26","4":"12"},{"1":"Dominguez","2":"IV","3":"73","4":"11"},{"1":"Hutchins","2":"II","3":"12","4":"10"},{"1":"Plane","2":"III","3":"6","4":"10"},{"1":"Gist","2":"III","3":"13","4":"9"},{"1":"Young","2":"III","3":"7","4":"9"},{"1":"Hamilton","2":"VI","3":"15","4":"8"},{"1":"Luther","2":"VI","3":"6","4":"7"},{"1":"Daniel","2":"V","3":"11","4":"6"},{"1":"Estelle","2":"I","3":"9","4":"6"},{"1":"Mechler","2":"V","3":"7","4":"6"},{"1":"Moore, C.","2":"II","3":"26","4":"6"},{"1":"Connally","2":"IV","3":"93","4":"5"},{"1":"Hightower","2":"III","3":"6","4":"5"},{"1":"Holliday","2":"I","3":"14","4":"5"},{"1":"Hospital Galveston","2":"III","3":"10","4":"5"},{"1":"Johnston","2":"II","3":"8","4":"5"},{"1":"Middleton","2":"VI","3":"5","4":"5"},{"1":"Montford","2":"V","3":"7","4":"5"},{"1":"Hodge","2":"II","3":"4","4":"4"},{"1":"Kegans","2":"III","3":"9","4":"4"},{"1":"Memorial","2":"III","3":"3","4":"4"},{"1":"Robertson","2":"VI","3":"8","4":"4"},{"1":"San Saba","2":"VI","3":"5","4":"4"},{"1":"Clemens","2":"III","3":"5","4":"3"},{"1":"Henley","2":"III","3":"0","4":"3"},{"1":"Huntsville","2":"I","3":"15","4":"3"},{"1":"Pack","2":"VI","3":"10","4":"3"},{"1":"Travis County","2":"VI","3":"9","4":"3"},{"1":"Wainwright","2":"I","3":"9","4":"3"},{"1":"Wynne","2":"I","3":"2","4":"3"},{"1":"Beto","2":"II","3":"7","4":"2"},{"1":"Boyd","2":"II","3":"3","4":"2"},{"1":"Byrd","2":"I","3":"18","4":"2"},{"1":"Jester III","2":"III","3":"11","4":"2"},{"1":"Lewis","2":"I","3":"3","4":"2"},{"1":"Lychner","2":"III","3":"14","4":"2"},{"1":"Terrell","2":"III","3":"2","4":"2"},{"1":"Goodman","2":"I","3":"2","4":"1"},{"1":"Goree","2":"I","3":"2","4":"1"},{"1":"LeBlanc","2":"III","3":"7","4":"1"},{"1":"Polunsky","2":"I","3":"8","4":"1"},{"1":"Scott","2":"III","3":"1","4":"1"},{"1":"Stiles","2":"III","3":"2","4":"1"},{"1":"Stringfellow","2":"III","3":"8","4":"1"},{"1":"Vance","2":"III","3":"4","4":"1"},{"1":"Allred","2":"V","3":"6","4":"0"},{"1":"Ramsey","2":"III","3":"28","4":"0"},{"1":"Smith","2":"V","3":"9","4":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Let’s look at bit more at Telford to see the legibility issues.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(unit <span class="sc">==</span> <span class="st">"Telford"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(notes)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_longer_delim</span>(notes, <span class="at">delim =</span> <span class="st">", "</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(notes, <span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["notes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"person legibility","2":"72"},{"1":"wind legibility","2":"28"},{"1":"humid legibility","2":"13"},{"1":"hi_wc legibility","2":"5"},{"1":"hi_wc corrected","2":"3"},{"1":"temp corrected","2":"2"},{"1":"temp legibility","2":"2"},{"1":"humin legibility","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>And then Glossbrenner …</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>logs_notes <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(unit <span class="sc">==</span> <span class="st">"Glossbrenner"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(notes)) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_longer_delim</span>(notes, <span class="at">delim =</span> <span class="st">", "</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(notes, <span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["notes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"hi_wc_n legibility","2":"37"},{"1":"wind legibility","2":"10"},{"1":"hi_wc corrected","2":"3"},{"1":"person legibility","2":"3"},{"1":"humid corrected","2":"2"},{"1":"humid legibility","2":"2"},{"1":"temp corrected","2":"2"},{"1":"person corrected","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ta-notes-by-unit" class="level3">
+<h3 class="anchored" data-anchor-id="ta-notes-by-unit">TA: Notes by unit</h3>
+<p>The units with the most correction notes include Garza West, Briscoe, Stevenson, Connally, Dominguez. Given what we found with Stevenson, this may mean they are more accurate, but they should be reviewed.</p>
+<p>When it comes to legibility, the Telford unit stands out. Most of the issues are around the signature of the person recording the record.</p>
+</section>
+</section>
+<section id="unit-notes" class="level2">
+<h2 class="anchored" data-anchor-id="unit-notes">Unit notes</h2>
+<p>In some cases we recorded an overall note about the unit as opposed to notes for each individual line. I’m just printing all of these out for perusal.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>overall_notes <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/01-outdoor-notes.rds"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>overall_notes <span class="sc">|&gt;</span> <span class="fu">datatable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-6b15017cecf96a4ddfac" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6b15017cecf96a4ddfac">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256"],["byrd","byrd","duncan","duncan","ellis","ellis","estelle","estelle","estelle","estelle","ferguson","ferguson","goodman","goodman","goodman","goree","holliday","holliday","holliday","holliday","huntsville","huntsville","huntsville","huntsville","lewis","lewis","polunsky","polunsky","wainwright","wainwright","wainwright","wainwright","wainwright","wynne","beto","beto","boyd","moore","moore","moore","cole","cole","cole","cole","cole","cole","cole","hutchins","hutchins","johnston","michael","michael","michael","michael","michael","powledge","telford","telford","telford","clemens","clemens","gist","gist","henley","henley","henley","henley","henley","henley","hightower","hightower","hightower","hightower","hightower","galveston","lychner","lychner","memorial","memorial","memorial","memorial","plane","plane","plane","plane","plane","plane","plane","scott","scott","scott","scott","stiles","stiles","stiles","vance","young","young","young","young","briscoe","briscoe","briscoe","briscoe","briscoe","briscoe","cotulla","cotulla","cotulla","cotulla","cotulla","cotulla","cotulla","cotulla","cotulla","cotulla","dominguez","dominguez","dominguez","stockton","stockton","stockton","west","west","west","west","west","glossbrenner","glossbrenner","glossbrenner","glossbrenner","glossbrenner","lopez","lopez","lopez","lopez","lynaugh","lynaugh","lynaugh","mcconnell","mcconnell","mcconnell","sanchez","sanchez","stevenson","stevenson","torres","torres","torres","torres","torres","torres","torres","torres","torres","torres","torres","torres","torres","torres","dalhart","dalhart","dalhart","daniel","daniel","daniel","daniel","daniel","daniel","daniel","formby","formby","formby","formby","jordan","jordan","jordan","mechler","mechler","mechler","montford","roach","roach","roach","smith","wallace","crain","crain","crain","halbert","halbert","hamilton","hamilton","hamilton","hamilton","hamilton","havins","havins","havins","havins","hilltop","hilltop","hilltop","hilltop","hobby","hobby","hobby","hobby","hughes","hughes","hughes","hughes","hughes","hughes","luther","luther","luther","marlin","marlin","marlin","marlin","middleton","middleton","middleton","middleton","middleton","daniel","daniel","daniel","pack","robertson","robertson","robertson","robertson","robertson","saba","saba","saba","saba","saba","saba","sayle","sayle","sayle","sayle","sayle","sayle","county","county","county","county","woodman","woodman","woodman","woodman","woodman"],["r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r1","r2","r2","r2","r2-choice","r2-choice","r2-choice","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r2","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3-hospital","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r3","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4-fort","r4-fort","r4-fort","r4-garza","r4-garza","r4-garza","r4-garza","r4-garza","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r4","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r5","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6","r6-o","r6-o","r6-o","r6","r6","r6","r6","r6","r6","r6-san","r6-san","r6-san","r6-san","r6-san","r6-san","r6","r6","r6","r6","r6","r6","r6-travis","r6-travis","r6-travis","r6-travis","r6","r6","r6","r6","r6"],["Name we code as Komomzy is a difficult signature to comprehend","Name we code as Freeman is a difficult signature to comprehend","Name we code as Blur is a difficult signature to comprehend","Name we code as Nathaniel is a difficult signature to comprehend","Name we code as Varley is a difficult signature to comprehend","Name we code as Parker is a difficult signature to comprehend","Name we code as Oscley is a difficult signature to comprehend","Name we code as Gichs is a difficult signature to comprehend","Name we code as Ekweybalu is a difficult signature to comprehend","7:30 p.m. on logs 7/28 and 7/29 is scratched out for whatever reason","Name we code as Odiakose is a difficult signature to comprehend","Name we code as Akpowerne is a difficult signature to comprehend","Name we code as Samuel is a difficult signature to comprehend","Name we code as G Kadnot is a difficult signature to comprehend","Name we code as P Guzman is a difficult signature to comprehend","Name we code as Ifeit is a difficult signature to comprehend","Name we code as Abadamon is a difficult signature to comprehend","Name we code as Eriokowunt is a very difficult signature to comprehend","Name we code as Norflut is a very difficult signature to comprehend","Name we code as Zuinkure is a very difficult signature to comprehend","Name we code as Gumbrell is a difficult signature to comprehend","Name we code as Okeremgbo is a difficult signature to comprehend","Name we code as Mubiulli is a difficult signature to comprehend","Name we code as Mosky is a difficult signature to comprehend","Name we coded as Ky is a difficult signature to comprehend","Glosson and Glosson Ky names are the same person","Name we coded as Challuger has a difficult signature to comprehend","Name we coded as Bogamy has a difficult signature to comprehend","Name we coded as Okedawg has a difficult signature to read","Name we coded as Any has a difficult signature to read","Name we coded as Anolus has a difficult signature to read","Name we coded as Kiylendall has a difficult signature to read","Name we coded as Ramirez has a difficult signature to read","The name we entered as J Garh has a difficult signature to read","Person legibility for Magouirk","Goodson may or may not be the same person as G?","Person legibility for Huffman","temp on 7/24 has SH written at 7:30 pm, temp on 7/9 at 11:30 am has BP written, hi_wc on 7/29 has BP written","person legibility for Cordeu, Hon, Apple, Pritchett","Colley recorded name differently on 7/30","On July 24 and July 25, names change throughout but handwriting looks the same","On July 24, Mathews is first written with one T but then switches to two Ts","Kitchen marks their name as Kitchen on 7/24 and Kitchen, P on 7/25","The handwriting for Kitchen, Barker, L,, Bamidele and Charles, C changes significantly after 7/25","Person legiblity: Balle, Scrim, S, Farremi, O, King, F, Porter","Chacko starts recording name without E. on 7/29","5:30 pm i think Scribnbr S is the same as Scrim S","On July 25 from 12:30pm to 9:30pm, July 26 from 10:30 am to 2:30 pm, July 27 from 10:30 am to 1:30 pm, July 28 from 10:30 am to 1:30 pm, a single digit number is written to the right of the person recording box (maybe intended to be hi_wc_n?)","Person legibility for Olugbenro, Gutau, Beirus","Names that need double checking: Stone O","On July 19, logs switch to be 6:30am-5:30am rather than 12:30-11:30 (6 hours unaccounted for during switch)","For July 24, 6:30 a..m. through 8:30 a.m. and 2:30 a.m. through 5:30 a.m. should theoretically be N/A for hi_wc because the temps are below 79°, but they have values entered","For July 24, the person recording changes from Ali to Amoke at 6:30 p.m, but the handwriting looks the exact same throughout the sheet","On July 26 from 2:30 to 5:30 a.m., the recorder put down N/A followed by a temperature","Unsure on names: Ali, Mwika, Babalola","Person legibility for Stuart, (Owusu, B), Acevedo, Sheares, (Adams, J)","Ertolo was my best guess but I really couldn't tell","Mitchel was also a best guess but their signature got muddier down each log","Marxn was also a best guess... definitely a different person than Martin though","In the jail log, the unit name changes from Clemens to Clemens T/C (?) 2 and then Clemens 2","Used Hill but a little confused between Hill and Hin","For a lot of entries by K.Sinette, the boldness of the values differs. Don't really know if it was a scanning issue.","Garrett later appears as J.Garrett if it does end up being the same person","\"Lo\" entered as an option for Heat Index or Wind Chill","Redman signature differs (7/25/23, 7/26/23)","Decimals present in data","Name we code as Hines is a difficult signature to comprehend","Name we code as R. McDonald unsure if the first initial is R","J. Brown and Brown both present but don't actually know if they are the same person based on handwriting","Decimals used","7/28/2023 log looks like it was just written by one person but put the different names of different people down; also records wind chill instead of heat index","Uses \"no wind\" marker","Name we code as Carriyta is difficult to comprehend","7/28 uses hi_wc for wind speed instead of heat index or wind chill","Mercadoj change signatures (one print and uppercase?) Probably still the same person based off of the values","H-Control marker for the logs, besides G-Control for 7/29","Brown signature differs on log 7/30/23","Name we code as Skechukum hard to distinguish","Pretty sure \"SG\" and \"S. George\" are the same person, use the same pen color and handwriting is the same","Name we code as Babalola hard to distinguish","Name we code as \"Chukwuo\", \"Chukwu, O\" hard to distinguish and goes by different signatures","Not sure about the mix of humidity/wind speed for the single column; all of these were determined by me","Name coded as \"CD\" is difficult to distinguish","7/28/2023 log some humid supposed to be hi_wc??","Sanders and Sander, J the same person? Sanders in both print and cursive","Name coded as \"Spencer\" is difficult to distinguish -- could also just be another Sanders signature?","Keller, A signature in print and cursive","7/27/2023 logs could be decimals but could also be scan remnants","Name coded as \"Arisa\" hard to distinguish","Name coded as \"Oludemiro\" hard to distinguish","Name coded as \"Djikeug\" hard to distinguish","Name coded as \"Edeuojie\" hard to distinguish","Name we code as \"S. Benitt\" hard to distinguish","7/28 log Wheeler darkly written -- unsure if pen or something that is actually suspicious?","temp and hi_wc same on multiple logs","Name coded as \"Chumeuba\" hard to distinguish","Name we code as \"S. Martinez\" hard to distinguish","Name we code as \"Hanlon, M\" hard to distinguish","Name we code as \"Toma\" hard to distinguish","Lots of Williams? \"JWilliam\" \"JaWilliam\" \"Ty Williams\" I think JWilliam and JaWilliam might be the same","Most corrections are for legibility.","temp at 4:30 on July 24, 2023, seems to be corrected to 104 from 106","Walker always had a person corrected because someone writes their name after the signature","Weird symbol after humidity during Mendoza shift (6:30 am - 5:30 pm) on 7/27/2023","I. Martinez', who appears first at 8:30 pm on 7/27/2023, is pretty Illegible","A strikethrough character is used for windspeed(?) from 6:30 pm 7/28/23 to 7/29/23 5:30 am","There are many entries where hi_wc is the same as humid, which is probably from human error. Seems correlated with E DeLeon entries.","On 7/25/2023, a \"G. Guzman\" appears before \"Guzman,\" so they're probably the same person","12:30 a.m. temp on 7/26/2023 noted with a percent sign","Two numbers placed for wind from 2:30-4:30 on 7/26/2023","\"Dp69\" added with temp on 7/28/2023 from 10:30-11:30 p.m. Also used for the majority in temp values on 7/29/2023","wind in wrong column from 12:30-5:30 a.m. on 7/29/2023","hi_wc values crossed out from 6:30-9:30 a.m. on 7/29/2023","\"Jones S\" and \"Jones\" are probably the same person, but he or she signed differently starting on 7/29/2023","\"Garcia\" and \"M. Garcia\" are probably different people because they have different handwriting","wc noted with hi from 2:30-9:30 p.m. on 7/31/2023","\"Garcia R\" and \"Garcia\" are probably the same person, based on the handwriting.","\"Rohmer\" is probably spelt differently","\"Mendoza\" and \"Mendoza A\" are probably the same person, just sometimes uses either to record their name.","Range used for many wind entries in Fort Stockton; choose to use upper value","Category crossed out in hi_wc from 6:30 pm to 8:30 pm on 7/27/2023","hi_wc_n value of NA for 8:30 am on 7/30/2023 for \"No Cat\"","\"Acosta, R\" begins signing as \"Acosta Ri\" starting at 8:30 am on 7/25/2023","\"Acosta, Ri\" switches to \"Acosta\" at 11:30 am on 7/26/2023","Date for 7/27/2023 corrected from \"7/26/2023\"","hi_wc at 1:30 am for 7/30/2023 has both a value and N/A. Recorded N/A.","\"Yzaguirre, J\" begins being corrected as just \"Yzaguirre\"","\"C. Garza\" tends to use lowercase \"g\" for last name","Numbers next to person field on forms, not sure whether it's hi_wc_n because numbers are present in rows where hi_wc is entered as N/A. Rows with numbers next to name will be marked with hi_wc_n","wind value of \"Calm\" entered for 8:30 a.m. on 7/29/2023. Again from 6:30 a.m. to 8:30 a.m. on 7/30/2023 and 12:30 a.m. to 2:30 a.m. and 4:30 a.m. to 5:30 a.m. on 7/31/2023","\"Gonzales\" and \"Gonzalez\" seem to be separate people, as they have different handwriting.","Upper range of wind speed inputted for 6:30 p.m. on 7/31/2023","R4-Lopez and R4-Segovia have the same values","Ortiz, L inputs humidity data with a degree symbol. Might be questionable","E Esquirel does not put any units next to their entries","For wind from 10:30 p.m. to 11:30 p.m., flores, C. crosses out a value, but then puts the same value again (not crossed) out with an N/A. Choose to input the N/A","\"Zamona . A\" always use a period between the two parts of their name.","Humidity crossed out at 9:30 p.m. on 7/25/2023","\"Rodriguez\" and \"Rodriguez M\" are likely the same person, based on the handwriting","Put N/A for the entire humid/wind and hi_wc/hi_wc_n columns on 7/26/2023","Uses \"calm\" for windspeed on 7:30 a.m. and 8:30 a.m. on 7/27/2023 and 7/28/2023","Uses \"%\" instead of degree symbol for temp values from 8:30 a.m. to 6:30 p.m. on 7/31/2023","Uses \"%\" instead of degree symbol for temp values for 10:30 p.m and 11:30 p.m. on 7/25/2023","Unsure if \"Sanchez, P.\" and \"Sanchez D\" is the same person, but they have very different handwriting.","Uses \"calm\" for wind value several times, marked with wind legibility","\"Lott\" and \"Lott - I/B\" are the same, but they sometimes sign as just \"Lott\"","R4-Ney and R4-Torres have the same values","illegible value after hi_wc at 7:30 p.m. on 7/24/2023, entered a blank","\"SE-17+24\" entered for wind at 3:30 p.m. on 7/26/2023, chose to enter \"24\" for wind value","\"Gustig 24\" entered for hi_wc at 2:30 a.m. on 7/26/2023, choose to enter a blank value","\"Bush, 18 99\" entered for hi_wc at 6:30 p.m. on 7/26/2023, entered \"99\" for hi_wc","\"102 Gust 22\" entered after hi_wc value at 6:30 p.m.  on 7/27/2023, entered \"102\" for hi_wc","Both \"N-7\" and \"E-3\" inputted as wind value at 4:30 a.m. on 7/29/2023, left blank","\"S-10+17\" entered for wind value at 5:30 p.m. on 7/30/2023, choose \"17\"","\"5 to 10\" entered for wind value from 10:30 to 11:30 p.m. on 7/30/2023, choose \"10\" for each","\"calm\" entered for wind from 7:30 to 8:30 a.m. on 7/30/2023, choose to leave each blank","Starts using percents on hi_wc values from 7:30 to 11:30 p.m. on 7/30/2023","Starts using percents on temp values from 8:30 p.m. on 7/30/2023 to 5:30 p.m. on 7/31/2023","Ranges used for wind from 12:30 a.m. to 9:30 a.m. on 7/31/2023, choose upper value for each row","\"Gustig 20\" inputted with wind value at 6:30 p.m. on 7/31/2023","Double temperature readings in some of the columns (typically Senkevich and Terrazes) unknown meaning","Double wind readings could also be ranges but didn't want to assume","Name we coded as \"Terrazes\" hard to distinguish","Some logs added red text at the bottom stating that says: \"This form is to be put in the mailbox by the warden's office door when it is brought into the unit from the radio picket each morning!\"","Name we coded as \"Nevemnte, J\" hard to distinguish","Names \"Villa\" and \"Villa, G\" likely the same person based on handwriting","\"Haynes, C\" has scribbles next to his name when he signs for person, but I think that's like a scribble of his initials (happens on all his rows)","Name we coded as \"Bundy, I\" unsure if actually \"Bundy 1\"","Name coded as \"L\" and \"LU\" likely the same person based on handwriting","Names \"Salvidar, J\" and \"Salvidar, JS\" likely the same person based on handwriting","Logs with blanked out for hi_wc had dashes (7/25/2023)","Asiatico signed also as Asiatico, D","Name coded as Ramiy/Ramiy RR hard to distinguish","\"Renez\" and \"Perez\" could potentially be the same person. I think the R is just a quick P.","Sgt. Clear and Clear same person","D. Johnson and DSJ same person","Turner and Turner JJ same person","Waddell and J Waddell are the same person","Name we code as Cenruns hard to distinguish","I think many of the hi_wc values are just repeats of that row's temp value.","Person legibility for Ganan A/A Ganan, Brown, Thuku, Vasouz, Mckn, Rgnitron, Vmares","Person legibility: A. Smith, Gamboa, Grant, Martin, An","For several days, temp and hi_wc are the same all the way down","For several days, the hi_wc_n number was recorded in the temp column for some hours","There is a hi_wc recording but no humidity recording on:  7/25 from 9:30am-5:30pm, 7/27 from 9:30am-11:30pm, 7/28 from 12:30am-5:30am and 9:30am-11:30pm, 7/29 from 12:30am-5:30am and 9:30am-11:30pm, 7/30 from 12:30am-5:30am and 9:30am-11:30pm, 7/31 from 12:30am-11:30pm","Person legibility for Clark, Lynd, Graham","\"Crain/Riverside\" typed as unit for most pages","\"Not given\" said for humid and wind from 2:30 a.m. to 5:30 a.m. on 7/25/2023, marked with \"humid legibility, wind legibility\"","Values associated with percentages in hi_wc from 12:30 a.m. to 5:30 a.m. on 7/25/2023, marked with \"humid legibility, hi_wc legibility\" and entered percentage value for humidity","\"Druaran A\" is really hard to make out and is not probably their name, and they switch between placing the A before and after \"Druaran.\"","\"J. Garza\" and \"Garza, J\" are likely the same person, but switches the location of the initial at 3:30 p.m. on 7/27/2023","Name scratched at 12:30 p.m. on 7/26/2023","\"S Hill\" and \"Hill\" seem to be the same person, just switches to \"Hill\" after first introduction of \"S Hill.\" Same with \"S Moore\" and \"Moore.\"","\"S Hill\" and \"A Hill\" seem to be different people, based on the handwriting.","\"Jones\" written on top of \"Gibbs\" (or vice versa) at 5:30 p.m. on 7/29/2023","On 7/29/2023, Gibbs' handwriting changes halfway though their shift, specifically between 9:30 a.m. and 10:30 a.m.","Many entries with \"calm\" entered as wind value, entered as \"wind legibility\". Replaces misentered value with \"calm\" in wind column at 8:30 a.m. on 7/24/2023","There are many instances where different hi_wc_n values are used for the same hi_wc value.","The slash is included in entries with the person value of \"Arnold/west.\" \"Arnold\" and \"West\" are also separate person values that appear later on 7/25/2023..","Important to note that there may be different Hernandezes who all sign with the name \"Hernandez\" because the handwriting changes sometimes on the same page.","Some of the values, especially for hi_wc_n, seem to be erased or whited-out. A good example of this is at 6:30 p.m. on 7/28/2023, where you can see a cut off 2 at the right of the cell.","There are many duplicate rows in this unit.","\"-\" entered for hi_wc_n value at 8:30 p.m. on 7/30/2023.","Can't read the person's name for 11:30 a.m. on 7/30/2023, but the name appears next to \"Taylor P\" earlier in the form.","\"Suggs\" and \"T. Suggs\" are likely the same person, based on the last name and handwriting.","Wind value entered in hi_wc_n area at 1:30 a.m. on 7/26/2023.","No name entered for 11:30 p.m. on 7/26/2023.","\"J Jackson\" might be \"J Julian\". I entered \"J Jackson\" because it seems similar to an earlier entry with the name \"J Jackson.\"","From 2:30 a.m. to 5:30 a.m. on 7/25/2023, Lawson reports that there's \"no data from weather channel,\" and leaves the all fields except person blank","Starting on 7/25/2023, many fields are left blank, especially when \"Lawson\" is the person recording","\"LiLes\" spells their name with an uppercase \"L\" in the middle.","At 6:30 p.m. on 7/25/2023, Lawson signs as the person recording, even though the handwriting used in the other fields matches the handwriting of \"LiLes\"","The date is corrected from \"7-20-2023\" to \"7-30-2023\" for page for \"7-30-2023\"","Usual gap of NA hi_wc values in the mornings of each day.","Couldn't find any other reference to \"Olasunloye\" in the PDF, so I used AI to help find a best guess from the handwriting.","Rarely any wind values, and no entries had a hi_wc_n value.","Multiple gaps of N/A values for humid and hi_wc_n.","York' and 'York SST' are likely the same person, based on the handwriting.","\"Markham\" likely not the name of the person is the best guess by AI. \"D Markham\" also uses the same last name, but I kept it as \"Markham\" for consistency.","\"Testat, S\" and \"Testa, S\" are likely the same person. Only seems to add the extra \"t\" at 3:30 a.m. on 7/29/2023.","No number next to \"cat\" for hi_wc_n at 1:30 a.m. on 7/31/2023","Name we entered as Bret has a difficult signature to comprehend","Name we entered as Watson has a difficult signature to comprehend","Name we entered as W Carter has a difficult signature to comprehend","Name we entered as Meddeford has a difficult signature to comprehend","7/28 log has tick marks for 11:30 am, 5:30 pm, 6:30 pm, 7:30 pm and 8:30 pm; the 11:30 am tick might just be a binder hole","Name we coded as Fretwell has a difficult signature to comprehend","Name we coded as McCormick has a difficult signature to comprehend","Name we coded as Shalt L has a difficult signature to comprehend","Notes between the lines/observations","Notes in the margins and between lines","7/24/2023 11:30 p.m., 7/31/2023 7:30 a.m, 7/31/2023 11:30 a.m, and 7/31/2023 12:30 p.m says ICS outside the right margin","7/24/2023 1:30 p.m. 2:30 says Heat Advisory between the lines","Name we coded as Saiid has a difficult signature to read","Name we coded as Chatham has a difficult signature to read","Name we entered as Emelson has a difficult signature to comprehend","On 7/27/23 from 12:30 a.m to 3:30 a.m. there are multiple numbers in the humid wind speed column.","Name we entered as Calderon has a difficult signature to comprehend","Name we entered as Short has a difficult signature to comprehend","Name we entered as Short has a difficult signature to comprehend","Text outside the margin, next to person column for the 7/31/2023 2:30 p.m. observation","Name we coded as Homer has a difficult signature to comprehend","Name we coded as O has an illegible signature","Name we coded as Swefalk has a difficult signature to comprehend","Name we coded as Valencia has a difficult signature to comprehend","Name we coded as Presley has a difficult signature to comprehend","Name we coded as Swefalk has a difficult signature to comprehend","Name we listed as Ajal has a difficult signature to read.","Same Handwriting from 12:30 p.m. to 5:30 p.m., July 24, 2023 different names","Same Handwriting from July 24, 2023 6:30 p.m. to July 25,2023 1:30 p.m., different names","Name we listed as C Sualey has a difficult signature to read.","Name we coded as Brodeny FB has a difficult signature to read","Name we entered as Rodriguez SR has a difficult signature to read","Name we entered as Bustly has a difficult signature to read","July 27 2023 same handwriting for every entry, different names","July 30 2023 same handwriting for every entry from 10:30 a.m. to 9:30 p.m., different names"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>unit<\/th>\n      <th>region<\/th>\n      <th>notes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"unit","targets":1},{"name":"region","targets":2},{"name":"notes","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/utdata\.github\.io\/tdcj-prison-heat\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

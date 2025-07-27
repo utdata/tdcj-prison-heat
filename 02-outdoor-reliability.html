@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Media Innovation Group">
+
+<title>Outdoor log reliability – Prison Heat Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-db28514442a269a5326d2653acc58a27.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-outdoor-protocols.html">Analysis</a></li><li class="breadcrumb-item"><a href="./02-outdoor-reliability.html">Outdoor log reliability</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Prison Heat Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cleaning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-activation-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Activations cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-indoor-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indoor logs cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-outdoor-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outdoor logs cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-station-protocols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stations cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-unit-info-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit info cleaning</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-outdoor-protocols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Precautionary measures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-outdoor-readability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outdoor log readability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-outdoor-reliability.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Outdoor log reliability</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#july-2025-questions" id="toc-july-2025-questions" class="nav-link active" data-scroll-target="#july-2025-questions">July 2025 questions</a></li>
+  <li><a href="#reliability-questions" id="toc-reliability-questions" class="nav-link" data-scroll-target="#reliability-questions">Reliability questions</a></li>
+  <li><a href="#setup-import-combine" id="toc-setup-import-combine" class="nav-link" data-scroll-target="#setup-import-combine">Setup, Import &amp; Combine</a>
+  <ul class="collapse">
+  <li><a href="#clip-log-data" id="toc-clip-log-data" class="nav-link" data-scroll-target="#clip-log-data">Clip log data</a></li>
+  <li><a href="#combining-files" id="toc-combining-files" class="nav-link" data-scroll-target="#combining-files">Combining files</a></li>
+  <li><a href="#context-on-matches" id="toc-context-on-matches" class="nav-link" data-scroll-target="#context-on-matches">Context on matches</a></li>
+  <li><a href="#ta-missing-weather-stations" id="toc-ta-missing-weather-stations" class="nav-link" data-scroll-target="#ta-missing-weather-stations">TA: Missing weather stations</a></li>
+  </ul></li>
+  <li><a href="#reliability-answers" id="toc-reliability-answers" class="nav-link" data-scroll-target="#reliability-answers">Reliability answers</a></li>
+  <li><a href="#temperature-differences" id="toc-temperature-differences" class="nav-link" data-scroll-target="#temperature-differences">Temperature differences</a>
+  <ul class="collapse">
+  <li><a href="#average-temp-difference" id="toc-average-temp-difference" class="nav-link" data-scroll-target="#average-temp-difference">Average temp difference</a></li>
+  <li><a href="#distribution-temp-difference" id="toc-distribution-temp-difference" class="nav-link" data-scroll-target="#distribution-temp-difference">Distribution temp difference</a></li>
+  <li><a href="#standard-deviation-temp-difference" id="toc-standard-deviation-temp-difference" class="nav-link" data-scroll-target="#standard-deviation-temp-difference">Standard deviation temp difference</a></li>
+  <li><a href="#percent-temp-within-range" id="toc-percent-temp-within-range" class="nav-link" data-scroll-target="#percent-temp-within-range">Percent temp within range</a></li>
+  <li><a href="#within-range-degrees-by-unit" id="toc-within-range-degrees-by-unit" class="nav-link" data-scroll-target="#within-range-degrees-by-unit">Within range degrees by unit</a></li>
+  </ul></li>
+  <li><a href="#heat-index" id="toc-heat-index" class="nav-link" data-scroll-target="#heat-index">Heat index</a>
+  <ul class="collapse">
+  <li><a href="#hi-diff-distribution" id="toc-hi-diff-distribution" class="nav-link" data-scroll-target="#hi-diff-distribution">HI diff distribution</a></li>
+  <li><a href="#within-hi-range" id="toc-within-hi-range" class="nav-link" data-scroll-target="#within-hi-range">Within HI range</a></li>
+  <li><a href="#within-hi-range-by-unit" id="toc-within-hi-range-by-unit" class="nav-link" data-scroll-target="#within-hi-range-by-unit">Within HI range by unit</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-outdoor-protocols.html">Analysis</a></li><li class="breadcrumb-item"><a href="./02-outdoor-reliability.html">Outdoor log reliability</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Outdoor log reliability</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Media Innovation Group </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="july-2025-questions" class="level3">
+<h3 class="anchored" data-anchor-id="july-2025-questions">July 2025 questions</h3>
+<ul>
+<li>Can we find a NWS for Jordan that is close but has readings? Are there other cases like this were we don’t have readings, but can find an alternative station? Let’s try using virtualcrossing.</li>
+</ul>
+<p>Questions for LM:</p>
+<ul>
+<li>We filter to 1 week in July, but have 8 days. Should we include the 8th day?</li>
+</ul>
+</section>
+<section id="reliability-questions" class="level2">
+<h2 class="anchored" data-anchor-id="reliability-questions">Reliability questions</h2>
+<ul>
+<li>How do log temperature readings compare to the nearest weather station?
+<ul>
+<li>diff in temp</li>
+<li>diff in heat index</li>
+</ul></li>
+</ul>
+</section>
+<section id="setup-import-combine" class="level2">
+<h2 class="anchored" data-anchor-id="setup-import-combine">Setup, Import &amp; Combine</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We’re bringing in:</p>
+<ul>
+<li>Our coded and cleaned outdoor log data</li>
+<li>Hourly weather readings</li>
+<li>Prison unit information</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>logs_all <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/01-outdoor-cleaned.rds"</span>) <span class="co"># come from 01-outdoor-cleaning</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>hourly <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/01-station-hourly-protocols.rds"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>units <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/01-unit-info-cleaned.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="clip-log-data" class="level3">
+<h3 class="anchored" data-anchor-id="clip-log-data">Clip log data</h3>
+<p>We have eight days of data, but we can clip it to a “week” as the last seven seven days of July, 2023. <strong>As of July 2025, we are not clipping.</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>logs <span class="ot">&lt;-</span> logs_all</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># |&gt; filter(date != "2023-07-24")</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>logs <span class="sc">|&gt;</span> <span class="fu">count</span>(date) <span class="sc">|&gt;</span> <span class="fu">adorn_totals</span>() <span class="sc">|&gt;</span> <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2023-07-24","2":"1968"},{"1":"2023-07-25","2":"1968"},{"1":"2023-07-26","2":"1968"},{"1":"2023-07-27","2":"1968"},{"1":"2023-07-28","2":"1968"},{"1":"2023-07-29","2":"1968"},{"1":"2023-07-30","2":"1968"},{"1":"2023-07-31","2":"1968"},{"1":"Total","2":"15744"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="combining-files" class="level3">
+<h3 class="anchored" data-anchor-id="combining-files">Combining files</h3>
+<p>Here we bring in the unit info and hourly logs.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting station from units</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>logs_expanded <span class="ot">&lt;-</span> logs <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(units, <span class="at">by =</span> <span class="fu">join_by</span>(unit <span class="sc">==</span> unit_name, region)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># removing some unneeded cols</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span><span class="fu">c</span>(unit_code, type, county, nws))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># joining to get weather info</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>logs_nws <span class="ot">&lt;-</span> logs_expanded <span class="sc">|&gt;</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(hourly, <span class="at">by =</span> <span class="fu">join_by</span>(nws_id <span class="sc">==</span> station_id, date <span class="sc">==</span> date, hour <span class="sc">==</span> hr))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>logs_expanded <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(unit, <span class="st">"Jordan"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["region"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["rec"],"name":[4],"type":["chr"],"align":["left"]},{"label":["datetime"],"name":[5],"type":["dttm"],"align":["right"]},{"label":["hour"],"name":[6],"type":["int"],"align":["right"]},{"label":["temp"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["humid"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["wind"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["hi_wc"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["hi_wc_n"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["person"],"name":[12],"type":["chr"],"align":["left"]},{"label":["notes"],"name":[13],"type":["chr"],"align":["left"]},{"label":["nws_id"],"name":[14],"type":["chr"],"align":["left"]}],"data":[{"1":"Jordan","2":"V","3":"2023-07-24","4":"1","5":"2023-07-24 00:30:00","6":"0","7":"76","8":"55","9":"9","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"2","5":"2023-07-24 01:30:00","6":"1","7":"73","8":"53","9":"11","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"3","5":"2023-07-24 02:30:00","6":"2","7":"74","8":"56","9":"10","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"4","5":"2023-07-24 03:30:00","6":"3","7":"71","8":"58","9":"10","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"5","5":"2023-07-24 04:30:00","6":"4","7":"69","8":"60","9":"9","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"6","5":"2023-07-24 05:30:00","6":"5","7":"68","8":"62","9":"9","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"7","5":"2023-07-24 06:30:00","6":"6","7":"67","8":"60","9":"11","10":"NA","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"8","5":"2023-07-24 07:30:00","6":"7","7":"66","8":"59","9":"10","10":"NA","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"9","5":"2023-07-24 08:30:00","6":"8","7":"75","8":"50","9":"6","10":"NA","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"10","5":"2023-07-24 09:30:00","6":"9","7":"82","8":"38","9":"10","10":"81","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"11","5":"2023-07-24 10:30:00","6":"10","7":"85","8":"34","9":"14","10":"84","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"12","5":"2023-07-24 11:30:00","6":"11","7":"89","8":"28","9":"17","10":"87","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"13","5":"2023-07-24 12:30:00","6":"12","7":"93","8":"24","9":"16","10":"91","11":"2","12":"Feaster","13":"hi_wc legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"14","5":"2023-07-24 13:30:00","6":"13","7":"96","8":"21","9":"16","10":"93","11":"2","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"15","5":"2023-07-24 14:30:00","6":"14","7":"98","8":"20","9":"14","10":"95","11":"2","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"16","5":"2023-07-24 15:30:00","6":"15","7":"100","8":"18","9":"15","10":"97","11":"2","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"17","5":"2023-07-24 16:30:00","6":"16","7":"100","8":"18","9":"19","10":"97","11":"2","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"18","5":"2023-07-24 17:30:00","6":"17","7":"100","8":"17","9":"32","10":"97","11":"2","12":"Feaster","13":"humid corrected, wind corrected, wind expressed as range (15-32)","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"19","5":"2023-07-24 18:30:00","6":"18","7":"99","8":"20","9":"19","10":"96","11":"2","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"20","5":"2023-07-24 19:30:00","6":"19","7":"98","8":"24","9":"16","10":"95","11":"2","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"21","5":"2023-07-24 20:30:00","6":"20","7":"91","8":"25","9":"12","10":"88","11":"1","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"22","5":"2023-07-24 21:30:00","6":"21","7":"88","8":"28","9":"13","10":"85","11":"1","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"23","5":"2023-07-24 22:30:00","6":"22","7":"84","8":"34","9":"14","10":"85","11":"1","12":"Claw","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-24","4":"24","5":"2023-07-24 23:30:00","6":"23","7":"84","8":"33","9":"15","10":"85","11":"1","12":"Claw","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"1","5":"2023-07-25 00:30:00","6":"0","7":"83","8":"33","9":"15","10":"81","11":"NA","12":"Sgt. Clear","13":"same person as Clear","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"2","5":"2023-07-25 01:30:00","6":"1","7":"80","8":"34","9":"23","10":"80","11":"NA","12":"Sgt. Clear","13":"wind expressed as range (15-23), same person as Clear","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"3","5":"2023-07-25 02:30:00","6":"2","7":"82","8":"31","9":"15","10":"82","11":"NA","12":"Patrick","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"4","5":"2023-07-25 03:30:00","6":"3","7":"79","8":"35","9":"16","10":"NA","11":"NA","12":"Patrick","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"5","5":"2023-07-25 04:30:00","6":"4","7":"79","8":"38","9":"NA","10":"NA","11":"NA","12":"Patrick","13":"wind blank","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"6","5":"2023-07-25 05:30:00","6":"5","7":"75","8":"40","9":"NA","10":"NA","11":"NA","12":"Patrick","13":"wind blank","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"7","5":"2023-07-25 06:30:00","6":"6","7":"75","8":"42","9":"11","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"8","5":"2023-07-25 07:30:00","6":"7","7":"72","8":"44","9":"7","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"9","5":"2023-07-25 08:30:00","6":"8","7":"74","8":"42","9":"11","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"10","5":"2023-07-25 09:30:00","6":"9","7":"85","8":"32","9":"13","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"11","5":"2023-07-25 10:30:00","6":"10","7":"87","8":"28","9":"19","10":"85","11":"NA","12":"Andis","13":"hi_wc reported with HI, hi_wc_n legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"12","5":"2023-07-25 11:30:00","6":"11","7":"92","8":"27","9":"22","10":"89","11":"1","12":"Andis","13":"hi_wc legibility, hi_wc_n corrected","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"13","5":"2023-07-25 12:30:00","6":"12","7":"95","8":"23","9":"29","10":"91","11":"2","12":"Andis","13":"humid legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"14","5":"2023-07-25 13:30:00","6":"13","7":"98","8":"18","9":"25","10":"94","11":"2","12":"Andis","13":"hi_wc legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"15","5":"2023-07-25 14:30:00","6":"14","7":"98","8":"17","9":"27","10":"94","11":"2","12":"Berner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"16","5":"2023-07-25 15:30:00","6":"15","7":"99","8":"18","9":"23","10":"96","11":"2","12":"Berner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"17","5":"2023-07-25 16:30:00","6":"16","7":"100","8":"18","9":"25","10":"97","11":"2","12":"Berner","13":"wind legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"18","5":"2023-07-25 17:30:00","6":"17","7":"101","8":"17","9":"22","10":"98","11":"2","12":"Berner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"19","5":"2023-07-25 18:30:00","6":"18","7":"98","8":"19","9":"22","10":"95","11":"2","12":"Matthews","13":"temp legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"20","5":"2023-07-25 19:30:00","6":"19","7":"96","8":"17","9":"19","10":"93","11":"2","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"21","5":"2023-07-25 20:30:00","6":"20","7":"92","8":"19","9":"18","10":"88","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"22","5":"2023-07-25 21:30:00","6":"21","7":"87","8":"24","9":"13","10":"84","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"23","5":"2023-07-25 22:30:00","6":"22","7":"84","8":"32","9":"13","10":"84","11":"1","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-25","4":"24","5":"2023-07-25 23:30:00","6":"23","7":"80","8":"34","9":"14","10":"80","11":"1","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"1","5":"2023-07-26 00:30:00","6":"0","7":"80","8":"36","9":"12","10":"80","11":"1","12":"Velasquez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"2","5":"2023-07-26 01:30:00","6":"1","7":"81","8":"36","9":"16","10":"80","11":"1","12":"Velasquez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"3","5":"2023-07-26 02:30:00","6":"2","7":"78","8":"39","9":"13","10":"NA","11":"NA","12":"Quezada","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"4","5":"2023-07-26 03:30:00","6":"3","7":"76","8":"42","9":"11","10":"NA","11":"NA","12":"Quezada","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"5","5":"2023-07-26 04:30:00","6":"4","7":"74","8":"46","9":"12","10":"NA","11":"NA","12":"Quezada","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"6","5":"2023-07-26 05:30:00","6":"5","7":"72","8":"48","9":"11","10":"NA","11":"NA","12":"Quezada","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"7","5":"2023-07-26 06:30:00","6":"6","7":"71","8":"49","9":"8","10":"NA","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"8","5":"2023-07-26 07:30:00","6":"7","7":"71","8":"52","9":"4","10":"NA","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"9","5":"2023-07-26 08:30:00","6":"8","7":"75","8":"49","9":"4","10":"NA","11":"NA","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"10","5":"2023-07-26 09:30:00","6":"9","7":"82","8":"42","9":"10","10":"81","11":"1","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"11","5":"2023-07-26 10:30:00","6":"10","7":"86","8":"31","9":"12","10":"86","11":"1","12":"Feaster","13":"temp corrected, humid corrected, hi_wc corrected","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"12","5":"2023-07-26 11:30:00","6":"11","7":"90","8":"30","9":"22","10":"88","11":"1","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"13","5":"2023-07-26 12:30:00","6":"12","7":"93","8":"26","9":"17","10":"90","11":"2","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"14","5":"2023-07-26 13:30:00","6":"13","7":"95","8":"21","9":"20","10":"91","11":"2","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"15","5":"2023-07-26 14:30:00","6":"14","7":"96","8":"19","9":"34","10":"91","11":"2","12":"Feaster","13":"temp corrected, wind expressed as range (15-34) (corrected)","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"16","5":"2023-07-26 15:30:00","6":"15","7":"97","8":"18","9":"21","10":"94","11":"2","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"17","5":"2023-07-26 16:30:00","6":"16","7":"98","8":"18","9":"19","10":"95","11":"2","12":"Feaster","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"18","5":"2023-07-26 17:30:00","6":"17","7":"98","8":"16","9":"19","10":"94","11":"2","12":"Feaster","13":"person handwriting","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"19","5":"2023-07-26 18:30:00","6":"18","7":"97","8":"17","9":"18","10":"93","11":"2","12":"Matthews","13":"temp legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"20","5":"2023-07-26 19:30:00","6":"19","7":"95","8":"18","9":"14","10":"91","11":"2","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"21","5":"2023-07-26 20:30:00","6":"20","7":"90","8":"20","9":"12","10":"86","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"22","5":"2023-07-26 21:30:00","6":"21","7":"81","8":"32","9":"11","10":"80","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"23","5":"2023-07-26 22:30:00","6":"22","7":"81","8":"37","9":"14","10":"81","11":"1","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-26","4":"24","5":"2023-07-26 23:30:00","6":"23","7":"82","8":"40","9":"16","10":"80","11":"1","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"1","5":"2023-07-27 00:30:00","6":"0","7":"82","8":"41","9":"19","10":"80","11":"1","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"2","5":"2023-07-27 01:30:00","6":"1","7":"81","8":"43","9":"16","10":"80","11":"1","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"3","5":"2023-07-27 02:30:00","6":"2","7":"78","8":"43","9":"10","10":"NA","11":"NA","12":"Adegoke","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"4","5":"2023-07-27 03:30:00","6":"3","7":"76","8":"49","9":"10","10":"NA","11":"NA","12":"Adegoke","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"5","5":"2023-07-27 04:30:00","6":"4","7":"78","8":"48","9":"9","10":"NA","11":"NA","12":"Adegoke","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"6","5":"2023-07-27 05:30:00","6":"5","7":"75","8":"54","9":"8","10":"NA","11":"NA","12":"Adegoke","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"7","5":"2023-07-27 06:30:00","6":"6","7":"75","8":"52","9":"10","10":"NA","11":"NA","12":"Turner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"8","5":"2023-07-27 07:30:00","6":"7","7":"75","8":"52","9":"12","10":"NA","11":"NA","12":"Turner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"9","5":"2023-07-27 08:30:00","6":"8","7":"76","8":"48","9":"8","10":"NA","11":"NA","12":"Turner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"10","5":"2023-07-27 09:30:00","6":"9","7":"83","8":"41","9":"8","10":"80","11":"1","12":"Turner","13":"temp corrected, temp legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"11","5":"2023-07-27 10:30:00","6":"10","7":"86","8":"36","9":"10","10":"85","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"12","5":"2023-07-27 11:30:00","6":"11","7":"89","8":"34","9":"9","10":"90","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"13","5":"2023-07-27 12:30:00","6":"12","7":"94","8":"29","9":"14","10":"92","11":"2","12":"Burton","13":"temp corrected","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"14","5":"2023-07-27 13:30:00","6":"13","7":"95","8":"26","9":"13","10":"93","11":"2","12":"Burton","13":"wind legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"15","5":"2023-07-27 14:30:00","6":"14","7":"99","8":"19","9":"15","10":"96","11":"2","12":"Tuttle","13":"hi_wc reported with \"HI\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"16","5":"2023-07-27 15:30:00","6":"15","7":"100","8":"19","9":"15","10":"97","11":"2","12":"Tuttle","13":"hi_wc reported with \"HI\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"17","5":"2023-07-27 16:30:00","6":"16","7":"98","8":"17","9":"14","10":"95","11":"2","12":"Tuttle","13":"hi_wc reported with \"HI\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"18","5":"2023-07-27 17:30:00","6":"17","7":"98","8":"17","9":"15","10":"95","11":"2","12":"Willsie","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"19","5":"2023-07-27 18:30:00","6":"18","7":"96","8":"17","9":"15","10":"93","11":"2","12":"Willsie","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"20","5":"2023-07-27 19:30:00","6":"19","7":"91","8":"23","9":"9","10":"88","11":"1","12":"Willsie","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"21","5":"2023-07-27 20:30:00","6":"20","7":"82","8":"36","9":"11","10":"81","11":"1","12":"Willsie","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"22","5":"2023-07-27 21:30:00","6":"21","7":"80","8":"36","9":"10","10":"71","11":"1","12":"Matthews","13":"temp corrected, hi_wc corrected, hi_wc legibility, person corrected, person legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"23","5":"2023-07-27 22:30:00","6":"22","7":"81","8":"36","9":"10","10":"80","11":"1","12":"Matthews","13":"wind legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-27","4":"24","5":"2023-07-27 23:30:00","6":"23","7":"83","8":"36","9":"10","10":"82","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"1","5":"2023-07-28 00:30:00","6":"0","7":"82","8":"36","9":"11","10":"81","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"2","5":"2023-07-28 01:30:00","6":"1","7":"80","8":"39","9":"6","10":"80","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"3","5":"2023-07-28 02:30:00","6":"2","7":"80","8":"40","9":"12","10":"80","11":"1","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"4","5":"2023-07-28 03:30:00","6":"3","7":"79","8":"43","9":"9","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"5","5":"2023-07-28 04:30:00","6":"4","7":"77","8":"43","9":"6","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"6","5":"2023-07-28 05:30:00","6":"5","7":"77","8":"51","9":"7","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"7","5":"2023-07-28 06:30:00","6":"6","7":"73","8":"52","9":"9","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"8","5":"2023-07-28 07:30:00","6":"7","7":"75","8":"43","9":"10","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"9","5":"2023-07-28 08:30:00","6":"8","7":"78","8":"40","9":"12","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"10","5":"2023-07-28 09:30:00","6":"9","7":"88","8":"37","9":"9","10":"80","11":"1","12":"Tuttle","13":"hi_wc reported with \"HI\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"11","5":"2023-07-28 10:30:00","6":"10","7":"82","8":"35","9":"9","10":"81","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"12","5":"2023-07-28 11:30:00","6":"11","7":"90","8":"28","9":"14","10":"88","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"13","5":"2023-07-28 12:30:00","6":"12","7":"93","8":"22","9":"12","10":"89","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"14","5":"2023-07-28 13:30:00","6":"13","7":"95","8":"19","9":"13","10":"91","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"15","5":"2023-07-28 14:30:00","6":"14","7":"98","8":"19","9":"15","10":"91","11":"1","12":"Pierce","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"16","5":"2023-07-28 15:30:00","6":"15","7":"98","8":"19","9":"15","10":"91","11":"1","12":"Pierce","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"17","5":"2023-07-28 16:30:00","6":"16","7":"99","8":"19","9":"15","10":"91","11":"2","12":"Pierce","13":"temp corrected, hi_wc_n legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"18","5":"2023-07-28 17:30:00","6":"17","7":"102","8":"19","9":"16","10":"91","11":"2","12":"Pierce","13":"temp corrected, hi_wc_n legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"19","5":"2023-07-28 18:30:00","6":"18","7":"97","8":"18","9":"11","10":"94","11":"2","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"20","5":"2023-07-28 19:30:00","6":"19","7":"96","8":"17","9":"11","10":"92","11":"2","12":"Matthews","13":"humid corrected","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"21","5":"2023-07-28 20:30:00","6":"20","7":"91","8":"21","9":"10","10":"87","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"22","5":"2023-07-28 21:30:00","6":"21","7":"84","8":"35","9":"11","10":"83","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"23","5":"2023-07-28 22:30:00","6":"22","7":"83","8":"38","9":"14","10":"82","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-28","4":"24","5":"2023-07-28 23:30:00","6":"23","7":"83","8":"42","9":"14","10":"82","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"1","5":"2023-07-29 00:30:00","6":"0","7":"83","8":"44","9":"15","10":"83","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"2","5":"2023-07-29 01:30:00","6":"1","7":"82","8":"44","9":"12","10":"82","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"3","5":"2023-07-29 02:30:00","6":"2","7":"80","8":"53","9":"17","10":"81","11":"1","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"4","5":"2023-07-29 03:30:00","6":"3","7":"79","8":"48","9":"13","10":"NA","11":"NA","12":"Matthews","13":"hi_wc corrected","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"5","5":"2023-07-29 04:30:00","6":"4","7":"77","8":"52","9":"13","10":"NA","11":"NA","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"6","5":"2023-07-29 05:30:00","6":"5","7":"76","8":"49","9":"10","10":"NA","11":"NA","12":"Matthews","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"7","5":"2023-07-29 06:30:00","6":"6","7":"74","8":"55","9":"3","10":"NA","11":"NA","12":"Tuttle","13":"humid corrected","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"8","5":"2023-07-29 07:30:00","6":"7","7":"74","8":"55","9":"7","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"9","5":"2023-07-29 08:30:00","6":"8","7":"75","8":"51","9":"8","10":"NA","11":"NA","12":"Tuttle","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"10","5":"2023-07-29 09:30:00","6":"9","7":"80","8":"46","9":"5","10":"80","11":"1","12":"Tuttle","13":"hi_wc reported with \"HI\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"11","5":"2023-07-29 10:30:00","6":"10","7":"87","8":"40","9":"5","10":"81","11":"1","12":"Woods, K","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"12","5":"2023-07-29 11:30:00","6":"11","7":"89","8":"35","9":"5","10":"84","11":"1","12":"Woods, K","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"13","5":"2023-07-29 12:30:00","6":"12","7":"92","8":"29","9":"NA","10":"85","11":"NA","12":"Woods, K","13":"temp corrected","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"14","5":"2023-07-29 13:30:00","6":"13","7":"93","8":"27","9":"6","10":"92","11":"2","12":"Woods, K","13":"hi_wc reported with \"HI\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"15","5":"2023-07-29 14:30:00","6":"14","7":"96","8":"25","9":"6","10":"94","11":"2","12":"Burton","13":"hi_wc corrected, hi_wc_n legibility, person legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"16","5":"2023-07-29 15:30:00","6":"15","7":"96","8":"19","9":"9","10":"93","11":"2","12":"Burton","13":"temp corrected, humid corrected, person legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"17","5":"2023-07-29 16:30:00","6":"16","7":"98","8":"20","9":"10","10":"95","11":"2","12":"Burton","13":"humid corrected","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"18","5":"2023-07-29 17:30:00","6":"17","7":"97","8":"18","9":"12","10":"97","11":"2","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"19","5":"2023-07-29 18:30:00","6":"18","7":"96","8":"21","9":"12","10":"93","11":"2","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"20","5":"2023-07-29 19:30:00","6":"19","7":"95","8":"23","9":"9","10":"91","11":"2","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"21","5":"2023-07-29 20:30:00","6":"20","7":"92","8":"26","9":"12","10":"89","11":"1","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"22","5":"2023-07-29 21:30:00","6":"21","7":"82","8":"35","9":"8","10":"81","11":"1","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"23","5":"2023-07-29 22:30:00","6":"22","7":"81","8":"39","9":"9","10":"80","11":"1","12":"Velasquez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-29","4":"24","5":"2023-07-29 23:30:00","6":"23","7":"78","8":"37","9":"10","10":"NA","11":"NA","12":"Velasquez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"1","5":"2023-07-30 00:30:00","6":"0","7":"76","8":"39","9":"10","10":"NA","11":"NA","12":"Velasquez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"2","5":"2023-07-30 01:30:00","6":"1","7":"74","8":"43","9":"9","10":"NA","11":"NA","12":"Velasquez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"3","5":"2023-07-30 02:30:00","6":"2","7":"74","8":"45","9":"9","10":"NA","11":"NA","12":"D. Johnson","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"4","5":"2023-07-30 03:30:00","6":"3","7":"71","8":"45","9":"6","10":"NA","11":"NA","12":"DSJ","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"5","5":"2023-07-30 04:30:00","6":"4","7":"69","8":"47","9":"6","10":"NA","11":"NA","12":"DSJ","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"6","5":"2023-07-30 05:30:00","6":"5","7":"69","8":"51","9":"9","10":"NA","11":"NA","12":"DSJ","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"7","5":"2023-07-30 06:30:00","6":"6","7":"70","8":"54","9":"6","10":"NA","11":"NA","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"8","5":"2023-07-30 07:30:00","6":"7","7":"67","8":"53","9":"5","10":"NA","11":"NA","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"9","5":"2023-07-30 08:30:00","6":"8","7":"78","8":"50","9":"4","10":"NA","11":"NA","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"10","5":"2023-07-30 09:30:00","6":"9","7":"82","8":"40","9":"7","10":"NA","11":"NA","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"11","5":"2023-07-30 10:30:00","6":"10","7":"88","8":"32","9":"8","10":"86","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"12","5":"2023-07-30 11:30:00","6":"11","7":"91","8":"24","9":"9","10":"88","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"13","5":"2023-07-30 12:30:00","6":"12","7":"92","8":"22","9":"8","10":"86","11":"1","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"14","5":"2023-07-30 13:30:00","6":"13","7":"97","8":"22","9":"11","10":"94","11":"2","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"15","5":"2023-07-30 14:30:00","6":"14","7":"98","8":"18","9":"14","10":"95","11":"2","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"16","5":"2023-07-30 15:30:00","6":"15","7":"98","8":"19","9":"14","10":"97","11":"2","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"17","5":"2023-07-30 16:30:00","6":"16","7":"98","8":"17","9":"15","10":"97","11":"2","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"18","5":"2023-07-30 17:30:00","6":"17","7":"97","8":"16","9":"10","10":"93","11":"2","12":"Burton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"19","5":"2023-07-30 18:30:00","6":"18","7":"96","8":"16","9":"12","10":"91","11":"2","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"20","5":"2023-07-30 19:30:00","6":"19","7":"95","8":"16","9":"10","10":"91","11":"2","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"21","5":"2023-07-30 20:30:00","6":"20","7":"90","8":"17","9":"10","10":"86","11":"1","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"22","5":"2023-07-30 21:30:00","6":"21","7":"82","8":"22","9":"8","10":"79","11":"1","12":"Velasquez","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"23","5":"2023-07-30 22:30:00","6":"22","7":"78","8":"30","9":"8","10":"NA","11":"NA","12":"D. Johnson","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-30","4":"24","5":"2023-07-30 23:30:00","6":"23","7":"78","8":"35","9":"9","10":"NA","11":"NA","12":"DSJ","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"1","5":"2023-07-31 00:30:00","6":"0","7":"81","8":"37","9":"11","10":"80","11":"1","12":"D. Johnson","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"2","5":"2023-07-31 01:30:00","6":"1","7":"77","8":"42","9":"9","10":"NA","11":"NA","12":"DSJ","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"3","5":"2023-07-31 02:30:00","6":"2","7":"76","8":"44","9":"13","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"4","5":"2023-07-31 03:30:00","6":"3","7":"74","8":"49","9":"10","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"5","5":"2023-07-31 04:30:00","6":"4","7":"71","8":"46","9":"8","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"6","5":"2023-07-31 05:30:00","6":"5","7":"72","8":"48","9":"9","10":"NA","11":"NA","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"7","5":"2023-07-31 06:30:00","6":"6","7":"71","8":"50","9":"7","10":"NA","11":"NA","12":"Berner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"8","5":"2023-07-31 07:30:00","6":"7","7":"71","8":"47","9":"7","10":"NA","11":"NA","12":"Berner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"9","5":"2023-07-31 08:30:00","6":"8","7":"76","8":"44","9":"9","10":"NA","11":"NA","12":"Berner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"10","5":"2023-07-31 09:30:00","6":"9","7":"82","8":"38","9":"11","10":"81","11":"1","12":"Berner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"11","5":"2023-07-31 10:30:00","6":"10","7":"87","8":"36","9":"12","10":"86","11":"1","12":"Dalton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"12","5":"2023-07-31 11:30:00","6":"11","7":"89","8":"33","9":"13","10":"89","11":"1","12":"Dalton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"13","5":"2023-07-31 12:30:00","6":"12","7":"92","8":"30","9":"14","10":"91","11":"1","12":"Dalton","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"14","5":"2023-07-31 13:30:00","6":"13","7":"75","8":"21","9":"NA","10":"88","11":"1","12":"Woods, R","13":"wind blank","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"15","5":"2023-07-31 14:30:00","6":"14","7":"97","8":"19","9":"16","10":"94","11":"2","12":"Turner JJ","13":"humid legibility","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"16","5":"2023-07-31 15:30:00","6":"15","7":"99","8":"19","9":"11","10":"96","11":"2","12":"Turner JJ","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"17","5":"2023-07-31 16:30:00","6":"16","7":"99","8":"18","9":"14","10":"96","11":"2","12":"Turner","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"18","5":"2023-07-31 17:30:00","6":"17","7":"98","8":"16","9":"12","10":"96","11":"2","12":"Turner JJ","13":"NA","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"19","5":"2023-07-31 18:30:00","6":"18","7":"97","8":"19","9":"7","10":"94","11":"2","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"20","5":"2023-07-31 19:30:00","6":"19","7":"94","8":"24","9":"12","10":"91","11":"2","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"21","5":"2023-07-31 20:30:00","6":"20","7":"89","8":"25","9":"11","10":"86","11":"1","12":"Cazarez","13":"temp reported with \"sunny\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"22","5":"2023-07-31 21:30:00","6":"21","7":"86","8":"35","9":"10","10":"85","11":"1","12":"Cazarez","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"23","5":"2023-07-31 22:30:00","6":"22","7":"84","8":"37","9":"11","10":"83","11":"1","12":"Quezada","13":"temp reported with \"clear\"","14":"KPPA"},{"1":"Jordan","2":"V","3":"2023-07-31","4":"24","5":"2023-07-31 23:30:00","6":"23","7":"82","8":"39","9":"10","10":"81","11":"1","12":"Quezada","13":"temp reported with \"fair\"","14":"KPPA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="context-on-matches" class="level3">
+<h3 class="anchored" data-anchor-id="context-on-matches">Context on matches</h3>
+<p>Here we find the percentage of records with no NWS data.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>match_checks <span class="ot">&lt;-</span> logs_nws <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">match_null =</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(name), T, F))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>match_checks <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(match_null) <span class="sc">|&gt;</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["match_null"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"13390","3":"85.0%"},{"1":"TRUE","2":"2354","3":"15.0%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>About 15 percent of our hourly logs don’t have a station match. Here <code>TRUE</code> values means there is missing station data.</p>
+<p>Let’s take a look at which ones are at issue:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>match_checks <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(unit, match_null) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_ns</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["FALSE"],"name":[2],"type":["chr"],"align":["left"]},{"label":["TRUE"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Allred","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Beto","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Boyd","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Briscoe","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Byrd","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Clemens","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Cole","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Connally","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Cotulla","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Crain","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Dalhart","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Daniel","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Dominguez","2":"99.0% (190)","3":"1.0%   (2)"},{"1":"Duncan","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Ellis","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Estelle","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Ferguson","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Formby","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Fort Stockton","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Garza West","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Gist","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Glossbrenner","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Goodman","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Goree","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Halbert","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Hamilton","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Havins","2":"88.5% (170)","3":"11.5%  (22)"},{"1":"Henley","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Hightower","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Hilltop","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Hobby","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Hodge","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Holliday","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Hospital Galveston","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Hughes","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Huntsville","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Hutchins","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Jester III","2":"73.4% (141)","3":"26.6%  (51)"},{"1":"Johnston","2":"94.8% (182)","3":"5.2%  (10)"},{"1":"Jordan","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Kegans","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"LeBlanc","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Lewis","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Lopez","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Luther","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Lychner","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Lynaugh","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Marlin","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"McConnell","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Mechler","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Memorial","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Michael","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Middleton","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Montford","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Moore, C.","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Murray","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Pack","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Plane","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Polunsky","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Powledge","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Ramsey","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Roach","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Robertson","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"San Saba","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Sanchez","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Sayle","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Scott","2":"73.4% (141)","3":"26.6%  (51)"},{"1":"Smith","2":"0.0%   (0)","3":"100.0% (192)"},{"1":"Stevenson","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Stiles","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Stringfellow","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Telford","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Terrell","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Torres","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Travis County","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Vance","2":"73.4% (141)","3":"26.6%  (51)"},{"1":"Wainwright","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Wallace","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Wheeler","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Woodman","2":"98.4% (189)","3":"1.6%   (3)"},{"1":"Wynne","2":"100.0% (192)","3":"0.0%   (0)"},{"1":"Young","2":"97.9% (188)","3":"2.1%   (4)"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>In some cases we didn’t have a prison close enough. In other cases – like Jordan – we had a station, but there were no recordings for the time period.</p>
+<p>Here is a filtered list to more easily see units that have no NWS readings:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>no_compare <span class="ot">&lt;-</span> match_checks <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(unit, match_null) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">FALSE</span><span class="st">`</span> <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>no_compare</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["FALSE"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["TRUE"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Cole","2":"0","3":"192"},{"1":"Connally","2":"0","3":"192"},{"1":"Henley","2":"0","3":"192"},{"1":"Hightower","2":"0","3":"192"},{"1":"Jordan","2":"0","3":"192"},{"1":"Luther","2":"0","3":"192"},{"1":"Moore, C.","2":"0","3":"192"},{"1":"Pack","2":"0","3":"192"},{"1":"Plane","2":"0","3":"192"},{"1":"San Saba","2":"0","3":"192"},{"1":"Smith","2":"0","3":"192"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>We’re going to remove these units going forward, leaving us with 82 units.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>no_compare_units <span class="ot">&lt;-</span> no_compare <span class="sc">|&gt;</span> <span class="fu">pull</span>(unit)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>logs_nws_compare <span class="ot">&lt;-</span> logs_nws <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">%in%</span> no_compare_units)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>logs_nws_compare <span class="sc">|&gt;</span> <span class="fu">count</span>(unit) <span class="sc">|&gt;</span> <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="ta-missing-weather-stations" class="level3">
+<h3 class="anchored" data-anchor-id="ta-missing-weather-stations">TA: Missing weather stations</h3>
+<p>We don’t have a matching weather station for 11 of the 82 unites. Using <a href="https://www.visualcrossing.com/weather-history/">visualcrossing</a> we might be able to do a better job finding weather stations, and also to keep a better record of how far away these stations are from the units. <strong>We will do this, but later.</strong></p>
+<p>ALSO: In May25 work we removed stations with no matching weather station because we were looking at reliability. But if we want instead to look at protocols based on internal records, we shouldn’t remove them.</p>
+</section>
+</section>
+<section id="reliability-answers" class="level2">
+<h2 class="anchored" data-anchor-id="reliability-answers">Reliability answers</h2>
+<p>We must remember these weather stations may be up to 40 miles away from the unit.</p>
+<ul>
+<li>How do log temperature readings compare to the nearest weather station?
+<ul>
+<li>diff in temp</li>
+<li>diff in heat index</li>
+</ul></li>
+</ul>
+<p>Here we find the difference in the prison recorded temp and heat index compared to the nearest station, if we have one. In some cases the diffs are NA because we don’t have a nearby station, or one of the calculating numbers is missing for whatever reason.</p>
+<p>We only do this heat index calculation if one of the temperatures if above 80 degrees, because heat indexes get wonky when it is below 80.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="ot">&lt;-</span> logs_nws_compare <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tmp_diff =</span> temp <span class="sc">-</span> tmp,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">hi_diff =</span> <span class="fu">case_when</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      temp <span class="sc">&gt;=</span> <span class="dv">80</span> <span class="sc">|</span> tmp <span class="sc">&gt;=</span> <span class="dv">80</span> <span class="sc">~</span> hi_wc <span class="sc">-</span> hi,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">.default =</span> <span class="cn">NA</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["region"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["rec"],"name":[4],"type":["chr"],"align":["left"]},{"label":["datetime"],"name":[5],"type":["dttm"],"align":["right"]},{"label":["hour"],"name":[6],"type":["int"],"align":["right"]},{"label":["temp"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["humid"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["wind"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["hi_wc"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["hi_wc_n"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["person"],"name":[12],"type":["chr"],"align":["left"]},{"label":["notes"],"name":[13],"type":["chr"],"align":["left"]},{"label":["nws_id"],"name":[14],"type":["chr"],"align":["left"]},{"label":["name"],"name":[15],"type":["chr"],"align":["left"]},{"label":["time"],"name":[16],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[20],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[21],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[22],"type":["lgl"],"align":["right"]},{"label":["tmp_diff"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["hi_diff"],"name":[24],"type":["dbl"],"align":["right"]}],"data":[{"1":"Stiles","2":"III","3":"2023-07-26","4":"12","5":"2023-07-26 11:30:00","6":"11","7":"90","8":"55","9":"NA","10":"90","11":"NA","12":"Rawlins","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"11:53:00","17":"94","18":"48","19":"101.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"-4","24":"-11.6"},{"1":"Ellis","2":"I","3":"2023-07-29","4":"6","5":"2023-07-29 05:30:00","6":"5","7":"75","8":"NA","9":"NA","10":"NA","11":"NA","12":"Varley","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"05:53:00","17":"79","18":"82","19":"80.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"-4","24":"NA"},{"1":"Polunsky","2":"I","3":"2023-07-24","4":"8","5":"2023-07-24 07:30:00","6":"7","7":"71","8":"100","9":"NA","10":"NA","11":"NA","12":"Challuger","13":"NA","14":"KCXO","15":"RUSK CO AIRPORT, TX US","16":"07:15:00","17":"79","18":"67","19":"79.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"-8","24":"NA"},{"1":"Wheeler","2":"V","3":"2023-07-24","4":"7","5":"2023-07-24 06:30:00","6":"6","7":"70","8":"57","9":"8","10":"NA","11":"NA","12":"Esquivel","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"06:15:00","17":"66","18":"64","19":"65.3","20":"FALSE","21":"FALSE","22":"FALSE","23":"4","24":"NA"},{"1":"Hughes","2":"VI","3":"2023-07-30","4":"7","5":"2023-07-30 06:30:00","6":"6","7":"75","8":"68","9":"1","10":"NA","11":"NA","12":"Ledbetter","13":"NA","14":"KGOP","15":"GATESVILLE MUNICIPAL AIRPORT, TX US","16":"06:15:00","17":"75","18":"69","19":"75.4","20":"FALSE","21":"FALSE","22":"FALSE","23":"0","24":"NA"},{"1":"Boyd","2":"II","3":"2023-07-29","4":"24","5":"2023-07-29 23:30:00","6":"23","7":"84","8":"48","9":"NA","10":"84","11":"NA","12":"Huffman","13":"NA","14":"KLXY","15":"MEXIA LIMESTONE CO AIRPORT, TX US","16":"23:15:00","17":"82","18":"55","19":"83.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"2","24":"0.4"},{"1":"Robertson","2":"VI","3":"2023-07-25","4":"17","5":"2023-07-25 16:30:00","6":"16","7":"103","8":"23","9":"9","10":"103","11":"3","12":"Poulton","13":"extra text in humid and wind: G-28","14":"KABI","15":"ABILENE REGIONAL AIRPORT, TX US","16":"16:52:00","17":"102","18":"20","19":"100.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"1","24":"2.9"},{"1":"McConnell","2":"IV","3":"2023-07-26","4":"1","5":"2023-07-26 00:30:00","6":"0","7":"79","8":"NA","9":"NA","10":"NA","11":"NA","12":"Perches","13":"NA","14":"KBEA","15":"BEEVILLE MUNICIPAL AIRPORT, TX US","16":"00:15:00","17":"78","18":"86","19":"79.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"1","24":"NA"},{"1":"Vance","2":"III","3":"2023-07-26","4":"10","5":"2023-07-26 09:30:00","6":"9","7":"91","8":"66","9":"NA","10":"102","11":"NA","12":"Amalu","13":"NA","14":"KSGR","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA"},{"1":"LeBlanc","2":"III","3":"2023-07-25","4":"14","5":"2023-07-25 13:30:00","6":"13","7":"93","8":"59","9":"NA","10":"106","11":"NA","12":"Johnson","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"13:53:00","17":"96","18":"43","19":"102.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"-3","24":"3.3"},{"1":"Hamilton","2":"VI","3":"2023-07-25","4":"16","5":"2023-07-25 15:30:00","6":"15","7":"102","8":"8","9":"NA","10":"109","11":"NA","12":"P Taylor","13":"humid corrected","14":"KCLL","15":"COLLEGE STATION EASTERWOOD FIELD, TX US","16":"15:53:00","17":"101","18":"27","19":"102.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"1","24":"6.8"},{"1":"Lewis","2":"I","3":"2023-07-28","4":"7","5":"2023-07-28 06:30:00","6":"6","7":"75","8":"81","9":"NA","10":"75","11":"NA","12":"M. Williams","13":"NA","14":"KJAS","15":"JASPER CO BELL FIELD AIRPORT, TX US","16":"06:15:00","17":"72","18":"100","19":"73.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"3","24":"NA"},{"1":"Robertson","2":"VI","3":"2023-07-30","4":"20","5":"2023-07-30 19:30:00","6":"19","7":"100","8":"21","9":"12","10":"101","11":"3","12":"Winters","13":"NA","14":"KABI","15":"ABILENE REGIONAL AIRPORT, TX US","16":"19:52:00","17":"93","18":"28","19":"91.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"7","24":"9.9"},{"1":"Hospital Galveston","2":"III","3":"2023-07-26","4":"20","5":"2023-07-26 19:30:00","6":"19","7":"87","8":"70","9":"11","10":"95","11":"NA","12":"Mercadoj","13":"NA","14":"KGLS","15":"GALVESTON SCHOLES FIELD, TX US","16":"19:52:00","17":"85","18":"72","19":"93.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"2","24":"1.5"},{"1":"Hamilton","2":"VI","3":"2023-07-31","4":"23","5":"2023-07-31 22:30:00","6":"22","7":"92","8":"50","9":"NA","10":"98","11":"NA","12":"Hill","13":"NA","14":"KCLL","15":"COLLEGE STATION EASTERWOOD FIELD, TX US","16":"22:53:00","17":"91","18":"49","19":"96.0","20":"FALSE","21":"FALSE","22":"FALSE","23":"1","24":"2.0"},{"1":"Havins","2":"VI","3":"2023-07-26","4":"2","5":"2023-07-26 01:30:00","6":"1","7":"84","8":"42","9":"1","10":"83","11":"NA","12":"Jones","13":"NA","14":"KBWD","15":"BROWNWOOD MUNICIPAL AIRPORT, TX US","16":"01:15:00","17":"75","18":"54","19":"74.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"9","24":"8.3"},{"1":"Memorial","2":"III","3":"2023-07-29","4":"21","5":"2023-07-29 20:30:00","6":"20","7":"86","8":"72","9":"NA","10":"95","11":"NA","12":"Ugomi","13":"NA","14":"KLVJ","15":"HOUSTON CLOVER FIELD, TX US","16":"20:53:00","17":"86","18":"67","19":"93.8","20":"FALSE","21":"FALSE","22":"FALSE","23":"0","24":"1.2"},{"1":"Polunsky","2":"I","3":"2023-07-30","4":"9","5":"2023-07-30 08:30:00","6":"8","7":"82","8":"79","9":"NA","10":"91","11":"NA","12":"Bogamy","13":"NA","14":"KCXO","15":"RUSK CO AIRPORT, TX US","16":"08:15:00","17":"88","18":"59","19":"94.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"-6","24":"-3.7"},{"1":"Powledge","2":"II","3":"2023-07-24","4":"10","5":"2023-07-24 09:30:00","6":"9","7":"81","8":"65","9":"NA","10":"85","11":"NA","12":"Stuart","13":"NA","14":"KPSN","15":"PALESTINE MUNICIPAL AIRPORT, TX US","16":"09:15:00","17":"88","18":"55","19":"93.0","20":"FALSE","21":"FALSE","22":"FALSE","23":"-7","24":"-8.0"},{"1":"Glossbrenner","2":"IV","3":"2023-07-28","4":"18","5":"2023-07-28 17:30:00","6":"17","7":"95","8":"38","9":"12","10":"97","11":"NA","12":"Hernandez","13":"hi_wc_n legibility","14":"KALI","15":"ALICE INTERNATIONAL AIRPORT, TX US","16":"17:53:00","17":"90","18":"52","19":"95.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"5","24":"1.5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="temperature-differences" class="level2">
+<h2 class="anchored" data-anchor-id="temperature-differences">Temperature differences</h2>
+<section id="average-temp-difference" class="level3">
+<h3 class="anchored" data-anchor-id="average-temp-difference">Average temp difference</h3>
+<p>Here we look across the dataset at the diff_tmp (unit temperature - weather staiton temperaure).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_tmp_diff =</span> <span class="fu">max</span>(tmp_diff, <span class="at">na.rm =</span> T),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_tmp_diff =</span> (<span class="fu">mean</span>(tmp_diff, <span class="at">na.rm =</span> T) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">1</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">med_tmp_diff =</span> <span class="fu">median</span>(tmp_diff, <span class="at">na.rm =</span> T)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["max_tmp_diff"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["avg_tmp_diff"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["med_tmp_diff"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"20","2":"-1.9","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="distribution-temp-difference" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-temp-difference">Distribution temp difference</h3>
+<p>Let’s do a quick plot of these to see how the are distributed. i.e., how many rows are within x degrees of the weather station temperature. Note: there are 248 blank rows where we could not determine the difference because of a missing value.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(logs_diffs, <span class="fu">aes</span>(<span class="at">x =</span> tmp_diff)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Compare temp draft"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">str_wrap</span>(<span class="st">"Each bar is how many unit records are within x degrees of the closest weather station."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 250 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-outdoor-reliability_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>I can see that there are a just a couple of outliers Let’s consider removing those and see the spread mo betta.</p>
+<p>There are only five records (out of 11,928) where the temp is 20 or more degrees off.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the outliers</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(tmp_diff) <span class="sc">&gt;=</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["region"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["rec"],"name":[4],"type":["chr"],"align":["left"]},{"label":["datetime"],"name":[5],"type":["dttm"],"align":["right"]},{"label":["hour"],"name":[6],"type":["int"],"align":["right"]},{"label":["temp"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["humid"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["wind"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["hi_wc"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["hi_wc_n"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["person"],"name":[12],"type":["chr"],"align":["left"]},{"label":["notes"],"name":[13],"type":["chr"],"align":["left"]},{"label":["nws_id"],"name":[14],"type":["chr"],"align":["left"]},{"label":["name"],"name":[15],"type":["chr"],"align":["left"]},{"label":["time"],"name":[16],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[20],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[21],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[22],"type":["lgl"],"align":["right"]},{"label":["tmp_diff"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["hi_diff"],"name":[24],"type":["dbl"],"align":["right"]}],"data":[{"1":"Duncan","2":"I","3":"2023-07-29","4":"1","5":"2023-07-29 00:30:00","6":"0","7":"98.0","8":"73","9":"NA","10":"79.0","11":"NA","12":"Moore","13":"temp corrected, hi_wc corrected","14":"KLFK","15":"LUFKIN ANGELINA CO AIRPORT, TX US","16":"00:53:00","17":"78","18":"82","19":"79.4","20":"FALSE","21":"FALSE","22":"FALSE","23":"20.0","24":"-0.4"},{"1":"Ellis","2":"I","3":"2023-07-31","4":"24","5":"2023-07-31 23:30:00","6":"23","7":"69.2","8":"NA","9":"6.2","10":"96.7","11":"2","12":"Opoku","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"23:53:00","17":"90","18":"54","19":"96.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"-20.8","24":"0.2"},{"1":"Polunsky","2":"I","3":"2023-07-30","4":"2","5":"2023-07-30 01:30:00","6":"1","7":"9.0","8":"86","9":"NA","10":"82.0","11":"NA","12":"Morgan","13":"NA","14":"KCXO","15":"RUSK CO AIRPORT, TX US","16":"01:15:00","17":"77","18":"80","19":"78.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"-68.0","24":"NA"},{"1":"Sanchez","2":"IV","3":"2023-07-27","4":"14","5":"2023-07-27 13:30:00","6":"13","7":"85.0","8":"32","9":"NA","10":"83.0","11":"NA","12":"Dipuy","13":"NA","14":"KELP","15":"EL PASO INTERNATIONAL AIRPORT, TX US","16":"13:51:00","17":"105","18":"11","19":"99.6","20":"TRUE","21":"FALSE","22":"TRUE","23":"-20.0","24":"-16.6"},{"1":"Sanchez","2":"IV","3":"2023-07-27","4":"16","5":"2023-07-27 15:30:00","6":"15","7":"85.0","8":"32","9":"NA","10":"83.0","11":"NA","12":"Sattler","13":"NA","14":"KELP","15":"EL PASO INTERNATIONAL AIRPORT, TX US","16":"15:51:00","17":"105","18":"10","19":"99.1","20":"TRUE","21":"FALSE","22":"TRUE","23":"-20.0","24":"-16.1"},{"1":"Formby","2":"V","3":"2023-07-24","4":"23","5":"2023-07-24 22:30:00","6":"22","7":"96.0","8":"21","9":"3.0","10":"NA","11":"NA","12":"Nicholas","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"22:15:00","17":"76","18":"44","19":"75.4","20":"FALSE","21":"FALSE","22":"FALSE","23":"20.0","24":"NA"},{"1":"Murray","2":"VI","3":"2023-07-24","4":"3","5":"2023-07-24 02:30:00","6":"2","7":"7.0","8":"50","9":"3.0","10":"NA","11":"NA","12":"Wall","13":"NA","14":"KGOP","15":"GATESVILLE MUNICIPAL AIRPORT, TX US","16":"02:15:00","17":"75","18":"54","19":"74.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"-68.0","24":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chart it</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(tmp_diff) <span class="sc">&lt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> tmp_diff) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Most temps within about 4 degrees"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">str_wrap</span>(<span class="st">"Each bar is how many unit records are within x degrees of the closest weather station. We've removed any rows that are more the 20 degrees off (of which there are five)."</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-outdoor-reliability_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>How many rows negative vs positive?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> <span class="fu">filter</span>(tmp_diff <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> <span class="fu">nrow</span>() <span class="co"># unit is lower</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7053</code></pre>
+</div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> <span class="fu">filter</span>(tmp_diff <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> <span class="fu">nrow</span>() <span class="co"># unit is higher</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6329</code></pre>
+</div>
+</div>
+</section>
+<section id="standard-deviation-temp-difference" class="level3">
+<h3 class="anchored" data-anchor-id="standard-deviation-temp-difference">Standard deviation temp difference</h3>
+<p>This might be too technical or unneeded, but let’s look at this using the standard deviation. The standard deviation describes how much the values in the dataset typically vary from the mean (average). Like how whacked are they.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The standard deviation of tmp_diff</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># logs_diffs |&gt; summarise(td_sd = sd(tmp_diff, na.rm = T))</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>tmp_diff_sd <span class="ot">&lt;-</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  logs_diffs <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(tmp_diff) <span class="sc">&lt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(tmp_diff) <span class="sc">|&gt;</span> <span class="fu">sd</span>(<span class="at">na.rm =</span> T)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>tmp_diff_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.131502</code></pre>
+</div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># percent outside the sd</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(tmp_diff) <span class="sc">&lt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">td_sd_out =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">abs</span>(tmp_diff) <span class="sc">&gt;</span> tmp_diff_sd <span class="sc">~</span> T,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">.default =</span> F</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(td_sd_out) <span class="sc">|&gt;</span> </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["td_sd_out"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"9928","3":"74.2%"},{"1":"TRUE","2":"3447","3":"25.8%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Here about 1/4 of the rows are outside the standard deviation.</p>
+</section>
+<section id="percent-temp-within-range" class="level3">
+<h3 class="anchored" data-anchor-id="percent-temp-within-range">Percent temp within range</h3>
+<p>This might make more sense to a human: What percentage of the overall records fall within 2 degrees of the nearest weather station. How about within 4 degrees?</p>
+<p>We are NOT removing outliers here.</p>
+<p>The <code>TRUE</code> value here is the percentage of records within 2 or 4 degrees, respectively. To be clear, within 4 degrees also includes those within 2 degrees.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tmp_diff_2_4 <span class="ot">&lt;-</span> logs_diffs <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter(abs(tmp_diff) &lt; 20) |&gt; </span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(tmp_diff)) <span class="sc">|&gt;</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">in_2d =</span> <span class="fu">abs</span>(tmp_diff) <span class="sc">&lt;=</span> <span class="dv">2</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">in_4d =</span> <span class="fu">abs</span>(tmp_diff) <span class="sc">&lt;=</span> <span class="dv">4</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>tmp_diff_2_4 <span class="sc">|&gt;</span> </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(in_2d) <span class="sc">|&gt;</span> </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["in_2d"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"6828","3":"51.0%"},{"1":"TRUE","2":"6554","3":"49.0%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>tmp_diff_2_4 <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(in_4d) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["in_4d"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"3455","3":"25.8%"},{"1":"TRUE","2":"9927","3":"74.2%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Now that seems easier to understand than standard deviation.</p>
+</section>
+<section id="within-range-degrees-by-unit" class="level3">
+<h3 class="anchored" data-anchor-id="within-range-degrees-by-unit">Within range degrees by unit</h3>
+<p>Let’s see how this differs by unit.</p>
+<p><code>in_2d_prc</code> is the percentage of records for that unit within 2 degrees the closest weather station. <code>in_4d_prc</code> is the same for within 4 degrees.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>tmp_diff_2_4 <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(unit) <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cnt =</span> <span class="fu">n</span>(),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_2d_true =</span> <span class="fu">sum</span>(in_2d <span class="sc">==</span> T),</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_2d_prc =</span> ((in_2d_true <span class="sc">/</span> cnt) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">1</span>),</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_4d_true =</span> <span class="fu">sum</span>(in_4d <span class="sc">==</span> T),</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_4d_prc =</span> ((in_4d_true <span class="sc">/</span> cnt) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">1</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># removes the cnt true rows from display</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(unit, <span class="fu">ends_with</span>(<span class="st">"prc"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(in_2d_prc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["in_2d_prc"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["in_4d_prc"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ramsey","2":"17.2","3":"64.1"},{"1":"Mechler","2":"20.6","3":"44.4"},{"1":"Hutchins","2":"21.9","3":"45.8"},{"1":"Torres","2":"27.1","3":"54.2"},{"1":"Polunsky","2":"29.2","3":"60.4"},{"1":"Glossbrenner","2":"31.2","3":"57.8"},{"1":"Cotulla","2":"31.8","3":"62.5"},{"1":"Ellis","2":"32.8","3":"54.2"},{"1":"Terrell","2":"33.0","3":"65.4"},{"1":"Formby","2":"33.9","3":"56.6"},{"1":"Byrd","2":"34.4","3":"64.1"},{"1":"Havins","2":"35.3","3":"78.8"},{"1":"Wynne","2":"36.0","3":"64.0"},{"1":"Wheeler","2":"36.5","3":"58.2"},{"1":"Roach","2":"37.5","3":"63.5"},{"1":"Dalhart","2":"38.0","3":"58.9"},{"1":"Telford","2":"38.0","3":"58.9"},{"1":"Wainwright","2":"38.1","3":"68.3"},{"1":"Lewis","2":"39.2","3":"68.8"},{"1":"Dominguez","2":"40.0","3":"80.5"},{"1":"Montford","2":"40.1","3":"67.2"},{"1":"Ferguson","2":"40.6","3":"74.0"},{"1":"Middleton","2":"41.7","3":"60.9"},{"1":"Robertson","2":"41.7","3":"62.5"},{"1":"LeBlanc","2":"43.2","3":"78.6"},{"1":"Allred","2":"44.3","3":"66.7"},{"1":"Estelle","2":"44.3","3":"75.5"},{"1":"Duncan","2":"44.8","3":"67.2"},{"1":"Huntsville","2":"45.8","3":"67.7"},{"1":"Stevenson","2":"46.4","3":"72.9"},{"1":"Kegans","2":"47.9","3":"76.6"},{"1":"Johnston","2":"48.4","3":"73.1"},{"1":"Vance","2":"48.9","3":"78.7"},{"1":"Young","2":"48.9","3":"77.1"},{"1":"Marlin","2":"49.0","3":"68.2"},{"1":"Stiles","2":"49.0","3":"74.5"},{"1":"Garza West","2":"50.5","3":"88.0"},{"1":"Gist","2":"51.0","3":"74.5"},{"1":"Hobby","2":"51.0","3":"71.4"},{"1":"Hodge","2":"51.6","3":"81.8"},{"1":"Briscoe","2":"52.6","3":"75.0"},{"1":"Memorial","2":"52.6","3":"83.3"},{"1":"Boyd","2":"54.0","3":"74.6"},{"1":"Lychner","2":"54.2","3":"83.9"},{"1":"Lopez","2":"55.2","3":"77.6"},{"1":"McConnell","2":"55.2","3":"90.1"},{"1":"Halbert","2":"55.7","3":"83.3"},{"1":"Goree","2":"56.2","3":"78.6"},{"1":"Jester III","2":"56.7","3":"83.0"},{"1":"Holliday","2":"56.8","3":"79.2"},{"1":"Travis County","2":"57.1","3":"77.2"},{"1":"Beto","2":"58.2","3":"83.6"},{"1":"Powledge","2":"58.2","3":"82.5"},{"1":"Crain","2":"58.7","3":"81.0"},{"1":"Hamilton","2":"60.4","3":"78.1"},{"1":"Daniel","2":"62.0","3":"86.5"},{"1":"Lynaugh","2":"62.0","3":"83.9"},{"1":"Hughes","2":"62.2","3":"81.1"},{"1":"Clemens","2":"63.0","3":"84.4"},{"1":"Hospital Galveston","2":"63.5","3":"81.2"},{"1":"Goodman","2":"64.0","3":"89.9"},{"1":"Michael","2":"64.6","3":"81.5"},{"1":"Murray","2":"65.6","3":"82.0"},{"1":"Stringfellow","2":"65.6","3":"83.3"},{"1":"Hilltop","2":"66.7","3":"83.6"},{"1":"Sanchez","2":"66.7","3":"86.5"},{"1":"Woodman","2":"67.2","3":"86.2"},{"1":"Scott","2":"67.4","3":"89.4"},{"1":"Fort Stockton","2":"68.2","3":"87.5"},{"1":"Wallace","2":"75.0","3":"98.4"},{"1":"Sayle","2":"77.8","3":"92.6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Sorted above based on lowest percentage within 2 degrees.</p>
+<p>Now, these numbers could really depend on how close the weather station is to the unit. For instance, I’m not happy with the choice of a station at Pearland Regional Airport for the Ramsey unit (maybe 30 miles?). The Angleton/Brazoria airport is closer (13 miles), as is Houston Southwest Airport (14 miles).</p>
+<blockquote class="blockquote">
+<p>We will check all the weather stations and add distance between unit and weather station at a future date.</p>
+</blockquote>
+</section>
+</section>
+<section id="heat-index" class="level2">
+<h2 class="anchored" data-anchor-id="heat-index">Heat index</h2>
+<section id="hi-diff-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="hi-diff-distribution">HI diff distribution</h3>
+<p>Let’s do the same for heat index. We’ll skip the standard deviations and just look at the distribution and percentages.</p>
+<p>There are about 50 records outside a 20 degree difference that we show here, but remove for the plot.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(hi_diff) <span class="sc">&gt;=</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["region"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["rec"],"name":[4],"type":["chr"],"align":["left"]},{"label":["datetime"],"name":[5],"type":["dttm"],"align":["right"]},{"label":["hour"],"name":[6],"type":["int"],"align":["right"]},{"label":["temp"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["humid"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["wind"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["hi_wc"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["hi_wc_n"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["person"],"name":[12],"type":["chr"],"align":["left"]},{"label":["notes"],"name":[13],"type":["chr"],"align":["left"]},{"label":["nws_id"],"name":[14],"type":["chr"],"align":["left"]},{"label":["name"],"name":[15],"type":["chr"],"align":["left"]},{"label":["time"],"name":[16],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[20],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[21],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[22],"type":["lgl"],"align":["right"]},{"label":["tmp_diff"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["hi_diff"],"name":[24],"type":["dbl"],"align":["right"]}],"data":[{"1":"Duncan","2":"I","3":"2023-07-28","4":"24","5":"2023-07-28 23:30:00","6":"23","7":"98.0","8":"41","9":"NA","10":"105","11":"NA","12":"Cartwright","13":"NA","14":"KLFK","15":"LUFKIN ANGELINA CO AIRPORT, TX US","16":"23:53:00","17":"80","18":"76","19":"83.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"18.0","24":"21.3"},{"1":"Duncan","2":"I","3":"2023-07-30","4":"9","5":"2023-07-30 08:30:00","6":"8","7":"82.0","8":"49","9":"NA","10":"71","11":"NA","12":"Pyle","13":"NA","14":"KLFK","15":"LUFKIN ANGELINA CO AIRPORT, TX US","16":"08:53:00","17":"88","18":"59","19":"94.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"-6.0","24":"-23.7"},{"1":"Estelle","2":"I","3":"2023-07-27","4":"7","5":"2023-07-27 06:30:00","6":"6","7":"74.0","8":"97","9":"NA","10":"70","11":"NA","12":"Gichs","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"06:53:00","17":"83","18":"79","19":"91.0","20":"FALSE","21":"FALSE","22":"FALSE","23":"-9.0","24":"-21.0"},{"1":"Ferguson","2":"I","3":"2023-07-27","4":"7","5":"2023-07-27 06:30:00","6":"6","7":"75.0","8":"89","9":"2","10":"70","11":"NA","12":"Bessong","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"06:53:00","17":"83","18":"79","19":"91.0","20":"FALSE","21":"FALSE","22":"FALSE","23":"-8.0","24":"-21.0"},{"1":"Goodman","2":"I","3":"2023-07-24","4":"9","5":"2023-07-24 08:30:00","6":"8","7":"88.0","8":"NA","9":"0","10":"65","11":"NA","12":"LJ Nelson","13":"hi_wc corrected","14":"KJAS","15":"JASPER CO BELL FIELD AIRPORT, TX US","16":"08:15:00","17":"82","18":"66","19":"85.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"6.0","24":"-20.6"},{"1":"Goodman","2":"I","3":"2023-07-24","4":"10","5":"2023-07-24 09:30:00","6":"9","7":"86.0","8":"NA","9":"0","10":"65","11":"NA","12":"LJ Nelson","13":"NA","14":"KJAS","15":"JASPER CO BELL FIELD AIRPORT, TX US","16":"09:15:00","17":"88","18":"52","19":"91.8","20":"FALSE","21":"FALSE","22":"FALSE","23":"-2.0","24":"-26.8"},{"1":"Holliday","2":"I","3":"2023-07-24","4":"7","5":"2023-07-24 06:30:00","6":"6","7":"78.0","8":"67","9":"NA","10":"66","11":"NA","12":"Purdy","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"06:53:00","17":"83","18":"72","19":"88.9","20":"FALSE","21":"FALSE","22":"FALSE","23":"-5.0","24":"-22.9"},{"1":"Holliday","2":"I","3":"2023-07-25","4":"7","5":"2023-07-25 06:30:00","6":"6","7":"78.0","8":"78","9":"NA","10":"70","11":"NA","12":"Abadamon","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"06:53:00","17":"82","18":"85","19":"90.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"-4.0","24":"-20.1"},{"1":"Holliday","2":"I","3":"2023-07-26","4":"7","5":"2023-07-26 06:30:00","6":"6","7":"78.0","8":"79","9":"NA","10":"71","11":"NA","12":"Purdy","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"06:53:00","17":"83","18":"82","19":"91.9","20":"FALSE","21":"FALSE","22":"FALSE","23":"-5.0","24":"-20.9"},{"1":"Holliday","2":"I","3":"2023-07-30","4":"8","5":"2023-07-30 07:30:00","6":"7","7":"78.0","8":"78","9":"NA","10":"70","11":"NA","12":"Price","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"07:53:00","17":"86","18":"67","19":"93.8","20":"FALSE","21":"FALSE","22":"FALSE","23":"-8.0","24":"-23.8"},{"1":"Huntsville","2":"I","3":"2023-07-25","4":"9","5":"2023-07-25 08:30:00","6":"8","7":"85.0","8":"95","9":"1","10":"66","11":"NA","12":"Dancer","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"08:53:00","17":"88","18":"68","19":"99.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"-3.0","24":"-33.1"},{"1":"Huntsville","2":"I","3":"2023-07-25","4":"11","5":"2023-07-25 10:30:00","6":"10","7":"81.0","8":"74","9":"1","10":"70","11":"NA","12":"Dancer","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"10:53:00","17":"93","18":"52","19":"101.9","20":"FALSE","21":"FALSE","22":"FALSE","23":"-12.0","24":"-31.9"},{"1":"Huntsville","2":"I","3":"2023-07-25","4":"12","5":"2023-07-25 11:30:00","6":"11","7":"81.0","8":"74","9":"1","10":"70","11":"NA","12":"Dancer","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"11:53:00","17":"96","18":"44","19":"103.4","20":"FALSE","21":"FALSE","22":"FALSE","23":"-15.0","24":"-33.4"},{"1":"Huntsville","2":"I","3":"2023-07-26","4":"20","5":"2023-07-26 19:30:00","6":"19","7":"100.0","8":"31","9":"NA","10":"8","11":"NA","12":"Mosky","13":"NA","14":"KUTS","15":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","16":"19:53:00","17":"95","18":"43","19":"100.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"5.0","24":"-92.7"},{"1":"Polunsky","2":"I","3":"2023-07-25","4":"9","5":"2023-07-25 08:30:00","6":"8","7":"76.0","8":"100","9":"NA","10":"75","11":"NA","12":"Challuger","13":"NA","14":"KCXO","15":"RUSK CO AIRPORT, TX US","16":"08:15:00","17":"88","18":"67","19":"98.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"-12.0","24":"-23.6"},{"1":"Polunsky","2":"I","3":"2023-07-25","4":"10","5":"2023-07-25 09:30:00","6":"9","7":"76.0","8":"100","9":"NA","10":"75","11":"NA","12":"Challuger","13":"NA","14":"KCXO","15":"RUSK CO AIRPORT, TX US","16":"09:15:00","17":"92","18":"56","19":"102.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"-16.0","24":"-27.1"},{"1":"Polunsky","2":"I","3":"2023-07-27","4":"9","5":"2023-07-27 08:30:00","6":"8","7":"76.0","8":"97","9":"NA","10":"75","11":"NA","12":"Challuger","13":"NA","14":"KCXO","15":"RUSK CO AIRPORT, TX US","16":"08:15:00","17":"87","18":"67","19":"96.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"-11.0","24":"-21.1"},{"1":"Wainwright","2":"I","3":"2023-07-25","4":"21","5":"2023-07-25 20:30:00","6":"20","7":"98.0","8":"48","9":"4","10":"108","11":"3","12":"Okedawg","13":"NA","14":"KDKR","15":"CROCKETT HOUSTON CO AIRPORT, TX US","16":"20:15:00","17":"84","18":"55","19":"86.3","20":"FALSE","21":"FALSE","22":"FALSE","23":"14.0","24":"21.7"},{"1":"Beto","2":"II","3":"2023-07-27","4":"8","5":"2023-07-27 07:30:00","6":"7","7":"77.0","8":"90","9":"NA","10":"0","11":"NA","12":"Walker A","13":"NA","14":"KPSN","15":"PALESTINE MUNICIPAL AIRPORT, TX US","16":"07:15:00","17":"81","18":"84","19":"87.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"-4.0","24":"-87.2"},{"1":"Hutchins","2":"II","3":"2023-07-30","4":"16","5":"2023-07-30 15:30:00","6":"15","7":"103.0","8":"26","9":"NA","10":"76","11":"NA","12":"Caldwell","13":"NA","14":"KRBD","15":"DALLAS REDBIRD AIRPORT, TX US","16":"15:53:00","17":"102","18":"25","19":"102.7","20":"FALSE","21":"FALSE","22":"FALSE","23":"1.0","24":"-26.7"},{"1":"Hutchins","2":"II","3":"2023-07-30","4":"17","5":"2023-07-30 16:30:00","6":"16","7":"102.0","8":"27","9":"NA","10":"76","11":"NA","12":"Caldwell","13":"NA","14":"KRBD","15":"DALLAS REDBIRD AIRPORT, TX US","16":"16:53:00","17":"101","18":"27","19":"102.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"1.0","24":"-26.2"},{"1":"Hutchins","2":"II","3":"2023-07-30","4":"18","5":"2023-07-30 17:30:00","6":"17","7":"102.0","8":"26","9":"NA","10":"77","11":"NA","12":"Caldwell","13":"humid legibility, hi_wc legibility","14":"KRBD","15":"DALLAS REDBIRD AIRPORT, TX US","16":"17:53:00","17":"100","18":"27","19":"100.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"2.0","24":"-23.6"},{"1":"Hutchins","2":"II","3":"2023-07-30","4":"19","5":"2023-07-30 18:30:00","6":"18","7":"102.0","8":"26","9":"NA","10":"77","11":"NA","12":"Caldwell","13":"hi_wc legibility","14":"KRBD","15":"DALLAS REDBIRD AIRPORT, TX US","16":"18:53:00","17":"98","18":"29","19":"98.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"4.0","24":"-21.5"},{"1":"Telford","2":"II","3":"2023-07-28","4":"8","5":"2023-07-28 07:30:00","6":"7","7":"75.0","8":"100","9":"2","10":"75","11":"NA","12":"Hicks","13":"NA","14":"KTXK","15":"TEXARKANA WEBB FIELD, AR US","16":"07:53:00","17":"89","18":"57","19":"95.9","20":"FALSE","21":"FALSE","22":"FALSE","23":"-14.0","24":"-20.9"},{"1":"Jester III","2":"III","3":"2023-07-24","4":"16","5":"2023-07-24 15:30:00","6":"15","7":"97.0","8":"52","9":"NA","10":"111","11":"NA","12":"Sonaiya","13":"NA","14":"KSGR","15":"HOUSTON SUGARLAND MEM, TX US","16":"15:01:00","17":"82","18":"69","19":"86.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"15.0","24":"24.8"},{"1":"Jester III","2":"III","3":"2023-07-26","4":"24","5":"2023-07-26 23:30:00","6":"23","7":"82.0","8":"87","9":"NA","10":"9","11":"NA","12":"Okutubo","13":"hi_wc single digit?","14":"KSGR","15":"HOUSTON SUGARLAND MEM, TX US","16":"23:27:00","17":"81","18":"88","19":"88.4","20":"FALSE","21":"FALSE","22":"FALSE","23":"1.0","24":"-79.4"},{"1":"Memorial","2":"III","3":"2023-07-24","4":"8","5":"2023-07-24 07:30:00","6":"7","7":"77.0","8":"97","9":"NA","10":"78","11":"NA","12":"Skechukum","13":"NA","14":"KLVJ","15":"HOUSTON CLOVER FIELD, TX US","16":"07:53:00","17":"87","18":"75","19":"100.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"-10.0","24":"-22.2"},{"1":"Scott","2":"III","3":"2023-07-24","4":"16","5":"2023-07-24 15:30:00","6":"15","7":"96.0","8":"53","9":"NA","10":"110","11":"NA","12":"Olufemi","13":"NA","14":"KSGR","15":"HOUSTON SUGARLAND MEM, TX US","16":"15:01:00","17":"82","18":"69","19":"86.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"14.0","24":"23.8"},{"1":"Stiles","2":"III","3":"2023-07-25","4":"8","5":"2023-07-25 07:30:00","6":"7","7":"76.0","8":"97","9":"NA","10":"76","11":"NA","12":"Rawlins","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"07:53:00","17":"86","18":"77","19":"98.3","20":"FALSE","21":"FALSE","22":"FALSE","23":"-10.0","24":"-22.3"},{"1":"Stiles","2":"III","3":"2023-07-25","4":"9","5":"2023-07-25 08:30:00","6":"8","7":"80.0","8":"96","9":"NA","10":"80","11":"NA","12":"Rawlins","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"08:53:00","17":"89","18":"65","19":"100.0","20":"FALSE","21":"FALSE","22":"FALSE","23":"-9.0","24":"-20.0"},{"1":"Stiles","2":"III","3":"2023-07-26","4":"8","5":"2023-07-26 07:30:00","6":"7","7":"75.0","8":"96","9":"NA","10":"75","11":"NA","12":"Rawlins","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"07:53:00","17":"86","18":"70","19":"95.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"-11.0","24":"-20.1"},{"1":"Stiles","2":"III","3":"2023-07-29","4":"8","5":"2023-07-29 07:30:00","6":"7","7":"74.0","8":"97","9":"NA","10":"74","11":"NA","12":"Wheeler","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"07:53:00","17":"86","18":"70","19":"95.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"-12.0","24":"-21.1"},{"1":"Stiles","2":"III","3":"2023-07-30","4":"8","5":"2023-07-30 07:30:00","6":"7","7":"76.0","8":"93","9":"NA","10":"76","11":"NA","12":"Wheeler","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"07:53:00","17":"86","18":"72","19":"96.0","20":"FALSE","21":"FALSE","22":"FALSE","23":"-10.0","24":"-20.0"},{"1":"Stiles","2":"III","3":"2023-07-31","4":"8","5":"2023-07-31 07:30:00","6":"7","7":"77.0","8":"96","9":"NA","10":"77","11":"NA","12":"Rawlins","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"07:53:00","17":"86","18":"75","19":"97.3","20":"FALSE","21":"FALSE","22":"FALSE","23":"-9.0","24":"-20.3"},{"1":"Stiles","2":"III","3":"2023-07-31","4":"9","5":"2023-07-31 08:30:00","6":"8","7":"81.0","8":"88","9":"NA","10":"81","11":"NA","12":"Rawlins","13":"NA","14":"KBPT","15":"PORT ARTHUR SE TX REGIONAL AIRPORT, TX US","16":"08:53:00","17":"91","18":"59","19":"101.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"-10.0","24":"-20.5"},{"1":"Terrell","2":"III","3":"2023-07-24","4":"7","5":"2023-07-24 06:30:00","6":"6","7":"74.0","8":"73","9":"NA","10":"3","11":"NA","12":"Pearce","13":"hi_wc might be hi_wc_n instead?","14":"KLVJ","15":"HOUSTON CLOVER FIELD, TX US","16":"06:53:00","17":"83","18":"74","19":"89.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"-9.0","24":"-86.5"},{"1":"Terrell","2":"III","3":"2023-07-24","4":"8","5":"2023-07-24 07:30:00","6":"7","7":"75.0","8":"73","9":"NA","10":"3","11":"NA","12":"Pearce","13":"hi_wc might be hi_wc_n instead?","14":"KLVJ","15":"HOUSTON CLOVER FIELD, TX US","16":"07:53:00","17":"87","18":"75","19":"100.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"-12.0","24":"-97.2"},{"1":"Terrell","2":"III","3":"2023-07-24","4":"9","5":"2023-07-24 08:30:00","6":"8","7":"75.0","8":"73","9":"NA","10":"3","11":"NA","12":"Pearce","13":"hi_wc might be hi_wc_n instead?","14":"KLVJ","15":"HOUSTON CLOVER FIELD, TX US","16":"08:53:00","17":"88","18":"68","19":"99.1","20":"FALSE","21":"FALSE","22":"FALSE","23":"-13.0","24":"-96.1"},{"1":"Vance","2":"III","3":"2023-07-24","4":"16","5":"2023-07-24 15:30:00","6":"15","7":"101.0","8":"46","9":"NA","10":"117","11":"NA","12":"Chumeuba","13":"NA","14":"KSGR","15":"HOUSTON SUGARLAND MEM, TX US","16":"15:01:00","17":"82","18":"69","19":"86.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"19.0","24":"30.8"},{"1":"Young","2":"III","3":"2023-07-27","4":"12","5":"2023-07-27 11:30:00","6":"11","7":"97.5","8":"52","9":"NA","10":"117","11":"NA","12":"TWusterhausen","13":"NA","14":"KEFD","15":"HOUSTON ELLINGTON AFB, TX US","16":"11:54:00","17":"90","18":"55","19":"97.0","20":"FALSE","21":"FALSE","22":"FALSE","23":"7.5","24":"20.0"},{"1":"Glossbrenner","2":"IV","3":"2023-07-31","4":"9","5":"2023-07-31 08:30:00","6":"8","7":"78.0","8":"96","9":"3","10":"80","11":"NA","12":"Guerrero","13":"NA","14":"KALI","15":"ALICE INTERNATIONAL AIRPORT, TX US","16":"08:53:00","17":"90","18":"66","19":"103.3","20":"FALSE","21":"FALSE","22":"FALSE","23":"-12.0","24":"-23.3"},{"1":"Montford","2":"V","3":"2023-07-25","4":"10","5":"2023-07-25 09:30:00","6":"9","7":"83.0","8":"47","9":"16","10":"61","11":"NA","12":"Martinez","13":"NA","14":"KLBB","15":"LUBBOCK INTERNATIONAL AIRPORT, TX US","16":"09:53:00","17":"91","18":"32","19":"89.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"-8.0","24":"-28.6"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"1","5":"2023-07-26 00:30:00","6":"0","7":"80.0","8":"35","9":"NA","10":"10","11":"NA","12":"Torres","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"00:15:00","17":"75","18":"43","19":"74.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"5.0","24":"-64.2"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"10","5":"2023-07-26 09:30:00","6":"9","7":"79.0","8":"45","9":"NA","10":"10","11":"NA","12":"Esquivel","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"09:15:00","17":"83","18":"43","19":"82.8","20":"FALSE","21":"FALSE","22":"FALSE","23":"-4.0","24":"-72.8"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"11","5":"2023-07-26 10:30:00","6":"10","7":"83.0","8":"43","9":"NA","10":"6","11":"82","12":"Esquivel","13":"temp corrected","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"10:15:00","17":"86","18":"39","19":"85.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"-3.0","24":"-79.2"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"12","5":"2023-07-26 11:30:00","6":"11","7":"87.0","8":"37","9":"NA","10":"14","11":"NA","12":"Avila","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"11:15:00","17":"88","18":"36","19":"86.9","20":"FALSE","21":"FALSE","22":"FALSE","23":"-1.0","24":"-72.9"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"13","5":"2023-07-26 12:30:00","6":"12","7":"89.0","8":"34","9":"NA","10":"13","11":"NA","12":"Reyna","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"12:15:00","17":"91","18":"28","19":"88.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"-2.0","24":"-75.6"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"14","5":"2023-07-26 13:30:00","6":"13","7":"93.0","8":"28","9":"NA","10":"18","11":"NA","12":"Reyna","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"13:15:00","17":"94","18":"25","19":"91.5","20":"FALSE","21":"FALSE","22":"FALSE","23":"-1.0","24":"-73.5"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"15","5":"2023-07-26 14:30:00","6":"14","7":"95.0","8":"23","9":"NA","10":"14","11":"NA","12":"Reyna","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"14:15:00","17":"94","18":"24","19":"91.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"1.0","24":"-77.2"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"16","5":"2023-07-26 15:30:00","6":"15","7":"97.0","8":"22","9":"NA","10":"15","11":"NA","12":"Reyna","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"15:15:00","17":"95","18":"22","19":"91.9","20":"FALSE","21":"FALSE","22":"FALSE","23":"2.0","24":"-76.9"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"17","5":"2023-07-26 16:30:00","6":"16","7":"95.0","8":"NA","9":"NA","10":"13","11":"NA","12":"Reyna","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"16:15:00","17":"95","18":"22","19":"91.9","20":"FALSE","21":"FALSE","22":"FALSE","23":"0.0","24":"-78.9"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"18","5":"2023-07-26 17:30:00","6":"17","7":"97.0","8":"21","9":"NA","10":"14","11":"NA","12":"Reyna","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"17:15:00","17":"94","18":"22","19":"90.8","20":"FALSE","21":"FALSE","22":"FALSE","23":"3.0","24":"-76.8"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"19","5":"2023-07-26 18:30:00","6":"18","7":"96.0","8":"19","9":"NA","10":"13","11":"NA","12":"Torres","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"18:15:00","17":"92","18":"25","19":"89.2","20":"FALSE","21":"FALSE","22":"FALSE","23":"4.0","24":"-76.2"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"20","5":"2023-07-26 19:30:00","6":"19","7":"93.0","8":"23","9":"NA","10":"8","11":"NA","12":"Torres","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"19:15:00","17":"87","18":"31","19":"84.9","20":"FALSE","21":"FALSE","22":"FALSE","23":"6.0","24":"-76.9"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"21","5":"2023-07-26 20:30:00","6":"20","7":"89.0","8":"29","9":"NA","10":"6","11":"NA","12":"Torres","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"20:15:00","17":"78","18":"45","19":"77.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"11.0","24":"-71.6"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"22","5":"2023-07-26 21:30:00","6":"21","7":"88.0","8":"30","9":"NA","10":"6","11":"NA","12":"Torres","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"21:15:00","17":"74","18":"53","19":"73.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"14.0","24":"-67.6"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"23","5":"2023-07-26 22:30:00","6":"22","7":"82.0","8":"40","9":"NA","10":"6","11":"NA","12":"Torres","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"22:15:00","17":"73","18":"56","19":"72.6","20":"FALSE","21":"FALSE","22":"FALSE","23":"9.0","24":"-66.6"},{"1":"Wheeler","2":"V","3":"2023-07-26","4":"24","5":"2023-07-26 23:30:00","6":"23","7":"80.0","8":"42","9":"NA","10":"7","11":"NA","12":"Torres","13":"NA","14":"KPVW","15":"PLAINVIEW HALE CO AIRPORT, TX US","16":"23:15:00","17":"72","18":"53","19":"71.4","20":"FALSE","21":"FALSE","22":"FALSE","23":"8.0","24":"-64.4"},{"1":"Marlin","2":"VI","3":"2023-07-26","4":"11","5":"2023-07-26 10:30:00","6":"10","7":"89.0","8":"44","9":"8","10":"80","11":"1","12":"Cox","13":"NA","14":"KPWG","15":"WACO MCGREGOR EXECUTIVE AIRPORT, TX US","16":"10:56:00","17":"96","18":"39","19":"100.3","20":"FALSE","21":"FALSE","22":"FALSE","23":"-7.0","24":"-20.3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>logs_diffs <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(hi_diff) <span class="sc">&lt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hi_diff) <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-outdoor-reliability_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="within-hi-range" class="level3">
+<h3 class="anchored" data-anchor-id="within-hi-range">Within HI range</h3>
+<p>Here we find the percentage of heat index records within 2 or 4 degrees. We are NOT removing outliers here.</p>
+<p>TRUE means within 2 or 4 degrees, respectively.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>hi_diff_2_4 <span class="ot">&lt;-</span> logs_diffs <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(hi_diff)) <span class="sc">|&gt;</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">in_2d =</span> <span class="fu">abs</span>(hi_diff) <span class="sc">&lt;=</span> <span class="dv">2</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">in_4d =</span> <span class="fu">abs</span>(hi_diff) <span class="sc">&lt;=</span> <span class="dv">4</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>hi_diff_2_4 <span class="sc">|&gt;</span> </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(in_2d) <span class="sc">|&gt;</span> </span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["in_2d"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"6943","3":"69.5%"},{"1":"TRUE","2":"3051","3":"30.5%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>hi_diff_2_4 <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(in_4d) <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["in_4d"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"4511","3":"45.1%"},{"1":"TRUE","2":"5483","3":"54.9%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="within-hi-range-by-unit" class="level3">
+<h3 class="anchored" data-anchor-id="within-hi-range-by-unit">Within HI range by unit</h3>
+<p>And now to do that by unit. We have more cases where we don’t have the heat index for both the unit and the weather station, so we include the count of records we are comparing here.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>hi_diff_2_4 <span class="sc">|&gt;</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(unit) <span class="sc">|&gt;</span> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cnt =</span> <span class="fu">n</span>(),</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_2d_true =</span> <span class="fu">sum</span>(in_2d <span class="sc">==</span> T),</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_2d_prc =</span> ((in_2d_true <span class="sc">/</span> cnt) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">1</span>),</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_4d_true =</span> <span class="fu">sum</span>(in_4d <span class="sc">==</span> T),</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_4d_prc =</span> ((in_4d_true <span class="sc">/</span> cnt) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">1</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># removes the cnt true rows from display</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(unit, cnt, <span class="fu">ends_with</span>(<span class="st">"prc"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(in_2d_prc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cnt"],"name":[2],"type":["int"],"align":["right"]},{"label":["in_2d_prc"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["in_4d_prc"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Formby","2":"3","3":"0.0","4":"100.0"},{"1":"Mechler","2":"111","3":"5.4","4":"10.8"},{"1":"Wainwright","2":"163","3":"9.2","4":"17.8"},{"1":"McConnell","2":"110","3":"12.7","4":"40.9"},{"1":"Wheeler","2":"31","3":"12.9","4":"16.1"},{"1":"Young","2":"135","3":"14.1","4":"31.1"},{"1":"Havins","2":"142","3":"14.8","4":"37.3"},{"1":"Michael","2":"149","3":"14.8","4":"28.2"},{"1":"Roach","2":"135","3":"14.8","4":"46.7"},{"1":"Glossbrenner","2":"132","3":"15.9","4":"37.1"},{"1":"Jester III","2":"104","3":"18.3","4":"38.5"},{"1":"Holliday","2":"186","3":"18.8","4":"41.4"},{"1":"Hutchins","2":"184","3":"19.0","4":"38.0"},{"1":"LeBlanc","2":"159","3":"20.1","4":"44.7"},{"1":"Ellis","2":"177","3":"20.3","4":"34.5"},{"1":"Robertson","2":"86","3":"20.9","4":"48.8"},{"1":"Marlin","2":"162","3":"21.6","4":"43.8"},{"1":"Hobby","2":"168","3":"22.0","4":"41.1"},{"1":"Telford","2":"178","3":"23.0","4":"51.7"},{"1":"Gist","2":"150","3":"23.3","4":"41.3"},{"1":"Hodge","2":"144","3":"23.6","4":"56.2"},{"1":"Stiles","2":"139","3":"23.7","4":"48.9"},{"1":"Vance","2":"110","3":"24.5","4":"45.5"},{"1":"Lewis","2":"146","3":"24.7","4":"50.0"},{"1":"Wallace","2":"156","3":"25.6","4":"65.4"},{"1":"Torres","2":"136","3":"25.7","4":"55.9"},{"1":"Memorial","2":"162","3":"25.9","4":"46.3"},{"1":"Terrell","2":"131","3":"27.5","4":"51.9"},{"1":"Hospital Galveston","2":"180","3":"28.3","4":"51.7"},{"1":"Byrd","2":"179","3":"28.5","4":"54.7"},{"1":"Fort Stockton","2":"151","3":"28.5","4":"57.6"},{"1":"Polunsky","2":"154","3":"28.6","4":"52.6"},{"1":"Cotulla","2":"150","3":"28.7","4":"62.0"},{"1":"Ramsey","2":"113","3":"29.2","4":"62.8"},{"1":"Scott","2":"107","3":"29.9","4":"57.0"},{"1":"Stringfellow","2":"130","3":"30.0","4":"57.7"},{"1":"Goree","2":"172","3":"30.2","4":"53.5"},{"1":"Halbert","2":"161","3":"30.4","4":"48.4"},{"1":"Middleton","2":"148","3":"30.4","4":"52.0"},{"1":"Montford","2":"152","3":"30.9","4":"64.5"},{"1":"Dominguez","2":"161","3":"32.3","4":"60.9"},{"1":"Stevenson","2":"139","3":"32.4","4":"59.0"},{"1":"Allred","2":"156","3":"32.7","4":"57.7"},{"1":"Beto","2":"147","3":"32.7","4":"56.5"},{"1":"Crain","2":"162","3":"32.7","4":"64.2"},{"1":"Hamilton","2":"157","3":"33.1","4":"51.0"},{"1":"Duncan","2":"142","3":"33.8","4":"52.8"},{"1":"Ferguson","2":"150","3":"34.0","4":"60.0"},{"1":"Kegans","2":"185","3":"34.1","4":"58.9"},{"1":"Garza West","2":"148","3":"34.5","4":"49.3"},{"1":"Wynne","2":"163","3":"35.0","4":"67.5"},{"1":"Johnston","2":"108","3":"35.2","4":"57.4"},{"1":"Huntsville","2":"189","3":"36.0","4":"67.7"},{"1":"Clemens","2":"109","3":"36.7","4":"62.4"},{"1":"Briscoe","2":"164","3":"38.4","4":"62.2"},{"1":"Lychner","2":"158","3":"39.2","4":"62.0"},{"1":"Goodman","2":"135","3":"39.3","4":"63.7"},{"1":"Lopez","2":"149","3":"40.3","4":"68.5"},{"1":"Powledge","2":"139","3":"42.4","4":"66.2"},{"1":"Estelle","2":"167","3":"43.7","4":"64.7"},{"1":"Sayle","2":"183","3":"44.8","4":"77.0"},{"1":"Hughes","2":"140","3":"45.7","4":"68.6"},{"1":"Boyd","2":"145","3":"46.2","4":"69.0"},{"1":"Daniel","2":"58","3":"46.6","4":"77.6"},{"1":"Travis County","2":"98","3":"46.9","4":"74.5"},{"1":"Lynaugh","2":"155","3":"49.0","4":"74.8"},{"1":"Hilltop","2":"153","3":"49.7","4":"79.1"},{"1":"Murray","2":"124","3":"53.2","4":"79.0"},{"1":"Woodman","2":"154","3":"53.2","4":"79.2"},{"1":"Sanchez","2":"170","3":"59.4","4":"80.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/utdata\.github\.io\/tdcj-prison-heat\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
