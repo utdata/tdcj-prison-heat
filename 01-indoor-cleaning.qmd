@@ -5,7 +5,7 @@ author: "Media Innovation Group"
 
 This data is the record indoor temperatures at each unit from April to September. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
-The original PDFs were transcribed into data using Google Pinpoint, resulting in the csv files found in `data-raw`. The original documents are found in `data-original`.
+The original PDFs were transcribed into data using Google Pinpoint, resulting in the csv files found in `data-original`. The original documents are found in `data-original`.
 
 ## Goals of this notebook
 
@@ -31,13 +31,13 @@ library(janitor)
 This data comes from a public information request to the Texas Department of Criminal Justice. We have two seperate sheets with our 30-day months and our 31-day months, so we'll read each of those in separately.
 
 ```{r}
-indoor_temps <- read_csv("data-raw/Indoor-30days-edited.csv")
+indoor_temps <- read_csv("data-original/Indoor-30days-edited.csv")
 
 indoor_temps |> glimpse()
 ```
 
 ```{r}
-other_indoor_temps <- read_csv("data-raw/Indoor-31days-edited.csv")
+other_indoor_temps <- read_csv("data-original/Indoor-31days-edited.csv")
 
 other_indoor_temps |> glimpse()
 ```

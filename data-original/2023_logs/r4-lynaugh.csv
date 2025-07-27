@@ -1,0 +1,193 @@
+unit,date,rec,time,temp,humid,wind,hi_wc,hi_wc_n,person,notes
+Lynaugh,7/24/2023,1,12:30 a.m.,82,42,11,81,,Zamona . A,
+Lynaugh,7/24/2023,2,1:30 a.m.,80,45,9,80,,Zamona . A,
+Lynaugh,7/24/2023,3,2:30 a.m.,80,50,10,80,,Zamona . A,
+Lynaugh,7/24/2023,4,3:30 a.m.,81,52,12,81,,Zamona . A,
+Lynaugh,7/24/2023,5,4:30 a.m.,79,55,8,80,,Zamona . A,
+Lynaugh,7/24/2023,6,5:30 a.m.,77,59,9,78,,Zamona . A,
+Lynaugh,7/24/2023,7,6:30 a.m.,75,60,9,76,,Rodriguez M,
+Lynaugh,7/24/2023,8,7:30 a.m.,75,62,7,77,,Rodriguez M,
+Lynaugh,7/24/2023,9,8:30 a.m.,82,55,6,81,,Rodriguez M,
+Lynaugh,7/24/2023,10,9:30 a.m.,85,47,7,85,,Rodriguez M,
+Lynaugh,7/24/2023,11,10:30 a.m.,91,36,3,91,,Rodriguez M,
+Lynaugh,7/24/2023,12,11:30 a.m.,97,28,11,95,,Rodriguez M,
+Lynaugh,7/24/2023,13,12:30 p.m.,99,23,4,98,,Rodriguez M,wind legibility
+Lynaugh,7/24/2023,14,1:30 p.m.,101,20,14,99,,Rodriguez M,
+Lynaugh,7/24/2023,15,2:30 p.m.,100,19,9,99,,Rodriguez M,
+Lynaugh,7/24/2023,16,3:30 p.m.,103,19,12,100,,Rodriguez M,humid legibility
+Lynaugh,7/24/2023,17,4:30 p.m.,103,17,9,101,,Rodriguez M,humid legibility
+Lynaugh,7/24/2023,18,5:30 p.m.,104,19,7,101,,Rodriguez M,
+Lynaugh,7/24/2023,19,6:30 p.m.,98,22,11,95,,Brunetti,"person legibility, person corrected"
+Lynaugh,7/24/2023,20,7:30 p.m.,97,23,9,93,,Brunetti,person corrected
+Lynaugh,7/24/2023,21,8:30 p.m.,94,25,8,90,,Brunetti,person corrected
+Lynaugh,7/24/2023,22,9:30 p.m.,89,29,10,86,,Brunetti,person corrected
+Lynaugh,7/24/2023,23,10:30 p.m.,87,31,8,84,,Brunetti,person corrected
+Lynaugh,7/24/2023,24,11:30 p.m.,86,33,9,82,,Brunetti,temp legibility
+Lynaugh,7/25/2023,1,12:30 a.m.,82,37,10,80,,Brunetti,person corrected
+Lynaugh,7/25/2023,2,1:30 a.m.,80,38,9,79,,Brunetti,person corrected
+Lynaugh,7/25/2023,3,2:30 a.m.,78,40,9,78,,Brunetti,person corrected
+Lynaugh,7/25/2023,4,3:30 a.m.,76,43,11,77,,Brunetti,person corrected
+Lynaugh,7/25/2023,5,4:30 a.m.,74,46,10,77,,Brunetti,"temp corrected, person corrected"
+Lynaugh,7/25/2023,6,5:30 a.m.,73,49,9,77,,Brunetti,
+Lynaugh,7/25/2023,7,6:30 a.m.,73,50,7,77,,Ledezma,person legibility
+Lynaugh,7/25/2023,8,7:30 a.m.,72,52,6,72,,Ledezma,
+Lynaugh,7/25/2023,9,8:30 a.m.,81,44,6,81,,Ledezma,
+Lynaugh,7/25/2023,10,9:30 a.m.,85,40,10,85,,Ledezma,
+Lynaugh,7/25/2023,11,10:30 a.m.,92,31,13,90,,Ledezma,
+Lynaugh,7/25/2023,12,11:30 a.m.,93,30,12,91,,Ledezma,
+Lynaugh,7/25/2023,13,12:30 p.m.,96,27,11,94,,Ledezma,
+Lynaugh,7/25/2023,14,1:30 p.m.,98,26,14,97,,Ledezma,wind legibility
+Lynaugh,7/25/2023,15,2:30 p.m.,98,24,12,96,,Ledezma,
+Lynaugh,7/25/2023,16,3:30 p.m.,100,23,13,98,,Ledezma,
+Lynaugh,7/25/2023,17,4:30 p.m.,99,22,8,96,,Ledezma,
+Lynaugh,7/25/2023,18,5:30 p.m.,100,22,9,96,,Ledezma,
+Lynaugh,7/25/2023,19,6:30 p.m.,98,24,14,96,,Parker,
+Lynaugh,7/25/2023,20,7:30 p.m.,96,26,14,94,,Parker,
+Lynaugh,7/25/2023,21,8:30 p.m.,92,28,13,89,,Parker,
+Lynaugh,7/25/2023,22,9:30 p.m.,87,,10,84,,Parker,humid legibility
+Lynaugh,7/25/2023,23,10:30 p.m.,80,37,6,79,,Parker,
+Lynaugh,7/25/2023,24,11:30 p.m.,79,39,5,79,,Parker,
+Lynaugh,7/26/2023,1,12:30 a.m.,77,42,6,78,,Parker,
+Lynaugh,7/26/2023,2,1:30 a.m.,76,46,7,78,,Parker,
+Lynaugh,7/26/2023,3,2:30 a.m.,76,51,9,78,,Parker,
+Lynaugh,7/26/2023,4,3:30 a.m.,75,51,12,77,,Parker,
+Lynaugh,7/26/2023,5,4:30 a.m.,73,50,11,77,,Parker,
+Lynaugh,7/26/2023,6,5:30 a.m.,72,50,12,76,,Parker,
+Lynaugh,7/26/2023,7,6:30 a.m.,73,50,10,77,,Gallardo,
+Lynaugh,7/26/2023,8,7:30 a.m.,73,49,7,77,,Gallardo,
+Lynaugh,7/26/2023,9,8:30 a.m.,77,47,11,78,,Gallardo,
+Lynaugh,7/26/2023,10,9:30 a.m.,87,37,14,85,,Gallardo,
+Lynaugh,7/26/2023,11,10:30 a.m.,91,33,16,89,,Gallardo,hi_wc legibility
+Lynaugh,7/26/2023,12,11:30 a.m.,93,31,14,91,,Gallardo,
+Lynaugh,7/26/2023,13,12:30 p.m.,94,29,16,92,,Gallardo,
+Lynaugh,7/26/2023,14,1:30 p.m.,98,27,14,97,,Gallardo,
+Lynaugh,7/26/2023,15,2:30 p.m.,99,26,17,96,,Gallardo,hi_wc legibility
+Lynaugh,7/26/2023,16,3:30 p.m.,100,25,17,99,,Gallardo,
+Lynaugh,7/26/2023,17,4:30 p.m.,101,24,12,100,,Gallardo,
+Lynaugh,7/26/2023,18,5:30 p.m.,100,23,14,98,,Gallardo,
+Lynaugh,7/26/2023,19,6:30 p.m.,99,25,15,98,,Trujillo,person corrected
+Lynaugh,7/26/2023,20,7:30 p.m.,97,26,11,97,,Trujillo,person corrected
+Lynaugh,7/26/2023,21,8:30 p.m.,92,40,15,91,,Trujillo,"humid legibility, person corrected"
+Lynaugh,7/26/2023,22,9:30 p.m.,90,80,10,89,,Trujillo,"humid legibility, person corrected"
+Lynaugh,7/26/2023,23,10:30 p.m.,85,42,8,85,,Trujillo,"wind legibility, person corrected"
+Lynaugh,7/26/2023,24,11:30 p.m.,82,40,1,81,,Trujillo,wind legibility
+Lynaugh,7/27/2023,1,12:30 a.m.,81,43,9,80,,Trujillo,person corrected
+Lynaugh,7/27/2023,2,1:30 a.m.,80,41,8,80,,Trujillo,person corrected
+Lynaugh,7/27/2023,3,2:30 a.m.,81,38,14,80,,Padilla,
+Lynaugh,7/27/2023,4,3:30 a.m.,79,N/A,,N/A,,Padilla,
+Lynaugh,7/27/2023,5,4:30 a.m.,77,N/A,,N/A,,Padilla,
+Lynaugh,7/27/2023,6,5:30 a.m.,74,N/A,,N/A,,Padilla,
+Lynaugh,7/27/2023,7,6:30 a.m.,72,42,9,77,,Rice E.,
+Lynaugh,7/27/2023,8,7:30 a.m.,72,43,6,77,,Rice E.,
+Lynaugh,7/27/2023,9,8:30 a.m.,82,36,5,81,,Rice E.,
+Lynaugh,7/27/2023,10,9:30 a.m.,87,36,9,85,,Rice E.,
+Lynaugh,7/27/2023,11,10:30 a.m.,89,33,17,87,,Rice E.,
+Lynaugh,7/27/2023,12,11:30 a.m.,92,29,16,88,,Rice E.,
+Lynaugh,7/27/2023,13,12:30 p.m.,94,27,15,92,,Rice E.,
+Lynaugh,7/27/2023,14,1:30 p.m.,97,24,11,95,,Rice E.,
+Lynaugh,7/27/2023,15,2:30 p.m.,97,25,14,95,,Rice E.,
+Lynaugh,7/27/2023,16,3:30 p.m.,99,24,13,97,,Rice E.,
+Lynaugh,7/27/2023,17,4:30 p.m.,99,24,14,97,,Rice E.,
+Lynaugh,7/27/2023,18,5:30 p.m.,97,25,15,95,,Rice E.,
+Lynaugh,7/27/2023,19,6:30 p.m.,96,25,11,94,,Rice E.,
+Lynaugh,7/27/2023,20,7:30 p.m.,94,27,19,92,,Navarro D,person legibility
+Lynaugh,7/27/2023,21,8:30 p.m.,92,27,19,92,,Navarro D,
+Lynaugh,7/27/2023,22,9:30 p.m.,86,30,11,83,,Navarro D,humid legibility
+Lynaugh,7/27/2023,23,10:30 p.m.,84,32,14,82,,Navarro D,
+Lynaugh,7/27/2023,24,11:30 p.m.,81,36,12,80,,Navarro D,
+Lynaugh,7/28/2023,1,12:30 a.m.,79,38,11,79,,Navarro D,
+Lynaugh,7/28/2023,2,1:30 a.m.,79,38,11,79,,Navarro D,
+Lynaugh,7/28/2023,3,2:30 a.m.,80,40,11,79,,Navarro D,
+Lynaugh,7/28/2023,4,3:30 a.m.,80,40,11,79,,Navarro D,
+Lynaugh,7/28/2023,5,4:30 a.m.,79,43,18,79,,Navarro D,
+Lynaugh,7/28/2023,6,5:30 a.m.,77,46,10,78,,Navarro D,
+Lynaugh,7/28/2023,7,6:30 a.m.,73,53,9,76,,Castro,person corrected
+Lynaugh,7/28/2023,8,7:30 a.m.,73,59,7,76,,Castro,
+Lynaugh,7/28/2023,9,8:30 a.m.,76,59,8,79,,Castro,
+Lynaugh,7/28/2023,10,9:30 a.m.,84,44,7,83,,Castro,
+Lynaugh,7/28/2023,11,10:30 a.m.,89,37,9,87,,Castro,
+Lynaugh,7/28/2023,12,11:30 a.m.,93,31,11,91,,Castro,
+Lynaugh,7/28/2023,13,12:30 p.m.,94,29,11,92,,Castro,
+Lynaugh,7/28/2023,14,1:30 p.m.,97,24,13,95,,Castro,
+Lynaugh,7/28/2023,15,2:30 p.m.,97,25,12,95,,Castro,
+Lynaugh,7/28/2023,16,3:30 p.m.,98,26,15,97,,Castro,
+Lynaugh,7/28/2023,17,4:30 p.m.,99,25,22,98,,Castro,
+Lynaugh,7/28/2023,18,5:30 p.m.,98,19,22,96,,Castro,person corrected
+Lynaugh,7/28/2023,19,6:30 p.m.,96,25,16,94,,Cuellar,person corrected
+Lynaugh,7/28/2023,20,7:30 p.m.,95,26,13,93,,Cuellar,
+Lynaugh,7/28/2023,21,8:30 p.m.,91,23,14,90,,Cuellar,
+Lynaugh,7/28/2023,22,9:30 p.m.,87,30,12,84,,Cuellar,
+Lynaugh,7/28/2023,23,10:30 p.m.,83,34,7,81,,Cuellar,
+Lynaugh,7/28/2023,24,11:30 p.m.,79,37,7,79,,Cuellar,
+Lynaugh,7/29/2023,1,12:30 a.m.,78,39,7,78,,Cuellar,
+Lynaugh,7/29/2023,2,1:30 a.m.,76,43,7,77,,Cuellar,
+Lynaugh,7/29/2023,3,2:30 a.m.,74,45,7,77,,Cuellar,
+Lynaugh,7/29/2023,4,3:30 a.m.,73,44,7,77,,Cuellar,
+Lynaugh,7/29/2023,5,4:30 a.m.,73,45,9,77,,Cuellar,
+Lynaugh,7/29/2023,6,5:30 a.m.,74,45,10,77,N/A,madrid,"wind legibility, person legibility"
+Lynaugh,7/29/2023,7,6:30 a.m.,71,50,10,76,N/A,madrid,
+Lynaugh,7/29/2023,8,7:30 a.m.,69,51,9,77,N/A,madrid,
+Lynaugh,7/29/2023,9,8:30 a.m.,77,43,6,78,N/A,madrid,
+Lynaugh,7/29/2023,10,9:30 a.m.,86,36,11,86,1,madrid,wind legibility
+Lynaugh,7/29/2023,11,10:30 a.m.,88,34,16,88,1,madrid,
+Lynaugh,7/29/2023,12,11:30 a.m.,91,30,13,91,2,madrid,
+Lynaugh,7/29/2023,13,12:30 p.m.,94,29,14,94,2,madrid,
+Lynaugh,7/29/2023,14,1:30 p.m.,95,26,16,95,2,madrid,wind legibility
+Lynaugh,7/29/2023,15,2:30 p.m.,96,27,6,96,2,madrid,
+Lynaugh,7/29/2023,16,3:30 p.m.,95,27,11,96,2,madrid,
+Lynaugh,7/29/2023,17,4:30 p.m.,98,24,11,99,3,madrid,
+Lynaugh,7/29/2023,18,5:30 p.m.,94,26,12,94,2,madrid,
+Lynaugh,7/29/2023,19,6:30 p.m.,96,26,12,94,,Padilla,
+Lynaugh,7/29/2023,20,7:30 p.m.,90,27,16,87,,Padilla,
+Lynaugh,7/29/2023,21,8:30 p.m.,87,27,14,84,,Padilla,
+Lynaugh,7/29/2023,22,9:30 p.m.,84,31,9,82,,Padilla,
+Lynaugh,7/29/2023,23,10:30 p.m.,78,N/A,,N/A,,Padilla,
+Lynaugh,7/29/2023,24,11:30 p.m.,76,N/A,,N/A,,Padilla,person corrected
+Lynaugh,7/30/2023,1,12:30 a.m.,76,46,7,78,,Padilla,
+Lynaugh,7/30/2023,2,1:30 a.m.,79,48,11,79,,Padilla,person corrected
+Lynaugh,7/30/2023,3,2:30 a.m.,77,49,9,78,,Barraza,"hi_wc corrected, person corrected"
+Lynaugh,7/30/2023,4,3:30 a.m.,74,53,2,77,,Barraza,
+Lynaugh,7/30/2023,5,4:30 a.m.,73,56,3,76,,Barraza,"humid legibility, person legibility"
+Lynaugh,7/30/2023,6,5:30 a.m.,72,54,4,76,N/A,madrid,
+Lynaugh,7/30/2023,7,6:30 a.m.,71,56,5,76,N/A,madrid,wind legibility
+Lynaugh,7/30/2023,8,7:30 a.m.,72,56,9,76,N/A,madrid,
+Lynaugh,7/30/2023,9,8:30 a.m.,77,51,7,78,N/A,madrid,
+Lynaugh,7/30/2023,10,9:30 a.m.,83,43,14,83,1,madrid,
+Lynaugh,7/30/2023,11,10:30 a.m.,86,42,15,86,1,madrid,
+Lynaugh,7/30/2023,12,11:30 a.m.,89,39,9,89,1,madrid,
+Lynaugh,7/30/2023,13,12:30 p.m.,91,36,17,91,2,madrid,
+Lynaugh,7/30/2023,14,1:30 p.m.,92,35,11,92,2,madrid,
+Lynaugh,7/30/2023,15,2:30 p.m.,96,32,7,96,2,madrid,wind legibility
+Lynaugh,7/30/2023,16,3:30 p.m.,95,31,14,95,2,madrid,wind legibility
+Lynaugh,7/30/2023,17,4:30 p.m.,96,32,9,96,2,madrid,
+Lynaugh,7/30/2023,18,5:30 p.m.,94,32,16,94,2,madrid,
+Lynaugh,7/30/2023,19,6:30 p.m.,95,32,16,95,,Ruiz,
+Lynaugh,7/30/2023,20,7:30 p.m.,94,33,17,93,,Ruiz,
+Lynaugh,7/30/2023,21,8:30 p.m.,90,35,17,89,,Ruiz,
+Lynaugh,7/30/2023,22,9:30 p.m.,87,37,14,85,,Ruiz,
+Lynaugh,7/30/2023,23,10:30 p.m.,86,38,14,85,,Ruiz,
+Lynaugh,7/30/2023,24,11:30 p.m.,86,39,14,85,,Ruiz,
+Lynaugh,7/31/2023,1,12:30 a.m.,83,47,13,83,,Ruiz,
+Lynaugh,7/31/2023,2,1:30 a.m.,83,49,16,83,,Ruiz,
+Lynaugh,7/31/2023,3,2:30 a.m.,82,51,15,82,,Ruiz,
+Lynaugh,7/31/2023,4,3:30 a.m.,81,53,19,82,,Ruiz,
+Lynaugh,7/31/2023,5,4:30 a.m.,80,54,11,81,,Ruiz,
+Lynaugh,7/31/2023,6,5:30 a.m.,77,57,4,78,,Ruiz,
+Lynaugh,7/31/2023,7,6:30 a.m.,76,57,5,76,,Rodriguez,
+Lynaugh,7/31/2023,8,7:30 a.m.,76,60,7,77,,Rodriguez,
+Lynaugh,7/31/2023,9,8:30 a.m.,80,54,11,81,,Rodriguez,temp legibility
+Lynaugh,7/31/2023,10,9:30 a.m.,86,47,9,97,,Rodriguez,"wind legibility, hi_wc legibility"
+Lynaugh,7/31/2023,11,10:30 a.m.,89,43,11,90,,Rodriguez,
+Lynaugh,7/31/2023,12,11:30 a.m.,98,34,6,101,,Rodriguez,
+Lynaugh,7/31/2023,13,12:30 p.m.,96,33,2,100,,Rodriguez,
+Lynaugh,7/31/2023,14,1:30 p.m.,101,31,6,104,,Rodriguez,
+Lynaugh,7/31/2023,15,2:30 p.m.,104,,7,102,,Rodriguez,"humid legibility, hi_wc corrected"
+Lynaugh,7/31/2023,16,3:30 p.m.,104,29,8,106,,Rodriguez,
+Lynaugh,7/31/2023,17,4:30 p.m.,98,32,12,100,,Rodriguez,
+Lynaugh,7/31/2023,18,5:30 p.m.,96,35,9,98,,Rodriguez,
+Lynaugh,7/31/2023,19,6:30 p.m.,96,35,9,98,,Barraza,person corrected
+Lynaugh,7/31/2023,20,7:30 p.m.,86,49,12,87,,Barraza,
+Lynaugh,7/31/2023,21,8:30 p.m.,86,49,10,85,,Barraza,wind legibility
+Lynaugh,7/31/2023,22,9:30 p.m.,82,53,8,83,,Barraza,
+Lynaugh,7/31/2023,23,10:30 p.m.,82,53,9,83,,Barraza,
+Lynaugh,7/31/2023,24,11:30 p.m.,82,52,10,83,,Barraza,person corrected

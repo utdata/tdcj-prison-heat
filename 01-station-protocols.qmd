@@ -2,6 +2,8 @@
 title: "Stations cleaning"
 ---
 
+>> THIS HAS SOME ISSUES. IF WE ARE FOLLOWING THE EXCESSIVE HEAT WARNING CRITERIA, THEN WE ARE NOT LOOKING AT 105 FOR 2 DAYS.
+
 Here we enhance our weather station data to include prison protocol data. We do this both for our hourly readings and our daily summaries.
 
 Will decide later if we add the prison info. That may need to be in more specific analysis.

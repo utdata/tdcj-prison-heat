@@ -29,7 +29,7 @@ This sheet is in MIG Data > Jail Logs > Outdoor Logs Data. It is called Outdoor 
 #| label: tracking-file
 #| eval: false
 
-download.file("https://docs.google.com/spreadsheets/d/e/2PACX-1vRQBIKas7s5Wwe4bd9tMlAheCsjqeFU2JMZfk6h8Hc_QH6Dx02SEZmP6ieny13hCyZQosmsRirDEu9P/pub?output=csv", "data-raw/outdoor-jail-logs-urls.csv")
+# download.file("https://docs.google.com/spreadsheets/d/e/2PACX-1vRQBIKas7s5Wwe4bd9tMlAheCsjqeFU2JMZfk6h8Hc_QH6Dx02SEZmP6ieny13hCyZQosmsRirDEu9P/pub?output=csv", "data-original/outdoor-jail-logs-urls.csv")
 ```
 
 Read in the tracking sheet url
@@ -39,7 +39,7 @@ Read in the tracking sheet url
 #| warning: false
 #| message: false
 
-log_urls <- read_csv("data-raw/outdoor-jail-logs-urls.csv") |> clean_names()
+log_urls <- read_csv("data-original/outdoor-jail-logs-urls.csv") |> clean_names()
 
 log_urls |> glimpse()
 ```
@@ -70,7 +70,7 @@ df <- log_urls
 for (i in seq_len(nrow(df))) {
   url <- df$url[i]
   slug <- df$slug[i]
-  file_name <- paste0("data-raw/2023_logs/", slug, ".csv")
+  file_name <- paste0("data-original/2023_logs/", slug, ".csv")
   
   if (is.na(url)) {
     # message(paste("No URL for slug:", slug))
@@ -92,7 +92,7 @@ Make a list of files:
 
 ```{r}
 logs_list <- list.files(
-  "data-raw/2023_logs",
+  "data-original/2023_logs",
   pattern = ".csv",
   full.names = TRUE
   )
@@ -121,8 +121,8 @@ Sometimes we needed to check a specific file being downloaded.
 
 ```{r}
 # download.file(
-#   "https://docs.google.com/spreadsheets/d/e/2PACX-1vToj_YKfQlL_ZvNFPKItQQDR01HhQu5Fsp0Z2xSSXvaYZrn_Xuw1kh0JDwBV-wSk-uoZhdG7C4Rytw1/pub?output=csv",
-#   "data-raw/2023_logs/r5-montford.csv"
+#   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRPdRSPyFwnYPgrLkJktmtg2hy4BmWl0eILzwO7KLalYxjPF2xYMZj4kSTuo3u7wwUckskou4-Dm4zF/pub?gid=0&single=true&output=csv",
+#   "data-original/2023_logs/r1-estelle.csv"
 # )
 ```
 
@@ -301,7 +301,7 @@ notes_df <- notes_urls
 for (i in seq_len(nrow(notes_df))) {
   url <- df$notes_url[i]
   slug <- df$slug[i]
-  file_name <- paste0("data-raw/2023_notes/", slug, ".csv")
+  file_name <- paste0("data-original/2023_notes/", slug, ".csv")
   
   if (is.na(url)) {
     # message(paste("No URL for slug:", slug))
@@ -321,7 +321,7 @@ Make a list of file paths to combine.
 
 ```{r}
 notes_list <- list.files(
-  "data-raw/2023_notes",
+  "data-original/2023_notes",
   pattern = ".csv",
   full.names = TRUE
   )
@@ -364,4 +364,3 @@ We'll export this as both a csv and an rds because we may just put these into a 
 notes_cleaned |> write_rds("data-processed/01-outdoor-notes.rds")
 notes_cleaned |> write_csv("data-processed/01-outdoor-notes.csv")
 ```
-
