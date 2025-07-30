@@ -350,14 +350,31 @@ Here we look at the days that units within our time frame where TDCJ activated i
 We include our `u_proto_flag` created based on the handwritten weather logs.
 
 ```{r}
-logs_activations |> 
+logs_ics <- logs_activations |> 
   filter(protocol_active == T) |> 
   select(unit, date, u_hi_max, u_tmp_max, u_proto_flag)
+
+logs_ics
 ```
+
+However, 12 of these activation days are within the first two days of our period, meaning they could've met the criteria based on data not in our review.
+
+```{r}
+logs_ics |> filter(date < "2023-07-26")
+```
+
+One more look ... Which of these days did not meet the criteria for a the given day.
+
+```{r}
+logs_ics |> 
+  filter(u_hi_max < 113 & u_tmp_max < 105)
+```
+
+Half of these units did not reach a heat index of 113 or temperature of 105 on the day of the active protocol. Being under ICS is likely good for inmates, but it perhaps shows inconsistency in implementation.
 
 ### Takeaway 2
 
-There were 24 days in our time period where heat mitigation protocols were put in place. This includes all eight days for the Halbert and Sayle units. None of these units met the definition we've been given by TDCJ communications based on the weather logs kept by units.
+According to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, none of these units met the criteria we've been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.
 
 ### 3. Any day meeting condition
 
