@@ -5,7 +5,7 @@ author: "Media Innovation Group"
 
 This data is the record indoor temperatures at each unit from April to September. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
-The original PDFs were transcribed into data using Google Pinpoint, resulting in the csv files found in `data-original`. The original documents are found in `data-original`.
+The original PDFs were transcribed into data using Google Pinpoint, resulting in the csv files found in `data-original` as `Indoor-30days-edited.csv` and `Indoor-31days-edited.csv`. The original documents are found in `data-original/2023_indoor`.
 
 ## Goals of this notebook
 
@@ -91,7 +91,7 @@ word_list <- c("SB1R56 - |_1.pdf|_2.pdf")
 Now that we've done that, let's clean names and make our new column.
 
 ```{r}
-daily_indoor <- indoor_temps_combined|> 
+daily_indoor <- indoor_temps_combined |> 
   clean_names() |> 
   mutate(
     month_year = str_remove_all(file_name, word_list) 
@@ -106,7 +106,7 @@ We'll need to clean up the dates so they're standardized and readable. We'll com
 
 ```{r}
 daily_indoor_dated <- daily_indoor |> 
-    distinct() |> 
+    # distinct() |>
     unite(
     col = "temp_date", 
     day, month_year,
@@ -122,6 +122,15 @@ daily_indoor_dated <- daily_indoor |>
 
 daily_indoor_dated |> glimpse()
 ```
+
+### Check dates
+
+```{r}
+daily_indoor_dated
+```
+
+
+
 
 ## Clean some unit names
 

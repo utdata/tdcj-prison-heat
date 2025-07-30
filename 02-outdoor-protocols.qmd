@@ -25,42 +25,40 @@ When the National Weather Service issues an excessive heat warning or notice of 
 
 NOTE: The TDCJ protocol activation records we have relate to these "precautionary measures" mentioned here.
 
-> Triple check with LM that this is correct.
-
 ### What is unclear
 
-The definition of **excessive heat** above is a challenge as it is not clearly defined with data points to measure against, yet seems to be referred to in the III.A.2 directive.
+The definition of **excessive heat** above is a challenge as it is not clearly defined with data points to measure against, yet seems to be referred to in the III.A.2 section of the directive.
 
-_Excessive heat warning_ is clearly defined, but the III.A.2 directive does not use the term "warning", just the ambiguous "excessive heat conditions" terminology.
+_Excessive heat warning_ is clearly defined, but the III.A.2 section does not use the term "warning", just the ambiguous "excessive heat conditions" terminology.
 
 Does this mean that an "excessive heat warning" must be in effect for more than 3 days before implementing "precautionary measure" protocols? Or that the conditions that contribute to that heat warning have to be in place?
 
-### Other known issues
+### Clarifications
+
+In communications with the TDCJ Director of Communications, they stated that "ICS is initiated when temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days." This interpretation is less strict than the "excessive heat warning" definition in the AD-10.64 directive.
+
+Our understanding is the "ICS" (Incident Command System) is the precautionary measures outlined in III.A.2 of the directive.
+
+## Other known issues
+
+Because of the nature of the original records, there are missing data that affect our analysis.
 
 - There are 8 records where we don't have a temperature value. We dropped those records.
-- There are 3088 records (out of 15,744) where we don't have a heat index value.
-- There are 7 units that have one or more days where we can't find a max heat index value.
-    - 8 days for Dalhart, 7 for Formby, 3 for Wheeler. The others only have one day missing.
-- In the original written logs, some units (Dalhart, for example) used category designations instead of heat index values, which means they will not translate into numbers for data. Category 3 is the "Danger" area according to the NOAA’s National Weather Service Heat and Humidity Index included in the TDCJ directive. Category 4 is "Extreme Danger". This means in some cases we _could_ have heat conditions based on heat index, but they are not included. Interestingly, Dalhart is one of those units, but I'm not certain if that is what is contributing to max heat index problem above because of other inconsistencies.
+- There are 3088 records (out of 15,744) where we don't have a heat index value. That limits their value, but we still have temperatures, so we keep them.
+    - There are 7 units that have one or more days where we can't find a max heat index value. Typically because there are no heat index values recorded for a given date. 8 days for Dalhart, 7 for Formby, 3 for Wheeler. The others only have one day missing.
+    - In the original written logs, some units (Dalhart, for example) used category designations instead of heat index values, which means they will not translate into numbers for data. Category 3 is the "Danger" area according to the NOAA’s National Weather Service Heat and Humidity Index included in the TDCJ directive, and that range includes heat indexes of 113 degrees and higher. Category 4 is "Extreme Danger". This means in some cases we _could_ have heat conditions based on heat index, but they are not included.
 
 ## What we'll find
 
-Because of those unclear notions, we'll break this down a number of ways, with each step becoming "less restrictive". In some cases we use the term "unit days" because we summarize/count values per unit, per day.
+Based on our communications with TDCJ, we'll use the following definition as "meeting protocol" to go into precautionary measures: **When temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days**.
 
-1. Which units had "precautionary measures" implemented by TDCJ.
-2. We'll use the "excessive heat warning" definition -- two or more days of 105 degree temperatures for at least three hours, or a heat index of 113 -- to find how many times this has been in place more than three consecutive days.
-3. We'll find units where the "excessive heat warning" conditions were in place for any number of days. This is a bit confusing because the criteria still includes days of 105 degrees for at least three hours **for two or more days**, or any day reading a heat index of 113.
-4. We'll look another way where we consider "excessive heat conditions" as reaching 105 degrees for at least three hours (on any day), or a heat index of 113, for more than three days. This differs from above in that the 105 temperatures don't have to be in place for two days to "count".
-5. Lastly, we find unit days where the temperature reached 105 at any time during the day, or if the heat index reached 113.
+We'll find ...
 
-In all cases, we'll compare when heat protocols were actually activated.
-
-### Steps
-
-- Bring in the logs.
-- Calculate protocol flags based on criteria.
-- Join that data with known active protocols
-- Summarize based on our conditions outlined above.
+1. Which units met the protocol definition outlined above.
+2. Which units had ICS "precautionary measures" implemented by TDCJ.
+3. Setting aside the consecutive days criteria, we'll find any day it reached 105 or a heat index of 113.
+4. We'll find how many times units reached a heat index of 90 or greater, as the directive uses that measure for some heat mitigation measures, though TDCJ does not track their use.
+5. Just for comparison, we'll calculate the more strict "excessive heat warning" criteria and see when units reached it.
 
 ## Setup
 
@@ -160,17 +158,18 @@ That said, of the records without heat index values, there are some that do have
 | 3            | Danger          |
 | 4            | Extreme Danger  |
 
-```{r}
-logs_missing_hi |> filter(!is.na(hi_wc_n)) |> count(hi_wc_n)
-```
-
-This means there are 44 "unit days" where it is _possible_ the heat index has reached 113, but we don't know for sure. Here we show which units have a missing heat index and category 3 risk category.
+Here I filter to find the units that have the category listed. Since these are hourly readings, I use distinct to find the dates when a unit recorded a specific category. We then filter those units that recorded cat 3 or higher.
 
 ```{r}
-logs_missing_hi |> filter(hi_wc_n >= 3) |> count(unit, name = "cnt_cat3")
+logs_missing_hi |>
+  filter(!is.na(hi_wc_n)) |> 
+  distinct(unit, date, hi_wc_n) |>
+  filter(hi_wc_n >= 3)
 ```
 
-In the end, we are keeping records with no heat index value because they still have temperature, and we are ignoring the risk category because we don't know the exact heat index.
+This means there are 15 "unit days" where it is _possible_ the heat index has reached 113, but we don't know for sure. Here we show which units have a missing heat index and category 3 risk category.
+
+In the end, we are keeping records with no heat index value because they still have temperature, and we are ignoring the risk category because we don't know the exact heat index value.
 
 ## Preparing the protocol flags
 
@@ -178,7 +177,7 @@ Here we summarize the hourly logs to see if certain conditions exist in a given 
 
 - We find the maximum heat index value.
 - We find the maximum temperatures for a day.
-- We find how many hours within a day the temperature was above 105.
+- We find how many hours within a day the temperature was above 105. (This is for strict Excessive Heat Warning calculations.)
 
 We peek at a sample to check results.
 
@@ -219,54 +218,37 @@ logs_clipped |> filter(unit == "Dalhart", date == "2023-07-27")
 
 Here we add some flags based on the excessive heat warning definitions:
 
-- Was it 105 for at least 3 hours within a day
-- If heat index reaching 113
+- If heat index reached 113
+- If the temperature reached 105
 
 We peek at a sample to check the results.
 
 ```{r}
 logs_flags <- logs_values |> 
   mutate(
-    u_hi_flag = (case_when(
-      u_hi_max >= 113 ~ TRUE,
-      .default = FALSE)),
-    u_tmp_flag = (case_when(
-      u_hrs_105 >= 3 ~ TRUE,
-      .default = FALSE)),
+    u_hi_flag = if_else(u_hi_max >= 113, T, F),
+    u_tmp_flag = if_else(u_tmp_max >= 105, T, F),
     )
 
 # view a sample
-logs_flags |> slice_sample(n = 5)
-```
+logs_flags |> slice_sample(n = 20)
 
-Because the excessive heat definition is "temperature of at least 105ºF for more than three hours per day for two consecutive days," we count how many days in a row the u_temp_flag has been true (i.e., at least 105).
-
-We peek at the top of this file to check the results.
-
-```{r}
-logs_temp_cnt <- logs_flags |> 
-  add_streaks("u_tmp_flag_cnt", u_tmp_flag)
-
-# peeking just cols of interest
-logs_temp_cnt |> select(unit, date, u_tmp_flag, u_tmp_flag_cnt) |> head(10)
 ```
 
 ### Set protocol flags
 
 Here we set more flags when certain definitions have been met.
 
-- Flag `TRUE` if 105 temp is for two or more days: `u_tmp_proto`.
-- Flag `TRUE` if either heat index or temperature protocol conditions are true: `u_hi_tmp_proto`.
-- Create a consecutive day count for when `u_hi_tmp_proto` are true: `u_hi_tmp_proto_cnt`.
+- Flag `TRUE` if either the temperature reached 105 or the heat index reached 113: `u_hi_tmp_proto`.
+- Create a consecutive day count for when `u_hi_tmp_proto` is true: `u_hi_tmp_proto_cnt`.
 - Flag `TRUE` if u_hi_tmp_proto_cnt is more than three days: `u_proto_flag`.
 
 We peek at a sample of rows to check logic.
 
 ```{r}
-logs_protos <- logs_temp_cnt |> 
+logs_protos <- logs_flags |> 
   mutate(
-    u_tmp_proto = if_else(u_tmp_flag_cnt >= 2, T, F),
-    u_hi_tmp_proto = if_else(u_tmp_proto == T | u_hi_flag == T, T, F),
+    u_hi_tmp_proto = if_else(u_tmp_flag == T | u_hi_flag == T, T, F),
   ) |> 
   add_streaks("u_hi_tmp_proto_cnt", u_hi_tmp_proto) |> 
   mutate(
@@ -327,126 +309,156 @@ activations_active |>
 
 This has been overkill, but I'm certain that we have captured all of the activations in our time period and those have been properly added to our logs.
 
-## 1. The protocol days
+## Answer the questions
 
-Here we look at the unit days within our time frame where TDCJ activated heat mitigation protocols.
+### 1. Units meeting criteria
+
+1. Which units met the protocol definition outlined above.
+
+```{r}
+criteria_met <- logs_activations |> 
+  filter(u_proto_flag == T) |> 
+  select(unit, date, u_hi_max, u_tmp_max, protocol_active) |> 
+  arrange(unit, date)
+
+criteria_met
+```
+
+Which units were involved?
+
+```{r}
+criteria_met |> count(unit)
+```
+
+Were ICS protocols activated?
+
+```{r}
+criteria_met |> filter(protocol_active == T)
+```
+
+
+### Takeaway 1
+
+Seven units met the ICS criteria for a total of 17 "unit days" based on the definition given to us by the TDCJ communications department. None of those had active ICS protocols in place.
+
+Note that this count could be low, as it's possible units met protocol before the first day of our sample.
+
+### 2. Days in ICS
+
+Here we look at the days that units within our time frame where TDCJ activated its Incident Command System, i.e., precautionary measures based on heat.
+
+We include our `u_proto_flag` created based on the handwritten weather logs.
 
 ```{r}
 logs_activations |> 
   filter(protocol_active == T) |> 
-  select(unit, date, u_hi_max, u_tmp_max)
-```
-
-### Takeaway 1
-
-There were 24 days in our time period where heat mitigation protocols were put in place. This includes all eight days for the Halbert and Sayle units.
-
-## 2. EHW criteria > 3 days
-
-Here we track "unit days" where "excessive heat warning" conditions are in place more than three consecutive days. This would be two or more days of 105 degrees for at least three hours, or a heat index of 113.
-
-```{r}
-logs_activations |> 
-  filter(u_proto_flag == T) |> 
-  select(unit, date, u_hi_max, u_tmp_max, u_proto_flag, protocol_active)
+  select(unit, date, u_hi_max, u_tmp_max, u_proto_flag)
 ```
 
 ### Takeaway 2
 
-There were six "unit days" where Excessive Heat Warning conditions were in effect for more than three days during our eight-day period and in zero cases were active heat protocols in place.
+There were 24 days in our time period where heat mitigation protocols were put in place. This includes all eight days for the Halbert and Sayle units. None of these units met the definition we've been given by TDCJ communications based on the weather logs kept by units.
 
-**OF NOTE:** Since the directive requires these conditions must be present for more than three days and we only have eight days of readings, there are potential uncounted days early in the period. (I could try to calculate those?).
+### 3. Any day meeting condition
+
+These precautionary protocols are mandated only after heat conditions exists for **three consecutive days**. But any day these conditions exist can be dangerous. Let's see how many times this condition was true for these units in our time period.
 
 ```{r}
-#| include: false
-
-# first attempt
 logs_activations |> 
-  filter(u_hi_tmp_proto == T,
-         u_hi_tmp_proto_cnt >= 1,
-         date == "2023-07-24") # first day of potentials
+  filter(u_hi_tmp_proto == T) |> 
+  count(unit) |> 
+  adorn_totals("row") |> 
+  tibble()
 ```
 
-## 3. EHW criteria any day
-
-Here we'll find the unit days where Excessive Heat Warning conditions were in place, regardless of how many days in a row. This can be confusing because the criteria still includes reaching 105 degrees for at least three hours **for two or more days**, or any day reading a heat index of 113.
-
-Here we view the records that match:
+How many of these were in active ICS protocol?
 
 ```{r}
-ehw_true <- logs_activations |> 
-  filter(u_hi_tmp_proto == T)
-
-ehw_true |> 
-  select(unit, date, u_hi_max, u_tmp_max, protocol_active)
-```
-
-Let's see how many of these days had protocols in place.
-
-```{r}
-ehw_true |> count(protocol_active)
-```
-
-Which unit had protocols active?
-
-```{r}
-ehw_true |> filter(protocol_active == T) |> 
-  select(unit:u_tmp_max)
+logs_activations |> 
+  filter(u_hi_tmp_proto == T) |> 
+  count(protocol_active)
 ```
 
 ### Takeaway 3
 
-- Of the 69 unit days where Excessive Heat Warning conditions were in place, only one unit went into precautionary measures, for a single day.
+Out of 656 "unit days" possible (82 units, 8 days), excessive heat conditions were reached 127 times. Half of the units reached the criteria at least once. In only 12 of those instances was a unit in active precautionary measures.
 
-## 4. EHC criteria > 3 days
+### 4. Days of 90 heat index
 
-- We'll look another way where we consider "excessive heat conditions" as reaching 105 degrees for at least three hours (on any day), or a heat index of 113, for more than three days. This differs from above in that the 105 temperatures don't have to be in place for two days to "count".
+There is a section in the directive (III.A.5) where heat precautions must be taken when in "apparent air temperatures above 90 degrees", like frequent water breaks. TDCJ does not record when such conditions exist, but we wanted to get an idea.
 
 ```{r}
-ehc_conditions <- logs_activations |> 
-  mutate(ehc_flag = if_else(u_hrs_105 >= 3 | u_hi_flag == T, T, F)) |> 
-  add_streaks("ehc_cnt", ehc_flag)
-
-ehc_conditions |> 
-  filter(ehc_cnt > 3) |> 
-  select(unit, date, u_hi_max, u_tmp_max, ehc_flag, protocol_active)
+logs_activations |> 
+  filter(u_hi_max >= 90) |> 
+  count(unit)
 ```
 
 ### Takeaway 4
 
-Easing this condition slightly to a single day of 105 temperatures did not make any difference in how many days met the criteria.
+These 90 degree heat index conditions existed nearly every day for all 82 units within our time period. Only five units didn't meet that criteria every day, and for four of those days it didn't meet for only a single day.
 
-## 5. EHC criteria any day
 
-Here we not units where simply the temperature reached 105 or the heat index was 113. No consecutive day counting considered.
+### 5. Excessive Heat Warnings
+
+Within the directive, TDCJ outlines a definition of "Excessive Heat Warning" as "temperature of at least 105ºF for more than three hours per day for two consecutive days, or heat index of 113ºF or greater for any period of time." This is more strict than the definition we use above. Let's just see how many of our units would meet this criteria based on the handwritten weather logs data.
+
+### Prep the data
+
+We have to calculate quite a few things to make this definition. Comments in code.
 
 ```{r}
-ehc_simple <- logs_activations |> 
-  filter(u_hi_flag == T | u_tmp_max >= 105) |> 
-  select(unit, date, u_hi_max, u_tmp_max, protocol_active)
+logs_ehw_protos <- logs_values |> 
+  # 105ºF for more than three hours per day
+  mutate(
+    u_tmp_3hrs = if_else(u_hrs_105 >= 3, T, F)
+  ) |> 
+  # add count to find consecutive days 105 met
+  add_streaks("u_tmp_flag_cnt", u_tmp_3hrs) |> 
+  mutate(
+    # flag if 105 was 2 or more days
+    u_tmp_2days = if_else(u_tmp_flag_cnt >= 2, T, F),
+    # flag if either tmp conditions or heat index conditions are met
+    u_ehw_flag = if_else(u_hi_max >= 113 | u_tmp_2days == T, T, F)
+  ) |> 
+  # Add count to find consecutive days either condition met
+  add_streaks("u_ehw_flag_cnt", u_ehw_flag) |> 
+  # add activations
+  left_join(activations, join_by(unit, date)) |> 
+  mutate(protocol_active = if_else(is.na(protocol_active), F, protocol_active))
 
-ehc_simple
+logs_ehw_protos
 ```
 
-Of these 127 unit days, how many were in active heat mitigation protocols:
+### EHW streaks
+
+In III.A.2 the directive says "When excessive heat conditions last for **more than three consecutive days**, the division directors and warden(s) of units in the affected area(s) shall immediately implement additional precautionary measures ..."
+
+Emphasis is mine. That portion could be read as _four or more days_, which is different than the "three consecutive days" value we've been working with in our basic definition above.
+
+Here we show which units met the EHW criteria for three or more days.
+
+**OF NOTE:** Since we only have eight days of readings, we potentially miss streaks early in our time period. Conditions could have been met on July 22-23, but we don't know that.
 
 ```{r}
-ehc_simple |> 
-  count(protocol_active)
+logs_ehw_protos |> 
+  filter(u_ehw_flag_cnt >= 3) |> 
+  select(unit, date, u_hi_max, u_tmp_max, u_ehw_flag_cnt, protocol_active)
 ```
 
-Which units were they ...
+
+The emphasis is mine. This could be read as these conditions being in place for _more than_ three days, so four or greater. So here check that.
 
 ```{r}
-ehc_simple |> 
-  filter(protocol_active == T) |> 
-  select(unit:u_tmp_max)
+logs_ehw_protos |> 
+  filter(u_ehw_flag_cnt >= 4) |> 
+  select(unit, date, u_hi_max, u_tmp_max, u_ehw_flag_cnt, protocol_active)
 ```
 
 
 ### Takeaway 5
 
-There were 127 units that reached a temperature of 105 or heat index of 113 in the eight day period. Of those, there were 12 unit days in active heat mitigation, most of which were the Halbert and Sayle units.
+There were 12 "unit days" where strict Excessive Heat Warning conditions were in effect for three or more days during our eight-day period. Official "Incident Command System" protocols were not in active on any of those days.
+
 
 
 
