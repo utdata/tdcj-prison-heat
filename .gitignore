@@ -5,6 +5,9 @@
 /.quarto/
 /_site/
 /_book/
+/data-original/
+/data-processed/
+/2025 TDCJ Prison Heat Data/
 
 ### macOS ###
 # General

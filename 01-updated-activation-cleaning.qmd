@@ -1,0 +1,136 @@
+---
+title: "Updated activations cleaning"
+author: "Media Innovation Group"
+format: html
+---
+
+This data is a record of every time a TDCJ was under ICS protocols, like providing extra ice water and access to cooler areas during extreme heat events, in 2022, 2023 and 2024. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.
+
+::: callout-warning
+
+Questions to ask Lauren as of 9/13:
+-Do these excel sheets include all times that all TDCJ units without air conditioning were put under ICS protocols for each year through the date on the files? Is that date the day the information request was filled? 
+- Are the comments left on specific cells in the xlsx files important? What do they mean?
+
+:::
+
+## Goals of this notebook
+
+What we'll do to prepare the data:
+
+- Download the data using read_excel
+- Import it into our notebook
+- Clean up data types and columns 
+- Export data into our next notebook
+
+## Setup
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(data.table)
+library(readxl)
+library(hms)
+```
+
+
+## Downloading the data
+
+This data includes all instances where units were under ICS protocols for 2022, 2023 and 2024, as reported by the TDCJ from a public information request. The data is limited by when the information request was filled  each year: 2022/08/07, 2023/09/12 and 2024/08/29.
+
+Downloading the xlsx files using read_excel, specifying the sheet, skipping the first row, and specifying column types. 
+
+```{r}
+activations_2022_raw <- read_excel("data-original/08.07.22 ICS Seasonal Spreadsheet.xlsx", sheet = "FY22 ICS", skip = 1, col_types = c("date", "date", "text", "text", "date", "date", "date", "date")) |> 
+  clean_names()
+activations_2022_raw
+```
+
+** Note on 2022 sheet: we reformatted cell F11 in the original xlsx file because it was the only cell formatted as text rather than time and read in as NA. 
+
+```{r}
+activations_2023_raw <- read_excel("data-original/09.12.23 ICS Seasonal Spreadsheet .xlsx", sheet = "FY 23", skip = 1, col_types = c("date", "date", "text", "text", "date", "numeric", "date", "numeric")) |> 
+  clean_names()
+```
+
+```{r}
+activations_2024_raw <- read_excel("data-original/08.29.24_ICS Seasonal Spreadsheet .xlsx", sheet = "CY24", skip = 1, col_types = c("date", "date", "text", "text", "date", "numeric", "date", "numeric")) |> 
+  clean_names()
+```
+
+## Clean column names
+
+```{r}
+activations_2022_clean <- activations_2022_raw |> select(
+  initial_extreme_temp = initial_date_of_extreme_temperature,
+  initiation_date = ics_implementation_date,
+  county,
+  unit = unit_affected,
+  activation_date = date_5, 
+  activation_time = time_6,
+  deactivation_date = date_7,
+  deactivation_time = time_8 
+  )
+```
+
+```{r}
+activations_2023_clean <- activations_2023_raw |> select(
+  initial_extreme_temp = initial_date_of_extreme_temperature,
+  initiation_date = ics_implementation_date,
+  county,
+  unit = unit_affected,
+  activation_date = date_5, 
+  activation_time = time_6,
+  deactivation_date = date_7,
+  deactivation_time = time_8 
+  )
+  
+```
+
+```{r}
+activations_2024_clean <- activations_2024_raw |> select(
+  initial_extreme_temp = initial_date_of_extreme_temperature,
+  initiation_date = ics_implementation_date,
+  county,
+  unit = unit_affected,
+  activation_date = date_5, 
+  activation_time = time_6,
+  deactivation_date = date_7,
+  deactivation_time = time_8 
+  )
+```
+
+## Fix 2022 time columns
+
+Because the 2022 log had the the activation and deactivation time columns formatted as hh:mm rather than the hhmm format used in the 2023 and 2024 logs, we had to specify those column types as dates for them to read in properly, which generated a date of 1899-12-31 for each time. We're using mutate() and the hms() function to pull just the time from this datetime. 
+
+
+```{r}
+activations_2022_time <- activations_2022_clean |> 
+  mutate(
+    activation_time = hms(
+    hour = hour(activation_time),
+    minute = minute(activation_time),
+    second = second(activation_time),
+    )
+  ) |> 
+  mutate(
+      deactivation_time = hms(
+      hour = hour(deactivation_time),
+      minute = minute(deactivation_time),
+      second = second(deactivation_time)
+    )
+  )
+activations_2022_time
+
+```
+
+```{r}
+activations_2023_clean |> 
+  mutate()
+```
+
+

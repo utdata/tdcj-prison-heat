@@ -1,0 +1,732 @@
+---
+title: "2024 indoor logs cleaning"
+author: "Media Innovation Group"
+format: html
+---
+
+This data is the record indoor temperatures at each unit from April to September. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+
+
+The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original' as 'SB1R56 - April 2024 (Table 1).csv' and so on for each month. The original documents are found in 'data-original/2024_indoor'. 
+
+
+## Goals of this notebook
+
+Clean and combine the 2024 indoor logs for April, May, June, July, August and September.
+
+## Setup
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(lubridate)
+```
+
+## Downloading data
+
+This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to July, so we will import each in individually and clean names.
+
+```{r}
+indoor_temps_april <- read_csv("data-original/SB1R56 - April 2024(Table 1).csv") |> 
+  clean_names()
+```
+
+
+```{r}
+indoor_temps_may <- read_csv("data-original/SB1R56 - May 2024(Table 1).csv") |> 
+  clean_names()
+```
+
+```{r}
+indoor_temps_june <- read_csv("data-original/SB1R56 - June 2024(Table 1).csv") |> 
+  clean_names()
+```
+
+```{r}
+indoor_temps_july <- read_csv("data-original/SB1R56 - July 2024(Table 1).csv") |> 
+  clean_names()
+```
+
+```{r}
+indoor_temps_august <- read_csv("data-original/SB1R56 - August 2024(Table 1).csv") |> 
+  clean_names()
+```
+
+```{r}
+indoor_temps_september <- read_csv("data-original/SB1R56 - September 2024(Table 1).csv") |> 
+  clean_names()
+```
+** We went into the original csv file and removed extra spaces from the readings for Connally on the 21st and 22nd so that they show up as dbls rather than characters. 
+
+## April
+
+## Cleaning up uneccesary rows and columns 
+
+```{r}
+april_filtered <- indoor_temps_april |> filter(!april_2024 == "April 2024") |> 
+  select(
+    april_2024,
+    x1 = x2,
+    x2 = x3,
+    x3 = x4,
+    x4 = x5,
+    x5 = x6,
+    x6 = x7,
+    x7 = x8,
+    x8 = x9,
+    x9 = x10,
+    x10 = x11,
+    x11 = x12,
+    x12 = x13,
+    x13 = x14,
+    x14 = x15,
+    x15 = x16,
+    x16 = x17,
+    x17 = x18,
+    x18 = x19,
+    x19 = x20,
+    x20 = x21,
+    x21 = x22,
+    x22 = x23,
+    x23 = x24,
+    x24 = x25,
+    x25 = x26,
+    x26 = x27,
+    x27 = x28,
+    x28 = x29,
+    x29 = x30,
+    x30 = x31
+  )
+```
+
+## Pivoting longer
+
+Using pivot_wider to create a day column.
+
+```{r}
+april_pivoted <- april_filtered |> pivot_longer(
+  cols = x1:x30,
+  names_to = "day",
+  values_to = "temperature"
+  )
+```
+
+## Removing 'x' from rows in the day column
+
+Using mutate and str_remove_all to create a new day column and remove the x in front of each day.
+
+```{r}
+april_day <- april_pivoted |> mutate(day = str_remove_all(day, "x"))
+```
+
+## Creating a new column with the month and day 
+
+Using mutate to create a new column and fill it with the month and year and rename the april_2024 column to "unit"
+
+```{r}
+april_month_year <- april_day |> mutate(
+  month_year = "April 2024",
+  unit = april_2024) |> select(
+    !april_2024
+  )
+```
+
+## Creating a real date column
+
+Combining the month/year column with the day column, using lubridate to create a real date column and dropping the temp_date column.
+
+```{r}
+april_date <- april_month_year |> 
+    # distinct() |>
+    unite(
+    col = "temp_date", 
+    day, month_year,
+    sep = " "
+    ) |> mutate(
+    date = dmy(temp_date)
+    ) |> select(
+  !temp_date
+)
+```
+
+## Reordering the columns
+
+Using reorder() to order the columns by unit, date and temp
+
+```{r}
+april_clean <- april_date |> relocate(unit, date,temperature)
+```
+
+## May
+
+
+## Cleaning up uneccesary rows and columns 
+
+```{r}
+may_filtered <- indoor_temps_may |> filter(!may_2024 == "May 2024") |> 
+  select(
+    may_2024,
+    x1 = x2,
+    x2 = x3,
+    x3 = x4,
+    x4 = x5,
+    x5 = x6,
+    x6 = x7,
+    x7 = x8,
+    x8 = x9,
+    x9 = x10,
+    x10 = x11,
+    x11 = x12,
+    x12 = x13,
+    x13 = x14,
+    x14 = x15,
+    x15 = x16,
+    x16 = x17,
+    x17 = x18,
+    x18 = x19,
+    x19 = x20,
+    x20 = x21,
+    x21 = x22,
+    x22 = x23,
+    x23 = x24,
+    x24 = x25,
+    x25 = x26,
+    x26 = x27,
+    x27 = x28,
+    x28 = x29,
+    x29 = x30,
+    x30 = x31,
+    x31 = x32
+  )
+```
+
+## Pivoting longer
+
+Using pivot_wider to create a day column.
+
+```{r}
+may_pivoted <- may_filtered |> pivot_longer(
+  cols = x1:x31,
+  names_to = "day",
+  values_to = "temperature"
+  )
+```
+
+## Removing 'x' from rows in the day column
+
+Using mutate and str_remove_all to create a new day column and remove the x in front of each day.
+
+```{r}
+may_day <- may_pivoted |> mutate(day = str_remove_all(day, "x"))
+```
+
+## Creating a new column with the month and day 
+
+Using mutate to create a new column and fill it with the month and year and rename the may_2024 column to "unit".
+
+```{r}
+may_month_year <- may_day |> mutate(
+  month_year = "May 2024",
+  unit = may_2024) |> select(
+    !may_2024
+  )
+```
+
+## Creating a real date column
+
+Combining the month/year column with the day column, using lubridate to create a real date column and dropping the temp_date column.
+
+```{r}
+may_date <- may_month_year |> 
+    # distinct() |>
+    unite(
+    col = "temp_date", 
+    day, month_year,
+    sep = " "
+    ) |> mutate(
+    date = dmy(temp_date)
+    ) |> select(
+  !temp_date
+)
+```
+
+## Reordering the columns
+
+Using reorder() to order the columns by unit, date and temp
+
+```{r}
+may_clean <- may_date |> relocate(unit, date,temperature)
+```
+
+## June
+
+## Cleaning up uneccesary rows and columns 
+
+```{r}
+june_filtered <- indoor_temps_june |> filter(!june_2024 == "June 2024") |> 
+  select(
+    june_2024,
+    x1 = x2,
+    x2 = x3,
+    x3 = x4,
+    x4 = x5,
+    x5 = x6,
+    x6 = x7,
+    x7 = x8,
+    x8 = x9,
+    x9 = x10,
+    x10 = x11,
+    x11 = x12,
+    x12 = x13,
+    x13 = x14,
+    x14 = x15,
+    x15 = x16,
+    x16 = x17,
+    x17 = x18,
+    x18 = x19,
+    x19 = x20,
+    x20 = x21,
+    x21 = x22,
+    x22 = x23,
+    x23 = x24,
+    x24 = x25,
+    x25 = x26,
+    x26 = x27,
+    x27 = x28,
+    x28 = x29,
+    x29 = x30,
+    x30 = x31
+  )
+```
+
+## Pivoting longer
+
+Using pivot_longer to create a day column.
+
+```{r}
+june_pivoted <- june_filtered |> pivot_longer(
+  cols = x1:x30,
+  names_to = "day",
+  values_to = "temperature"
+  )
+```
+
+## Removing 'x' from rows in the day column
+
+Using mutate and str_remove_all to create a new day column and remove the x in front of each day.
+
+```{r}
+june_day <- june_pivoted |> mutate(day = str_remove_all(day, "x"))
+```
+
+## Creating a new column with the month and day 
+
+Using mutate to create a new column and fill it with the month and year and rename the june_2024 column to "unit".
+
+```{r}
+june_month_year <- june_day |> mutate(
+  month_year = "June 2024",
+  unit = june_2024) |> select(
+    !june_2024
+  )
+```
+
+## Creating a real date column
+
+Combining the month/year column with the day column, using lubridate to create a real date column and dropping the temp_date column.
+
+```{r}
+june_date <- june_month_year |> 
+    # distinct() |>
+    unite(
+    col = "temp_date", 
+    day, month_year,
+    sep = " "
+    ) |> mutate(
+    date = dmy(temp_date)
+    ) |> select(
+  !temp_date
+)
+```
+
+## Reordering the columns
+
+Using reorder() to order the columns by unit, date and temp
+
+```{r}
+june_clean <- june_date |> relocate(unit, date,temperature)
+```
+
+## July
+
+## Cleaning up uneccesary rows and columns 
+
+```{r}
+july_filtered <- indoor_temps_july |> filter(!july_2024 == "July 2024") |> 
+  select(
+    july_2024,
+    x1 = x2,
+    x2 = x3,
+    x3 = x4,
+    x4 = x5,
+    x5 = x6,
+    x6 = x7,
+    x7 = x8,
+    x8 = x9,
+    x9 = x10,
+    x10 = x11,
+    x11 = x12,
+    x12 = x13,
+    x13 = x14,
+    x14 = x15,
+    x15 = x16,
+    x16 = x17,
+    x17 = x18,
+    x18 = x19,
+    x19 = x20,
+    x20 = x21,
+    x21 = x22,
+    x22 = x23,
+    x23 = x24,
+    x24 = x25,
+    x25 = x26,
+    x26 = x27,
+    x27 = x28,
+    x28 = x29,
+    x29 = x30,
+    x30 = x31,
+    x31 = x32
+  ) 
+```
+
+## Pivoting longer
+
+Using pivot_longer to create a day column.
+
+```{r}
+july_pivoted <- july_filtered |> pivot_longer(
+  cols = x1:x31,
+  names_to = "day",
+  values_to = "temperature"
+  )
+```
+
+## Removing 'x' from rows in the day column
+
+Using mutate and str_remove_all to create a new day column and remove the x in front of each day.
+
+```{r}
+july_day <- july_pivoted |> mutate(day = str_remove_all(day, "x"))
+```
+
+## Creating a new column with the month and day 
+
+Using mutate to create a new column and fill it with the month and year and rename the july_2024 column to "unit".
+
+```{r}
+july_month_year <- july_day |> mutate(
+  month_year = "July 2024",
+  unit = july_2024) |> select(
+    !july_2024
+  )
+```
+
+## Creating a real date column
+
+Combining the month/year column with the day column, using lubridate to create a real date column and dropping the temp_date column.
+
+```{r}
+july_date <- july_month_year |> 
+    # distinct() |>
+    unite(
+    col = "temp_date", 
+    day, month_year,
+    sep = " "
+    ) |> mutate(
+    date = dmy(temp_date)
+    ) |> select(
+  !temp_date
+)
+```
+
+## Reordering the columns
+
+Using reorder() to order the columns by unit, date and temp
+
+```{r}
+july_clean <- july_date |> relocate(unit, date,temperature)
+```
+
+
+## August
+
+## Cleaning up uneccesary rows and columns 
+
+```{r}
+august_filtered <- indoor_temps_august |> filter(!august_2024 == "August 2024") |> 
+  select(
+    august_2024,
+    x1 = x2,
+    x2 = x3,
+    x3 = x4,
+    x4 = x5,
+    x5 = x6,
+    x6 = x7,
+    x7 = x8,
+    x8 = x9,
+    x9 = x10,
+    x10 = x11,
+    x11 = x12,
+    x12 = x13,
+    x13 = x14,
+    x14 = x15,
+    x15 = x16,
+    x16 = x17,
+    x17 = x18,
+    x18 = x19,
+    x19 = x20,
+    x20 = x21,
+    x21 = x22,
+    x22 = x23,
+    x23 = x24,
+    x24 = x25,
+    x25 = x26,
+    x26 = x27,
+    x27 = x28,
+    x28 = x29,
+    x29 = x30,
+    x30 = x31,
+    x31 = x32
+  ) 
+```
+
+## Pivoting longer
+
+Using pivot_longer to create a day column.
+
+```{r}
+august_pivoted <- august_filtered |> pivot_longer(
+  cols = x1:x31,
+  names_to = "day",
+  values_to = "temperature"
+  )
+```
+
+## Removing 'x' from rows in the day column
+
+Using mutate and str_remove_all to create a new day column and remove the x in front of each day.
+
+```{r}
+august_day <- august_pivoted |> mutate(day = str_remove_all(day, "x"))
+```
+
+## Creating a new column with the month and day 
+
+Using mutate to create a new column and fill it with the month and year and rename the august_2024 column to "unit".
+
+```{r}
+august_month_year <- august_day |> mutate(
+  month_year = "August 2024",
+  unit = august_2024) |> select(
+    !august_2024
+  )
+```
+
+## Creating a real date column
+
+Combining the month/year column with the day column, using lubridate to create a real date column and dropping the temp_date column.
+
+```{r}
+august_date <- august_month_year |> 
+    # distinct() |>
+    unite(
+    col = "temp_date", 
+    day, month_year,
+    sep = " "
+    ) |> mutate(
+    date = dmy(temp_date)
+    ) |> select(
+  !temp_date
+)
+```
+
+## Reordering the columns
+
+Using reorder() to order the columns by unit, date and temp
+
+```{r}
+august_clean <- august_date |> relocate(unit, date,temperature)
+```
+
+## September
+
+## Cleaning up uneccesary rows and columns 
+
+```{r}
+september_filtered <- indoor_temps_september |> filter(!september_2024 == "September 2024") |> 
+  select(
+    september_2024,
+    x1 = x2,
+    x2 = x3,
+    x3 = x4,
+    x4 = x5,
+    x5 = x6,
+    x6 = x7,
+    x7 = x8,
+    x8 = x9,
+    x9 = x10,
+    x10 = x11,
+    x11 = x12,
+    x12 = x13,
+    x13 = x14,
+    x14 = x15,
+    x15 = x16,
+    x16 = x17,
+    x17 = x18,
+    x18 = x19,
+    x19 = x20,
+    x20 = x21,
+    x21 = x22,
+    x22 = x23,
+    x23 = x24,
+    x24 = x25,
+    x25 = x26,
+    x26 = x27,
+    x27 = x28,
+    x28 = x29,
+    x29 = x30,
+    x30 = x31
+  )  
+```
+
+## Pivoting longer
+
+Using pivot_longer to create a day column.
+
+```{r}
+september_pivoted <- september_filtered |> pivot_longer(
+  cols = x1:x30,
+  names_to = "day",
+  values_to = "temperature"
+  )
+```
+
+## Removing 'x' from rows in the day column
+
+Using mutate and str_remove_all to create a new day column and remove the x in front of each day.
+
+```{r}
+september_day <- september_pivoted |> mutate(day = str_remove_all(day, "x"))
+```
+
+## Creating a new column with the month and day 
+
+Using mutate to create a new column and fill it with the month and year and rename the august_2024 column to "unit".
+
+```{r}
+september_month_year <- september_day |> mutate(
+  month_year = "September 2024",
+  unit = september_2024) |> select(
+    !september_2024
+  )
+```
+
+## Creating a real date column
+
+Combining the month/year column with the day column, using lubridate to create a real date column and dropping the temp_date column.
+
+```{r}
+september_date <- september_month_year |> 
+    # distinct() |>
+    unite(
+    col = "temp_date", 
+    day, month_year,
+    sep = " "
+    ) |> mutate(
+    date = dmy(temp_date)
+    ) |> select(
+  !temp_date
+)
+```
+
+## Reordering the columns
+
+Using reorder() to order the columns by unit, date and temp
+
+```{r}
+september_clean <- september_date |> relocate(unit, date,temperature)
+september_clean
+```
+
+## Combining each month into one data frame
+
+```{r}
+indoor_temps_combined <- bind_rows(april_clean, may_clean, june_clean, july_clean, august_clean, september_clean)
+
+indoor_temps_combined
+```
+
+## Check dates
+
+```{r}
+indoor_temps_combined
+```
+
+## Export the data
+
+```{r}
+indoor_temps_combined |> write_rds("data-processed/01-indoor-2024-cleaned.rds")
+```
+
+## Combining cleaned indoor temp logs from all years (2023, 2024 and 2025)
+
+Importing the logs from each year, putting them into objects and using bind_rows to combine them into one data frame.
+
+```{r}
+indoor_2023 <- read_rds("data-processed/01-indoor-cleaned.rds") 
+indoor_2024 <- read_rds("data-processed/01-indoor-2024-cleaned.rds") 
+indoor_2025 <- read_rds("data-processed/01-indoor-2025-cleaned.rds") 
+```
+
+Renaming columns in the 2023 data to match the 2024 and 2025 data. 
+
+```{r}
+indoor_2023_matched <- indoor_2023 |> select(
+  unit,
+  date,
+  temperature = unit_temp
+)
+```
+
+Combining using bind_rows().
+
+```{r}
+indoor_temps_all <- bind_rows(indoor_2023_matched, indoor_2024, indoor_2025)
+
+indoor_temps_all
+```
+
+
+```{r}
+indoor_temps_all |> filter(date == "2025-07-01")
+```
+
+
+Checking dates
+
+```{r}
+indoor_temps_all |> filter(is.na(temperature)
+                       )
+```
+
+## Adressing NA temp values
+
+There are two dates for units in 2023 where the temperature value is NA:
+- Huntsville 2023-08-25 
+- Segovia 2023-06-01
+For these dates and units, there was no value included the original pdfs from TDCJ (the cells are blank). All other NA values are for all units from 2025-07-26 through 2025-07-31 because TDCJ filled the public information request from Lauren before those dates. 
+
+
