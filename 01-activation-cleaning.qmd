@@ -90,6 +90,7 @@ clean_activation_log <- raw_activation_log |>
     deactivation_date = date_7,
     deactivation_time = time_8 
   )
+
 ```
 
 

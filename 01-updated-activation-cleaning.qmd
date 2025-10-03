@@ -8,9 +8,10 @@ This data is a record of every time a TDCJ was under ICS protocols, like providi
 
 ::: callout-warning
 
-Questions to ask Lauren as of 9/13:
--Do these excel sheets include all times that all TDCJ units without air conditioning were put under ICS protocols for each year through the date on the files? Is that date the day the information request was filled? 
-- Are the comments left on specific cells in the xlsx files important? What do they mean?
+Questions as of 9/27:
+-Do we need the 2025 activations logs?
+-In the 2022 log, the original xlsx sheet has cell E29 recorded as 12/21/01. I assume this is supposed to be 07/21/22 as it is the ICS initation date column which should be the same date as is recorded in the ICS implementation date column for this row. Should we change that in the original xlsx sheet? 
+
 
 :::
 
@@ -21,6 +22,7 @@ What we'll do to prepare the data:
 - Download the data using read_excel
 - Import it into our notebook
 - Clean up data types and columns 
+- Combine all three years into one data frame
 - Export data into our next notebook
 
 ## Setup
@@ -49,12 +51,16 @@ activations_2022_raw <- read_excel("data-original/08.07.22 ICS Seasonal Spreadsh
 activations_2022_raw
 ```
 
-** Note on 2022 sheet: we reformatted cell F11 in the original xlsx file because it was the only cell formatted as text rather than time and read in as NA. 
+** Note on 2022 sheet: we reformatted cells F11 and F21 in the original xlsx file because it was  formatted as text rather than time and read in as NA. 
 
 ```{r}
 activations_2023_raw <- read_excel("data-original/09.12.23 ICS Seasonal Spreadsheet .xlsx", sheet = "FY 23", skip = 1, col_types = c("date", "date", "text", "text", "date", "numeric", "date", "numeric")) |> 
   clean_names()
+
+activations_2023_raw
 ```
+
+** Note on 2023 sheet: we reformatted cells E24, E92 and B65 in the original xlsx file because the year was recorded as 2023 rather than 23, causing these cells to read in as NA. 
 
 ```{r}
 activations_2024_raw <- read_excel("data-original/08.29.24_ICS Seasonal Spreadsheet .xlsx", sheet = "CY24", skip = 1, col_types = c("date", "date", "text", "text", "date", "numeric", "date", "numeric")) |> 
@@ -64,7 +70,7 @@ activations_2024_raw <- read_excel("data-original/08.29.24_ICS Seasonal Spreadsh
 ## Clean column names
 
 ```{r}
-activations_2022_clean <- activations_2022_raw |> select(
+activations_2022_names <- activations_2022_raw |> select(
   initial_extreme_temp = initial_date_of_extreme_temperature,
   initiation_date = ics_implementation_date,
   county,
@@ -77,7 +83,7 @@ activations_2022_clean <- activations_2022_raw |> select(
 ```
 
 ```{r}
-activations_2023_clean <- activations_2023_raw |> select(
+activations_2023_names <- activations_2023_raw |> select(
   initial_extreme_temp = initial_date_of_extreme_temperature,
   initiation_date = ics_implementation_date,
   county,
@@ -91,7 +97,7 @@ activations_2023_clean <- activations_2023_raw |> select(
 ```
 
 ```{r}
-activations_2024_clean <- activations_2024_raw |> select(
+activations_2024_names <- activations_2024_raw |> select(
   initial_extreme_temp = initial_date_of_extreme_temperature,
   initiation_date = ics_implementation_date,
   county,
@@ -103,13 +109,13 @@ activations_2024_clean <- activations_2024_raw |> select(
   )
 ```
 
-## Fix 2022 time columns
+## Fix the 2022 log activation and deactivation time columns
 
 Because the 2022 log had the the activation and deactivation time columns formatted as hh:mm rather than the hhmm format used in the 2023 and 2024 logs, we had to specify those column types as dates for them to read in properly, which generated a date of 1899-12-31 for each time. We're using mutate() and the hms() function to pull just the time from this datetime. 
 
 
 ```{r}
-activations_2022_time <- activations_2022_clean |> 
+activations_2022_clean <- activations_2022_names |> 
   mutate(
     activation_time = hms(
     hour = hour(activation_time),
@@ -122,15 +128,82 @@ activations_2022_time <- activations_2022_clean |>
       hour = hour(deactivation_time),
       minute = minute(deactivation_time),
       second = second(deactivation_time)
-    )
-  )
-activations_2022_time
+    ))
+
 
 ```
+
+## Reformat 2023 log activation and deactivation time columns
+
+In the 2023 and 2024 logs, the activation and deactivation times were recorded in hhmm format (i.e. 1539 instead of 15:39:00). Reformatting to hh:mm:ss by using str_pad to restore the leading zeros that were removed when we read in the original file with read_excel, using parse_hms from the lubridate package, using substr to specify which digits are hours, minutes and seconds, and removing unnecessary columns. 
 
 ```{r}
-activations_2023_clean |> 
-  mutate()
+activations_2023_time <- activations_2023_names|> 
+  mutate(
+    activation_time_new = str_pad(activation_time, width = 4, side = "left", pad = "0"),
+    deactivation_time_new = str_pad(deactivation_time, width = 4, side = "left", pad = "0"))
+
+```
+ 
+```{r}
+activations_2023_clean <- activations_2023_time |> 
+  mutate(
+    activation_time_clean = parse_hms(paste0(substr(activation_time_new, 1, 2), ":", substr(activation_time_new, 3, 4), ":00")),
+    deactivation_time_clean = parse_hms(paste0(substr(deactivation_time_new, 1, 2), ":", substr(deactivation_time_new, 3, 4), ":00"))
+  ) |> 
+  select(initial_extreme_temp,
+         initiation_date,
+         county,
+         unit,
+         activation_date,
+         activation_time = activation_time_clean,
+         deactivation_date,
+         deactivation_time = deactivation_time_clean)
+
+activations_2023_clean
 ```
 
+## Reformat 2024 log activation and deactivation time columns
+
+Same process as above but for the 2024 log. 
+
+
+```{r}
+activations_2024_time <- activations_2024_names|> 
+  mutate(
+    activation_time_new = str_pad(activation_time, width = 4, side = "left", pad = "0"),
+    deactivation_time_new = str_pad(deactivation_time, width = 4, side = "left", pad = "0"))
+
+```
+ 
+```{r}
+activations_2024_clean <- activations_2024_time |> 
+  mutate(
+    activation_time_clean = parse_hms(paste0(substr(activation_time_new, 1, 2), ":", substr(activation_time_new, 3, 4), ":00")),
+    deactivation_time_clean = parse_hms(paste0(substr(deactivation_time_new, 1, 2), ":", substr(deactivation_time_new, 3, 4), ":00"))
+  ) |> 
+  select(initial_extreme_temp,
+         initiation_date,
+         county,
+         unit,
+         activation_date,
+         activation_time = activation_time_clean,
+         deactivation_date,
+         deactivation_time = deactivation_time_clean)
+
+activations_2024_clean
+```
+ 
+## Combining three years of activations logs into one data frame
+
+```{r}
+activations_all <- bind_rows(activations_2022_clean, activations_2023_clean, activations_2024_clean)
+
+activations_all
+```
+
+
+## Creating a date range
+ 
+???
 

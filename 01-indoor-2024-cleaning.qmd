@@ -12,7 +12,7 @@ The original PDFs were converted into xlsx files and downloaded as csv files usi
 
 ## Goals of this notebook
 
-Clean and combine the 2024 indoor logs for April, May, June, July, August and September.
+Clean and combine the 2024 indoor logs for April, May, June, July, August and September. Also, combine the logs for 2023, 2024 and 2025 into one data frame. 
 
 ## Setup
 
@@ -300,11 +300,13 @@ june_filtered <- indoor_temps_june |> filter(!june_2024 == "June 2024") |>
     x29 = x30,
     x30 = x31
   )
+june_filtered
 ```
 
 ## Pivoting longer
 
-Using pivot_longer to create a day column.
+Using pivot_longer to create a day column. 
+**Important note: we manually removed an apostrophe from cell Memorial:22 in the original June 2024 csv because it was causing the column to read as characters instead of doubles.
 
 ```{r}
 june_pivoted <- june_filtered |> pivot_longer(
@@ -600,11 +602,13 @@ september_filtered <- indoor_temps_september |> filter(!september_2024 == "Septe
     x29 = x30,
     x30 = x31
   )  
+september_filtered
 ```
 
 ## Pivoting longer
 
 Using pivot_longer to create a day column.
+**Important note: we manually removed an extra space from Connally:21 and 22 in the original September 2024 csv because it was causing the column to read as characters instead of doubles.
 
 ```{r}
 september_pivoted <- september_filtered |> pivot_longer(

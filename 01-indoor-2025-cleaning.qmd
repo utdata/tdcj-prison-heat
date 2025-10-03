@@ -298,6 +298,7 @@ june_filtered <- indoor_temps_june |> filter(!june_2025 == "June 2025") |>
 ## Pivoting longer
 
 Using pivot_longer to create a day column.
+**Important note: we manually removed an extra space from Bartlett:8 in the original June 2025 csv because it was causing the column to read as characters instead of doubles.
 
 ```{r}
 june_pivoted <- june_filtered |> pivot_longer(

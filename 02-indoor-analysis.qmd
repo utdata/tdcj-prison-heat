@@ -1,0 +1,10 @@
+---
+title: "Indoor temp logs analysis"
+author: "Media Innovation Group"
+format: html
+---
+
+## Goals of this notebook
+
+We have recorded indoor temperatures for each unit through September of 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. In this notebook, we will explore the following questions:
+
