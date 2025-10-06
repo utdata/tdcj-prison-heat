@@ -11,6 +11,8 @@ I need to check some things with Lauren:
 
 - Where is the original file from TDCJ with the activations data?
 - Confirm what these dates are for.
+- Are we interested in the exact time between initial temp and activation time?
+- Are we interested in the _number of hours_ a unit is under protocol, or is the day suffient.
 
 :::
 
@@ -111,34 +113,38 @@ activation_log_dates
 
 ## Document active days
 
-We need to turn our initial_extreme_temp column, implementation_date column and our deactivation_date column into date ranges.
+In our data, a single row is an activation period with a start and end date. What we want is a row of data for each activated day ... so if it three days between the start and end date, we want a row for each of the three days, with a variable `activated` that includes that date.
+
+We do this by creating a new "list column" that includes a sequence of dates starting at activation and ending at deactivation. We then unnest that list to create a row for each item in the list.
 
 ```{r}
-dirty_actives <- activation_log_dates |> 
-  group_by(unit) |> 
-  mutate(occurence = dense_rank(initial_extreme_temp)) |> 
-  mutate(start = as.Date(activation_date), end = as.Date(deactivation_date)) |> 
-  mutate(
-    activated = map2(start, end, ~seq(from = .x, to = .y, by = "day"))
-    ) |> 
-  unnest(activated) 
+unnested_actives <- activation_log_dates |> 
+  mutate(activated = map2( #<1>
+    activation_date, deactivation_date, #<2>
+    ~seq(from = .x, to = .y, by = "day") #<3>
+  )) |> 
+  unnest(activated) #<4>
 
-dirty_actives
+unnested_actives
 ```
+
+1. We create a column called activated, and that will be filled with the result of the `map2()` function. What `map2()` allows us to do is take two variables from our data (our dates) and provide it to a function (`seq()`).
+2. Here we list the two variables, our start and end dates.
+3. This `seq()` function creates a list of dates in sequence by day, starting with our `activation_date` (.x) and ending with our `deactivation_date` (.y). The end result is a nested "list column" `activated` that holds all the dates. At this point we still have one row for each activation period.
+4. Here the `unnest()` function creates a new copy of each row with one of the dates in our `activated` list column. So if an activation period was 4 days, here we end up for 4 rows of the same data except for the date in `activated`.
 
 ## Clean up our active dates
 
-We need to create a status column, so let's remove everything other than unit and active dates.
+Here we simplify our activations to list so we can join it with other data. It results in just the unit, date and a `protocol_active` flag.
 
 ```{r}
-clean_actives <- dirty_actives |> 
-  select(c(unit, activated)) |> 
-  mutate(protocol_active = T) |> 
-  mutate(date = activated) |> 
-  select(!activated)
+clean_actives <- unnested_actives |> 
+  select(c(unit, date = activated)) |> 
+  mutate(protocol_active = T)
 
+## showing one unit as example
 clean_actives |> 
-  filter(unit == "Byrd")
+  filter(unit == "Jester III")
 ```
 
 ## Export
