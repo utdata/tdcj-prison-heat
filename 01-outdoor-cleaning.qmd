@@ -5,7 +5,7 @@ code-fold: true
 code-summary: "Expand this to see code"
 ---
 
-This notebook compiles data collected from one week of outdoor temperature logs collected by the Texas Department of Criminal Justice. The dates considered were July 24, 2023 through July 31, 2023. The logs are hand-written and data could not be accurately pulled from them using AI, so a group of Media Innovaiton Group fellows transcribed the week of logs for each prison we had records for, XXX in total. Those records were acquired through a public information request by Lauren McGaughey of the Texas Newsroom public radio collaborative.
+This notebook compiles data collected from one week of outdoor temperature logs collected by the Texas Department of Criminal Justice. The dates considered were July 24, 2023 through July 31, 2023. The logs are hand-written and data could not be accurately pulled from them using AI, so a group of Media Innovation Group fellows transcribed the week of logs for each prison where we had records. Those records were acquired through a public information request by Lauren McGaughey of the Texas Newsroom public radio collaborative.
 
 We created a Google Spreadsheet file for each prison, recording the temperatures for each hour as best as we could decipher them. Here we download a tracking spreadsheet, which is then used to download all of the individual log sheets, combining them into a single file. When then prepare that file for analysis.
 
@@ -154,8 +154,6 @@ logs_tight <- logs_raw |> select(-x12)
 logs_tight |> glimpse()
 ```
 
-
-
 ## Fix date, time, rec
 
 Two decisions in the formatting of our log necessitate this:
@@ -187,7 +185,7 @@ logs_dates <- logs_tight |>
   select(
     unit,
     date,
-    rec,
+    # rec,
     datetime,
     hour,
     temp,
@@ -206,6 +204,8 @@ logs_dates |> slice_sample(n = 10)
 
 Our various readings come in as text. We convert them to numbers.
 
+If in our transcriptions we wrote in "N/A" or anything else other than a number, it will be removed.
+
 ```{r}
 logs_numbs <- logs_dates |> 
   mutate(
@@ -214,11 +214,6 @@ logs_numbs <- logs_dates |>
 
 logs_numbs |> slice_sample(n = 10)
 ```
-
-```{r}
-logs_numbs |> filter(str_detect(unit, "Moore"))
-```
-
 
 ## Fix names
 
@@ -265,7 +260,7 @@ logs_regions |> write_rds("data-processed/01-outdoor-cleaned.rds")
 
 ## Notes pages
 
-When we transcribed the logs, we also included a notes sheet where we added any overall relavant or interesting information.
+When we transcribed the logs, we also included a notes sheet where we added any overall relevant or interesting information.
 
 We will be following the same steps as above, except that we have to piece together the download url from our tracking sheet.
 

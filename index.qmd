@@ -14,6 +14,39 @@ Lauren McGaughy of the Texas Newsroom public radio collaborative used a public i
 
 Here is what we found:
 
+
+### Precautionary measures
+
+**October 2025 check**
+
+Here we wanted to find which units should be under heat-related "precautionary measures" based on written data logs, and how that compared to actual Incident Command System activations.
+
+This was challenging because the TDCJ definitions and directives to define if the unit should be in "precautionary measures" are ambiguous and confusing. See the [Precautionary measures](02-outdoor-protocols.qmd) notebook for a full discussion.
+
+We ended up using the following definition: **When temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days**.
+
+We use the term "unit day" to describe when any of the 82 units meets a criteria on a single day.
+
+Of our eight days of records from 82 prisons ...
+
+- Seven units met the ICS criteria for a total of 17 unit days, based on the definition given to us by the TDCJ communications department. None of those units had active ICS protocols in place on those days. This count could be low since units could have met protocol in the days before our outdoor log time period.
+- According to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, only one of these units met the criteria we've been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.
+- Out of 656 "unit days" possible (82 units, 8 days), excessive heat conditions (105 degrees or 113 heat index at any time) were reached 127 times. Half of the units reached the criteria at least once. In only 12 of those instances was a unit in active precautionary measures.
+
+There are also 15 "unit days" where there was no heat index values for that day, but the unit did include a heat index "risk category" that was Cat 3 or higher. Those are potentially 113 degrees or greater and would put the day in precautionary measures territory.
+
+## Indoor temperatures
+
+> As of **October 2025**, we are still working on this.
+
+While we did some earlier analysis of indoor temperatures in the spring, there were enough changes in the companion data that we need to check and rework it.
+
+Here is what we'd like to find:
+
+- What was the temperature inside on the days that units were under active ICS protocol?
+- Are there days where inside a prison it was hotter than on the hottest day under protocol?
+- How many days were above 85 degrees inside? 95? 100?
+
 ### Basics and legibility
 
 **May 2025**
@@ -30,26 +63,6 @@ Here is what we found:
     - More than 60% of the records for the Stevenson unit had notes, and many of those were flagged as "corrections". However, when you look at the [original document](https://drive.google.com/file/d/1s3pSZ7aU7lZHyKedz-P7DmVJIRmSUkSg/view?usp=drive_link), it appears the unit reviews the logs and clears up any legibility issues. i.e. having more corrections could be a positive thing.
     - In some cases we recorded an overall note about the unit as opposed to notes for each individual line. [They are printed in browsable form here](02-outdoor-readability.qmd#unit-notes).
 
-### Precautionary measures
-
-**August 2025 update**
-
-Here we wanted to find which units should be under heat-related "precautionary measures" based on written data logs, and how that compared to actual Incident Command System activations.
-
-This was challenging because the TDCJ definitions and directives to define if the unit should be in "precautionary measures" are ambiguous and confusing. See the [Precautionary measures](02-outdoor-protocols.qmd) notebook for a full discussion.
-
-We ended up using the following definition: **When temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days**.
-
-We use the term "unit day" to describe when any of the 82 units meets a criteria on a single day.
-
-Of our eight days of records from 82 prisons ...
-
-- Seven units met the ICS criteria on some days for a total of 17 unit days, based on the definition given to us by the TDCJ communications department. None of those units had active ICS protocols in place on those days. This count could be low since units could have met protocol in the days before our time period.
-- According to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, none of these units met the criteria we've been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.
-- Out of 656 "unit days" possible (82 units, 8 days), excessive heat conditions (105 degrees or 113 heat index) were reached 127 times. Half of the units reached the criteria at least once. In only 12 of those instances was a unit in active precautionary measures.
-
-There are also 15 "unit days" where there was no heat index values for that day, but the unit did include a heat index "risk category" that was Cat 3 or higher. Those are potentially 113 degrees or greater and would put the day in precautionary measures territory.
-
 ### Log accuracy vs weather stations
 
 **May 2025**
@@ -64,19 +77,11 @@ To gauge the accuracy of recorded temperature and humidity/heat index we paired 
     - You can [peruse these ranges by unit](02-outdoor-reliability.qmd#within-range-degrees-by-unit).
 - The [heat index differences](02-outdoor-reliability.qmd#heat-index) are a little harder because of so much missing data, but we've charted them.
 
-## Indoor temperatures
-
-**July 2025 update**
-
-While we did some earlier analysis of indoor temperatures in the spring, there were enough changes in the companion data that we need to check and rework it.
-
-Here is what we'd like to find:
-
-- What was the temperature inside on the days that units were under active ICS protocol?
-- Are there days where inside a prison it was hotter than on the hottest day under protocol?
-- How many days were above 85 degrees inside? 95? 100?
-
 ## Collaborators
+
+Indoor temperature analysis:
+
+- Emily deMotte
 
 Working on weather station data and analysis for indoor logs:
 

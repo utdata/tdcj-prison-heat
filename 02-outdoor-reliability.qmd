@@ -5,7 +5,7 @@ code-fold: true
 code-summary: "Expand this to see code"
 ---
 
-### July 2025 questions
+## July 2025 questions
 
 - Can we find a NWS for Jordan that is close but has readings? Are there other cases like this were we don't have readings, but can find an alternative station? Let's try using virtualcrossing.
 
@@ -48,7 +48,9 @@ units <- read_rds("data-processed/01-unit-info-cleaned.rds")
 
 ### Clip log data
 
-We have eight days of data, but we can clip it to a "week" as the last seven seven days of July, 2023. **As of July 2025, we are not clipping.**
+> **As of July 2025, we are not clipping.**
+
+We have eight days of data, but we can clip it to a "week" as the last seven seven days of July, 2023. 
 
 ```{r}
 logs <- logs_all
@@ -162,7 +164,7 @@ logs_diffs |> slice_sample(n = 20)
 
 ### Average temp difference
 
-Here we look across the dataset at the diff_tmp (unit temperature - weather staiton temperaure).
+Here we look across the dataset at the diff_tmp (unit temperature - weather station temperature).
 
 ```{r}
 logs_diffs |> 
@@ -175,7 +177,7 @@ logs_diffs |>
 
 ### Distribution temp difference
 
-Let's do a quick plot of these to see how the are distributed. i.e., how many rows are within x degrees of the weather station temperature. Note: there are 248 blank rows where we could not determine the difference because of a missing value.
+Let's do a quick plot of these to see how the are distributed. i.e., how many rows are within x degrees of the weather station temperature. Note: there are 250 blank rows where we could not determine the difference because of a missing value.
 
 ```{r}
 ggplot(logs_diffs, aes(x = tmp_diff)) +
@@ -185,7 +187,7 @@ ggplot(logs_diffs, aes(x = tmp_diff)) +
     subtitle = str_wrap("Each bar is how many unit records are within x degrees of the closest weather station."))
 ```
 
-I can see that there are a just a couple of outliers Let's consider removing those and see the spread mo betta.
+I can see that there are a just a couple of outliers. Let's consider removing those and see the spread mo betta.
 
 There are only five records (out of 11,928) where the temp is 20 or more degrees off.
 

@@ -44,13 +44,21 @@ Our understanding is the "ICS" (Incident Command System) is the precautionary me
 Because of the nature of the original records, there are missing data that affect our analysis.
 
 - There are 8 records where we don't have a temperature value. We dropped those records.
-- There are 3088 records (out of 15,744) where we don't have a heat index value. That limits their value, but we still have temperatures, so we keep them.
+- There are 3,088 records (out of 15,744) where we don't have a heat index value. That limits their value, but we still have temperatures, so we keep them.
     - There are 7 units that have one or more days where we can't find a max heat index value. Typically because there are no heat index values recorded for a given date. 8 days for Dalhart, 7 for Formby, 3 for Wheeler. The others only have one day missing.
     - In the original written logs, some units (Dalhart, for example) used category designations instead of heat index values, which means they will not translate into numbers for data. Category 3 is the "Danger" area according to the NOAA’s National Weather Service Heat and Humidity Index included in the TDCJ directive, and that range includes heat indexes of 113 degrees and higher. Category 4 is "Extreme Danger". This means in some cases we _could_ have heat conditions based on heat index, but they are not included.
 
 ## What we'll find
 
+::: callout-important
+
+### Our protocol definition
+
 Based on our communications with TDCJ, we'll use the following definition as "meeting protocol" to go into precautionary measures: **When temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days**.
+
+(We do look at the more strict "Excessive Heat Warning" definition later ...)
+
+:::
 
 We'll find ...
 
@@ -149,7 +157,7 @@ We keep these because we can still use the temp values.
 
 ### Risk category
 
-That said, of the records without heat index values, there are some that do have the `hi_wc_n` value, which is the "Risk Category" in the NOAA Heat and Humidity Index.
+That said, of the records without heat index values, there are some that do have the `hi_wc_n` value, which we believe to be a "Risk Category" in the NOAA Heat and Humidity Index.
 
 | **Category** | **Rating**      |
 |--------------|-----------------|
@@ -162,7 +170,8 @@ Here I filter to find the units that have the category listed. Since these are h
 
 ```{r}
 logs_missing_hi |>
-  filter(!is.na(hi_wc_n)) |> 
+  filter(is.na(hi_wc)) |> # heat index missing
+  filter(!is.na(hi_wc_n)) |> # heat index category present
   distinct(unit, date, hi_wc_n) |>
   filter(hi_wc_n >= 3)
 ```
@@ -243,6 +252,8 @@ Here we set more flags when certain definitions have been met.
 - Create a consecutive day count for when `u_hi_tmp_proto` is true: `u_hi_tmp_proto_cnt`.
 - Flag `TRUE` if u_hi_tmp_proto_cnt is more than three days: `u_proto_flag`.
 
+> To be clear, the protocol has to be met for three days, then we set the flag the next day.
+
 We peek at a sample of rows to check logic.
 
 ```{r}
@@ -255,14 +266,15 @@ logs_protos <- logs_flags |>
     u_proto_flag = if_else(u_hi_tmp_proto_cnt > 3, T, F)
   )
 
-logs_protos |> slice_sample(n = 20)
+## Peek at Havins unit where end of df shows true values.
+logs_protos |> filter(unit == "Havins")
 ```
 
 At this point we have all the conditions counted and flags created.
 
 ## Join with activations
 
-Here we take our log files and join them with the activation dates so we can see where/when they match, if at all.
+Here we take our log files and join them with the activation dates so we can see where/when they match.
 
 We glimpse the new table to review the column names.
 
@@ -292,10 +304,11 @@ There are 24 activations in our time period. Now let's check our joined data ...
 
 ```{r}
 logs_activations_active <- logs_activations |> 
-  filter(!is.na(protocol_active)) |> 
+  filter(protocol_active == T) |> 
   arrange(date, unit)
 
-logs_activations_active
+logs_activations_active |> 
+  select(unit, date, u_proto_flag, protocol_active)
 ```
 
 There are also 24 days here. Let's anti-join them to see if there are any non-matches.
@@ -357,7 +370,7 @@ logs_ics <- logs_activations |>
 logs_ics
 ```
 
-However, 12 of these activation days are within the first two days of our period, meaning they could've met the criteria based on data not in our review.
+Of the 24 unit days under official protocol activation during our time period, only one unit day met our calculations for protocol (Halbert on 7/31/2023). However, 12 of these activation days are within the first two days of our period, meaning they could've met the criteria based on data not in our review.
 
 ```{r}
 logs_ics |> filter(date < "2023-07-26")
@@ -374,7 +387,7 @@ Half of these units did not reach a heat index of 113 or temperature of 105 on t
 
 ### Takeaway 2
 
-According to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, none of these units met the criteria we've been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.
+According to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, only one of these units met the criteria we've been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.
 
 ### 3. Any day meeting condition
 
@@ -471,11 +484,7 @@ logs_ehw_protos |>
   select(unit, date, u_hi_max, u_tmp_max, u_ehw_flag_cnt, protocol_active)
 ```
 
-
 ### Takeaway 5
 
-There were 12 "unit days" where strict Excessive Heat Warning conditions were in effect for three or more days during our eight-day period. Official "Incident Command System" protocols were not in active on any of those days.
-
-
-
+There were 12 "unit days" where strict Excessive Heat Warning conditions were in effect for three or more days during our eight-day period. Official "Incident Command System" protocols were not active on any of those days.
 

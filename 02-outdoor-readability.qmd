@@ -13,9 +13,9 @@ We hand-coded eight days of temperatures logs (7/24/2023 to 7/31/2023) for 82 Te
 - What were those problems, generally?
 - Do certain units have more legibility problems?
 
-> Something we've yet to look at: there are cases where the log does not have a heat index `hi_wc1` recorded, but there is a temperature and humidity. We could calculate that heat index when we have the data (and then compare to what the prison log has when it is present.)
+### Unanswered or of note
 
-> Also, we perhaps need to go back to cleaning to see when units recorded `hi_wc` as categories, which would 
+- Something we've yet to look at: there are cases where the log does not have a heat index `hi_wc` recorded, but there is a temperature and humidity. We could calculate that heat index when we have the data (and then compare to what the prison log has when it is present.)
 
 ## Setup
 
@@ -35,13 +35,11 @@ library(DT)
 We're bringing in:
 
 - Our coded and cleaned outdoor log data
-- Activation records
 - Hourly weather readings
 - Prison unit information
 
 ```{r}
 logs_all <- read_rds("data-processed/01-outdoor-cleaned.rds")
-activations <- read_rds("data-processed/01-activation-cleaned.rds")
 hourly <- read_rds("data-processed/01-station-hourly-protocols.rds")
 units <- read_rds("data-processed/01-unit-info-cleaned.rds")
 ```
