@@ -4,7 +4,98 @@ author: "Media Innovation Group"
 format: html
 ---
 
+We have recorded indoor temperatures for each unit April through September of 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+
+
 ## Goals of this notebook
 
-We have recorded indoor temperatures for each unit through September of 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. In this notebook, we will explore the following questions:
+In this notebook, we will explore the following questions:
+
+For all units and within individual units:
+
+* How many days was the indoor temperature 85°F or above in 2023? How many consecutive days and when?
+* How many days was the indoor temperature 90°F or above in 2023? How many consecutive days and when?
+* How many days was the indoor temperature 95°F or above in 2023? How many consecutive days and when?
+* How many days was the indoor temperature 100°F or above in 2023? How many consecutive days and when?
+* How many days was the indoor temperature 105°F or above in 2023? How many consecutive days and when?
+
+
+* How many days was the indoor temperature 85°F or above in 2024? How many consecutive days and when?
+* How many days was the indoor temperature 90°F or above in 2024? How many consecutive days and when?
+* How many days was the indoor temperature 95°F or above in 2024? How many consecutive days and when?
+* How many days was the indoor temperature 100°F or above in 2024? How many consecutive days and when?
+* How many days was the indoor temperature 105°F or above in 2024? How many consecutive days and when?
+
+* How many days was the indoor temperature 85°F or above in 2025? How many consecutive days and when?
+* How many days was the indoor temperature 90°F or above in 2025? How many consecutive days and when?
+* How many days was the indoor temperature 95°F or above in 2025? How many consecutive days and when?
+* How many days was the indoor temperature 100°F or above in 2025? How many consecutive days and when?
+* How many days was the indoor temperature 105°F or above in 2025? How many consecutive days and when?
+
+* What month in 2023 reached the highest temperature? What temperature and for how long?
+* What month in 2024 reached the highest temperature? What temperature and for how long?
+* What month in 2025 reached the highest temperature? What temperature and for how long?
+
+## Setup
+
+Loading our libraries
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(data.table)
+```
+
+
+## Import
+
+Reading in the combined activation logs and combined indoor logs
+
+```{r}
+indoor_logs <- read_rds("data-processed/01-indoor-all-cleaned.rds")
+activations_logs <- read_rds("data-processed/01-activation-cleaned.rds")
+```
+
+
+```{r}
+indoor_logs |> filter(
+  unit =="Allred",
+  date == "2023-07-03"
+)
+```
+
+
+## Counting number of days above certain temps per month per unit
+
+```{r}
+temp_counts_all <- indoor_logs|> 
+  group_by(
+    unit, flo_mo = floor_date(date, unit = "month")
+  ) |> 
+  summarize(
+    total_days = n(),
+    cnt_85 = sum(temperature >= 85, na.rm = T),
+    cnt_90 = sum(temperature >= 90),
+    cnt_95 = sum(temperature >= 95),
+    cnt_100 = sum(temperature >= 100),
+    cnt_105 = sum(temperature >= 105)
+  )
+
+temp_counts_all
+
+```
+ 
+## Counting days above each temperature in 2023
+
+```{r}
+ 
+
+temp_counts_all |> filter(
+  flo_mo == c("2023-04-01", "2023-05-01", "2023-06-01", "2023-07-01", "2023-08-01")
+)
+```
+
 

@@ -4,10 +4,17 @@ author: "Media Innovation Group"
 format: html
 ---
 
-This data is the record indoor temperatures at each unit from April to September. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+::: callout-warning
+
+Note: A streamlined version of this code is available in the 01-indoor-all-cleaning notebook on branch emily as of Oct. 14, 2025. This code was completed before we developed a streamlined function to clean the indoor log csv files that came from the original pdf files. It will not run because the the csv files were moved into their own folder, so the path to them is now 'data-original/indoor_all_csv' rather than just 'data-original', which is what this code has recorded. This notebook also includes code to combine the 2023, 2024 and 2025 indoor logs, which is also reworked in the 01-indoor-all-cleaning notebook to include the 2022 logs as well. 
 
 
-The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original' as 'SB1R56 - April 2024 (Table 1).csv' and so on for each month. The original documents are found in 'data-original/2024_indoor'. 
+:::
+
+This data is the record indoor temperatures at each unit from April to September of 2024. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+
+
+The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original/indoor_all_csv' as 'SB1R56 - April 2024 (Table 1).csv' and so on for each month. The original documents are found in 'data-original/2024_indoor'. 
 
 
 ## Goals of this notebook
@@ -25,9 +32,40 @@ library(janitor)
 library(lubridate)
 ```
 
+
+## Creating a function 
+
+This function streamlines the process of pivoting the data longer, skipping the first row, creating a real date and renaming/selecting columns for each month of data. 
+
+```{r}
+pivot_date <- function(df, mo, yr) {
+  df |> pivot_longer(
+    !1
+  ) |> 
+  mutate(
+    date = mdy(paste(mo, name, yr))
+  ) |> select(
+    unit = 1,
+    date,
+    temperature = value
+  ) 
+}
+```
+
+
 ## Downloading data
 
-This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to July, so we will import each in individually and clean names.
+This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above. 
+
+```{r}
+
+
+read_csv("data-original/indoor_all_csv/SB1R56 - April 2024(Table 1).csv", 
+         skip = 1) |> pivot_date("April", "2024")
+ 
+
+```
+
 
 ```{r}
 indoor_temps_april <- read_csv("data-original/SB1R56 - April 2024(Table 1).csv") |> 
@@ -715,7 +753,26 @@ indoor_temps_all
 
 
 ```{r}
-indoor_temps_all |> filter(date == "2025-07-01")
+indoor_temps_all |> filter(unit == "Allred", temperature >= 85)
+```
+
+
+
+```{r}
+
+indoor_temps_all |> 
+  group_by(
+    unit, flo_mo = floor_date(date, unit = "month")
+  ) |> 
+  summarize(
+    total_days = n(),
+    cnt_85 = sum(temperature >= 85, na.rm = T),
+    cnt_90 = sum(temperature >= 90),
+    cnt_95 = sum(temperature >= 95),
+    cnt_100 = sum(temperature >= 100),
+    cnt_105 = sum(temperature >= 105)
+  )
+
 ```
 
 
@@ -732,5 +789,14 @@ There are two dates for units in 2023 where the temperature value is NA:
 - Huntsville 2023-08-25 
 - Segovia 2023-06-01
 For these dates and units, there was no value included the original pdfs from TDCJ (the cells are blank). All other NA values are for all units from 2025-07-26 through 2025-07-31 because TDCJ filled the public information request from Lauren before those dates. 
+
+
+## Export
+
+```{r}
+indoor_temps_all |> write_rds("data-processed/01-indoor-all-cleaned.rds")
+```
+
+
 
 

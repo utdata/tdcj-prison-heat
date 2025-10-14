@@ -4,6 +4,14 @@ author: "Media Innovation Group"
 format: html
 ---
 
+
+::: callout-warning
+
+Note: A streamlined version of this code is available in the 01-indoor-all-cleaning notebook on branch emily as of Oct. 14, 2025. This code was completed before we developed a streamlined function to clean the indoor log csv files that came from the original pdf files. It will not run because the the csv files were moved into their own folder, so the path to them is now 'data-original/indoor_all_csv' rather than just 'data-original', which is what this code has recorded.  
+
+
+:::
+
 This data is the recorded indoor temperatures at each unit from April to July 25. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
 The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original' as 'SB1R56 - April 2025(Table 1).csv' and so on for each month. The original documents are found in 'data-original/2025_indoor'. 
@@ -486,6 +494,7 @@ indoor_temps_combined
 ```{r}
 indoor_temps_combined |> write_rds("data-processed/01-indoor-2025-cleaned.rds")
 ```
+
 
 
 

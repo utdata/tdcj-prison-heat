@@ -1,0 +1,107 @@
+---
+title: "2022 indoor logs cleaning"
+author: "Media Innovation Group"
+format: html
+---
+
+This data is the record indoor temperatures at each unit from April to September of 2022. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+
+
+The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original/indoor_all_csv' as 'SB1R56 - April 2022 (Table 1).csv' and so on for each month. The original documents are found in 'data-original/2022_indoor'. 
+
+## Setup
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(lubridate)
+```
+
+
+## Goals of this notebook
+
+Clean and combine the 2022 indoor logs for April, May, June, July, August and September.
+
+## Creating a function 
+
+This function streamlines the process of pivoting the data longer, skipping the first row, creating a real date and renaming/selecting columns for each month of data. 
+
+```{r}
+pivot_date <- function(df, mo, yr) {
+  df |> pivot_longer(
+    !1
+  ) |> 
+  mutate(
+    date = mdy(paste(mo, name, yr))
+  ) |> select(
+    unit = 1,
+    date,
+    temperature = value
+  )
+}
+```
+
+*Note: this function leaves a row for each day of the month where unit = "Month Year - Daily Temperature Log" and temperature = NA. 
+i.e. for May 2022, there are 31 rows where the unit is "May 2022 - Daily Temperature Log" and the temperature is NA, one for each day of the month. 
+
+## Downloading data and applying function
+
+This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above. 
+
+**Note: for the April 2022 csv only, we do not need to skip the first row because for some reason it converted differently when we put the original pdf into Adobe Acrobat. For all other logs, we will skip the first row in the read_csv() function to avoid formatting problems. 
+
+ 
+```{r}
+april_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - April 2022 (1)(Table 1).csv") |> pivot_date("April", "2022")
+```
+
+
+```{r}
+may_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - May 2022(Table 1).csv", 
+         skip = 1) |> pivot_date("May", "2022")
+```
+
+
+```{r}
+june_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - June 2022(Table 1).csv", 
+         skip = 1) |> pivot_date("June", "2022")
+```
+
+```{r}
+july_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2022(Table 1).csv", 
+         skip = 1) |> pivot_date("July", "2022")
+```
+```{r}
+august_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - August 2022(Table 1).csv", 
+         skip = 1) |> pivot_date("August", "2022")
+```
+
+```{r}
+september_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - September 2022(Table 1).csv", 
+         skip = 1) |> pivot_date("September", "2022")
+```
+
+## Combining each month into one data frame
+
+```{r}
+indoor_2022_combined <- bind_rows(april_clean, may_clean, june_clean, july_clean, august_clean, september_clean)
+
+indoor_2022_combined |> 
+  filter(
+    is.na(temperature)
+  )
+
+indoor_2022_combined
+```
+
+## Export the data
+
+```{r}
+indoor_2022_combined |> write_rds("data-processed/01-indoor-2022-cleaned.rds")
+```
+
+
+
