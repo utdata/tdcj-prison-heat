@@ -4,7 +4,7 @@ author: "Media Innovation Group"
 format: html
 ---
 
-We have recorded indoor temperatures for each unit April through September of 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
 
 ## Goals of this notebook
@@ -55,20 +55,18 @@ library(data.table)
 Reading in the combined activation logs and combined indoor logs
 
 ```{r}
-indoor_logs <- read_rds("data-processed/01-indoor-all-cleaned.rds")
+indoor_logs <- read_rds("data-processed/01-indoor-temps-all-cleaned.rds")
 activations_logs <- read_rds("data-processed/01-activation-cleaned.rds")
 ```
 
 
 ```{r}
-indoor_logs |> filter(
-  unit =="Allred",
-  date == "2023-07-03"
-)
+indoor_logs
 ```
 
 
 ## Counting number of days above certain temps per month per unit
+
 
 ```{r}
 temp_counts_all <- indoor_logs|> 
@@ -84,18 +82,43 @@ temp_counts_all <- indoor_logs|>
     cnt_105 = sum(temperature >= 105)
   )
 
-temp_counts_all
 
 ```
  
-## Counting days above each temperature in 2023
+## Counting total days of data we have for each year 
 
 ```{r}
- 
-
-temp_counts_all |> filter(
-  flo_mo == c("2023-04-01", "2023-05-01", "2023-06-01", "2023-07-01", "2023-08-01")
-)
+indoor_logs |> 
+  filter(year(date) == 2025) |> 
+  group_by(unit) |> 
+  summarize(appearances = n())
+         
+   
 ```
 
+Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings, which are taken at 3 p.m. each day April 1 through Sept. 30 at all logs without air conditioning according to the TDCJ. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request. 
+ 
+ 
+## Counting days above 85° for each year
+
+Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 85°F, grouping by unit and summarizing by number of appearances.
+
+```{r}
+indoor_logs |> 
+  filter(
+    temperature >= 85
+    ) |> group_by(unit, year(date)) |> 
+  summarize(appearances = n()) |> 
+  arrange(desc(appearances))
+  
+```
+Data takeaway: 
+
+
+```{r}
+indoor_logs |> 
+  filter(
+    year(date) == 2022,
+    temperature >= 85) 
+```
 
