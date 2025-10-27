@@ -56,34 +56,33 @@ i.e. for April 2023, there are 30 rows where the unit is "April 2023" and the te
 ## Downloading data and applying function
  
 ```{r}
-april_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - April 2022 (1)(Table 1).csv") |> pivot_date("April", "2022") |> filter(!is.na(unit))
+april_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - April 2022 (1)(Table 1).csv") |> pivot_date("April", "2022") |> filter(!unit == "April 2022 - Daily Temperature Log", !is.na(unit)) 
 
 april_2022_clean 
 ```
 
 ```{r}
 may_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - May 2022(Table 1).csv", 
-         skip = 1) |> pivot_date("May", "2022") |> filter(!is.na(unit))
+         skip = 1) |> pivot_date("May", "2022") |> filter(!unit == "May 2022 - Daily Temperature Log", !is.na(unit))
 
 ```
 
 ```{r}
-june_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - June 2022(Table 1).csv", skip = 1) |> pivot_date("June", "2022") |> filter(!is.na(unit))
-
-june_2022_clean |> filter(is.na(unit))
-```
-
-```{r}
-july_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2022(Table 1).csv", skip = 1) |> pivot_date("July", "2022") |> filter(!is.na(unit))
-```
-
-```{r}
-august_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - August 2022(Table 1).csv", skip = 1) |> pivot_date("August", "2022") |> filter(!is.na(unit))
+june_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - June 2022(Table 1).csv", skip = 1) |> pivot_date("June", "2022") |> filter(!unit == "June 2022 - Daily Temperature Log", !is.na(unit))
 
 ```
 
 ```{r}
-september_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - September 2022(Table 1).csv", skip = 1) |> pivot_date("September", "2022") |> filter(!is.na(unit))
+july_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2022(Table 1).csv", skip = 1) |> pivot_date("July", "2022") |> filter(!unit == "July 2022 - Daily Temperature Log", !is.na(unit))
+```
+
+```{r}
+august_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - August 2022(Table 1).csv", skip = 1) |> pivot_date("August", "2022") |> filter(!unit == "August 2022 - Daily Temperature Log",!is.na(unit))
+
+```
+
+```{r}
+september_2022_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - September 2022(Table 1).csv", skip = 1) |> pivot_date("September", "2022") |> filter(!unit == "September 2022 - Daily Temperature Log",!is.na(unit))
 
 ```
 
@@ -134,7 +133,6 @@ august_2023_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - August 2023
 ```{r}
 september_2023_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - September 2023(Table 1).csv", skip = 1) |> pivot_date("September", "2023") |> filter(!unit == "September 2023", !is.na(unit))
 
-september_2023_clean |> filter(unit == "September 2023")
 ```
 
 ## Combining each month into one data frame
@@ -167,18 +165,15 @@ june_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - June 2024(Tab
 **Important note: we manually removed an apostrophe from cell Memorial:22 in the original June 2024 csv because it was causing the column to read as characters instead of doubles.
 
 ```{r}
-july_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2024(Table 1).csv", 
-         skip = 1) |> pivot_date("July", "2024")
+july_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2024(Table 1).csv", skip = 1) |> pivot_date("July", "2024") |>  filter(!unit == "July 2024", !is.na(unit))
 ```
 
 ```{r}
-august_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - August 2024(Table 1).csv", 
-         skip = 1) |> pivot_date("August", "2024")
+august_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - August 2024(Table 1).csv", skip = 1) |> pivot_date("August", "2024") |> filter(!unit == "August 2024", !is.na(unit))
 ```
 
 ```{r}
-september_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - September 2024(Table 1).csv", 
-         skip = 1) |> pivot_date("September", "2024")
+september_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - September 2024(Table 1).csv", skip = 1) |> pivot_date("September", "2024") |> filter(!unit == "September 2024", !is.na(unit))
 ```
 
 **Important note: we manually removed an extra space from Connally:21 and 22 in the original September 2024 csv because it was causing the column to read as characters instead of doubles
@@ -186,7 +181,7 @@ september_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - Septembe
 ## Combining each month into one data frame
 
 ```{r}
-indoor_2024_combined <- bind_rows(april_2024_clean, may_2024_clean, june_2024_clean, july_2024_clean, august_2024_clean, september_2024_clean)
+indoor_2024_combined <- bind_rows(april_2024_clean, may_2024_clean, june_2024_clean, july_2024_clean, august_2024_clean, september_2024_clean) 
 ```
 
 ## 2025 indoor logs
@@ -196,25 +191,21 @@ indoor_2024_combined <- bind_rows(april_2024_clean, may_2024_clean, june_2024_cl
 ** Because of when this public information request was filled, we only have data through July 25, 2025. Thus, all units will show "NA" for temperature between July 26 and July 31, 2025. As of Oct. 14, 2025, Lauren is still trying to get the updated data through September 2025. 
 
 ```{r}
-april_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - April 2025(Table 1).csv", 
-         skip = 1) |> pivot_date("April", "2025")
+april_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - April 2025(Table 1).csv", skip = 1) |> pivot_date("April", "2025") |> filter(!unit == "April 2025", !is.na(unit))
 ```
 
 ```{r}
-may_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - May 2025(Table 1) (1).csv", 
-         skip = 1) |> pivot_date("May", "2025")
+may_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - May 2025(Table 1) (1).csv", skip = 1) |> pivot_date("May", "2025") |> filter(!unit == "May 2025", !is.na(unit))
 ```
 
 ```{r}
-june_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - June 2025(Table 1).csv", 
-         skip = 1) |> pivot_date("June", "2025")
+june_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - June 2025(Table 1).csv", skip = 1) |> pivot_date("June", "2025") |> filter(!unit == "June 2025", !is.na(unit))
 ```
 
 **Important note: we manually removed an extra space from Bartlett:8 in the original June 2025 csv because it was causing the column to read as characters instead of doubles.
 
 ```{r}
-july_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2025(Table 1).csv", 
-         skip = 1) |> pivot_date("July", "2025")
+july_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2025(Table 1).csv", skip = 1) |> pivot_date("July", "2025") |> filter(!unit == "July 2025", !is.na(unit))
 ```
 
 ## Combining each month into one data frame

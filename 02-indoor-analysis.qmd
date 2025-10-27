@@ -6,19 +6,23 @@ format: html
 
 We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
-
 ## Goals of this notebook
 
 In this notebook, we will explore the following questions:
 
 For all units and within individual units:
 
+* How many days was the indoor temperature 85°F or above in 2022? How many consecutive days and when?
+* How many days was the indoor temperature 90°F or above in 2022? How many consecutive days and when?
+* How many days was the indoor temperature 95°F or above in 2022? How many consecutive days and when?
+* How many days was the indoor temperature 100°F or above in 2022? How many consecutive days and when?
+* How many days was the indoor temperature 105°F or above in 2022? How many consecutive days and when?
+
 * How many days was the indoor temperature 85°F or above in 2023? How many consecutive days and when?
 * How many days was the indoor temperature 90°F or above in 2023? How many consecutive days and when?
 * How many days was the indoor temperature 95°F or above in 2023? How many consecutive days and when?
 * How many days was the indoor temperature 100°F or above in 2023? How many consecutive days and when?
 * How many days was the indoor temperature 105°F or above in 2023? How many consecutive days and when?
-
 
 * How many days was the indoor temperature 85°F or above in 2024? How many consecutive days and when?
 * How many days was the indoor temperature 90°F or above in 2024? How many consecutive days and when?
@@ -49,7 +53,6 @@ library(janitor)
 library(data.table)
 ```
 
-
 ## Import
 
 Reading in the combined activation logs and combined indoor logs
@@ -59,14 +62,100 @@ indoor_logs <- read_rds("data-processed/01-indoor-temps-all-cleaned.rds")
 activations_logs <- read_rds("data-processed/01-activation-cleaned.rds")
 ```
 
+## Unit search
 
 ```{r}
-indoor_logs
+indoor_logs |> filter(
+  unit == "Segovia"
+) |> group_by(
+    unit, year = year(date)
+  ) |> 
+  summarize(
+    total_days = n()
+  )
 ```
 
+## Counting total days of data we have for each year 
 
-## Counting number of days above certain temps per month per unit
+```{r}
+indoor_logs |> 
+  filter(year(date) == 2025) |> 
+  group_by(unit) |> 
+  summarize(days_recorded = n())
+```
 
+Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings, which are taken at 3 p.m. each day April 1 through Sept. 30 at all units without air conditioning, according to the TDCJ. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request. 
+
+## Seeing how many and which units are recorded in each year of data
+
+We've noticed that some units are not consistent across years. Let's see which units differ. 
+
+Grouping by unit and year and filtering by year to see how many units are recorded each year.
+
+```{r}
+indoor_logs |> 
+  group_by(unit, year(date)) |> 
+  filter(year(date) == 2025) |> 
+  summarize(days_recorded = n())
+```
+
+Grouping by unit and pulling each distinct unit to see a list of all units that appear across all four years of data. 
+
+```{r}
+all_units <- indoor_logs |> 
+  mutate(year = year(date))  |> 
+  group_by(unit) |> 
+  distinct(unit) |> 
+  pull(unit)
+
+all_units
+```
+
+Grouping by unit and summarizing by the number of distinct years that each unit appears in.
+
+```{r}
+unit_count <- indoor_logs |> 
+  mutate(year = year(date)) |> 
+  group_by(unit) |> 
+  summarise(distinct_years = n_distinct(year))
+
+unit_count |> filter(distinct_years == 4)
+```
+
+Grouping by unit and summarizing by the number of distinct months that each unit appears in. 
+
+```{r}
+indoor_logs |> 
+  mutate(flo_mo = floor_date(date, unit = "month")) |> 
+  group_by(unit) |> 
+  summarise(distinct_months = n_distinct(flo_mo)) |> 
+  arrange(distinct_months)
+
+```
+
+Grouping by unit and month, summarizing by distinct month and filtering by unit to see if different units appear in each month of the distinct year they appear in. 
+
+```{r}
+indoor_logs  |> 
+  group_by(unit, flo_mo = floor_date(date, unit = "month")) |> 
+  summarise(distinct_months = n_distinct(flo_mo)) |> 
+  filter(unit == "Young")
+```
+
+Data takeaway: For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. 63 units appear in all four years of data. The 11 units that differ by year are as follows:
+*Plane- appears in 2022, 2023 and 2024 only
+*Young- appears in 2022, 2023 and 2024 only
+*Segovia- appears in 2023 (June, July and August and September only), 2024 and 2025 only 
+*Garza East- appears in 2024 and 2025 only
+*Johnston- appears in 2022 and 2023 only
+*Mountain View- appears in 2022 and 2023 only
+*Bartlett- appears in 2025 only
+*Baten- appears in 2025 only
+*Gurney- appears in 2025 only
+*O'Daniel- appears in 2024 only
+*Sayle- appears in 2022 only 
+ 
+## Counting number of days above each temp per month per unit per year
 
 ```{r}
 temp_counts_all <- indoor_logs|> 
@@ -81,44 +170,123 @@ temp_counts_all <- indoor_logs|>
     cnt_100 = sum(temperature >= 100),
     cnt_105 = sum(temperature >= 105)
   )
-
+temp_counts_all
 
 ```
- 
-## Counting total days of data we have for each year 
 
+ 
+Note- I realized after doing the 2022 analysis below that this would have been a much simpler way to do it. 
+ 
 ```{r}
-indoor_logs |> 
-  filter(year(date) == 2025) |> 
-  group_by(unit) |> 
-  summarize(appearances = n())
-         
-   
+indoor_logs|> 
+  mutate(year = year(date)) |> 
+  group_by(unit, year) |> 
+  summarize(
+    total_days = n(),
+    cnt_85 = sum(temperature >= 85, na.rm = T),
+    cnt_90 = sum(temperature >= 90),
+    cnt_95 = sum(temperature >= 95),
+    cnt_100 = sum(temperature >= 100)
+  ) |> 
+  filter(year == 2022)
 ```
-
-Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings, which are taken at 3 p.m. each day April 1 through Sept. 30 at all logs without air conditioning according to the TDCJ. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request. 
  
  
-## Counting days above 85° for each year
+## 2022 indoor logs analysis
+ 
+## Days at or above 85°
 
 Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 85°F, grouping by unit and summarizing by number of appearances.
 
 ```{r}
-indoor_logs |> 
+indoor_2022_85 <- indoor_logs |> 
   filter(
     temperature >= 85
     ) |> group_by(unit, year(date)) |> 
-  summarize(appearances = n()) |> 
-  arrange(desc(appearances))
-  
+  filter(year(date) == 2022) |> 
+  summarize(days_above_85 = n()) |> 
+  arrange(desc(days_above_85)) 
+
+indoor_2022_85
 ```
-Data takeaway: 
+
+Data takeaway: In 2022, 67 out of 68 units without air conditioning recorded indoor temperatures at or above 85 degrees for at least 43 days between April 1 and Sept. 30. The Sayle unit, located in Breckenridge, Texas, was the only unit to not record temperatures at or above 85 degrees. 51 units recorded indoor temperatures at or above 85 degrees for over 50% of days, or at least 92 days. Ten units recorded indoor temperatures at or above 85 degrees for over 75% of days, or at least 138 days. The Garza West unit, located in Beeville, Texas, recorded the most days with indoor temperatures at or above 85 degrees, with 168 days, or 92% of days between April 1 and Sept. 30.  
+
+## Days at or above 90
+
+Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 90°F, grouping by unit and summarizing by number of appearances.
+
+```{r}
+indoor_2022_90 <- indoor_logs |> 
+  filter(
+    temperature >= 90
+    ) |> group_by(unit, year(date)) |> 
+  filter(year(date) == 2022) |> 
+  summarize(days_above_90 = n()) |> 
+  arrange(desc(days_above_90)) 
+
+indoor_2022_90
+```
+
+Data takeaway: In 2022, 65 out of 68 units without air conditioning recorded indoor temperatures at or above 90 degrees at least once between April 1 and Sept. 30. 41 units recorded indoor temperatures at or above 90 degrees for over 25% of days, or at least 46 days. Nine units recorded indoor temperatures at or above 90 degrees for over 50% of days, or at least 92 days. The Dominguez unit, located in San Antonio, Texas, recorded the most days with indoor temperatures at or above 90 degrees, with 122 days, or two-thirds of days between April 1. and Sept. 30. 
+
+## Days at or above 95
+
+Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 95°F, grouping by unit and summarizing by number of appearances.
+
+```{r}
+indoor_2022_95 <- indoor_logs |> 
+  filter(
+    temperature >= 95
+    ) |> group_by(unit, year(date)) |> 
+  filter(year(date) == 2022) |> 
+  summarize(days_above_95 = n()) |> 
+  arrange(desc(days_above_95))
+
+indoor_2022_95
+```
+
+Data takeaway: In 2022, 51 out of 68 units without air conditioning recorded indoor temperatures at or above 95 degrees at least once between April 1 and Sept. 30. Six units recorded indoor temperatures at or above 95 degrees for over 25% of days, or at least 46 days. The Stevenson unit, located in Cuero, Texas, recorded the most days with indoor temperatures at or above 95 with 74 days, or over 40% of days between April 1. and Sept. 30. 
+
+## Days at or above 100
+
+Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 100°F, grouping by unit and summarizing by number of appearances.
 
 
 ```{r}
-indoor_logs |> 
+indoor_2022_100 <- indoor_logs |> 
   filter(
-    year(date) == 2022,
-    temperature >= 85) 
+    temperature >= 100
+    ) |> group_by(unit, year(date)) |> 
+  filter(year(date) == 2022) |> 
+  summarize(days_above_100 = n()) |> 
+  arrange(desc(days_above_100)) 
+
+indoor_2022_100
+
+indoor_logs |> filter(
+  unit == "Stevenson",
+  temperature >= 100
+)
+```
+
+Data takeaway: In 2022, 15 out of 68 units without air conditioning recorded indoor temperatures at or above 100 degrees at least once between April 1 and Sept. 30. The Stevenson unit, located in Cuero, Texas, recorded the most days with indoor temperatures at or above 100 degrees with 13 days between April 1 and Sept. 30. This includes four consecutive days between July 10 and July 13. 
+
+## 2023 indoor logs analysis
+
+## Days at or above 85°
+
+Filtering the indoor log data to include only readings taken in 2023 where the temperature was above 85°F, grouping by unit and summarizing by number of appearances.
+
+```{r}
+indoor_2023_85 <- indoor_logs |> 
+  filter(
+    temperature >= 85
+    ) |> group_by(unit, year(date)) |> 
+  filter(year(date) == 2023) |> 
+  summarize(days_above_85 = n()) |> 
+  arrange(desc(days_above_85)) 
+
+indoor_2023_85
 ```
 
