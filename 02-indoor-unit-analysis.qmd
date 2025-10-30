@@ -45,6 +45,12 @@ indoor_logs |> filter(
   )
 ```
 
+```{r}
+indoor_logs |> mutate(year = year(date)) |> 
+  filter(unit == "Sanchez", year == 2023  )
+```
+
+
 ## Seeing how many and which units are recorded in each year of data
 
 Grouping by unit and year and filtering by year to see how many units are recorded each year.
