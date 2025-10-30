@@ -51,6 +51,7 @@ Loading our libraries
 library(tidyverse)
 library(janitor)
 library(data.table)
+library(ggthemes)
 ```
 
 ## Import
@@ -62,18 +63,7 @@ indoor_logs <- read_rds("data-processed/01-indoor-temps-all-cleaned.rds")
 activations_logs <- read_rds("data-processed/01-activation-cleaned.rds")
 ```
 
-## Unit search
-
-```{r}
-indoor_logs |> filter(
-  unit == "Segovia"
-) |> group_by(
-    unit, year = year(date)
-  ) |> 
-  summarize(
-    total_days = n()
-  )
-```
+ 
 
 ## Counting total days of data we have for each year 
 
@@ -86,74 +76,6 @@ indoor_logs |>
 
 Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings, which are taken at 3 p.m. each day April 1 through Sept. 30 at all units without air conditioning, according to the TDCJ. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request. 
 
-## Seeing how many and which units are recorded in each year of data
-
-We've noticed that some units are not consistent across years. Let's see which units differ. 
-
-Grouping by unit and year and filtering by year to see how many units are recorded each year.
-
-```{r}
-indoor_logs |> 
-  group_by(unit, year(date)) |> 
-  filter(year(date) == 2025) |> 
-  summarize(days_recorded = n())
-```
-
-Grouping by unit and pulling each distinct unit to see a list of all units that appear across all four years of data. 
-
-```{r}
-all_units <- indoor_logs |> 
-  mutate(year = year(date))  |> 
-  group_by(unit) |> 
-  distinct(unit) |> 
-  pull(unit)
-
-all_units
-```
-
-Grouping by unit and summarizing by the number of distinct years that each unit appears in.
-
-```{r}
-unit_count <- indoor_logs |> 
-  mutate(year = year(date)) |> 
-  group_by(unit) |> 
-  summarise(distinct_years = n_distinct(year))
-
-unit_count |> filter(distinct_years == 4)
-```
-
-Grouping by unit and summarizing by the number of distinct months that each unit appears in. 
-
-```{r}
-indoor_logs |> 
-  mutate(flo_mo = floor_date(date, unit = "month")) |> 
-  group_by(unit) |> 
-  summarise(distinct_months = n_distinct(flo_mo)) |> 
-  arrange(distinct_months)
-
-```
-
-Grouping by unit and month, summarizing by distinct month and filtering by unit to see if different units appear in each month of the distinct year they appear in. 
-
-```{r}
-indoor_logs  |> 
-  group_by(unit, flo_mo = floor_date(date, unit = "month")) |> 
-  summarise(distinct_months = n_distinct(flo_mo)) |> 
-  filter(unit == "Young")
-```
-
-Data takeaway: For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. 63 units appear in all four years of data. The 11 units that differ by year are as follows:
-*Plane- appears in 2022, 2023 and 2024 only
-*Young- appears in 2022, 2023 and 2024 only
-*Segovia- appears in 2023 (June, July and August and September only), 2024 and 2025 only 
-*Garza East- appears in 2024 and 2025 only
-*Johnston- appears in 2022 and 2023 only
-*Mountain View- appears in 2022 and 2023 only
-*Bartlett- appears in 2025 only
-*Baten- appears in 2025 only
-*Gurney- appears in 2025 only
-*O'Daniel- appears in 2024 only
-*Sayle- appears in 2022 only 
  
 ## Counting number of days above each temp per month per unit per year
 
@@ -174,23 +96,104 @@ temp_counts_all
 
 ```
 
- 
-Note- I realized after doing the 2022 analysis below that this would have been a much simpler way to do it. 
+
+## Number of days above each temp per unit per year
  
 ```{r}
-indoor_logs|> 
+indoor_logs_count <- indoor_logs|> 
   mutate(year = year(date)) |> 
   group_by(unit, year) |> 
   summarize(
     total_days = n(),
     cnt_85 = sum(temperature >= 85, na.rm = T),
-    cnt_90 = sum(temperature >= 90),
-    cnt_95 = sum(temperature >= 95),
-    cnt_100 = sum(temperature >= 100)
-  ) |> 
-  filter(year == 2022)
+    cnt_90 = sum(temperature >= 90, na.rm = T),
+    cnt_95 = sum(temperature >= 95, na.rm = T),
+    cnt_100 = sum(temperature >= 100, na.rm = T)
+  ) 
+
+indoor_logs_count |> filter(year == 2022)
 ```
  
+## Plotting days above each temp per unit per year
+
+Note: there is a substantial dip in the number of days recorded in 2025 because the dataset is only complete through July 25. 
+
+85° and above
+
+```{r}
+ggplot(
+  indoor_logs_count,
+aes(x = year, y= cnt_85, group = unit)
+) +
+geom_line(aes(group = unit)) +
+  theme(legend.position = "none") +
+  labs(
+    title = "Number of days with indoor temperature recordings at or above 85°F",
+    subtitle = str_wrap("According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning.There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025."),
+    x = "Year", y = "Number of days at or above 85°F",
+    caption = "Source: Texas Department of Criminal Justice"
+  ) +
+  theme_bw()
+
+```
+
+90° and above
+
+```{r}
+ggplot(
+  indoor_logs_count,
+aes(x = year, y= cnt_90, group = unit)
+) +
+geom_line(aes(group = unit)) +
+  theme(legend.position = "none") +
+  labs(
+    title = "Number of days with indoor temperature recordings at or above 90°F",
+    subtitle = str_wrap("According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025."),
+    x = "Year", y = "Number of days at or above 90°F",
+    caption = "Source: Texas Department of Criminal Justice"
+  ) +
+  theme_bw()
+```
+
+95° and above
+
+```{r}
+ggplot(
+  indoor_logs_count,
+aes(x = year, y= cnt_95, group = unit)
+) +
+geom_line(aes(group = unit)) +
+  theme(legend.position = "none") +
+  labs(
+    title = "Number of days with indoor temperature recordings at or above 95°F",
+    subtitle = str_wrap("According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025."),
+    x = "Year", y = "Number of days at or above 95°F",
+    caption = "Source: Texas Department of Criminal Justice"
+  ) +
+  theme_bw()
+```
+
+100° and above
+
+
+```{r}
+ggplot(
+  indoor_logs_count,
+aes(x = year, y= cnt_100, group = unit)
+) +
+geom_line(aes(group = unit)) +
+  theme(legend.position = "none") +
+  labs(
+    title = "Number of days with indoor temperature recordings at or above 100°F",
+    subtitle = str_wrap("According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025."),
+    x = "Year", y = "Number of days at or above 100°F",
+    caption = "Source: Texas Department of Criminal Justice"
+  ) +
+  theme_bw()
+```
+```
+
+
  
 ## 2022 indoor logs analysis
  
