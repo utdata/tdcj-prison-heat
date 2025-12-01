@@ -2,6 +2,7 @@ project:
   type: website
   render:
   - "!x-*.qmd"
+  - "!ignore*"
   - "01*.qmd"
   - "02*.qmd"
   - index.qmd
