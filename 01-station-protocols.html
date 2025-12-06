@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-station-protocols.html">Stations cleaning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning-old.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-station-protocols.html">Stations cleaning</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -134,6 +134,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Prison Heat Analysis</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/utdata/tdcj-prison-heat" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://journalism.utexas.edu/innovation/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-question-circle"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -160,14 +164,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-activation-cleaning.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-activation-cleaning-old.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Activations cleaning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-indoor-cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indoor logs cleaning</span></a>
+  <a href="./01-indoor-all-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">All indoor logs cleaning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -188,6 +192,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Unit info cleaning</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-updated-activation-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Updated activations cleaning</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -199,6 +209,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-indoor-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indoor logs analysis</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-outdoor-protocols.html" class="sidebar-item-text sidebar-link">
@@ -248,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-station-protocols.html">Stations cleaning</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning-old.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-station-protocols.html">Stations cleaning</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Stations cleaning</h1>
 </div>
@@ -329,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["time"],"name":[3],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["hr"],"name":[7],"type":["int"],"align":["right"]},{"label":["tmp_flag"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[10],"type":["lgl"],"align":["right"]}],"data":[{"1":"KCLL","2":"2023-08-03","3":"14:53:00","4":"103","5":"34","6":"110.9","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KSKF","2":"2023-07-10","3":"17:59:00","4":"101","5":"32","6":"105.4","7":"17","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KELP","2":"2023-06-23","3":"14:00:00","4":"104","5":"8","6":"97.2","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KFST","2":"2023-06-22","3":"14:53:00","4":"107","5":"13","6":"103.0","7":"14","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KRFI","2":"2023-07-17","3":"16:15:00","4":"101","5":"36","6":"108.3","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KHYI","2":"2023-08-22","3":"16:53:00","4":"102","5":"31","6":"106.6","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KDKR","2":"2023-08-20","3":"17:15:00","4":"108","5":"18","6":"107.4","7":"17","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KBMQ","2":"2023-06-27","3":"16:53:00","4":"102","5":"27","6":"103.9","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KRBD","2":"2023-08-21","3":"17:53:00","4":"103","5":"29","6":"107.0","7":"17","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KCLL","2":"2023-09-08","3":"15:53:00","4":"109","5":"20","6":"110.4","7":"15","8":"TRUE","9":"FALSE","10":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["time"],"name":[3],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["hr"],"name":[7],"type":["int"],"align":["right"]},{"label":["tmp_flag"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[10],"type":["lgl"],"align":["right"]}],"data":[{"1":"KFST","2":"2023-08-03","3":"14:53:00","4":"102","5":"21","6":"100.6","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KPVW","2":"2023-06-27","3":"15:15:00","4":"103","5":"10","6":"97.1","7":"15","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KJDD","2":"2023-08-24","3":"14:15:00","4":"102","5":"33","6":"108.0","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KABI","2":"2023-07-31","3":"14:52:00","4":"104","5":"21","6":"103.4","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KRBD","2":"2023-08-24","3":"14:53:00","4":"106","5":"24","6":"108.6","7":"14","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KJWY","2":"2023-07-24","3":"16:35:00","4":"101","5":"26","6":"101.7","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KCOT","2":"2023-07-30","3":"13:53:00","4":"101","5":"30","6":"104.1","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KVCT","2":"2023-08-28","3":"14:51:00","4":"105","5":"29","6":"110.8","7":"14","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KABI","2":"2023-06-24","3":"15:52:00","4":"102","5":"33","6":"108.0","7":"15","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KBEA","2":"2023-08-12","3":"14:15:00","4":"101","5":"33","6":"106.1","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -386,7 +402,7 @@ $ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 8
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["tmp_high"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hi_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"KJDD","2":"2023-08-17","3":"104","4":"105.3","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KJWY","2":"2023-07-12","3":"103","4":"112.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KHDO","2":"2023-07-31","3":"102","4":"105.5","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KBEA","2":"2023-07-13","3":"101","4":"108.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KCXO","2":"2023-07-30","3":"104","4":"106.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KLXY","2":"2023-08-20","3":"109","4":"110.4","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KBWD","2":"2023-09-08","3":"106","4":"102.3","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KEDC","2":"2023-08-06","3":"102","4":"104.2","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KCOT","2":"2023-07-29","3":"102","4":"103.3","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KSGR","2":"2023-08-12","3":"102","4":"117.8","5":"FALSE","6":"TRUE","7":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["tmp_high"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hi_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"KSPS","2":"2023-08-23","3":"104","4":"105.3","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KRBD","2":"2023-08-06","3":"103","4":"105.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KHYI","2":"2023-07-26","3":"101","4":"104.2","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KPSN","2":"2023-08-07","3":"102","4":"106.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KEDC","2":"2023-08-17","3":"106","4":"105.3","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KBKD","2":"2023-07-10","3":"102","4":"108.0","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KJAS","2":"2023-08-17","3":"102","4":"99.2","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KRFI","2":"2023-08-14","3":"105","4":"108.4","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KFST","2":"2023-08-17","3":"104","4":"99.1","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KBMQ","2":"2023-07-16","3":"103","4":"102.0","5":"FALSE","6":"FALSE","7":"FALSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -803,6 +819,19 @@ $ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 8
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Media Innovation Group</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

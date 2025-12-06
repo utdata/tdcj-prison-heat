@@ -97,6 +97,10 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Prison Heat Analysis</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/utdata/tdcj-prison-heat" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://journalism.utexas.edu/innovation/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-question-circle"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -123,14 +127,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-activation-cleaning.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-activation-cleaning-old.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Activations cleaning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-indoor-cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indoor logs cleaning</span></a>
+  <a href="./01-indoor-all-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">All indoor logs cleaning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -151,6 +155,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Unit info cleaning</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-updated-activation-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Updated activations cleaning</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -162,6 +172,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-indoor-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indoor logs analysis</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-outdoor-protocols.html" class="sidebar-item-text sidebar-link">
@@ -194,13 +210,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#outdoor-logs" id="toc-outdoor-logs" class="nav-link active" data-scroll-target="#outdoor-logs">Outdoor logs</a>
   <ul class="collapse">
-  <li><a href="#precautionary-measures" id="toc-precautionary-measures" class="nav-link" data-scroll-target="#precautionary-measures">Precautionary measures</a></li>
-  </ul></li>
-  <li><a href="#indoor-temperatures" id="toc-indoor-temperatures" class="nav-link" data-scroll-target="#indoor-temperatures">Indoor temperatures</a>
-  <ul class="collapse">
   <li><a href="#basics-and-legibility" id="toc-basics-and-legibility" class="nav-link" data-scroll-target="#basics-and-legibility">Basics and legibility</a></li>
+  <li><a href="#precautionary-measures" id="toc-precautionary-measures" class="nav-link" data-scroll-target="#precautionary-measures">Precautionary measures</a></li>
   <li><a href="#log-accuracy-vs-weather-stations" id="toc-log-accuracy-vs-weather-stations" class="nav-link" data-scroll-target="#log-accuracy-vs-weather-stations">Log accuracy vs weather stations</a></li>
   </ul></li>
+  <li><a href="#indoor-temperatures" id="toc-indoor-temperatures" class="nav-link" data-scroll-target="#indoor-temperatures">Indoor temperatures</a></li>
   <li><a href="#collaborators" id="toc-collaborators" class="nav-link" data-scroll-target="#collaborators">Collaborators</a></li>
   </ul>
 </nav>
@@ -234,34 +248,6 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="outdoor-logs">Outdoor logs</h2>
 <p>Lauren McGaughy of the Texas Newsroom public radio collaborative used a public information act to obtain the outdoor temperature logs kept by Texas prisons. The logs are hand-written and the data could not be accurately pulled through mechanical means, so a group of Media Innovation Group fellows transcribed a sample set of logs from each prison, from <strong>July 24, 2023 through July 31, 2023</strong>.</p>
 <p>Here is what we found:</p>
-<section id="precautionary-measures" class="level3">
-<h3 class="anchored" data-anchor-id="precautionary-measures">Precautionary measures</h3>
-<p><strong>October 2025 check</strong></p>
-<p>Here we wanted to find which units should be under heat-related “precautionary measures” based on written data logs, and how that compared to actual Incident Command System activations.</p>
-<p>This was challenging because the TDCJ definitions and directives to define if the unit should be in “precautionary measures” are ambiguous and confusing. See the <a href="./02-outdoor-protocols.html">Precautionary measures</a> notebook for a full discussion.</p>
-<p>We ended up using the following definition: <strong>When temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days</strong>.</p>
-<p>We use the term “unit day” to describe when any of the 82 units meets a criteria on a single day.</p>
-<p>Of our eight days of records from 82 prisons …</p>
-<ul>
-<li>Seven units met the ICS criteria for a total of 17 unit days, based on the definition given to us by the TDCJ communications department. None of those units had active ICS protocols in place on those days. This count could be low since units could have met protocol in the days before our outdoor log time period.</li>
-<li>According to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, only one of these units met the criteria we’ve been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.</li>
-<li>Out of 656 “unit days” possible (82 units, 8 days), excessive heat conditions (105 degrees or 113 heat index at any time) were reached 127 times. Half of the units reached the criteria at least once. In only 12 of those instances was a unit in active precautionary measures.</li>
-</ul>
-<p>There are also 15 “unit days” where there was no heat index values for that day, but the unit did include a heat index “risk category” that was Cat 3 or higher. Those are potentially 113 degrees or greater and would put the day in precautionary measures territory.</p>
-</section>
-</section>
-<section id="indoor-temperatures" class="level2">
-<h2 class="anchored" data-anchor-id="indoor-temperatures">Indoor temperatures</h2>
-<blockquote class="blockquote">
-<p>As of <strong>October 2025</strong>, we are still working on this.</p>
-</blockquote>
-<p>While we did some earlier analysis of indoor temperatures in the spring, there were enough changes in the companion data that we need to check and rework it.</p>
-<p>Here is what we’d like to find:</p>
-<ul>
-<li>What was the temperature inside on the days that units were under active ICS protocol?</li>
-<li>Are there days where inside a prison it was hotter than on the hottest day under protocol?</li>
-<li>How many days were above 85 degrees inside? 95? 100?</li>
-</ul>
 <section id="basics-and-legibility" class="level3">
 <h3 class="anchored" data-anchor-id="basics-and-legibility">Basics and legibility</h3>
 <p><strong>May 2025</strong></p>
@@ -285,6 +271,21 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
+<section id="precautionary-measures" class="level3">
+<h3 class="anchored" data-anchor-id="precautionary-measures">Precautionary measures</h3>
+<p><strong>August 2025 update</strong></p>
+<p>Here we wanted to find which units should be under heat-related “precautionary measures” based on written data logs, and how that compared to actual Incident Command System activations.</p>
+<p>This was challenging because the TDCJ definitions and directives to define if the unit should be in “precautionary measures” are ambiguous and confusing. See the <a href="./02-outdoor-protocols.html">Precautionary measures</a> notebook for a full discussion.</p>
+<p>We ended up using the following definition: <strong>When temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days</strong>.</p>
+<p>We use the term “unit day” to describe when any of the 82 units meets a criteria on a single day.</p>
+<p>Of our eight days of records from 82 prisons …</p>
+<ul>
+<li>Seven units met the ICS criteria on some days for a total of 17 unit days, based on the definition given to us by the TDCJ communications department. None of those units had active ICS protocols in place on those days. This count could be low since units could have met protocol in the days before our time period.</li>
+<li>According to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, none of these units met the criteria we’ve been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.</li>
+<li>Out of 656 “unit days” possible (82 units, 8 days), excessive heat conditions (105 degrees or 113 heat index) were reached 127 times. Half of the units reached the criteria at least once. In only 12 of those instances was a unit in active precautionary measures.</li>
+</ul>
+<p>There are also 15 “unit days” where there was no heat index values for that day, but the unit did include a heat index “risk category” that was Cat 3 or higher. Those are potentially 113 degrees or greater and would put the day in precautionary measures territory.</p>
+</section>
 <section id="log-accuracy-vs-weather-stations" class="level3">
 <h3 class="anchored" data-anchor-id="log-accuracy-vs-weather-stations">Log accuracy vs weather stations</h3>
 <p><strong>May 2025</strong></p>
@@ -303,12 +304,19 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
+<section id="indoor-temperatures" class="level2">
+<h2 class="anchored" data-anchor-id="indoor-temperatures">Indoor temperatures</h2>
+<p><strong>July 2025 update</strong></p>
+<p>While we did some earlier analysis of indoor temperatures in the spring, there were enough changes in the companion data that we need to check and rework it.</p>
+<p>Here is what we’d like to find:</p>
+<ul>
+<li>What was the temperature inside on the days that units were under active ICS protocol?</li>
+<li>Are there days where inside a prison it was hotter than on the hottest day under protocol?</li>
+<li>How many days were above 85 degrees inside? 95? 100?</li>
+</ul>
+</section>
 <section id="collaborators" class="level2">
 <h2 class="anchored" data-anchor-id="collaborators">Collaborators</h2>
-<p>Indoor temperature analysis:</p>
-<ul>
-<li>Emily deMotte</li>
-</ul>
 <p>Working on weather station data and analysis for indoor logs:</p>
 <ul>
 <li>Pearson Neal</li>
@@ -729,6 +737,19 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Media Innovation Group</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

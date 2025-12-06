@@ -136,6 +136,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Prison Heat Analysis</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/utdata/tdcj-prison-heat" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://journalism.utexas.edu/innovation/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-question-circle"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -162,14 +166,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-activation-cleaning.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-activation-cleaning-old.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Activations cleaning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-indoor-cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indoor logs cleaning</span></a>
+  <a href="./01-indoor-all-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">All indoor logs cleaning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -190,6 +194,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Unit info cleaning</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-updated-activation-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Updated activations cleaning</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -201,6 +211,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-indoor-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indoor logs analysis</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-outdoor-protocols.html" class="sidebar-item-text sidebar-link">
@@ -337,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["unit_temp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["nws_id"],"name":[4],"type":["chr"],"align":["left"]},{"label":["county"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Jester III","2":"2023-04-30","3":"79.2","4":"KSGR","5":"Fort Bend"},{"1":"Estelle","2":"2023-09-12","3":"84.5","4":"KUTS","5":"Walker"},{"1":"Plane","2":"2023-08-14","3":"99.2","4":"KT41","5":"Liberty"},{"1":"O'Daniel","2":"2023-08-21","3":"93.1","4":"KGOP","5":"Coryell"},{"1":"Hughes","2":"2023-06-26","3":"90.5","4":"KGOP","5":"Coryell"},{"1":"Clemens","2":"2023-06-05","3":"79.9","4":"KLBX","5":"Brazoria"},{"1":"Roach","2":"2023-09-02","3":"88.0","4":"KCDS","5":"Childress"},{"1":"Briscoe","2":"2023-09-21","3":"93.1","4":"KCOT","5":"Frio"},{"1":"Michael","2":"2023-07-14","3":"90.7","4":"KPSN","5":"Anderson"},{"1":"Memorial","2":"2023-04-14","3":"75.5","4":"KLVJ","5":"Brazoria"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["unit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["unit_temp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["nws_id"],"name":[4],"type":["chr"],"align":["left"]},{"label":["county"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Telford","2":"2023-04-07","3":"78.2","4":"KTXK","5":"Bowie"},{"1":"Segovia","2":"2023-06-09","3":"89.4","4":"KMFE","5":"Hidalgo"},{"1":"Ramsey","2":"2023-05-18","3":"83.8","4":"KLVJ","5":"Brazoria"},{"1":"Moore, C.","2":"2023-06-12","3":"78.8","4":"KF00","5":"Fannin"},{"1":"Wynne","2":"2023-09-07","3":"97.0","4":"KUTS","5":"Walker"},{"1":"Lychner","2":"2023-08-23","3":"100.1","4":"KIAH","5":"Harris"},{"1":"Stringfellow","2":"2023-08-26","3":"88.1","4":"KLVJ","5":"Brazoria"},{"1":"Young","2":"2023-04-25","3":"80.4","4":"KEFD","5":"Galveston"},{"1":"Jordan","2":"2023-04-08","3":"75.4","4":"KPPA","5":"Gray"},{"1":"Boyd","2":"2023-06-08","3":"81.1","4":"KLXY","5":"Freestone"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -940,6 +956,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Media Innovation Group</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
