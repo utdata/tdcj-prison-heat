@@ -1,0 +1,101 @@
+---
+title: "2023 indoor logs cleaning updated"
+author: "Media Innovation Group"
+format: html
+---
+
+This data is the record indoor temperatures at each unit from April to September of 2023. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+
+
+The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original/indoor_all_csv' as 'SB1R56 - April 2023 (Table 1).csv' and so on for each month. The original documents are found in 'data-original/2023_indoor'. 
+
+## Goals of this notebook
+
+Clean and combine the 2023 indoor logs for April, May, June, July, August and September.
+
+## Setup
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(lubridate)
+```
+
+
+## Creating a function 
+
+This function streamlines the process of pivoting the data longer, skipping the first row, creating a real date and renaming/selecting columns for each month of data. 
+
+```{r}
+pivot_date <- function(df, mo, yr) {
+  df |> pivot_longer(
+    !1
+  ) |> 
+  mutate(
+    date = mdy(paste(mo, name, yr))
+  ) |> select(
+    unit = 1,
+    date,
+    temperature = value
+  )
+}
+```
+
+*Note: this function leaves a row for each day of the month where unit = "Month Year" and temperature = NA. 
+i.e. for April 2023, there are 30 rows where the unit is "April 2023" and the temperature is NA, one for each day of the month.
+
+## Downloading data and applying function
+
+This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above. 
+
+```{r}
+april_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - April 2023(Table 1).csv", 
+         skip = 1) |> pivot_date("April", "2023")
+```
+
+```{r}
+may_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - May 2023(Table 1).csv", 
+         skip = 1) |> pivot_date("May", "2023")
+```
+
+**Important note: we manually removed an extra space from cell Young:26 in the original May 2023 csv because it was causing the column to read as characters instead of doubles.
+
+```{r}
+june_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - June 2023(Table 1).csv", 
+         skip = 1) |> pivot_date("June", "2023")
+```
+
+**Important note: we manually removed an extra space from cell Murray:30 in the original June 2023 csv because it was causing the column to read as characters instead of doubles.
+
+```{r}
+july_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2023(Table 1).csv", 
+         skip = 1) |> pivot_date("July", "2023")
+```
+
+```{r}
+august_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - August 2023(Table 1).csv", 
+         skip = 1) |> pivot_date("August", "2023")
+```
+
+```{r}
+september_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - September 2023(Table 1).csv", 
+         skip = 1) |> pivot_date("September", "2023")
+```
+
+## Combining each month into one data frame
+
+```{r}
+indoor_2023_combined <- bind_rows(april_clean, may_clean, june_clean, july_clean, august_clean, september_clean)
+
+indoor_2023_combined
+```
+
+## Export the data
+
+```{r}
+indoor_2023_combined |> write_rds("data-processed/01-indoor-2023-cleaned.rds")
+```
+

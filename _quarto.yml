@@ -2,6 +2,7 @@ project:
   type: website
   render:
   - "!x-*.qmd"
+  - "!ignore/*.qmd"
   - "01*.qmd"
   - "02*.qmd"
   - index.qmd
@@ -18,6 +19,13 @@ website:
         contents: "01-*qmd"
       - section: "Analysis"
         contents: "02-*qmd"
+    tools:
+    - icon: github
+      href: https://github.com/utdata/tdcj-prison-heat
+    - icon: question-circle
+      href: https://journalism.utexas.edu/innovation/
+
+  page-footer: "Media Innovation Group" 
 
 format:
   html:

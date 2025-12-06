@@ -1,0 +1,287 @@
+---
+title: "Updated activations cleaning"
+author: "Media Innovation Group"
+format: html
+---
+
+This data is a record of every time a TDCJ was under ICS protocols, like providing extra ice water and access to cooler areas during extreme heat events, in 2022, 2023 and 2024. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.
+
+::: callout-warning
+
+Questions as of 9/27:
+-Do we need the 2025 activations logs?
+-In the 2022 log, the original xlsx sheet has cell E29 recorded as 12/21/01. I assume this is supposed to be 07/21/22 as it is the ICS initation date column which should be the same date as is recorded in the ICS implementation date column for this row. Should we change that in the original xlsx sheet? 
+
+
+:::
+
+## Goals of this notebook
+
+What we'll do to prepare the data:
+
+- Download the data using read_excel
+- Import it into our notebook
+- Clean up data types and columns 
+- Combine all three years into one data frame
+- Export data into our next notebook
+
+## Setup
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(data.table)
+library(readxl)
+library(hms)
+```
+
+
+## Downloading the data
+
+This data includes all instances where units were under ICS protocols for 2022, 2023 and 2024, as reported by the TDCJ from a public information request. The data is limited by when the information request was filled  each year: 2022/08/07, 2023/09/12 and 2024/08/29.
+
+Downloading the xlsx files using read_excel, specifying the sheet, skipping the first row, and specifying column types. 
+
+```{r}
+activations_2022_raw <- read_excel("data-original/08.07.22 ICS Seasonal Spreadsheet.xlsx", sheet = "FY22 ICS", skip = 1, col_types = c("date", "date", "text", "text", "date", "date", "date", "date")) |> 
+  clean_names()
+activations_2022_raw
+```
+
+** Note on 2022 sheet: we reformatted cells F11 and F21 in the original xlsx file because it was formatted as text rather than time and read in as NA. We also corrected 
+
+```{r}
+activations_2023_raw <- read_excel("data-original/09.12.23 ICS Seasonal Spreadsheet .xlsx", sheet = "FY 23", skip = 1, col_types = c("date", "date", "text", "text", "date", "numeric", "date", "numeric")) |> 
+  clean_names()
+
+activations_2023_raw
+```
+
+** Note on 2023 sheet: we reformatted cells E24, E92 and B65 in the original xlsx file because the year was recorded as 2023 rather than 23, causing these cells to read in as NA. 
+
+```{r}
+activations_2024_raw <- read_excel("data-original/08.29.24_ICS Seasonal Spreadsheet .xlsx", sheet = "CY24", skip = 1, col_types = c("date", "date", "text", "text", "date", "numeric", "date", "numeric")) |> 
+  clean_names()
+```
+
+## Clean column names
+
+```{r}
+activations_2022_names <- activations_2022_raw |> select(
+  initial_extreme_temp = initial_date_of_extreme_temperature,
+  initiation_date = ics_implementation_date,
+  county,
+  unit = unit_affected,
+  activation_date = date_5, 
+  activation_time = time_6,
+  deactivation_date = date_7,
+  deactivation_time = time_8 
+  )
+```
+
+```{r}
+activations_2023_names <- activations_2023_raw |> select(
+  initial_extreme_temp = initial_date_of_extreme_temperature,
+  initiation_date = ics_implementation_date,
+  county,
+  unit = unit_affected,
+  activation_date = date_5, 
+  activation_time = time_6,
+  deactivation_date = date_7,
+  deactivation_time = time_8 
+  )
+  
+```
+
+```{r}
+activations_2024_names <- activations_2024_raw |> select(
+  initial_extreme_temp = initial_date_of_extreme_temperature,
+  initiation_date = ics_implementation_date,
+  county,
+  unit = unit_affected,
+  activation_date = date_5, 
+  activation_time = time_6,
+  deactivation_date = date_7,
+  deactivation_time = time_8 
+  )
+```
+
+## Fix the 2022 log activation and deactivation time columns
+
+Because the 2022 log had the the activation and deactivation time columns formatted as hh:mm rather than the hhmm format used in the 2023 and 2024 logs, we had to specify those column types as dates for them to read in properly, which generated a date of 1899-12-31 for each time. We're using mutate() and the hms() function to pull just the time from this datetime. 
+
+
+```{r}
+activations_2022_clean <- activations_2022_names |> 
+  mutate(
+    activation_time = hms(
+    hour = hour(activation_time),
+    minute = minute(activation_time),
+    second = second(activation_time),
+    )
+  ) |> 
+  mutate(
+      deactivation_time = hms(
+      hour = hour(deactivation_time),
+      minute = minute(deactivation_time),
+      second = second(deactivation_time)
+    ))
+
+
+```
+
+## Reformat 2023 log activation and deactivation time columns
+
+In the 2023 and 2024 logs, the activation and deactivation times were recorded in hhmm format (i.e. 1539 instead of 15:39:00). Reformatting to hh:mm:ss by using str_pad to restore the leading zeros that were removed when we read in the original file with read_excel, using parse_hms from the lubridate package, using substr to specify which digits are hours, minutes and seconds, and removing unnecessary columns. 
+
+```{r}
+activations_2023_time <- activations_2023_names|> 
+  mutate(
+    activation_time_new = str_pad(activation_time, width = 4, side = "left", pad = "0"),
+    deactivation_time_new = str_pad(deactivation_time, width = 4, side = "left", pad = "0"))
+
+```
+ 
+```{r}
+activations_2023_clean <- activations_2023_time |> 
+  mutate(
+    activation_time_clean = parse_hms(paste0(substr(activation_time_new, 1, 2), ":", substr(activation_time_new, 3, 4), ":00")),
+    deactivation_time_clean = parse_hms(paste0(substr(deactivation_time_new, 1, 2), ":", substr(deactivation_time_new, 3, 4), ":00"))
+  ) |> 
+  select(initial_extreme_temp,
+         initiation_date,
+         county,
+         unit,
+         activation_date,
+         activation_time = activation_time_clean,
+         deactivation_date,
+         deactivation_time = deactivation_time_clean)
+
+activations_2023_clean
+```
+
+## Reformat 2024 log activation and deactivation time columns
+
+Same process as above but for the 2024 log. 
+
+```{r}
+activations_2024_time <- activations_2024_names|> 
+  mutate(
+    activation_time_new = str_pad(activation_time, width = 4, side = "left", pad = "0"),
+    deactivation_time_new = str_pad(deactivation_time, width = 4, side = "left", pad = "0"))
+
+```
+ 
+```{r}
+activations_2024_clean <- activations_2024_time |> 
+  mutate(
+    activation_time_clean = parse_hms(paste0(substr(activation_time_new, 1, 2), ":", substr(activation_time_new, 3, 4), ":00")),
+    deactivation_time_clean = parse_hms(paste0(substr(deactivation_time_new, 1, 2), ":", substr(deactivation_time_new, 3, 4), ":00"))
+  ) |> 
+  select(initial_extreme_temp,
+         initiation_date,
+         county,
+         unit,
+         activation_date,
+         activation_time = activation_time_clean,
+         deactivation_date,
+         deactivation_time = deactivation_time_clean)
+
+activations_2024_clean
+```
+ 
+ 
+## Combining three years of activations logs into one data frame
+
+```{r}
+activations_all <- bind_rows(activations_2022_clean, activations_2023_clean, activations_2024_clean)
+
+activations_all
+```
+
+## Change date columns
+
+Using the as.Date function to convert the POSIX date columns into real date columns.
+
+```{r}
+activations_all_dates <- activations_all |> 
+  mutate(
+    initial_extreme_temp = as.Date(initial_extreme_temp),
+    initiation_date = as.Date(initiation_date),
+    activation_date = as.Date(activation_date),
+    deactivation_date = as.Date(deactivation_date)
+  ) 
+
+activations_all_dates
+```
+
+
+## Activation dates/times
+
+Code from Prof. McDonald:
+
+Looking at how many days there typically were between the initial extreme temperature and the activation.
+
+```{r}
+activations_all_dates |> 
+  mutate(activation_gap = initiation_date - initial_extreme_temp,
+         .after = initiation_date) |> 
+  arrange(activation_gap |> desc()) |> 
+  count(activation_gap) |> 
+  adorn_totals("row") |> 
+  # as_tibble() |> 
+  rename(
+    gap_days = activation_gap,
+    cnt_records = n
+  )
+```
+Out of 143 activations between 2022-2024, only one of them took place more than the 3rd day after the “initial extreme temp”.
+
+## Document active days
+
+Code from Prof. McDonald:
+
+In our data, a single row is an activation period with a start and end date. What we want is a row of data for each activated day … so if is three days between the start and end date, we want a row for each of the three days, with a variable activated that includes that date.
+
+We do this by creating a new “list column” that includes a sequence of dates starting at activation and ending at deactivation. We then unnest that list to create a row for each item in the list.
+
+```{r}
+unnested_actives <- activations_all_dates |> 
+  mutate(activated = map2( #<1>
+    activation_date, deactivation_date, #<2>
+    ~seq(from = .x, to = .y, by = "day") #<3>
+  )) |> 
+  unnest(activated) #<4>
+
+unnested_actives
+```
+
+1. We create a column called `activated`, and that will be filled with the result of the `map2()` function. What `map2()` allows us to do is take two variables from our data (our dates) and provide it to a function (`seq()`).
+2. Here we list the two variables, our start and end dates.
+3. This `seq()` function creates a list of dates in sequence by day, starting with our `activation_date` (.x) and ending with our `deactivation_date` (.y). The end result is a nested "list column" `activated` that holds all the dates. At this point we still have one row for each activation period.
+4. Here the `unnest()` function creates a new copy of each row with one of the dates in our `activated` list column. So if an activation period was 4 days, here we end up for 4 rows of the same data except for the date in `activated`.
+
+
+## Clean up our active days
+
+Code from Prof. McDonald:
+
+Here we simplify our activations data so we can join it with other data. We get just the `unit`, `date` and a `protocol_active` flag.
+
+```{r}
+clean_actives <- unnested_actives |> 
+  select(c(unit, date = activated)) |> 
+  mutate(protocol_active = T)
+
+clean_actives
+```
+
+## Export
+
+```{r}
+clean_actives |> write_rds("data-processed/01-activation-cleaned.rds")
+```
+
