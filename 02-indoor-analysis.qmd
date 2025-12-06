@@ -1,9 +1,22 @@
 ---
-title: "Indoor temp logs analysis"
+title: "Indoor logs analysis"
 author: "Emily DeMotte & the Media Innovation Group"
 code-fold: true
 code-summary: "Click to show code"
 ---
+
+::: callout
+
+Tasks for Emily on this:
+
+- Make sure there isn't anything important from your previous work that isn't in the newer section.
+- Go through the newer section and make sure you understand it. Read through the takeaways and correct as needed. Add anything you might thing is important that I might have missed.
+- Remove all my notes that start with `>` 
+- Write a section near the top of the `index.qmd` that highlights the most important things we find here.
+- Then remove this callout section ;-)
+
+:::
+
 
 We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
@@ -13,7 +26,7 @@ In this notebook, we will explore the following questions:
 
 * What was the highest temperature reached each year, and where?  
 * How many days was the indoor temperature at least X degrees (85, 90, 95, 100+) each year from 2022 to 2025.
-* How many consecutive days in those measures?
+* How many consecutive days in those measures? (Not tackled yet)
 
 ## Setup
 
@@ -27,6 +40,7 @@ library(tidyverse)
 library(janitor)
 library(ggthemes)
 library(DT)
+library(ggwaffle)
 
 # suppress group warning
 options(dplyr.summarise.inform = FALSE)
@@ -55,9 +69,9 @@ indoor_logs
 
 ### Records per unit, year
 
-Checking where we might have missing data
+Checking where we might have missing data ...
 
-> I rearranged this a little so we could see all years at once. Let's check on the missing units.
+> I rearranged this a little so we could see all years at once. Let's check on the missing units. I also pulled in the test from the unit analysis, so the most important parts are here and I don't think we need the rest.
 
 ```{r}
 indoor_logs |> 
@@ -66,7 +80,19 @@ indoor_logs |>
   pivot_wider(names_from = year, values_from = days_recorded)
 ```
 
-Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request. 
+Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request.
+
+* Bartlett: 2025 only
+* Baten: 2025 only
+* Garza East: 2024 and 2025 only
+* Gurney: 2025 only
+* Johnston: 2022 and 2023 only
+* Mountain View: 2022 and 2023 only
+* O'Daniel: 2024 only
+* Plane: 2022, 2023 and 2024 only
+* Sayle: appears in 2022 only 
+* Segovia: 2023 (June, July and August and September only), 2024 and 2025 only 
+* Young: 2022, 2023 and 2024 only
 
 ## Hottest temps each year
 
@@ -378,24 +404,7 @@ Takeaways:
 
 This attempts to _show_ how many units reached 100 degrees at least once in a given year.
 
-```{r}
-library(ggwaffle)
-
-count_temps_unit_year |> 
-  select(unit, year, cnt_100) |> 
-  mutate(r_100 = if_else(cnt_100 > 0, "At least 100", "Below 100")) |> 
-  filter(year == 2023) |>
-  waffle_iron(aes_d(group = r_100)) |> 
-  ggplot(aes(x, y, fill = group)) + 
-  geom_waffle() +
-  theme_waffle() +
-  labs(
-    title = "Number of units to reach 100 in 2023",
-    x = "", y = "", fill = "High temp"
-  )
-```
-
-Now that we know how to do that, we'll do it for multiple years by making a function.
+Since we'll want to make this chart for several years, I'll make it into a function to reuse.
 
 ```{r}
 prison_waffle <- function(.data, yr) {
@@ -463,9 +472,10 @@ temp_thrsh_unit_year
 
 To plot this we have to reshape the data, then plot as a bar chart. We save the chart before displaying it so we can control the size since there are so many units to show.
 
-Right now I have a variable to filter/set the year. We can make a function later and do all years if we like it.
+The plotting has been turned into a function to keep it dRy.
 
 ```{r}
+# pivoting the data
 thresh_data <- temp_thrsh_unit_year |> 
   pivot_longer(
     cols = starts_with("cnt"),
@@ -474,11 +484,10 @@ thresh_data <- temp_thrsh_unit_year |>
   ) |> 
   mutate(threshold = fct_inorder(threshold))
 
-# so we can see different years.
-set_yr <- 2023
-
-thresh_plot <- thresh_data |> 
-  filter(year == set_yr) |> 
+# plot the data into an object and then save that object into the figures folder.
+plot_thresh_data <- function(yr) {
+  thresh_plot <- thresh_data |> 
+  filter(year == yr) |> 
   ggplot(aes(x = days, y = fct_rev(unit), fill = threshold)) +
   geom_bar(stat = "identity", position = position_stack(reverse = TRUE)) +
   scale_fill_brewer(
@@ -492,25 +501,31 @@ thresh_plot <- thresh_data |>
     )) +
   # theme(legend.position = "bottom") +
   labs(
-    title = paste("Tracking indoor heat in prisons,", set_yr),
+    title = paste("Tracking indoor heat in prisons,", yr),
     x = "Number of days at each temperature", y = "",
     fill = "Indoor high"
   )
+  
+  ggsave(paste0("figures/thresh_plot_", yr, ".png"), width = 6, height = 12)
 
-ggsave(paste0("figures/thresh_plot_", set_yr, ".png"), width = 6, height = 12)
+}
+
+plot_thresh_data(2022)
+plot_thresh_data(2023)
+plot_thresh_data(2024)
+plot_thresh_data(2025)
 
 ```
+
+We'll print out each of the plots, though they will be big.
+
 
 ![](figures/thresh_plot_2022.png)
 
+![](figures/thresh_plot_2023.png)
+![](figures/thresh_plot_2024.png)
 
-```{r}
-thresh_data |> 
-  filter(year == 2022) |> 
-  ggplot(aes(x = days, y = unit)) +
-  geom_col(aes(fill = threshold))
-```
-
+![](figures/thresh_plot_2025.png)
 
 ---
 

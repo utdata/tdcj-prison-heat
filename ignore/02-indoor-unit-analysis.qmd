@@ -1,0 +1,120 @@
+---
+title: "Indoor logs unit analysis"
+author: "Emily DeMotte, Media Innovation Group"
+format: html
+---
+
+We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. However, the units recorded each year are inconsistent, with some appearing in some years while not appearing in others. 
+
+## Goals of this notebook
+
+In this notebook, we will analyze the indoor log data to see which units appear in which years of data.  
+
+## Setup
+
+Loading our libraries
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(data.table)
+```
+
+
+## Import
+
+Reading in the combined activation logs and combined indoor logs
+
+```{r}
+indoor_logs <- read_rds("data-processed/01-indoor-temps-all-cleaned.rds")
+```
+
+## Unit search
+
+```{r}
+indoor_logs |> filter(
+  unit == "Segovia"
+) |> group_by(
+    unit, year = year(date)
+  ) |> 
+  summarize(
+    total_days = n()
+  )
+```
+
+```{r}
+indoor_logs |> mutate(year = year(date)) |> 
+  filter(unit == "Sanchez", year == 2023  )
+```
+
+
+## Seeing how many and which units are recorded in each year of data
+
+Grouping by unit and year and filtering by year to see how many units are recorded each year.
+
+```{r}
+indoor_logs |> 
+  group_by(unit, year(date)) |> 
+  filter(year(date) == 2025) |> 
+  summarize(days_recorded = n())
+```
+
+Grouping by unit and pulling each distinct unit to see a list of all units that appear across all four years of data. 
+
+```{r}
+all_units <- indoor_logs |> 
+  mutate(year = year(date))  |> 
+  group_by(unit) |> 
+  distinct(unit) |> 
+  pull(unit)
+
+all_units
+```
+
+Grouping by unit and summarizing by the number of distinct years that each unit appears in.
+
+```{r}
+unit_count <- indoor_logs |> 
+  mutate(year = year(date)) |> 
+  group_by(unit) |> 
+  summarise(distinct_years = n_distinct(year))
+
+unit_count |> filter(distinct_years == 4)
+```
+
+Grouping by unit and summarizing by the number of distinct months that each unit appears in. 
+
+```{r}
+indoor_logs |> 
+  mutate(flo_mo = floor_date(date, unit = "month")) |> 
+  group_by(unit) |> 
+  summarise(distinct_months = n_distinct(flo_mo)) |> 
+  arrange(distinct_months)
+
+```
+
+Grouping by unit and month, summarizing by distinct month and filtering by unit to see if different units appear in each month of the distinct year they appear in. 
+
+```{r}
+indoor_logs  |> 
+  group_by(unit, flo_mo = floor_date(date, unit = "month")) |> 
+  summarise(distinct_months = n_distinct(flo_mo)) |> 
+  filter(unit == "Young")
+```
+
+Data takeaway: For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. 63 units appear in all four years of data. The 11 units that differ by year are as follows:
+
+* Plane- appears in 2022, 2023 and 2024 only
+* Young- appears in 2022, 2023 and 2024 only
+* Segovia- appears in 2023 (June, July and August and September only), 2024 and 2025 only 
+* Garza East- appears in 2024 and 2025 only
+* Johnston- appears in 2022 and 2023 only
+* Mountain View- appears in 2022 and 2023 only
+* Bartlett- appears in 2025 only
+* Baten- appears in 2025 only
+* Gurney- appears in 2025 only
+* O'Daniel- appears in 2024 only
+* Sayle- appears in 2022 only 
