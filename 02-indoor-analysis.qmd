@@ -71,7 +71,6 @@ indoor_logs
 
 Checking where we might have missing data ...
 
-> I rearranged this a little so we could see all years at once. Let's check on the missing units. I also pulled in the test from the unit analysis, so the most important parts are here and I don't think we need the rest.
 
 ```{r}
 indoor_logs |> 
@@ -81,6 +80,7 @@ indoor_logs |>
 ```
 
 Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request.
+For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. 63 units appear in all four years of data. The 11 units that differ by year are as follows:
 
 * Bartlett: 2025 only
 * Baten: 2025 only
@@ -104,6 +104,16 @@ indoor_logs |>
   slice_max(temperature, n = 5) |> 
   select(year, unit, date, temperature)
 ```
+ 
+```{r}
+indoor_logs |> 
+  group_by(year) |> 
+  select(year, unit, date, temperature) |> 
+  filter(temperature >= 105)
+```
+
+Data takeaway:
+- It reached 100 degrees indoors 210 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperatured recorded was the Mountain View unit on June 19, 2023, which reached 106.8 degrees. 
  
 ## Temp ranges by month, year
 
@@ -184,7 +194,6 @@ Data takeaways:
 
 ## Crit
 
-> I've reworked much of this for two reasons: a) to organize by threshold first, then each summary grouped by year. This makes it easier to see changes over time. b) I wanted a code result for each takeaway.
 
 ## 85 degree threshold
 
@@ -234,6 +243,8 @@ count_temps_unit_year |>
 Example takeaways:
 
 - In 2022, 53 of 68 units reached 85 degrees at least half of the days measured.
+- In 2023, 54 of 68 units reached 85 degrees at least half of the days measured.
+- Twelve units reached 85 degrees on 75% of days measured in 2022.
 - Ten units reached 85 degrees on 75% of days measured in 2023.
 
 ### Units most at 85
@@ -250,7 +261,8 @@ count_temps_unit_year |>
 Takeaways:
 
 - In the Segovia unit in 2023, 94% of the days reached 85 degrees.
-- Garza West reached 85 degrees on at least 80% of days each year since 2022.
+- Garza West reached 85 degrees on at least 80% of days each year since 2022. In 2022, 92% of days reached 85 degrees. 
+
 
 ### Minimum days 85 threshold met
 
@@ -315,7 +327,8 @@ count_temps_unit_year |>
   arrange(year)
 ```
 
-Segovia has fewer days measured in 2023, but it still reached 90 degrees more than 100 times.
+Segovia has fewer days measured in 2023, but it still reached 90 degrees more than 100 times. 
+- In 2024, Garza West reached 90 degrees 137 times, or 75% of days between April 1 and Sept. 30. 
 
 
 ### Units with most days at 90
@@ -380,7 +393,7 @@ units_at_95 <- count_temps_unit_year |>
 units_at_95
 ```
 
-Takeaway: At the Garza West in 2023 it reached 95 degrees more than a 100 times.
+Takeaway: At the Garza West in 2023 it reached 95 degrees more than a 100 times. In other words, nearly 3 out of every 5 days reached 95 degrees indoors between April and September.
 
 ## 100 threshold
 
@@ -396,7 +409,7 @@ count_temps_unit_year |>
 ```
 Takeaways:
 
-- Between 2022 and 2025, each year more than a dozen units reach 100 degrees inside at least once.
+- Between 2022 and 2024, each year more than a dozen units reach 100 degrees inside at least once. In 2023, 18 units reached 100 degrees inside at least once between April and September.
 
 #### Plot attempt
 
@@ -695,7 +708,7 @@ count_temps_year |> filter(year == 2023) |> select(year, total_days, cnt_85, pct
 
 Data takeaway: In 2023, all 68 units without air conditioning recorded indoor temperatures at or above 85 degrees for at least 40, or 21.9% of days between April 1 and Sept. 30. 54 units recorded temperatures at or above 85 for over 50% of recorded days, and seven units recorded temperatures at or above 85 for over 75% of days. The Lopez unit, located in Edinburg, Texas just north of McAllen, recorded the the most days with indoor temperatures at or above 85, with 152, or 83.1% of days. Of the days where temperatures were measured in all prisons across the year, only 39.4% didn't reach 85 degrees.
 
-## 2024 at 90
+## 2023 at 90
 
 Filtering the indoor log data to include only readings taken in 2023 where the temperature was above 90°F.
 
@@ -710,7 +723,7 @@ count_temps_year |> filter(year == 2023) |> select(year, total_days, cnt_90, pct
 Data takeaway: In 2023, 67 out of 68 units without air conditioning recorded indoor temperatures at or above 90 degrees for at least 9, or 5% of days between April 1 and Sept. 30. Just one unit did not record temperatures at or above 90, the Clements unit located east of Amarillo, Texas. 50 units recorded temperatures at or above 90 for over 25% of recorded days, and 18 units recorded temperatures at or above 90 for over 50% of days. The Garza West unit, located near Beeville, Texas, recorded the the most days with indoor temperatures at or above 90, with 133, or 72.7% of days. Of the days where temperatures were measured in all prisons across the year, 36.8% reached 90 degrees.
 
 
-## Days at or above 95
+## 2023 at 95
 
 Filtering the indoor log data to include only readings taken in 2023 where the temperature was above 95°F.
 
@@ -725,7 +738,7 @@ count_temps_year |> filter(year == 2023) |> select(year, total_days, cnt_95, pct
 
 Data takeaway: In 2023, 61 out of 68 units without air conditioning recorded indoor temperatures at or above 95 degrees for at least 1 day between April 1 and Sept. 30. 13 units recorded temperatures at or above 95 for at least 48 days, or 25.2% of the time. Garza West recorded the the most days with indoor temperatures at or above 95, with 108, or 59% of days. Of the days where temperatures were measured in all prisons across the year, 11.5% reached 95 degrees. 
 
-## Days at or above 100
+## 2023 at 100
 
 Filtering the indoor log data to include only readings taken in 2023 where the temperature was above 100°F.
 
