@@ -10,7 +10,7 @@ Looking at the navigation of this site, you'll mainly want to look at the files 
 
 ## Indoor logs 
 
-We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3 p.m. every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
 For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Dec. 9, 2025, we only have 122 days of 2025 recordings, April 1 through July 25.
 
@@ -18,14 +18,14 @@ For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings
 - It reached 90 degrees at least a quarter of the time.
 - It reached 100 degrees inside prisons more than 100 times in 2023.
 - It reached 100 degrees indoors 210 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperature recorded was the Mountain View unit on June 19, 2023, which reached 106.8 degrees. 
-- In 2022, 53 of 68 units reached 85 degrees at least half of the days measured.
-- In 2023, 54 of 68 units reached 85 degrees at least half of the days measured.
+- In 2022, 53 of 68 units reached 85 degrees at least half of the days measured. In 2023, it was 54 of 68 units. 
 - Twelve units reached 85 degrees on 75% of days measured in 2022.
 - Ten units reached 85 degrees on 75% of days measured in 2023.
 - In the Segovia unit in 2023, 94% of the days reached 85 degrees.
 - Garza West reached 85 degrees on at least 80% of days each year since 2022. In 2022, 92% of days reached 85 degrees. 
 - In 2023, 19 of 68 units reached 90 degrees at least half of the days measured.
 - Two units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024.
+- Across all years, the Segovia and Garza West units consistently topped the charts for hottest temperatures recorded. 
 
 
 ## Outdoor logs

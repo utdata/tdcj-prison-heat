@@ -5,18 +5,6 @@ code-fold: true
 code-summary: "Click to show code"
 ---
 
-::: callout
-
-Tasks for Emily on this:
-
-- Make sure there isn't anything important from your previous work that isn't in the newer section.
-- Go through the newer section and make sure you understand it. Read through the takeaways and correct as needed. Add anything you might thing is important that I might have missed.
-- Remove all my notes that start with `>` 
-- Write a section near the top of the `index.qmd` that highlights the most important things we find here.
-- Then remove this callout section ;-)
-
-:::
-
 
 We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
@@ -26,6 +14,7 @@ In this notebook, we will explore the following questions:
 
 * What was the highest temperature reached each year, and where?  
 * How many days was the indoor temperature at least X degrees (85, 90, 95, 100+) each year from 2022 to 2025.
+* Which units consistently recorded the highest temperatures? 
 * How many consecutive days in those measures? (Not tackled yet)
 
 ## Setup
@@ -46,6 +35,7 @@ library(ggwaffle)
 options(dplyr.summarise.inform = FALSE)
 ```
 
+
 ## Import
 
 Reading in the cleaned and combined indoor logs.
@@ -64,7 +54,7 @@ indoor_logs <- indoor_logs_clean |> mutate(
   year = year(date)
 ) 
 
-indoor_logs
+indoor_logs |> datatable()
 ```
 
 ### Records per unit, year
@@ -76,11 +66,11 @@ Checking where we might have missing data ...
 indoor_logs |> 
   group_by(unit, year) |> 
   summarize(days_recorded = n()) |> 
-  pivot_wider(names_from = year, values_from = days_recorded)
+  pivot_wider(names_from = year, values_from = days_recorded)  
 ```
 
 Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request.
-For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. 63 units appear in all four years of data. The 11 units that differ by year are as follows:
+For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. Sixty-three units appear in all four years of data. The 11 units that differ by year are as follows:
 
 * Bartlett: 2025 only
 * Baten: 2025 only
@@ -88,7 +78,7 @@ For each year of data, there are 68 TDCJ units that recorded indoor temperatures
 * Gurney: 2025 only
 * Johnston: 2022 and 2023 only
 * Mountain View: 2022 and 2023 only
-* O'Daniel: 2024 only
+* O'Daniel: 2024 only (note: the Mountain View unit was renamed to Patrick O'Daniel in January 2024, which appears as O'Daniel in the data. They are the same unit.) 
 * Plane: 2022, 2023 and 2024 only
 * Sayle: appears in 2022 only 
 * Segovia: 2023 (June, July and August and September only), 2024 and 2025 only 
@@ -104,20 +94,59 @@ indoor_logs |>
   slice_max(temperature, n = 5) |> 
   select(year, unit, date, temperature)
 ```
+
+```{r}
+indoor_logs |> 
+  group_by(year) |> 
+  slice_max(temperature, n = 15) |> 
+  select(year, unit, date, temperature)
+```
+
+```{r}
+indoor_logs |> 
+  group_by(year) |> 
+  slice_max(temperature, n = 20) |> 
+  select(year, unit, date, temperature)
+```
+
+```{r}
+indoor_logs |> 
+  group_by(year) |> 
+  slice_max(temperature, n = 50) |> 
+  select(year, unit, date, temperature) 
+```
+
+Summarizing the times each unit appeared in the top 50 hottest temperature recordings each year. 
+
+```{r}
+indoor_logs |> 
+  group_by(year) |> 
+  slice_max(temperature, n = 50) |> 
+  select(year, unit, date, temperature) |> 
+  group_by(unit, year) |> 
+  summarize(n = n()) |> 
+  arrange(desc(n))
+```
+
+> Note for Prof. Mcdonald - this is a new takeaway from the code above that I thought was interesting, but the limitation is some of the recordings are on the same day at different units, which may be close to each other/share the same NWS. Maybe we could filter out repeat days? I also wasn't sure which increments to stick with, so I noted ones where I found interesting temp thresholds. 
+
+Data takeaway: For all complete years of data, the five hottest indoor temperatures recorded each year between April 1 and Sept. 30 across all units all exceeded 103 degrees. The 20 hottest indoor temperatures recorded each year all exceeded 101 degrees. The 50 hottest recordings each year all exceeded 100 degrees, with the exception of five recordings in 2024. 
+
+In 2023, the 15 hottest temperatures recorded all exceeded 103 degrees, while the 20 hottest exceeded 102 degrees. Twenty, or 40% of the 50 hottest temperatures recorded in 2023 were recorded at Garza West, which was the most frequently appearing unit. 
  
 ```{r}
 indoor_logs |> 
   group_by(year) |> 
   select(year, unit, date, temperature) |> 
-  filter(temperature >= 105)
+  filter(temperature >= 100) |> 
+  datatable()
 ```
 
-Data takeaway:
-- It reached 100 degrees indoors 210 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperatured recorded was the Mountain View unit on June 19, 2023, which reached 106.8 degrees. 
+Data takeaway: It reached 100 degrees indoors 210 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperature was recorded at the Mountain View unit on June 19, 2023, which reached 106.8 degrees. The Mountain View unit was renamed to Patrick O'Daniel (appears as O'Daniel in the data) in January 2024 and houses female prisoners in Gatesville, Texas, about 45 miles west of Waco. 
  
 ## Temp ranges by month, year
 
-This shows how many days a unit reached a specific indoor temperature each month.
+This shows how many days per month a unit reached a specific indoor temperature.
 
 ```{r}
 count_temps_unit_month <- indoor_logs|> 
@@ -132,7 +161,7 @@ count_temps_unit_month <- indoor_logs|>
     .groups = "drop"
   )
 
-count_temps_unit_month
+count_temps_unit_month |> datatable()
 ```
 
 ## Temp ranges by unit, year
@@ -158,12 +187,12 @@ count_temps_unit_year <- indoor_logs |>
   ) |> 
   mutate(across(starts_with("pct"), round, 2)) # rounds percentage
 
-count_temps_unit_year |> arrange(cnt_100 |> desc()) 
+count_temps_unit_year |> datatable()
 ```
 
 ## Temp ranges by year
 
-How many "prison days" it reached a certain temperature each year.
+How many "prison days" it reached a certain temperature each year. "Prison days" include all days recorded across all units each year.
 
 ```{r}
 count_temps_year <- indoor_logs|> 
@@ -187,9 +216,9 @@ count_temps_year
 
 Data takeaways:
 
-- Across all prisons in the data in from 2022-2024, it reached 85 degrees at least half the time.
+- Across all prisons in the data in from 2022-2024, it reached 85 degrees at least half the time between April 1 and Sept. 30.
 - It reached 90 degrees at least a quarter of the time. (Doesn't include 2025 since we don't have full data.)
-- It reached 100 degrees inside prisons more than 100 times in 2023.
+- It reached 100 degrees inside prisons more than 100 times in 2023 alone. Across all prisons, 37% of days between April and September reached 90 degrees. 
 
 
 ## Crit
@@ -210,9 +239,8 @@ count_temps_unit_year |>
   )
 ```
 
-Takeaway: Every unit hit 85 degrees at least once every year with one exception in 2022.
 
-Let's find that unit that didn't reach 85 degrees. These are the lowest of the "highest temperature for each unit" where we can see Sayle didn't reach 85 degrees twice. We only have 2022 data for the Sayle unit.
+Let's find that unit in 2022 that didn't reach 85 degrees. These are the lowest of the "highest temperature for each unit" where we can see Sayle didn't reach 85 degrees twice. We only have 2022 data for the Sayle unit.
 
 ```{r}
 indoor_logs |> 
@@ -223,6 +251,8 @@ indoor_logs |>
   select(unit, date, temperature) |> 
   filter(temperature <= 90) # cutting here to show the next units for comparison
 ```
+
+Takeaway: Every unit hit 85 degrees at least once every year with one exception in 2022, where the Sayle unit recorded 84.6 degrees as its highest temperature on two separate days. The Sayle unit was not included in the data for 2023, 2024 or 2025. 
 
 ### Units reaching 85 half the time
 
@@ -240,12 +270,9 @@ count_temps_unit_year |>
 
 ```
 
-Example takeaways:
-
-- In 2022, 53 of 68 units reached 85 degrees at least half of the days measured.
-- In 2023, 54 of 68 units reached 85 degrees at least half of the days measured.
-- Twelve units reached 85 degrees on 75% of days measured in 2022.
-- Ten units reached 85 degrees on 75% of days measured in 2023.
+Data takeaways: 
+- In 2022, 53 of 68 units reached 85 degrees or above on at least half of the days measured. In 2023, it was 54 of 68, and in 2024, it was 48 of 68. 
+- Twelve units reached 85 degrees on 75% of days measured in 2022. In 2023, it was 10 units, and in 2024, it was eight units. 
 
 ### Units most at 85
 
@@ -258,10 +285,10 @@ count_temps_unit_year |>
   select(unit, year, total_days, cnt_85, pct_85)
 ```
 
-Takeaways:
+Data takeaway:
+- In the Segovia unit in 2023, 94% of recorded days between June and September, or 115 days, reached 85 degrees. No data was recorded for April and May. The Segovia unit is located in South Texas outside of Edinburgh, about 20 miles north of McAllen. 
+- Garza West reached 85 degrees on at least 80% of days between April and September each year since 2022. In 2022, 92% of days reached 85 degrees or above. Every year, Garza West was among the top three units with the highest percentage of days that reached at or above 85 degrees.
 
-- In the Segovia unit in 2023, 94% of the days reached 85 degrees.
-- Garza West reached 85 degrees on at least 80% of days each year since 2022. In 2022, 92% of days reached 85 degrees. 
 
 
 ### Minimum days 85 threshold met
@@ -276,11 +303,10 @@ count_temps_unit_year |>
   select(unit, year, total_days, cnt_85, pct_85)
 ```
 
-Takeaways
-
-- With the exception of the Sayle unit, it reached 85 degrees inside every other unit for at least 43 days in 2022.
+Data takeaways:
+- With the exception of the Sayle unit, it reached 85 degrees inside every unit for at least 43 days between April 1 and Sept. 30 in 2022. 
 - In 2023, every unit saw at least 40 days reaching 85 degrees.
-- Even in the relatively cool 2024 summer, it reached 85 degrees inside every unit at least 27 times.
+- Even in the relatively cool 2024 summer, it reached 85 degrees inside every unit for at least 27 days. 
 
 ## 90 degree threshold
 
@@ -295,7 +321,7 @@ count_temps_unit_year |>
   )
 ```
 
-Almost every unit also reached 90 degrees inside at least once each year. All but three units in 2022 and one in 2023.
+Data takeaway: Almost every unit also reached 90 degrees inside at least once each year, all but three units in 2022 and one in 2023.
 
 ### Units that hit 90° half the time
 
@@ -312,11 +338,6 @@ count_temps_unit_year |>
   )
 ```
 
-Example takeaway: 
-
-- In 2023, 19 of 68 units reached 90 degrees at least half of the days measured.
-- Two units reached 90 degrees for at least 75% of days measured, one in 2023 and one in 2024.
-
 Let's find those units that reach 90 for 75% of the time.
 
 ```{r}
@@ -327,8 +348,10 @@ count_temps_unit_year |>
   arrange(year)
 ```
 
-Segovia has fewer days measured in 2023, but it still reached 90 degrees more than 100 times. 
-- In 2024, Garza West reached 90 degrees 137 times, or 75% of days between April 1 and Sept. 30. 
+Data takeaways: 
+- In 2023, 19 of 68 units reached 90 degrees at least half of the days measured. This was also true for nine units in 2022 and six units in 2024. 
+- Across all years of data, two units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024.
+-Segovia has fewer days measured in 2023, but it still reached 90 degrees more than 100 times. In 2024, Garza West reached 90 degrees 137 times, or 75% of days between April 1 and Sept. 30. 
 
 
 ### Units with most days at 90
@@ -346,9 +369,7 @@ units_at_90
 units_at_90 |> filter(unit == "Garza West")
 ```
 
-Takeaways:
-
-- In the Garza West unit, the temperature reached at least 90 degrees at least 3 out of 5 days each year from 2022 to 2024. In 2024 it was 3 out of 4 days measured between April and September.
+Data takeaway: In the Garza West unit, the temperature reached at least 90 degrees at least three out of five days each year from 2022 to 2024. In 2023 and 2024, 73% and 75% of days reached 90 degrees, respectively.
 
 ## 95 threshold
 
@@ -363,7 +384,7 @@ count_temps_unit_year |>
   )
 ```
 
-Takeaway: In each year from 2022-2024, at least 50 units reached 95 degrees inside.
+Takeaway: In each year from 2022 to 2024, at least 50 of 68 units reached 95 degrees inside at least once between April 1 and Sept. 30. In 2025, 20 units had already reached 95 degrees indoors by July 25. 
 
 ### Units that reach 95 quarter of time
 
@@ -378,7 +399,7 @@ count_temps_unit_year |>
   )
 ```
 
-In 2023, there were 13 units where it reached 95 degrees inside a quarter of the time between April and September.
+Data takeaway: In 2023, there were 13 units where it reached 95 degrees inside a quarter of the time, or one out of every four days between April and September. This was true for six units in 2022 and three units in 2024. 
 
 ### Units most at 95
 
@@ -393,7 +414,7 @@ units_at_95 <- count_temps_unit_year |>
 units_at_95
 ```
 
-Takeaway: At the Garza West in 2023 it reached 95 degrees more than a 100 times. In other words, nearly 3 out of every 5 days reached 95 degrees indoors between April and September.
+Data takeaway: At the Garza West unit in 2023 it reached 95 degrees indoors more than 100 times. In other words, nearly three out of every five days between April 1 and Sept. 30. reached 95 degrees indoors. 
 
 ## 100 threshold
 
@@ -407,13 +428,11 @@ count_temps_unit_year |>
     units_met_100 = total_units - sum(cnt_100 == 0),
   )
 ```
-Takeaways:
 
-- Between 2022 and 2024, each year more than a dozen units reach 100 degrees inside at least once. In 2023, 18 units reached 100 degrees inside at least once between April and September.
+Data takeaways: Between 2022 and 2024, at least a dozen units each year reached 100 degrees inside at least once. In 2023, 18 units reached 100 degrees indoors at least once between April and September. 
 
+  
 #### Plot attempt
-
-> This section is experimental
 
 This attempts to _show_ how many units reached 100 degrees at least once in a given year.
 
@@ -433,6 +452,9 @@ prison_waffle <- function(.data, yr) {
       title = paste("Number of units to reach 100 in", yr),
       x = "", y = "", fill = "High temp"
     )
+  
+  ggsave(paste0("figures/waffle_plot_", yr, ".png"))
+
 }
 
 count_temps_unit_year |> prison_waffle(2022)
@@ -440,7 +462,23 @@ count_temps_unit_year |> prison_waffle(2023)
 count_temps_unit_year |> prison_waffle(2024)
 ```
 
+## Create a tabset to print out each year 
 
+::: {.panel-tabset}
+## 2022
+
+![](figures/waffle_plot_2022.png) 
+
+## 2023
+
+![](figures/waffle_plot_2023.png) 
+ 
+## 2024
+
+![](figures/waffle_plot_2024.png) 
+
+:::
+ 
 ### Units that hit 100 inside
 
 How many times each year a unit hit 100 degrees inside.
@@ -460,7 +498,7 @@ Let's date that and peek at just Garza West
 unit_days_100 |> filter(unit == "Garza West")
 ```
 
-Takeaway: Garza West reached 100 degrees inside the unit on 46 days in 2023.
+Takeaway: Garza West reached 100 degrees inside on 46 days between April and September in 2023. In other words, 25%, or one in every four days, reached 100 degrees. 
 
 ## Plot thresholds by year
 
@@ -530,321 +568,28 @@ plot_thresh_data(2025)
 
 ```
 
-We'll print out each of the plots, though they will be big.
 
 
-![](figures/thresh_plot_2022.png)
+
+## Create a tabset to print out each year 
+
+::: {.panel-tabset}
+## 2022
+
+![](figures/thresh_plot_2022.png) 
+
+## 2023
 
 ![](figures/thresh_plot_2023.png)
+ 
+## 2024
+
 ![](figures/thresh_plot_2024.png)
+ 
+## 2025
 
 ![](figures/thresh_plot_2025.png)
 
+:::
 ---
-
-## Emily
-
-I started to rearrange and rename what was here, but decided we needed to look at each threshold first, then see how those changed over time (instead of breaking it up by year first.) I'm keeping this for now but 
-
-## Plotting days above each temp per unit per year
-
-Note: there is a substantial dip in the number of days recorded in 2025 because the dataset is only complete through July 25. 
-
-> Edits on first title, subtitle for conciseness. Would want to carry through.
-> Perhaps visualize these differently, but I'm not sure how yet.
-
-### 85° and above
-
-```{r}
-count_temps_unit_year |> 
-  # filter(year != 2025) |> 
-  ggplot(aes(x = year, y= cnt_85, group = unit)) +
-    geom_line(aes(group = unit)) +
-    theme(legend.position = "none") +
-    labs(
-      title = "Number of days each prison reached 85°F",
-      subtitle = str_wrap("Indoor temperatures recorded from April 1 to Sept. 30, taken at 3 p.m. in units without air conditioning. 2025 data is incomplete (122 days vs 183 days in other years."),
-      x = "Year", y = "Days at or above 85°F",
-      caption = "Source: Texas Department of Criminal Justice"
-    ) +
-    theme_minimal()
-
-```
-
-### 90° and above
-
-```{r}
-ggplot(
-  count_temps_unit_year,
-aes(x = year, y= cnt_90, group = unit)
-) +
-geom_line(aes(group = unit)) +
-  theme(legend.position = "none") +
-  labs(
-    title = "Number of days with indoor temperature recordings at or above 90°F",
-    # subtitle = str_wrap("According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025."),
-    x = "Year", y = "Number of days at or above 90°F",
-    caption = "Source: Texas Department of Criminal Justice
-    2025 has fewer days"
-  ) +
-  theme_bw()
-```
-
-### 95° and above
-
-```{r}
-ggplot(
-  count_temps_unit_year,
-aes(x = year, y= cnt_95, group = unit)
-) +
-geom_line(aes(group = unit)) +
-  theme(legend.position = "none") +
-  labs(
-    title = "Number of days with indoor temperature recordings at or above 95°F",
-    # subtitle = str_wrap("According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025."),
-    x = "Year", y = "Number of days at or above 95°F",
-    caption = "Source: Texas Department of Criminal Justice"
-  ) +
-  theme_bw()
-```
-
-### 100° and above
-
-```{r}
-ggplot(
-  count_temps_unit_year,
-aes(x = year, y= cnt_100, group = unit)
-) +
-geom_line(aes(group = unit)) +
-  theme(legend.position = "none") +
-  labs(
-    title = "Number of days with indoor temperature recordings at or above 100°F",
-    # subtitle = str_wrap("According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025."),
-    x = "Year", y = "Number of days at or above 100°F",
-    caption = "Source: Texas Department of Criminal Justice"
-  ) +
-  theme_bw()
-```
-
-
-## 2022 at 85°
-
-Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 85°F.
-
-```{r}
-count_temps_unit_year |> filter(year == 2022) |> select(year, total_days, cnt_85, pct_85) |> arrange(desc(cnt_85))
-```
-
-- In 2022, 67 out of 68 units without air conditioning recorded indoor temperatures at or above 85 degrees for at least 43 days between April 1 and Sept. 30.
-- The Sayle unit, located in Breckenridge, was the only unit to not record temperatures at or above 85 degrees.
-- 51 units recorded indoor temperatures at or above 85 degrees for over 50% of days, or at least 92 days.
-- Ten units recorded indoor temperatures at or above 85 degrees for over 75% of days, or at least 138 days.
-- The Garza West unit, located in Beeville, recorded the most days with indoor temperatures at or above 85 degrees, with 168 days, or 92% of days between April 1 and Sept. 30.
-- [I DONT UNDERSTAND THIS ONE] Of the days where temperatures were measured in all prisons across the year, only 38.4% didn't reach 85 degrees.
-
-
-## 2022 at 90°
-
-Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 90°F.
-
-```{r}
-count_temps_unit_year |> filter(year == 2022) |> select(year, total_days, cnt_90, pct_90) |> arrange(desc(cnt_90)) |> filter(pct_90 >= .5)
-```
-
-Data takeaway: In 2022, 65 out of 68 units without air conditioning recorded indoor temperatures at or above 90 degrees at least once between April 1 and Sept. 30. 41 units recorded indoor temperatures at or above 90 degrees for over 25% of days, or at least 46 days. Nine units recorded indoor temperatures at or above 90 degrees for over 50% of days, or at least 92 days. The Dominguez unit, located in San Antonio, Texas, recorded the most days with indoor temperatures at or above 90 degrees, with 122 days, or two-thirds of days between April 1. and Sept. 30. Of the days where temperatures were measured in all prisons across the year, 30.6% reached 90 degrees. 
-
-```{r}
-# crit
-count_temps_unit_year |>
-  group_by(year) |>   
-  summarise(
-    total_days = n(),
-    days_not_90 = sum(cnt_90 == 0),
-    days_met_90 = total_days - days_not_90
-  )
-```
-
-
-## 2022 at 95°
-
-Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 95°F.
-
-```{r}
-count_temps_unit_year |> filter(year == 2022) |> select(year, total_days, cnt_95, pct_95) |> arrange(desc(cnt_95)) |> filter(pct_95 >= .25)
-```
-
-```{r}
-count_temps_year |> filter(year == 2022) |> select(year, total_days, cnt_95, pct_95)
-```
-
-Data takeaway: In 2022, 51 out of 68 units without air conditioning recorded indoor temperatures at or above 95 degrees at least once between April 1 and Sept. 30. Six units recorded indoor temperatures at or above 95 degrees for over 25% of days, or at least 46 days. The Stevenson unit, located in Cuero, Texas, recorded the most days with indoor temperatures at or above 95 with 74 days, or over 40% of days between April 1. and Sept. 30. Of the days where temperatures were measured in all prisons across the year, 8.1% reached 95 degrees. 
-
-## 2022 at 100°
-
-Filtering the indoor log data to include only readings taken in 2022 where the temperature was above 100°F.
-
-```{r}
-count_temps_unit_year |> filter(year == 2022) |> select(year, total_days, cnt_100, pct_100) |> arrange(desc(cnt_100)) |> filter(cnt_100 >= 1)
-```
-
-```{r}
-count_temps_year |> filter(year == 2022) |> select(year, total_days, cnt_100, pct_100)
-```
-
-
-Data takeaway: In 2022, 15 out of 68 units without air conditioning recorded indoor temperatures at or above 100 degrees at least once between April 1 and Sept. 30. The Stevenson unit, located in Cuero, Texas, recorded the most days with indoor temperatures at or above 100 degrees with 13 days between April 1 and Sept. 30. This includes four consecutive days between July 10 and July 13. 
-
-## 2023 at 85°
-
-Filtering the indoor log data to include only readings taken in 2023 where the temperature was above 85°F.
-
-```{r}
-count_temps_unit_year |> filter(year == 2023) |> select(year, total_days, cnt_85, pct_85) |> arrange(desc(cnt_85)) 
-```
-
-```{r}
-count_temps_year |> filter(year == 2023) |> select(year, total_days, cnt_85, pct_85)
-```
-
-Data takeaway: In 2023, all 68 units without air conditioning recorded indoor temperatures at or above 85 degrees for at least 40, or 21.9% of days between April 1 and Sept. 30. 54 units recorded temperatures at or above 85 for over 50% of recorded days, and seven units recorded temperatures at or above 85 for over 75% of days. The Lopez unit, located in Edinburg, Texas just north of McAllen, recorded the the most days with indoor temperatures at or above 85, with 152, or 83.1% of days. Of the days where temperatures were measured in all prisons across the year, only 39.4% didn't reach 85 degrees.
-
-## 2023 at 90
-
-Filtering the indoor log data to include only readings taken in 2023 where the temperature was above 90°F.
-
-```{r}
-count_temps_unit_year |> filter(year == 2023) |> select(year, total_days, cnt_90, pct_90) |> arrange(desc(cnt_90)) 
-```
-
-```{r}
-count_temps_year |> filter(year == 2023) |> select(year, total_days, cnt_90, pct_90)
-```
-
-Data takeaway: In 2023, 67 out of 68 units without air conditioning recorded indoor temperatures at or above 90 degrees for at least 9, or 5% of days between April 1 and Sept. 30. Just one unit did not record temperatures at or above 90, the Clements unit located east of Amarillo, Texas. 50 units recorded temperatures at or above 90 for over 25% of recorded days, and 18 units recorded temperatures at or above 90 for over 50% of days. The Garza West unit, located near Beeville, Texas, recorded the the most days with indoor temperatures at or above 90, with 133, or 72.7% of days. Of the days where temperatures were measured in all prisons across the year, 36.8% reached 90 degrees.
-
-
-## 2023 at 95
-
-Filtering the indoor log data to include only readings taken in 2023 where the temperature was above 95°F.
-
-```{r}
-count_temps_unit_year |> filter(year == 2023) |> select(year, total_days, cnt_95, pct_95) |> arrange(desc(cnt_95)) |> filter(pct_95 >= .5)
-```
-
-```{r}
-count_temps_year |> filter(year == 2023) |> select(year, total_days, cnt_95, pct_95)
-```
-
-
-Data takeaway: In 2023, 61 out of 68 units without air conditioning recorded indoor temperatures at or above 95 degrees for at least 1 day between April 1 and Sept. 30. 13 units recorded temperatures at or above 95 for at least 48 days, or 25.2% of the time. Garza West recorded the the most days with indoor temperatures at or above 95, with 108, or 59% of days. Of the days where temperatures were measured in all prisons across the year, 11.5% reached 95 degrees. 
-
-## 2023 at 100
-
-Filtering the indoor log data to include only readings taken in 2023 where the temperature was above 100°F.
-
-```{r}
-count_temps_unit_year |> filter(year == 2023) |> select(year, total_days, cnt_100, pct_100) |> arrange(desc(cnt_100)) |> filter(cnt_100 >= 1)
-```
-
-```{r}
-count_temps_year |> filter(year == 2023) |> select(year, total_days, cnt_100, pct_100)
-```
-
-Data takeaway: In 2023, 18 out of 68 units without air conditioning recorded indoor temperatures at or above 100 degrees for at least 1 day between April 1 and Sept. 30. Garza West recorded the most days with indoor temperatures at or above 100, with 46, or 25.1% of days. 
-
-
-## 2024 indoor logs analysis 
-
-## Days at or above 85
-
-```{r}
-count_temps_unit_year |> filter(year == 2024) |> select(year, total_days, cnt_85, pct_85) |> arrange(desc(cnt_85)) |> filter(pct_85 >= .75)
-```
-
-```{r}
-count_temps_year |> filter(year == 2024) |> select(year, total_days, cnt_85, pct_85)
-```
-
-Data takeaway: In 2024, all 68 units without air conditioning recorded indoor temperatures at or above 85 degrees for at least 27, or 14.8% of days between April 1 and Sept. 30. 46 units recorded temperatures at or above 85 for over 50% of recorded days, and eight units recorded temperatures at or above 85 for over 75% of days. Garza West recorded the most days with indoor temperatures at or above 85, with 163, or 89.1% of days. Of the days where temperatures were measured in all prisons across the year, 56.4% reached 85 degrees.
-
-## Days at or above 90
-
-```{r}
-count_temps_unit_year |> filter(year == 2024) |> select(year, total_days, cnt_90, pct_90) |> arrange(desc(cnt_90)) |> filter(pct_90 >= .5)
-```
-
-```{r}
-count_temps_year |> filter(year == 2024) |> select(year, total_days, cnt_90, pct_90)
-```
-
-Data takeaway: In 2024, all 68 units without air conditioning recorded indoor temperatures at or above 90 degrees for at least one day between April 1 and Sept. 30. 33 units recorded temperatures at or above 90 for over 25% recorded days, and five units recorded temperatures at or above 85 for over 50% of days. Garza West recorded the most days with indoor temperatures at or above 90, with 137, or 74.8% of days. Of the days where temperatures were measured in all prisons across the year, 25.5% reached 90 degrees.
-
-
-## Days at or above 95
-
-```{r}
-count_temps_unit_year |> filter(year == 2024) |> select(year, total_days, cnt_95, pct_95) |> arrange(desc(cnt_95)) |> filter(pct_95 >= .25)
-```
-
-```{r}
-count_temps_year |> filter(year == 2024) |> select(year, total_days, cnt_95, pct_95)
-```
-
-Data takeaway: In 2024, 52 out of 68 units without air conditioning recorded indoor temperatures at or above 95 degrees for at least one day between April 1 and Sept. 30. Two units recorded temperatures at or above 90 for over 25% recorded days. Garza West recorded the most days with indoor temperatures at or above 95, with 98, or 53.6% of days. Of the days where temperatures were measured in all prisons across the year, 5.5% reached 95 degrees.
-
-## Days at or above 100
-
-```{r}
-count_temps_unit_year |> filter(year == 2024) |> select(year, total_days, cnt_100, pct_100) |> arrange(desc(cnt_100)) |> filter(cnt_100 >= 1)
-```
-
-```{r}
-count_temps_year |> filter(year == 2024) |> select(year, total_days, cnt_100, pct_100)
-```
-
-Data takeaway: In 2024, 12 out of 68 units without air conditioning recorded indoor temperatures at or above 100 degrees for at least 1 day between April 1 and Sept. 30. Garza West recorded the most days with indoor temperatures at or above 100, with 16, or 8.7% of days. 
-
-## 2025 indoor log analysis 
-
-Note: As of Nov. 24, we do not have data for 2025 past July 25. The code below will be updated and the data takeaways will be written when this data comes in.
-
-## Days at or above 85
-
-```{r}
-count_temps_unit_year |> filter(year == 2025) |> select(year, total_days, cnt_85, pct_85) |> arrange(desc(cnt_85)) |> filter(cnt_85 >= 1)
-```
-
-```{r}
-count_temps_year |> filter(year == 2025) |> select(year, total_days, cnt_85, pct_85)
-```
-
-## Days at or above 90
-
-```{r}
-count_temps_unit_year |> filter(year == 2025) |> select(year, total_days, cnt_90, pct_90) |> arrange(desc(cnt_90)) |> filter(cnt_90 >= 1)
-```
-
-```{r}
-count_temps_year |> filter(year == 2025) |> select(year, total_days, cnt_90, pct_90)
-```
-
-## Days at or above 95
-
-```{r}
-count_temps_unit_year |> filter(year == 2025) |> select(year, total_days, cnt_95, pct_95) |> arrange(desc(cnt_95)) |> filter(cnt_95 >= 1)
-```
-
-```{r}
-count_temps_year |> filter(year == 2025) |> select(year, total_days, cnt_95, pct_95)
-```
-
-## Days at or above 100
-
-```{r}
-count_temps_unit_year |> filter(year == 2025) |> select(year, total_days, cnt_100, pct_100) |> arrange(desc(cnt_100)) |> filter(cnt_100 >= 1)
-```
-
-```{r}
-count_temps_year |> filter(year == 2025) |> select(year, total_days, cnt_100, pct_100)
-```
-
+ 
