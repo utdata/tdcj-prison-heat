@@ -43,11 +43,6 @@ indoor_logs <- indoor_logs_clean |> mutate(
 ) 
 ```
 
-```{r}
-indoor_logs |> filter(year == "2025")
-```
-
-
 ### Records per unit, year
 
 Checking where we might have missing data ...
