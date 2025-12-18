@@ -4,11 +4,9 @@ author: "Media Innovation Group"
 format: html
 ---
 
-
 We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024, and April through July 25 (day the info request was filled) of 2025. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
 
-
-The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original/indoor_all_csv' as 'SB1R56 - April 2022 (Table 1).csv' and so on for each month and year. The original documents are found in 'data-original' under '2022_indoor', '2023_indoor' and so on for each year. 
+The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original/indoor_all_csv' as 'SB1R56 - April 2022 (Table 1).csv' and so on for each month and year. The original documents are found in 'data-original' under '2022_indoor', '2023_indoor' and so on for each year.
 
 ## Goals of this notebook
 
@@ -25,6 +23,8 @@ Clean and combine the 2022, 2023 and 2024 indoor logs for April, May, June, July
 library(tidyverse)
 library(janitor)
 library(lubridate)
+
+show_col_types = FALSE
 ```
 
 ## Creating a function 
@@ -95,8 +95,10 @@ indoor_2022_combined <- bind_rows(april_2022_clean, may_2022_clean, june_2022_cl
 ## 2023 indoor logs
 
 **Note: There are two dates for units in 2023 where the temperature value is NA:
+
 - Huntsville 2023-08-25 
 - Segovia 2023-06-01
+
 For these dates and units, there was no value included the original pdfs from TDCJ (the cells are blank).
 
 ## Downloading data and applying function

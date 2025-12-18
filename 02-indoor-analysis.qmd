@@ -1,10 +1,10 @@
 ---
-title: "Indoor logs analysis"
+title: "Indoor logs"
 author: "Emily DeMotte & the Media Innovation Group"
+format: html
 code-fold: true
 code-summary: "Click to show code"
 ---
-
 
 We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
 
@@ -17,14 +17,13 @@ In this notebook, we will explore the following questions:
 * Which units consistently recorded the highest temperatures? 
 * How many consecutive days in those measures? (Not tackled yet)
 
-## Setup
-
-Loading our libraries
+## Setup, import and preparation
 
 ```{r}
 #| label: setup
 #| message: false
 
+# Loading our libraries
 library(tidyverse)
 library(janitor)
 library(ggthemes)
@@ -33,40 +32,32 @@ library(ggwaffle)
 
 # suppress group warning
 options(dplyr.summarise.inform = FALSE)
-```
 
-
-## Import
-
-Reading in the cleaned and combined indoor logs.
-
-```{r}
+# Reading in the cleaned and combined indoor logs.
 indoor_logs_clean <- read_rds("data-processed/01-indoor-temps-all-cleaned.rds")
-```
 
-### Creating date parts
-
-Adding variables to help analysis by date.
-
-```{r}
+# Adding variables to help analysis by date.
 indoor_logs <- indoor_logs_clean |> mutate(
   flo_mo = floor_date(date, unit = "month"),
   year = year(date)
 ) 
-
-indoor_logs |> datatable()
 ```
+
+```{r}
+indoor_logs |> filter(year == "2025")
+```
+
 
 ### Records per unit, year
 
 Checking where we might have missing data ...
 
-
 ```{r}
 indoor_logs |> 
   group_by(unit, year) |> 
   summarize(days_recorded = n()) |> 
-  pivot_wider(names_from = year, values_from = days_recorded)  
+  pivot_wider(names_from = year, values_from = days_recorded) |> 
+  datatable()
 ```
 
 Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request.
@@ -86,54 +77,29 @@ For each year of data, there are 68 TDCJ units that recorded indoor temperatures
 
 ## Hottest temps each year
 
-The top 5 hottest days indoors for each year.
+The top 10 hottest days indoors for each year.
 
 ```{r}
 indoor_logs |> 
   group_by(year) |> 
-  slice_max(temperature, n = 5) |> 
+  slice_max(temperature, n = 10) |> 
   select(year, unit, date, temperature)
 ```
 
-```{r}
-indoor_logs |> 
-  group_by(year) |> 
-  slice_max(temperature, n = 15) |> 
-  select(year, unit, date, temperature)
-```
+Summarizing the times each unit appeared in the top 10 hottest temperature recordings each year. 
 
 ```{r}
 indoor_logs |> 
   group_by(year) |> 
-  slice_max(temperature, n = 20) |> 
-  select(year, unit, date, temperature)
-```
-
-```{r}
-indoor_logs |> 
-  group_by(year) |> 
-  slice_max(temperature, n = 50) |> 
-  select(year, unit, date, temperature) 
-```
-
-Summarizing the times each unit appeared in the top 50 hottest temperature recordings each year. 
-
-```{r}
-indoor_logs |> 
-  group_by(year) |> 
-  slice_max(temperature, n = 50) |> 
+  slice_max(temperature, n = 10) |> 
   select(year, unit, date, temperature) |> 
   group_by(unit, year) |> 
   summarize(n = n()) |> 
   arrange(desc(n))
 ```
 
-> Note for Prof. Mcdonald - this is a new takeaway from the code above that I thought was interesting, but the limitation is some of the recordings are on the same day at different units, which may be close to each other/share the same NWS. Maybe we could filter out repeat days? I also wasn't sure which increments to stick with, so I noted ones where I found interesting temp thresholds. 
+Data takeaway: For all complete years of data, the 10 hottest indoor temperatures recorded each year between April 1 and Sept. 30 across all units all exceeded 101 degrees.
 
-Data takeaway: For all complete years of data, the five hottest indoor temperatures recorded each year between April 1 and Sept. 30 across all units all exceeded 103 degrees. The 20 hottest indoor temperatures recorded each year all exceeded 101 degrees. The 50 hottest recordings each year all exceeded 100 degrees, with the exception of five recordings in 2024. 
-
-In 2023, the 15 hottest temperatures recorded all exceeded 103 degrees, while the 20 hottest exceeded 102 degrees. Twenty, or 40% of the 50 hottest temperatures recorded in 2023 were recorded at Garza West, which was the most frequently appearing unit. 
- 
 ```{r}
 indoor_logs |> 
   group_by(year) |> 
@@ -185,7 +151,7 @@ count_temps_unit_year <- indoor_logs |>
     pct_95 = cnt_95/total_days,
     pct_100 = cnt_100/total_days
   ) |> 
-  mutate(across(starts_with("pct"), round, 2)) # rounds percentage
+  mutate(across(starts_with("pct"), \(x) round(2))) # rounds percentage
 
 count_temps_unit_year |> datatable()
 ```
@@ -219,10 +185,6 @@ Data takeaways:
 - Across all prisons in the data in from 2022-2024, it reached 85 degrees at least half the time between April 1 and Sept. 30.
 - It reached 90 degrees at least a quarter of the time. (Doesn't include 2025 since we don't have full data.)
 - It reached 100 degrees inside prisons more than 100 times in 2023 alone. Across all prisons, 37% of days between April and September reached 90 degrees. 
-
-
-## Crit
-
 
 ## 85 degree threshold
 
@@ -270,7 +232,8 @@ count_temps_unit_year |>
 
 ```
 
-Data takeaways: 
+Data takeaways:
+
 - In 2022, 53 of 68 units reached 85 degrees or above on at least half of the days measured. In 2023, it was 54 of 68, and in 2024, it was 48 of 68. 
 - Twelve units reached 85 degrees on 75% of days measured in 2022. In 2023, it was 10 units, and in 2024, it was eight units. 
 
@@ -286,10 +249,9 @@ count_temps_unit_year |>
 ```
 
 Data takeaway:
+
 - In the Segovia unit in 2023, 94% of recorded days between June and September, or 115 days, reached 85 degrees. No data was recorded for April and May. The Segovia unit is located in South Texas outside of Edinburgh, about 20 miles north of McAllen. 
 - Garza West reached 85 degrees on at least 80% of days between April and September each year since 2022. In 2022, 92% of days reached 85 degrees or above. Every year, Garza West was among the top three units with the highest percentage of days that reached at or above 85 degrees.
-
-
 
 ### Minimum days 85 threshold met
 
@@ -304,6 +266,7 @@ count_temps_unit_year |>
 ```
 
 Data takeaways:
+
 - With the exception of the Sayle unit, it reached 85 degrees inside every unit for at least 43 days between April 1 and Sept. 30 in 2022. 
 - In 2023, every unit saw at least 40 days reaching 85 degrees.
 - Even in the relatively cool 2024 summer, it reached 85 degrees inside every unit for at least 27 days. 
@@ -349,6 +312,7 @@ count_temps_unit_year |>
 ```
 
 Data takeaways: 
+
 - In 2023, 19 of 68 units reached 90 degrees at least half of the days measured. This was also true for nine units in 2022 and six units in 2024. 
 - Across all years of data, two units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024.
 -Segovia has fewer days measured in 2023, but it still reached 90 degrees more than 100 times. In 2024, Garza West reached 90 degrees 137 times, or 75% of days between April 1 and Sept. 30. 
@@ -432,7 +396,7 @@ count_temps_unit_year |>
 Data takeaways: Between 2022 and 2024, at least a dozen units each year reached 100 degrees inside at least once. In 2023, 18 units reached 100 degrees indoors at least once between April and September. 
 
   
-#### Plot attempt
+### Plot units at 100
 
 This attempts to _show_ how many units reached 100 degrees at least once in a given year.
 
@@ -462,18 +426,17 @@ count_temps_unit_year |> prison_waffle(2023)
 count_temps_unit_year |> prison_waffle(2024)
 ```
 
-## Create a tabset to print out each year 
-
 ::: {.panel-tabset}
-## 2022
+
+#### 2022
 
 ![](figures/waffle_plot_2022.png) 
 
-## 2023
+#### 2023
 
 ![](figures/waffle_plot_2023.png) 
  
-## 2024
+#### 2024
 
 ![](figures/waffle_plot_2024.png) 
 
@@ -569,27 +532,24 @@ plot_thresh_data(2025)
 ```
 
 
-
-
-## Create a tabset to print out each year 
-
 ::: {.panel-tabset}
-## 2022
+
+### 2022
 
 ![](figures/thresh_plot_2022.png) 
 
-## 2023
+### 2023
 
 ![](figures/thresh_plot_2023.png)
  
-## 2024
+### 2024
 
 ![](figures/thresh_plot_2024.png)
  
-## 2025
+### 2025
 
 ![](figures/thresh_plot_2025.png)
 
 :::
----
+
  
