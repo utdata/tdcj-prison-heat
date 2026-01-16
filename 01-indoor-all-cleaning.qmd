@@ -4,15 +4,15 @@ author: "Media Innovation Group"
 format: html
 ---
 
-We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024, and April through July 25 (day the info request was filled) of 2025. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
+We have recorded indoor temperatures for each unit April through September of 2022, 2023, 2024 and 2025. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 
 
-The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original/indoor_all_csv' as 'SB1R56 - April 2022 (Table 1).csv' and so on for each month and year. The original documents are found in 'data-original' under '2022_indoor', '2023_indoor' and so on for each year.
+The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in 'data-original/indoor_all_csv' as 'SB1R56 - April 2022 (Table 1).csv' and so on for each month and year. An exception to this is the data for July-September of 2025, which were originally provided in xlsx form and follow the naming convention '07.2025 - SB1R56.xlsx' and so on. These spreadsheets and all other original documents are found in 'data-original' under '2022_indoor', '2023_indoor' and so on for each year.
 
 ## Goals of this notebook
 
-We have already cleaned the data for each year individually in separate notebooks. In this notebook, we will consolidate the cleaning code for each year of data and combine all the years of data into one data frame. This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above.
+We have already cleaned the data for each year individually in separate notebooks. In this notebook, we will consolidate the cleaning code for each year of data and combine all the years of data into one data frame. This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above. In 2025, the data was given to us in spreadsheet form for July through September, which we will read in using read_excel and follow the same process above.
 
-Clean and combine the 2022, 2023 and 2024 indoor logs for April, May, June, July, August and September and 2025 logs for April, May, June and part of July.  
+Clean and combine the 2022, 2023, 2024 and 2025 indoor logs for April, May, June, July, August and September. 
 
 ## Setup
 
@@ -23,6 +23,7 @@ Clean and combine the 2022, 2023 and 2024 indoor logs for April, May, June, July
 library(tidyverse)
 library(janitor)
 library(lubridate)
+library(readxl)
 
 show_col_types = FALSE
 ```
@@ -51,7 +52,7 @@ i.e. for April 2023, there are 30 rows where the unit is "April 2023" and the te
 
 ## 2022 indoor logs
 
-**Note: for the April 2022 csv only, we do not need to skip the first row because for some reason it converted differently when we put the original pdf into Adobe Acrobat. For all other logs, we will skip the first row in the read_csv() function to avoid formatting problems. 
+**Note: For the April 2022 csv only, we do not need to skip the first row because for some reason it converted differently when we put the original pdf into Adobe Acrobat. For all other logs, we will skip the first row in the read_csv() function to avoid formatting problems. 
 
 ## Downloading data and applying function
  
@@ -178,7 +179,7 @@ august_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - August 2024
 september_2024_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - September 2024(Table 1).csv", skip = 1) |> pivot_date("September", "2024") |> filter(!unit == "September 2024", !is.na(unit))
 ```
 
-**Important note: we manually removed an extra space from Connally:21 and 22 in the original September 2024 csv because it was causing the column to read as characters instead of doubles
+**Important note: we manually removed an extra space from Connally:21 and 22 in the original September 2024 csv because it was causing the column to read as characters instead of doubles.
 
 ## Combining each month into one data frame
 
@@ -189,8 +190,6 @@ indoor_2024_combined <- bind_rows(april_2024_clean, may_2024_clean, june_2024_cl
 ## 2025 indoor logs
 
 ## Downloading data and applying function
-
-** Because of when this public information request was filled, we only have data through July 25, 2025. Thus, all units will show "NA" for temperature between July 26 and July 31, 2025. As of Oct. 14, 2025, Lauren is still trying to get the updated data through September 2025. 
 
 ```{r}
 april_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - April 2025(Table 1).csv", skip = 1) |> pivot_date("April", "2025") |> filter(!unit == "April 2025", !is.na(unit))
@@ -207,20 +206,31 @@ june_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - June 2025(Tab
 **Important note: we manually removed an extra space from Bartlett:8 in the original June 2025 csv because it was causing the column to read as characters instead of doubles.
 
 ```{r}
-july_2025_clean <- read_csv("data-original/indoor_all_csv/SB1R56 - July 2025(Table 1).csv", skip = 1) |> pivot_date("July", "2025") |> filter(!unit == "July 2025", !is.na(unit))
+july_2025_clean <- read_excel("data-original/2025_indoor/07.2025 - SB1R56.xlsx", skip = 1, range = "A2:AF70") |> pivot_date("July", "2025") |> filter(!unit == "July 2025", !is.na(unit))
 ```
+
+```{r}
+august_2025_clean <- read_excel("data-original/2025_indoor/08.2025 - SB1R56.xlsx", skip = 1, range = "A2:AF70") |> pivot_date("August", "2025") |> filter(!unit == "August 2025", !is.na(unit))
+```
+
+```{r}
+september_2025_clean <- read_excel("data-original/2025_indoor/09.2025 - SB1R56.xlsx", skip = 1, range = "A2:AE70") |> pivot_date("September", "2025") |> filter(!unit == "September 2025", !is.na(unit))
+```
+
+**Important note: we manually removed an extra space from cell O58 (Stevenson:14) in the original September 2025 csv because it was causing the column to read as characters instead of doubles.
+
 
 ## Combining each month into one data frame
 
 ```{r}
-indoor_2025_combined <- bind_rows(april_2025_clean, may_2025_clean, june_2025_clean, july_2025_clean)
+indoor_2025_combined <- bind_rows(april_2025_clean, may_2025_clean, june_2025_clean, july_2025_clean, august_2025_clean, september_2025_clean)
 ```
 
 
 ## Combining all years of indoor data into one data frame
 
 ```{r}
-indoor_temps_all_combined <- bind_rows(indoor_2022_combined, indoor_2023_combined, indoor_2024_combined, indoor_2025_combined)
+indoor_temps_all_combined <- bind_rows(indoor_2022_combined, indoor_2023_combined, indoor_2024_combined, indoor_2025_combined) 
 
 indoor_temps_all_combined |> head(50)
 ```

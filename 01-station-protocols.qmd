@@ -111,6 +111,21 @@ stations_daily_protocol |>
   slice_sample(n = 10)
 ```
 
+## Finding hourly temps for prisoner deaths 
+
+
+```{r}
+stations_hourly_protocol |> 
+  filter(
+    station_id == "KUTS", date == "2023-06-07"
+  )
+   
+```
+
+
+
+
+
 ### Export daily
 
 ```{r}

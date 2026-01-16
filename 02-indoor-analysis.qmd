@@ -6,14 +6,14 @@ code-fold: true
 code-summary: "Click to show code"
 ---
 
-We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.
+We have recorded indoor temperatures for each unit April 1 through Sept. 30 of 2022, 2023, 2024 and 2025. According to the Texas Department of Criminal Justice, indoor temperatures are taken at 3 p.m. every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. All temperatures are recorded in Fahrenheit. 
 
 ## Goals of this notebook
 
 In this notebook, we will explore the following questions:
 
 * What was the highest temperature reached each year, and where?  
-* How many days was the indoor temperature at least X degrees (85, 90, 95, 100+) each year from 2022 to 2025.
+* How many days was the indoor temperature at least X degrees (85, 90, 95, 100+) each year from 2022 to 2025?
 * Which units consistently recorded the highest temperatures? 
 * How many consecutive days in those measures? (Not tackled yet)
 
@@ -28,7 +28,8 @@ library(tidyverse)
 library(janitor)
 library(ggthemes)
 library(DT)
-library(ggwaffle)
+
+
 
 # suppress group warning
 options(dplyr.summarise.inform = FALSE)
@@ -55,10 +56,10 @@ indoor_logs |>
   datatable()
 ```
 
-Data takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request.
+Data takeaway: For each year, we have 183 total days of indoor temperature recordings.
 For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. Sixty-three units appear in all four years of data. The 11 units that differ by year are as follows:
 
-* Bartlett: 2025 only
+* Bartlett: 2025 only, April, May, June and July only (does not appear in August or September data)
 * Baten: 2025 only
 * Garza East: 2024 and 2025 only
 * Gurney: 2025 only
@@ -93,7 +94,7 @@ indoor_logs |>
   arrange(desc(n))
 ```
 
-Data takeaway: For all complete years of data, the 10 hottest indoor temperatures recorded each year between April 1 and Sept. 30 across all units all exceeded 101 degrees.
+Data takeaway: For 2022, 2023 and 2024, the 10 hottest indoor temperatures recorded each year between April 1 and Sept. 30 across all units all exceeded 101 degrees. In 2025, the 10 hottest temperatures fell between 100 and 98.5 degrees. The units that appeared in the 10 hottest recordings each year largely varied, with the exception of Garza West in 2025, which made up 10 of the 13 recordings. Note - several years include more than 10 recordings for the top 10 because of days/units where the temperature recorded was the same.
 
 ```{r}
 indoor_logs |> 
@@ -103,7 +104,7 @@ indoor_logs |>
   datatable()
 ```
 
-Data takeaway: It reached 100 degrees indoors 210 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperature was recorded at the Mountain View unit on June 19, 2023, which reached 106.8 degrees. The Mountain View unit was renamed to Patrick O'Daniel (appears as O'Daniel in the data) in January 2024 and houses female prisoners in Gatesville, Texas, about 45 miles west of Waco. 
+Data takeaway: It reached 100 degrees indoors 211 times across all units between 2022 and 2025, 108 of which occurred in 2023. Twice, it reached 105 or above. The hottest temperature across all years was recorded at the Mountain View unit on June 19, 2023, which reached 106.8 degrees. The Mountain View unit was renamed to Patrick O'Daniel (appears as O'Daniel in the data) in January 2024 and houses female prisoners in Gatesville, Texas, about 45 miles west of Waco. It houses up to 644 prisoners at full capacity.
  
 ## Temp ranges by month, year
 
@@ -145,10 +146,10 @@ count_temps_unit_year <- indoor_logs |>
     pct_90 = cnt_90/total_days,
     pct_95 = cnt_95/total_days,
     pct_100 = cnt_100/total_days
-  ) |> 
-  mutate(across(starts_with("pct"), \(x) round(2))) # rounds percentage
+  )  |> 
+  mutate(across(starts_with("pct"), round, 2)) # rounds percentage
 
-count_temps_unit_year |> datatable()
+count_temps_unit_year  
 ```
 
 ## Temp ranges by year
@@ -177,9 +178,9 @@ count_temps_year
 
 Data takeaways:
 
-- Across all prisons in the data in from 2022-2024, it reached 85 degrees at least half the time between April 1 and Sept. 30.
-- It reached 90 degrees at least a quarter of the time. (Doesn't include 2025 since we don't have full data.)
-- It reached 100 degrees inside prisons more than 100 times in 2023 alone. Across all prisons, 37% of days between April and September reached 90 degrees. 
+- Across all prisons in the data in from 2022-2025, it reached 85 degrees indoors at least half the time between April 1 and Sept. 30.
+- It reached 90 degrees at least a quarter of the time in 2022, 2023 and 2024. In 2025, it was nearly 20% of the time.
+- It reached 100 degrees inside prisons more than 100 times in 2023 alone. Across all prisons, 37% of days between April and September reached 90 degrees in 2023. 
 
 ## 85 degree threshold
 
@@ -209,7 +210,7 @@ indoor_logs |>
   filter(temperature <= 90) # cutting here to show the next units for comparison
 ```
 
-Takeaway: Every unit hit 85 degrees at least once every year with one exception in 2022, where the Sayle unit recorded 84.6 degrees as its highest temperature on two separate days. The Sayle unit was not included in the data for 2023, 2024 or 2025. 
+Takeaway: Every unit hit 85 degrees at least once every year with one exception in 2022, where the Sayle unit recorded 84.6 degrees as its highest temperature on two separate days. The Sayle unit is located a little over 100 miles west of Forth Worth and was not included in the data for 2023, 2024 or 2025. 
 
 ### Units reaching 85 half the time
 
@@ -218,7 +219,7 @@ This counts the number of units that reached 85 degrees for half of the days mea
 ```{r}
 count_temps_unit_year |>
   group_by(year) |>
-  select(year, total_days, cnt_85, pct_85) |> arrange(desc(cnt_85)) |> 
+  select(year, total_days, cnt_85, pct_85) |> arrange(desc(cnt_85))  |> 
   summarize(
     total_units = n(),
     cnt_half_85 = sum(pct_85 >= .50),
@@ -229,8 +230,8 @@ count_temps_unit_year |>
 
 Data takeaways:
 
-- In 2022, 53 of 68 units reached 85 degrees or above on at least half of the days measured. In 2023, it was 54 of 68, and in 2024, it was 48 of 68. 
-- Twelve units reached 85 degrees on 75% of days measured in 2022. In 2023, it was 10 units, and in 2024, it was eight units. 
+- In 2022, 53 of 68 units reached 85 degrees or above on at least half of the days measured. In 2023, it was 54 of 68, in 2024, it was 48 of 68, and in 2025, it was 47 out of 68.
+- Twelve units reached 85 degrees on 75% of days measured in 2022. In 2023, it was 10 units, and in 2024 and 2025, it was eight units. 
 
 ### Units most at 85
 
@@ -245,8 +246,9 @@ count_temps_unit_year |>
 
 Data takeaway:
 
-- In the Segovia unit in 2023, 94% of recorded days between June and September, or 115 days, reached 85 degrees. No data was recorded for April and May. The Segovia unit is located in South Texas outside of Edinburgh, about 20 miles north of McAllen. 
-- Garza West reached 85 degrees on at least 80% of days between April and September each year since 2022. In 2022, 92% of days reached 85 degrees or above. Every year, Garza West was among the top three units with the highest percentage of days that reached at or above 85 degrees.
+- Garza West reached 85 degrees on at least 80% of days between April and September each year since 2022. In 2025, only 11 days between April 1 and Sept. 30 did not reach at least 85 degrees indoors. In other words, 94% of days reached 85 degrees or higher.  In 2022, it was 92% of days. Every year, Garza West was among the top three units with the highest percentage of days that reached 85 degrees or higher indoors. Garza West is a male prison located in Beeville, Texas, about 100 miles southeast of San Antonio. At full capacity, it houses 2,278 prisoners. 
+- The Garza East and Segovia units reached 85 or above indoors for 92% and 89% of days between April and September in 2025, respectively. 
+- In the Segovia unit in 2023, 94% of recorded days between June and September, or 115 days, reached 85 degrees. No data was recorded for April and May. The Segovia unit is located in South Texas outside of Edinburgh, about 20 miles north of McAllen.  
 
 ### Minimum days 85 threshold met
 
@@ -264,7 +266,7 @@ Data takeaways:
 
 - With the exception of the Sayle unit, it reached 85 degrees inside every unit for at least 43 days between April 1 and Sept. 30 in 2022. 
 - In 2023, every unit saw at least 40 days reaching 85 degrees.
-- Even in the relatively cool 2024 summer, it reached 85 degrees inside every unit for at least 27 days. 
+- Even in the relatively cool 2024 and 2025 summers, it reached 85 degrees inside every unit for at least 27 and 24 days, respectively. 
 
 ## 90 degree threshold
 
@@ -279,7 +281,7 @@ count_temps_unit_year |>
   )
 ```
 
-Data takeaway: Almost every unit also reached 90 degrees inside at least once each year, all but three units in 2022 and one in 2023.
+Data takeaway: Almost every unit also reached 90 degrees inside at least once each year, all but three units in 2022, one in 2023 and six in 2025. 
 
 ### Units that hit 90° half the time
 
@@ -309,7 +311,7 @@ count_temps_unit_year |>
 Data takeaways: 
 
 - In 2023, 19 of 68 units reached 90 degrees at least half of the days measured. This was also true for nine units in 2022 and six units in 2024. 
-- Across all years of data, two units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024.
+- Across all years of data, two units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024. 
 -Segovia has fewer days measured in 2023, but it still reached 90 degrees more than 100 times. In 2024, Garza West reached 90 degrees 137 times, or 75% of days between April 1 and Sept. 30. 
 
 
@@ -328,7 +330,7 @@ units_at_90
 units_at_90 |> filter(unit == "Garza West")
 ```
 
-Data takeaway: In the Garza West unit, the temperature reached at least 90 degrees at least three out of five days each year from 2022 to 2024. In 2023 and 2024, 73% and 75% of days reached 90 degrees, respectively.
+Data takeaway: In the Garza West unit, the temperature reached at least 90 degrees indoors on at least 65% of days recorded each year from 2022 to 2025. In 2023 and 2024, 73% and 75% of days reached 90 degrees, respectively.
 
 ## 95 threshold
 
@@ -343,7 +345,7 @@ count_temps_unit_year |>
   )
 ```
 
-Takeaway: In each year from 2022 to 2024, at least 50 of 68 units reached 95 degrees inside at least once between April 1 and Sept. 30. In 2025, 20 units had already reached 95 degrees indoors by July 25. 
+Takeaway: In each year from 2022 to 2024, at least 50 of 68 units reached 95 degrees inside at least once between April 1 and Sept. 30. In 2025, 26 units reached 95 degrees at least once.
 
 ### Units that reach 95 quarter of time
 
@@ -358,7 +360,7 @@ count_temps_unit_year |>
   )
 ```
 
-Data takeaway: In 2023, there were 13 units where it reached 95 degrees inside a quarter of the time, or one out of every four days between April and September. This was true for six units in 2022 and three units in 2024. 
+Data takeaway: In 2023, there were 13 units where it reached 95 degrees inside a quarter of the time, or one in every four days between April and September. This was true for six units in 2022, three units in 2024, and one in 2025.
 
 ### Units most at 95
 
@@ -373,7 +375,7 @@ units_at_95 <- count_temps_unit_year |>
 units_at_95
 ```
 
-Data takeaway: At the Garza West unit in 2023 it reached 95 degrees indoors more than 100 times. In other words, nearly three out of every five days between April 1 and Sept. 30. reached 95 degrees indoors. 
+Data takeaway: At the Garza West unit in 2023, it reached 95 degrees indoors more than 100 times, or individual days. In other words, nearly three out of every five days between April 1 and Sept. 30. reached 95 degrees indoors. 
 
 ## 100 threshold
 
@@ -388,7 +390,19 @@ count_temps_unit_year |>
   )
 ```
 
-Data takeaways: Between 2022 and 2024, at least a dozen units each year reached 100 degrees inside at least once. In 2023, 18 units reached 100 degrees indoors at least once between April and September. 
+```{r}
+count_temps_unit_year |> 
+  group_by(unit, year) |> 
+  arrange(desc(cnt_100))
+```
+
+```{r}
+indoor_logs |> 
+  filter(unit == "Garza West", temperature == 100)
+```
+
+
+Data takeaways: Between 2022 and 2024, at least a dozen units each year reached 100 degrees inside at least once. In 2023, 18 units reached 100 degrees indoors at least once between April and September. In 2025, only one unit reached 100 degrees - Garza West on August 29. 
 
   
 ### Plot units at 100
@@ -456,7 +470,7 @@ Let's date that and peek at just Garza West
 unit_days_100 |> filter(unit == "Garza West")
 ```
 
-Takeaway: Garza West reached 100 degrees inside on 46 days between April and September in 2023. In other words, 25%, or one in every four days, reached 100 degrees. 
+Takeaway: Garza West reached 100 degrees inside on 46 days between April 1 and Sept. 30 in 2023. In other words, 25%, or one in four days, reached 100 degrees. 
 
 ## Plot thresholds by year
 
@@ -547,4 +561,57 @@ plot_thresh_data(2025)
 
 :::
 
- 
+
+## Prisoner deaths
+
+Determining the indoor temperatures on the days and unit where prisoners died indoors in 2023.
+
+```{r}
+indoor_logs |> 
+  select(unit, date, temperature) |> 
+  filter(unit == "Murray", date == "2023-06-30")
+```
+
+Data takeaway: On June 30, 2023, Elizabeth Hagerty died in her cell at the Murray unit, located in Gatesville, Texas, about 100 miles north of Austin. According to the autopsy report, she died at 12:48 a.m. The temperature in her cell was 95.7 degrees. The recorded indoor temperature for the Murray unit that day, reportedly taken at 3 p.m., was 90 degrees. Hagerty was 37 years old.
+
+TDCJ hand-recorded outdoor temperature log for 12:30 a.m. on June 30, 2023 at the Murray unit: 83 degrees with a heat index of 87. 
+
+NWS log for Gatesville (station ID KGOP) at 12:15 a.m.: 82 degrees with a heat index of 85.6.
+
+```{r}
+indoor_logs |> 
+  select(unit, date, temperature) |> 
+  filter(unit == "Hughes", date == "2023-08-05")
+```
+
+Data takeaway: On Aug. 5, 2023, John Castillo died indoors at the Hughes unit, located in Gatesville, Texas, about 100 miles north of Austin. According to the autopsy report, he died at 11:33 p.m. His core body temperature was 107.5 degrees. The recorded indoor temperature for the Hughes unit that day, reportedly taken at 3 p.m., was 94.4 degrees. Castillo was 32 years old. 
+
+TDCJ hand-recorded outdoor temperature log for 11:30 p.m. on Aug. 5, 2023 at the Hughes unit: 88 degrees with a heat index of 89. 
+
+NWS log for Gatesville (station ID KGOP) at 11:15 p.m.: 86 degrees with a heat index of 86.8.
+
+
+```{r}
+indoor_logs |> 
+  select(unit, date, temperature) |> 
+  filter(unit == "Coffield", date == "2023-08-21")
+```
+
+Data takeaway: On Aug. 21, 2023, Patrick Womack died in his cell at the Coffield unit, located in Tennessee Colony, Texas, about 100 miles northwest of Waco. According to the autopsy report, he died at 1:53 p.m. His core body temperature was 106.9 degrees. The recorded indoor temperature for the Coffield unit that day, reportedly taken at 3 p.m., was 96.6 degrees. Womack was 50 years old.
+
+TDCJ hand-recorded outdoor temperature log for 1:30 p.m. on Aug. 21, 2023 at the Coffield unit: 104 degrees with a heat index of 113.
+
+NWS log for Palestine (station ID KPSN) at 2:15 p.m.: 104 degrees with a heat index of 105.3. 
+Note: the Palestine Municipal Airport station is located 15 miles away from the Coffield unit. 
+
+```{r}
+indoor_logs |> 
+  select(unit, date, temperature) |> 
+  filter(unit == "Goree", date == "2024-06-07")
+```
+Data takeaway: On June 7, 2024, Oscar R. Cortez died outdoors at the Goree unit, located in Hunstville, Texas, about 65 north of Houston. According to the Death in Custody report, he died at 5:20 p.m.  The recorded indoor temperature for the Goree unit that day, reportedly taken at 3 p.m., was 86.6 degrees. Cortez was 44 years old.
+
+NWS log for Hunstville (station ID KUTS) at 4:53 p.m.: 91 degrees with a heat index of 93. 
+
+
+
