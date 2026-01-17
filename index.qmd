@@ -4,9 +4,37 @@ title: "TDCJ Prison Heat"
 
 This is for a group project under UT's Media Innovation Group. 
 
-It is an examination of weather conditions recorded in prisons across the state of Texas using documents obtained through the Texas Department of Criminal Justice. More extensive sourcing information can be found on the project's cleaning files.
+It is an examination of heat conditions recorded in prisons across the state of Texas using documents obtained through the Texas Department of Criminal Justice. More extensive sourcing information can be found on the project's cleaning files.
 
 Looking at the navigation of this site, you'll mainly want to look at the files under the Analysis heading.
+
+## Indoor logs 
+
+**January 2025**
+
+We have records of indoor temperatures recorded for units without air conditioning from April through September of 2022, 2023, 2024 and 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3 p.m. every day from April 1 through Sept. 30 at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT/The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.
+
+For each year, we have 183 total days of indoor temperature recordings.  
+
+- We looked at how many times it reached at least 85 degrees inside these prisons without air conditioning.
+    - Each year since 2022, it reached at least 85 degrees inside practically every unit at least once.  In only one unit did temperatures not reach 85 degrees inside. [link](02-indoor-analysis.qmd#count-units-reaching-85-at-least-once)
+    - In 2023, in 54 of the 68 units without air conditioning, it reached 85 degrees inside a unit on half the days measured. That's at least 90 days a year. [link](02-indoor-analysis.qmd#units-reaching-85-half-the-time)
+- It reached 90 degrees inside almost every unit at least once each year; all but three units in 2022, one in 2023 and six in 2025. [link](02-indoor-analysis.qmd#units-reaching-90-at-least-once)
+    - In 2023, it hit 90 degrees on half of the days measured in 19 units. [link](02-indoor-analysis.qmd#units-that-hit-90-half-the-time)
+    - In 2023, 19 of 68 units reached 90 degrees at least half of the days measured. Two units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024. Garza West recorded 137 days with temperatures at or above 90 degrees in 2024. [link](02-indoor-analysis.qmd#units-that-hit-90-half-the-time)
+- It reached 100 degrees indoors 211 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperature recorded was the Mountain View unit (later renamed O'Daniel) on June 19, 2023, which reached 106.8 degrees.  [link](02-indoor-analysis.qmd#days-at-100) 
+    - It reached 100 degrees inside prisons more than 100 times in 2023. [link](02-indoor-analysis.qmd#reaching-100-in-2023)
+- The Garza West unit comes up often when we look at these temperature thresholds.
+    - In 2025 there were only 11 days it did not reach 85 degrees inside the Garza West unit. In other words, 94% of days reached 85 degrees or higher. It reached 85 on 92% of days in 2022. [link](02-indoor-analysis.qmd#garza-west-at-85)
+    - In 2023, Garza West reached 95 degrees or above indoors 108 times, or for nearly 60% of the days recorded. [link](02-indoor-analysis.qmd#units-most-at-95)
+    - In 2023, Garza West reached 100 degrees indoors 46 times. In other words, 25% of days between April and September reached 100 degrees or higher indoors. [link](02-indoor-analysis.qmd#garza-at-100)
+
+
+### Visualzing temperatures
+
+We wanted to _show_ how many days it reached different temperature breaks, so we counted the days within each range. In this example from 2023, there is a bar for each prison unit, which the colors representing the number of days within that temperature range.
+
+![2023 Temperatures by unit](figures/thresh_plot_2023.png)
 
 ## Outdoor logs
 
@@ -32,7 +60,7 @@ Here is what we found:
 
 ### Precautionary measures
 
-**August 2025 update**
+**August 2025**
 
 Here we wanted to find which units should be under heat-related "precautionary measures" based on written data logs, and how that compared to actual Incident Command System activations.
 
@@ -54,38 +82,31 @@ There are also 15 "unit days" where there was no heat index values for that day,
 
 **May 2025**
 
-> I'd like to take another crack at pairing these weather stations and include the distance the weather station is from the prison unit. [I've found a few issues](02-outdoor-reliability.qmd#ta-missing-weather-stations), along with some solutions to them, but they've yet to be implemented. For now, consider these stats with caution.
-
 To gauge the accuracy of recorded temperature and humidity/heat index we paired each prison unit with a "nearby" weather station so we could compare the  temperatures.
 
-- We don't have a good match for about 15% of the records.
+- We don't have a good match for about [15% of the records](02-outdoor-reliability.qmd#ta-missing-weather-stations). We have some ideas on how to improve this using visualcrossing, but **we also found in late 2025 that TDCJ is collecting weather station data based on prisons in automated logs**.
 - On average, temperatures are recorded [-2.9 degrees lower](02-outdoor-reliability.qmd#average-temp-difference) than the closest weather station.
 - [About half](02-outdoor-reliability.qmd#percent-temp-within-range) of the temperatures are within 2 degrees, and 3/4ths are within 4 degrees.
     - You can [peruse these ranges by unit](02-outdoor-reliability.qmd#within-range-degrees-by-unit).
 - The [heat index differences](02-outdoor-reliability.qmd#heat-index) are a little harder because of so much missing data, but we've charted them.
 
-## Indoor temperatures
-
-**July 2025 update**
-
-While we did some earlier analysis of indoor temperatures in the spring, there were enough changes in the companion data that we need to check and rework it.
-
-Here is what we'd like to find:
-
-- What was the temperature inside on the days that units were under active ICS protocol?
-- Are there days where inside a prison it was hotter than on the hottest day under protocol?
-- How many days were above 85 degrees inside? 95? 100?
 
 ## Collaborators
 
-Working on weather station data and analysis for indoor logs:
+This project supports reporting by Lauren McGaughy of The Texas Newsroom public radio collaborative. Christian McDonald served as editor and mentor for the many Media Innovation Group fellows who worked on this project.
 
+### 2025-2026
+
+Emily DeMotte did the analysis on the indoor temperature logs.
+
+### 2024-2025 
+
+The following students analyzed outdoor logs and weather station data and explored indoor temperature logs.
+
+- Ali Juell - project lead
 - Pearson Neal
 - Johan Villatoro
-- Ali Juell
 - Karina Kumar
-
-Ali Juell served as project lead and Christian McDonald mentored and edited.
 
 Those transcribing the outdoor logs included:
 
@@ -93,6 +114,5 @@ Those transcribing the outdoor logs included:
 - Teresa Do
 - Nicolas Pinto
 - Diego Torrealba
-
 
 

@@ -3,31 +3,15 @@ title: "Activations cleaning"
 author: "Media Innovation Group"
 ---
 
-::: callout-warning
-
-## Things to check
-
-I need to check some things with Lauren:
-
-- Where is the original file from TDCJ with the activations data?
-- Confirm what these dates are for.
-
-:::
-
-
 ## Overview
 
-These are the days that a unit was under ICS protocols like providing extra ice water and access to cooler areas during extreme heat events. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice. 
+These are the days that a unit was under ICS protocols like providing extra ice water and access to cooler areas during extreme heat events. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.
 
 ## Possible update
-
-**We don't have a complete record of where the activations CSV comes from.** Pretty sure this came from Lauren.
 
 In our tracking Google sheet we do have the same data, except there are errors on the last line.
 
 ## Set up
-
-You know the drill!
 
 ```{r}
 #| label: setup

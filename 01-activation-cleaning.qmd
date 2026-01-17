@@ -1,19 +1,15 @@
 ---
-title: "Updated activations cleaning"
+title: "Activations cleaning"
 author: "Media Innovation Group"
 format: html
 ---
 
 This data is a record of every time a TDCJ was under ICS protocols, like providing extra ice water and access to cooler areas during extreme heat events, in 2022, 2023 and 2024. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.
 
-::: callout-warning
+Questions as of 9/27/2025:
 
-Questions as of 9/27:
--Do we need the 2025 activations logs?
--In the 2022 log, the original xlsx sheet has cell E29 recorded as 12/21/01. I assume this is supposed to be 07/21/22 as it is the ICS initation date column which should be the same date as is recorded in the ICS implementation date column for this row. Should we change that in the original xlsx sheet? 
-
-
-:::
+- Do we need the 2025 activations logs?
+- In the 2022 log, the original xlsx sheet has cell E29 recorded as 12/21/01. I assume this is supposed to be 07/21/22 as it is the ICS initiation date column which should be the same date as is recorded in the ICS implementation date column for this row. Should we change that in the original xlsx sheet? 
 
 ## Goals of this notebook
 
