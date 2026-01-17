@@ -28,7 +28,7 @@ library(tidyverse)
 library(janitor)
 library(ggthemes)
 library(DT)
-
+library(ggwaffle)
 
 
 # suppress group warning
@@ -46,14 +46,21 @@ indoor_logs <- indoor_logs_clean |> mutate(
 
 ### Records per unit, year
 
-Checking where we might have missing data ...
+Checking where we might have missing data ... Here we show the year without 183 recorded days in red so you can see them.
 
 ```{r}
 indoor_logs |> 
   group_by(unit, year) |> 
   summarize(days_recorded = n()) |> 
   pivot_wider(names_from = year, values_from = days_recorded) |> 
-  datatable()
+  datatable() |>
+  formatStyle(
+    columns = c("2022", "2023", "2024", "2025"),
+    backgroundColor = styleInterval(
+      c(182.5, 183.5),
+      c("#f8d7da", NA, "#f8d7da")
+    )
+  )
 ```
 
 Data takeaway: For each year, we have 183 total days of indoor temperature recordings.
@@ -82,7 +89,7 @@ indoor_logs |>
   select(year, unit, date, temperature)
 ```
 
-Summarizing the times each unit appeared in the top 10 hottest temperature recordings each year. 
+Summarizing how many times each unit appears in the top 10 hottest temperature recordings each year. 
 
 ```{r}
 indoor_logs |> 
@@ -94,17 +101,37 @@ indoor_logs |>
   arrange(desc(n))
 ```
 
-Data takeaway: For 2022, 2023 and 2024, the 10 hottest indoor temperatures recorded each year between April 1 and Sept. 30 across all units all exceeded 101 degrees. In 2025, the 10 hottest temperatures fell between 100 and 98.5 degrees. The units that appeared in the 10 hottest recordings each year largely varied, with the exception of Garza West in 2025, which made up 10 of the 13 recordings. Note - several years include more than 10 recordings for the top 10 because of days/units where the temperature recorded was the same.
+Note - several years include more than 10 recordings for the top 10 because of days/units where the temperature recorded was the same.
+
+Data takeaways: 
+
+- For 2022, 2023 and 2024, the 10 hottest indoor temperatures recorded each year exceeded 101 degrees across all units. In 2025, the 10 hottest temperatures fell between 100 and 98.5 degrees.
+- The units that appeared in the 10 hottest recordings each year largely varied, with the exception of Garza West in 2025, which made up 10 of the 13 recordings. 
+
+### Days at 100+
 
 ```{r}
-indoor_logs |> 
+days100 <- indoor_logs |> 
   group_by(year) |> 
   select(year, unit, date, temperature) |> 
   filter(temperature >= 100) |> 
+  arrange(desc(temperature))
+
+days100 |> 
   datatable()
 ```
 
 Data takeaway: It reached 100 degrees indoors 211 times across all units between 2022 and 2025, 108 of which occurred in 2023. Twice, it reached 105 or above. The hottest temperature across all years was recorded at the Mountain View unit on June 19, 2023, which reached 106.8 degrees. The Mountain View unit was renamed to Patrick O'Daniel (appears as O'Daniel in the data) in January 2024 and houses female prisoners in Gatesville, Texas, about 45 miles west of Waco. It houses up to 644 prisoners at full capacity.
+
+### Reaching 100 in 2023
+
+It reached 100 degrees more than 100 times in 2003.
+
+```{r}
+days100 |> 
+  filter(year == 2023)
+```
+
  
 ## Temp ranges by month, year
 
@@ -147,9 +174,10 @@ count_temps_unit_year <- indoor_logs |>
     pct_95 = cnt_95/total_days,
     pct_100 = cnt_100/total_days
   )  |> 
-  mutate(across(starts_with("pct"), round, 2)) # rounds percentage
+  mutate(across(starts_with("pct"), \(x) round(x, 2))) # rounds percentage
 
-count_temps_unit_year  
+count_temps_unit_year  |> 
+  datatable()
 ```
 
 ## Temp ranges by year
@@ -171,7 +199,7 @@ count_temps_year <- indoor_logs|>
     pct_95 = cnt_95/total_days,
     pct_100 = cnt_100/total_days
   )  |> 
-  mutate(across(starts_with("pct"), round, 2)) # rounds percentage
+  mutate(across(starts_with("pct"), \(x) round(x, 2))) # rounds percentage
 
 count_temps_year  
 ```
@@ -238,10 +266,22 @@ Data takeaways:
 This shows units each year with the most days to reach 85.
 
 ```{r}
-count_temps_unit_year |> 
+at85_unit_year <- count_temps_unit_year |> 
   group_by(year) |> 
   slice_max(pct_85, n = 3) |> # n argument adjust number per year
   select(unit, year, total_days, cnt_85, pct_85)
+
+at85_unit_year
+```
+
+
+#### Garza West at 85
+
+We're taking the results above and focusing on Garza West for clarity.
+
+```{r}
+at85_unit_year |> 
+  filter(unit == "Garza West")
 ```
 
 Data takeaway:
@@ -249,6 +289,8 @@ Data takeaway:
 - Garza West reached 85 degrees on at least 80% of days between April and September each year since 2022. In 2025, only 11 days between April 1 and Sept. 30 did not reach at least 85 degrees indoors. In other words, 94% of days reached 85 degrees or higher.  In 2022, it was 92% of days. Every year, Garza West was among the top three units with the highest percentage of days that reached 85 degrees or higher indoors. Garza West is a male prison located in Beeville, Texas, about 100 miles southeast of San Antonio. At full capacity, it houses 2,278 prisoners. 
 - The Garza East and Segovia units reached 85 or above indoors for 92% and 89% of days between April and September in 2025, respectively. 
 - In the Segovia unit in 2023, 94% of recorded days between June and September, or 115 days, reached 85 degrees. No data was recorded for April and May. The Segovia unit is located in South Texas outside of Edinburgh, about 20 miles north of McAllen.  
+
+
 
 ### Minimum days 85 threshold met
 
@@ -412,6 +454,8 @@ This attempts to _show_ how many units reached 100 degrees at least once in a gi
 Since we'll want to make this chart for several years, I'll make it into a function to reuse.
 
 ```{r}
+#| message: false
+
 prison_waffle <- function(.data, yr) {
   .data |> 
     select(unit, year, cnt_100) |> 
@@ -433,6 +477,7 @@ prison_waffle <- function(.data, yr) {
 count_temps_unit_year |> prison_waffle(2022)
 count_temps_unit_year |> prison_waffle(2023)
 count_temps_unit_year |> prison_waffle(2024)
+count_temps_unit_year |> prison_waffle(2025)
 ```
 
 ::: {.panel-tabset}
@@ -449,6 +494,10 @@ count_temps_unit_year |> prison_waffle(2024)
 
 ![](figures/waffle_plot_2024.png) 
 
+#### 2025
+
+![](figures/waffle_plot_2025.png) 
+
 :::
  
 ### Units that hit 100 inside
@@ -464,7 +513,9 @@ unit_days_100 <- count_temps_unit_year |>
 unit_days_100
 ```
 
-Let's date that and peek at just Garza West
+#### Garza at 100
+
+Let's take that and peek at just Garza West
 
 ```{r}
 unit_days_100 |> filter(unit == "Garza West")
@@ -564,7 +615,10 @@ plot_thresh_data(2025)
 
 ## Prisoner deaths
 
-Determining the indoor temperatures on the days and unit where prisoners died indoors in 2023.
+Determining the indoor temperatures on the days and unit where prisoners died.
+
+
+### Hagerty at Murray unit, 2023
 
 ```{r}
 indoor_logs |> 
@@ -577,6 +631,8 @@ Data takeaway: On June 30, 2023, Elizabeth Hagerty died in her cell at the Murra
 TDCJ hand-recorded outdoor temperature log for 12:30 a.m. on June 30, 2023 at the Murray unit: 83 degrees with a heat index of 87. 
 
 NWS log for Gatesville (station ID KGOP) at 12:15 a.m.: 82 degrees with a heat index of 85.6.
+
+### Castillo at Hughes unit, 2023
 
 ```{r}
 indoor_logs |> 
@@ -591,6 +647,9 @@ TDCJ hand-recorded outdoor temperature log for 11:30 p.m. on Aug. 5, 2023 at the
 NWS log for Gatesville (station ID KGOP) at 11:15 p.m.: 86 degrees with a heat index of 86.8.
 
 
+### Womack at Coffield, 2023
+
+
 ```{r}
 indoor_logs |> 
   select(unit, date, temperature) |> 
@@ -603,6 +662,8 @@ TDCJ hand-recorded outdoor temperature log for 1:30 p.m. on Aug. 21, 2023 at the
 
 NWS log for Palestine (station ID KPSN) at 2:15 p.m.: 104 degrees with a heat index of 105.3. 
 Note: the Palestine Municipal Airport station is located 15 miles away from the Coffield unit. 
+
+### Cortez at Goree unit, 2024
 
 ```{r}
 indoor_logs |> 
