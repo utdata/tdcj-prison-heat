@@ -106,7 +106,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -118,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning-old.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-station-protocols.html">Stations cleaning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-station-protocols.html">Stations cleaning</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -164,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-activation-cleaning-old.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-activation-cleaning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Activations cleaning</span></a>
   </div>
 </li>
@@ -192,27 +191,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Unit info cleaning</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-updated-activation-cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Updated activations cleaning</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-indoor-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indoor logs analysis</span></a>
+ <span class="menu-text">Indoor logs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -256,6 +249,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#import-daily-summaries" id="toc-import-daily-summaries" class="nav-link" data-scroll-target="#import-daily-summaries">Import daily summaries</a></li>
   <li><a href="#add-daily-protocols" id="toc-add-daily-protocols" class="nav-link" data-scroll-target="#add-daily-protocols">Add daily protocols</a></li>
+  </ul></li>
+  <li><a href="#finding-hourly-temps-for-prisoner-deaths" id="toc-finding-hourly-temps-for-prisoner-deaths" class="nav-link" data-scroll-target="#finding-hourly-temps-for-prisoner-deaths">Finding hourly temps for prisoner deaths</a>
+  <ul class="collapse">
   <li><a href="#export-daily" id="toc-export-daily" class="nav-link" data-scroll-target="#export-daily">Export daily</a></li>
   </ul></li>
   </ul>
@@ -264,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning-old.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-station-protocols.html">Stations cleaning</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-station-protocols.html">Stations cleaning</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Stations cleaning</h1>
 </div>
@@ -284,9 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>THIS HAS SOME ISSUES. IF WE ARE FOLLOWING THE EXCESSIVE HEAT WARNING CRITERIA, THEN WE ARE NOT LOOKING AT 105 FOR 2 DAYS.</p>
-</blockquote>
+<p>Note: The heat warning criteria we used here is not the same as when we studied precautionary measures. It does not consider how many days the temperatures or heat index value was reached.</p>
 </blockquote>
 <p>Here we enhance our weather station data to include prison protocol data. We do this both for our hourly readings and our daily summaries.</p>
 <p>Will decide later if we add the prison info. That may need to be in more specific analysis.</p>
@@ -345,7 +339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["time"],"name":[3],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["hr"],"name":[7],"type":["int"],"align":["right"]},{"label":["tmp_flag"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[10],"type":["lgl"],"align":["right"]}],"data":[{"1":"KLXY","2":"2023-08-26","3":"17:15:00","4":"105","5":"20","6":"104.3","7":"17","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KSPS","2":"2023-08-23","3":"13:52:00","4":"103","5":"26","6":"104.9","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KVCT","2":"2023-08-12","3":"13:51:00","4":"101","5":"42","6":"113.3","7":"13","8":"FALSE","9":"TRUE","10":"TRUE"},{"1":"KCOT","2":"2023-09-09","3":"13:53:00","4":"103","5":"30","6":"107.7","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KHYI","2":"2023-08-01","3":"17:53:00","4":"104","5":"29","6":"108.9","7":"17","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KHYI","2":"2023-08-10","3":"12:53:00","4":"102","5":"36","6":"110.4","7":"12","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KCXO","2":"2023-08-23","3":"16:15:00","4":"104","5":"28","6":"108.1","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KABI","2":"2023-07-17","3":"14:52:00","4":"105","5":"19","6":"103.7","7":"14","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KRFI","2":"2023-08-20","3":"12:15:00","4":"106","5":"29","6":"112.7","7":"12","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KUTS","2":"2023-08-04","3":"15:53:00","4":"104","5":"34","6":"113.0","7":"15","8":"FALSE","9":"TRUE","10":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["time"],"name":[3],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["hr"],"name":[7],"type":["int"],"align":["right"]},{"label":["tmp_flag"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[10],"type":["lgl"],"align":["right"]}],"data":[{"1":"KBKD","2":"2023-06-29","3":"14:15:00","4":"102","5":"20","6":"100.1","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KSGR","2":"2023-08-15","3":"13:53:00","4":"102","5":"38","6":"112.1","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KHDO","2":"2023-07-20","3":"16:51:00","4":"102","5":"26","6":"103.3","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KBWD","2":"2023-08-04","3":"16:15:00","4":"104","5":"19","6":"102.3","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KBMQ","2":"2023-06-26","3":"13:53:00","4":"101","5":"32","6":"105.4","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KALI","2":"2023-07-31","3":"14:53:00","4":"103","5":"35","6":"111.7","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KPVW","2":"2023-08-17","3":"17:10:00","4":"101","5":"12","6":"95.9","7":"17","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KBKD","2":"2023-08-01","3":"13:15:00","4":"104","5":"22","6":"104.0","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KBWD","2":"2023-08-05","3":"17:15:00","4":"104","5":"17","6":"101.3","7":"17","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KSKF","2":"2023-09-06","3":"14:55:00","4":"101","5":"29","6":"103.4","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -402,16 +396,32 @@ $ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 8
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["tmp_high"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hi_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"KHRL","2":"2023-08-05","3":"101","4":"112.4","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KHRL","2":"2023-08-17","3":"102","4":"109.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KVCT","2":"2023-08-25","3":"104","4":"110.9","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KLFK","2":"2023-08-09","3":"104","4":"111.3","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KFST","2":"2023-07-09","3":"103","4":"102.1","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KLFK","2":"2023-08-05","3":"103","4":"111.7","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KCLL","2":"2023-09-09","3":"103","4":"107.7","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KHOU","2":"2023-08-07","3":"101","4":"113.6","5":"FALSE","6":"TRUE","7":"TRUE"},{"1":"KBWD","2":"2023-07-24","3":"102","4":"98.1","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KCDS","2":"2023-08-17","3":"109","4":"105.3","5":"TRUE","6":"FALSE","7":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["tmp_high"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hi_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"KALI","2":"2023-07-17","3":"104","4":"114.9","5":"FALSE","6":"TRUE","7":"TRUE"},{"1":"KLVJ","2":"2023-08-12","3":"101","4":"112.4","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KVCT","2":"2023-08-25","3":"104","4":"110.9","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KHDO","2":"2023-07-10","3":"101","4":"109.9","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KLFK","2":"2023-07-29","3":"101","4":"104.1","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KHDO","2":"2023-07-13","3":"105","4":"110.5","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KBKD","2":"2023-07-11","3":"101","4":"107.8","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KIAH","2":"2023-07-31","3":"102","4":"109.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KBEA","2":"2023-06-20","3":"104","4":"111.5","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KMFE","2":"2023-06-22","3":"102","4":"116.1","5":"FALSE","6":"TRUE","7":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
 </section>
+</section>
+<section id="finding-hourly-temps-for-prisoner-deaths" class="level2">
+<h2 class="anchored" data-anchor-id="finding-hourly-temps-for-prisoner-deaths">Finding hourly temps for prisoner deaths</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>stations_hourly_protocol <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    station_id <span class="sc">==</span> <span class="st">"KUTS"</span>, date <span class="sc">==</span> <span class="st">"2023-06-07"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["time"],"name":[4],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["hr"],"name":[8],"type":["int"],"align":["right"]},{"label":["tmp_flag"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[10],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[11],"type":["lgl"],"align":["right"]}],"data":[{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"00:53:00","5":"73","6":"84","7":"73.9","8":"0","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"01:53:00","5":"72","6":"84","7":"72.8","8":"1","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"02:53:00","5":"72","6":"82","7":"72.8","8":"2","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"03:53:00","5":"70","6":"87","7":"70.8","8":"3","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"04:53:00","5":"69","6":"87","7":"69.7","8":"4","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"05:53:00","5":"71","6":"87","7":"71.9","8":"5","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"06:53:00","5":"76","6":"79","7":"77.0","8":"6","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"07:53:00","5":"80","6":"71","7":"83.1","8":"7","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"08:53:00","5":"83","6":"65","7":"87.1","8":"8","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"09:53:00","5":"86","6":"57","7":"90.1","8":"9","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"10:53:00","5":"87","6":"50","7":"89.4","8":"10","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"11:53:00","5":"88","6":"48","7":"90.3","8":"11","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"12:53:00","5":"91","6":"42","7":"93.0","8":"12","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"13:53:00","5":"91","6":"44","7":"93.8","8":"13","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"14:53:00","5":"91","6":"42","7":"93.0","8":"14","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"15:53:00","5":"90","6":"45","7":"92.5","8":"15","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"16:53:00","5":"91","6":"42","7":"93.0","8":"16","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"17:53:00","5":"88","6":"50","7":"91.0","8":"17","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"18:15:00","5":"85","6":"53","7":"87.2","8":"18","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"19:00:00","5":"83","6":"59","7":"85.7","8":"19","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"20:53:00","5":"78","6":"71","7":"78.8","8":"20","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"21:53:00","5":"76","6":"77","7":"76.9","8":"21","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"22:53:00","5":"78","6":"71","7":"78.8","8":"22","9":"FALSE","10":"FALSE","11":"FALSE"},{"1":"KUTS","2":"HUNTSVILLE MUNICIPAL AIRPORT, TX US","3":"2023-06-07","4":"23:53:00","5":"74","6":"82","7":"75.0","8":"23","9":"FALSE","10":"FALSE","11":"FALSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
 <section id="export-daily" class="level3">
 <h3 class="anchored" data-anchor-id="export-daily">Export daily</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>stations_daily_protocol <span class="sc">|&gt;</span> <span class="fu">write_rds</span>(<span class="st">"data-processed/01-station-daily-protocols.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>stations_daily_protocol <span class="sc">|&gt;</span> <span class="fu">write_rds</span>(<span class="st">"data-processed/01-station-daily-protocols.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

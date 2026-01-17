@@ -107,7 +107,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -119,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning-old.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-unit-info-cleaning.html">Unit info cleaning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-unit-info-cleaning.html">Unit info cleaning</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-activation-cleaning-old.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-activation-cleaning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Activations cleaning</span></a>
   </div>
 </li>
@@ -193,27 +192,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Unit info cleaning</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-updated-activation-cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Updated activations cleaning</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-indoor-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indoor logs analysis</span></a>
+ <span class="menu-text">Indoor logs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -258,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning-old.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-unit-info-cleaning.html">Unit info cleaning</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-unit-info-cleaning.html">Unit info cleaning</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Unit info cleaning</h1>
 </div>
@@ -283,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This data piece will help us join together our unit-focused data and our weather station-focused data. The data was compiled by Media Innovation Group data fellows. The information came from the Texas Department of Criminal Justice website, a TDCJ unit prototype list and the National Weather Service website.</p>
+<p>This notebook helps us join together our unit-focused data and our weather station-focused data. The data was compiled by Media Innovation Group data fellows. The information came from the Texas Department of Criminal Justice website, a TDCJ unit prototype list and the National Weather Service website.</p>
 <section id="goals-of-this-notebook" class="level2">
 <h2 class="anchored" data-anchor-id="goals-of-this-notebook">Goals of this notebook</h2>
 <p>Clean up our column names so we can easily combine with our other data.</p>

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "TDCJ Prison Heat",
     "section": "",
-    "text": "This is for a group project under UT’s Media Innovation Group.\nIt is an examination of weather conditions recorded in prisons across the state of Texas using documents obtained through the Texas Department of Criminal Justice. More extensive sourcing information can be found on the project’s cleaning files.\nLooking at the navigation of this site, you’ll mainly want to look at the files under the Analysis heading.",
+    "text": "This is for a group project under UT’s Media Innovation Group.\nIt is an examination of heat conditions recorded in prisons across the state of Texas using documents obtained through the Texas Department of Criminal Justice. More extensive sourcing information can be found on the project’s cleaning files.\nLooking at the navigation of this site, you’ll mainly want to look at the files under the Analysis heading.",
     "crumbs": [
       "Overview"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#indoor-logs",
     "title": "TDCJ Prison Heat",
     "section": "Indoor logs",
-    "text": "Indoor logs\nWe have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.\nFor 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Dec. 9, 2025, we only have 122 days of 2025 recordings, April 1 through July 25.\n\nAcross all prisons in the data in from 2022-2024, it reached 85 degrees at least half the time.\nIt reached 90 degrees at least a quarter of the time.\nIt reached 100 degrees inside prisons more than 100 times in 2023.\nIt reached 100 degrees indoors 210 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperature recorded was the Mountain View unit on June 19, 2023, which reached 106.8 degrees.\nIn 2022, 53 of 68 units reached 85 degrees at least half of the days measured.\nIn 2023, 54 of 68 units reached 85 degrees at least half of the days measured.\nTwelve units reached 85 degrees on 75% of days measured in 2022.\nTen units reached 85 degrees on 75% of days measured in 2023.\nIn the Segovia unit in 2023, 94% of the days reached 85 degrees.\nGarza West reached 85 degrees on at least 80% of days each year since 2022. In 2022, 92% of days reached 85 degrees.\nIn 2023, 19 of 68 units reached 90 degrees at least half of the days measured.\nTwo units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024.",
+    "text": "Indoor logs\nJanuary 2025\nWe have records of indoor temperatures recorded for units without air conditioning from April through September of 2022, 2023, 2024 and 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3 p.m. every day from April 1 through Sept. 30 at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT/The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.\nFor each year, we have 183 total days of indoor temperature recordings.\n\nWe looked at how many times it reached at least 85 degrees inside these prisons without air conditioning.\n\nEach year since 2022, it reached at least 85 degrees inside practically every unit at least once. In only one unit did temperatures not reach 85 degrees inside. link\nIn 2023, in 54 of the 68 units without air conditioning, it reached 85 degrees inside a unit on half the days measured. That’s at least 90 days a year. link\n\nIt reached 90 degrees inside almost every unit at least once each year; all but three units in 2022, one in 2023 and six in 2025. link\n\nIn 2023, it hit 90 degrees on half of the days measured in 19 units. link\nIn 2023, 19 of 68 units reached 90 degrees at least half of the days measured. Two units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024. Garza West recorded 137 days with temperatures at or above 90 degrees in 2024. link\n\nIt reached 100 degrees indoors 211 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperature recorded was the Mountain View unit (later renamed O’Daniel) on June 19, 2023, which reached 106.8 degrees. link\n\nIt reached 100 degrees inside prisons more than 100 times in 2023. link\n\nThe Garza West unit comes up often when we look at these temperature thresholds.\n\nIn 2025 there were only 11 days it did not reach 85 degrees inside the Garza West unit. In other words, 94% of days reached 85 degrees or higher. It reached 85 on 92% of days in 2022. link\nIn 2023, Garza West reached 95 degrees or above indoors 108 times, or for nearly 60% of the days recorded. link\nIn 2023, Garza West reached 100 degrees indoors 46 times. In other words, 25% of days between April and September reached 100 degrees or higher indoors. link\n\n\n\nVisualzing temperatures\nWe wanted to show how many days it reached different temperature breaks, so we counted the days within each range. In this example from 2023, there is a bar for each prison unit, which the colors representing the number of days within that temperature range.\n\n\n\n2023 Temperatures by unit",
     "crumbs": [
       "Overview"
     ]
@@ -24,17 +24,7 @@
     "href": "index.html#outdoor-logs",
     "title": "TDCJ Prison Heat",
     "section": "Outdoor logs",
-    "text": "Outdoor logs\nLauren McGaughy of the Texas Newsroom public radio collaborative used a public information act to obtain the outdoor temperature logs kept by Texas prisons. The logs are hand-written and the data could not be accurately pulled through mechanical means, so a group of Media Innovation Group fellows transcribed a sample set of logs from each prison, from July 24, 2023 through July 31, 2023.\nHere is what we found:\n\nBasics and legibility\nMay 2025\n\nWe transcribed 8 days of logs for 82 units, making up about 15,700 rows of data.\nIf we found a row of the data was corrected or there was a question about the legibility, we included a note within that row. We included some consistent-worded notes so we could count them, but also had some more free-form when those categories didn’t fit. We tried to be consistent, but different humans were involved, so variability is inevitable. These based on the last seven days of July 2023.\n\nAbout 15% of the records had notes.\nAbout 1,300 records (7.5%) had corrections.\nAbout 1,000 records (6.5%) we marked with legibility issues.\n\nOf those with notes, we also counted what was at issue.\n\nThere were about 650 notes concerning the heat index/wind chill column. That column is challenging because it captures two different things (though not at the same time). Some records also include what we determined was a heat risk category category, which we recorded in a separate column.\nThere were about 590 notes about the temperature column.\n\nWe wanted to see for which units we added notes.\n\nMore than 60% of the records for the Stevenson unit had notes, and many of those were flagged as “corrections”. However, when you look at the original document, it appears the unit reviews the logs and clears up any legibility issues. i.e. having more corrections could be a positive thing.\nIn some cases we recorded an overall note about the unit as opposed to notes for each individual line. They are printed in browsable form here.\n\n\n\n\nPrecautionary measures\nAugust 2025 update\nHere we wanted to find which units should be under heat-related “precautionary measures” based on written data logs, and how that compared to actual Incident Command System activations.\nThis was challenging because the TDCJ definitions and directives to define if the unit should be in “precautionary measures” are ambiguous and confusing. See the Precautionary measures notebook for a full discussion.\nWe ended up using the following definition: When temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days.\nWe use the term “unit day” to describe when any of the 82 units meets a criteria on a single day.\nOf our eight days of records from 82 prisons …\n\nSeven units met the ICS criteria on some days for a total of 17 unit days, based on the definition given to us by the TDCJ communications department. None of those units had active ICS protocols in place on those days. This count could be low since units could have met protocol in the days before our time period.\nAccording to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, none of these units met the criteria we’ve been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.\nOut of 656 “unit days” possible (82 units, 8 days), excessive heat conditions (105 degrees or 113 heat index) were reached 127 times. Half of the units reached the criteria at least once. In only 12 of those instances was a unit in active precautionary measures.\n\nThere are also 15 “unit days” where there was no heat index values for that day, but the unit did include a heat index “risk category” that was Cat 3 or higher. Those are potentially 113 degrees or greater and would put the day in precautionary measures territory.\n\n\nLog accuracy vs weather stations\nMay 2025\n\nI’d like to take another crack at pairing these weather stations and include the distance the weather station is from the prison unit. I’ve found a few issues, along with some solutions to them, but they’ve yet to be implemented. For now, consider these stats with caution.\n\nTo gauge the accuracy of recorded temperature and humidity/heat index we paired each prison unit with a “nearby” weather station so we could compare the temperatures.\n\nWe don’t have a good match for about 15% of the records.\nOn average, temperatures are recorded -2.9 degrees lower than the closest weather station.\nAbout half of the temperatures are within 2 degrees, and 3/4ths are within 4 degrees.\n\nYou can peruse these ranges by unit.\n\nThe heat index differences are a little harder because of so much missing data, but we’ve charted them.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#indoor-temperatures",
-    "href": "index.html#indoor-temperatures",
-    "title": "TDCJ Prison Heat",
-    "section": "Indoor temperatures",
-    "text": "Indoor temperatures\nJuly 2025 update\nWhile we did some earlier analysis of indoor temperatures in the spring, there were enough changes in the companion data that we need to check and rework it.\nHere is what we’d like to find:\n\nWhat was the temperature inside on the days that units were under active ICS protocol?\nAre there days where inside a prison it was hotter than on the hottest day under protocol?\nHow many days were above 85 degrees inside? 95? 100?",
+    "text": "Outdoor logs\nLauren McGaughy of the Texas Newsroom public radio collaborative used a public information act to obtain the outdoor temperature logs kept by Texas prisons. The logs are hand-written and the data could not be accurately pulled through mechanical means, so a group of Media Innovation Group fellows transcribed a sample set of logs from each prison, from July 24, 2023 through July 31, 2023.\nHere is what we found:\n\nBasics and legibility\nMay 2025\n\nWe transcribed 8 days of logs for 82 units, making up about 15,700 rows of data.\nIf we found a row of the data was corrected or there was a question about the legibility, we included a note within that row. We included some consistent-worded notes so we could count them, but also had some more free-form when those categories didn’t fit. We tried to be consistent, but different humans were involved, so variability is inevitable. These based on the last seven days of July 2023.\n\nAbout 15% of the records had notes.\nAbout 1,300 records (7.5%) had corrections.\nAbout 1,000 records (6.5%) we marked with legibility issues.\n\nOf those with notes, we also counted what was at issue.\n\nThere were about 650 notes concerning the heat index/wind chill column. That column is challenging because it captures two different things (though not at the same time). Some records also include what we determined was a heat risk category category, which we recorded in a separate column.\nThere were about 590 notes about the temperature column.\n\nWe wanted to see for which units we added notes.\n\nMore than 60% of the records for the Stevenson unit had notes, and many of those were flagged as “corrections”. However, when you look at the original document, it appears the unit reviews the logs and clears up any legibility issues. i.e. having more corrections could be a positive thing.\nIn some cases we recorded an overall note about the unit as opposed to notes for each individual line. They are printed in browsable form here.\n\n\n\n\nPrecautionary measures\nAugust 2025\nHere we wanted to find which units should be under heat-related “precautionary measures” based on written data logs, and how that compared to actual Incident Command System activations.\nThis was challenging because the TDCJ definitions and directives to define if the unit should be in “precautionary measures” are ambiguous and confusing. See the Precautionary measures notebook for a full discussion.\nWe ended up using the following definition: When temperatures are 105+ degrees or heat index is 113+ for three or more consecutive days.\nWe use the term “unit day” to describe when any of the 82 units meets a criteria on a single day.\nOf our eight days of records from 82 prisons …\n\nSeven units met the ICS criteria on some days for a total of 17 unit days, based on the definition given to us by the TDCJ communications department. None of those units had active ICS protocols in place on those days. This count could be low since units could have met protocol in the days before our time period.\nAccording to the activation data, there were 24 days in our time period where ICS heat mitigation protocols were put in place. On those activation days, none of these units met the criteria we’ve been given by TDCJ communications based on the weather logs kept by units. That said, half of the activations are within the first two days of our study, meaning they could have met the criteria in the days before our time frame.\nOut of 656 “unit days” possible (82 units, 8 days), excessive heat conditions (105 degrees or 113 heat index) were reached 127 times. Half of the units reached the criteria at least once. In only 12 of those instances was a unit in active precautionary measures.\n\nThere are also 15 “unit days” where there was no heat index values for that day, but the unit did include a heat index “risk category” that was Cat 3 or higher. Those are potentially 113 degrees or greater and would put the day in precautionary measures territory.\n\n\nLog accuracy vs weather stations\nMay 2025\nTo gauge the accuracy of recorded temperature and humidity/heat index we paired each prison unit with a “nearby” weather station so we could compare the temperatures.\n\nWe don’t have a good match for about 15% of the records. We have some ideas on how to improve this using visualcrossing, but we also found in late 2025 that TDCJ is collecting weather station data based on prisons in automated logs.\nOn average, temperatures are recorded -2.9 degrees lower than the closest weather station.\nAbout half of the temperatures are within 2 degrees, and 3/4ths are within 4 degrees.\n\nYou can peruse these ranges by unit.\n\nThe heat index differences are a little harder because of so much missing data, but we’ve charted them.",
     "crumbs": [
       "Overview"
     ]
@@ -44,7 +34,7 @@
     "href": "index.html#collaborators",
     "title": "TDCJ Prison Heat",
     "section": "Collaborators",
-    "text": "Collaborators\nWorking on weather station data and analysis for indoor logs:\n\nPearson Neal\nJohan Villatoro\nAli Juell\nKarina Kumar\n\nAli Juell served as project lead and Christian McDonald mentored and edited.\nThose transcribing the outdoor logs included:\n\nEmily deMotte\nTeresa Do\nNicolas Pinto\nDiego Torrealba",
+    "text": "Collaborators\nThis project supports reporting by Lauren McGaughy of The Texas Newsroom public radio collaborative. Christian McDonald served as editor and mentor for the many Media Innovation Group fellows who worked on this project.\n\n2025-2026\nEmily DeMotte did the analysis on the indoor temperature logs.\n\n\n2024-2025\nThe following students analyzed outdoor logs and weather station data and explored indoor temperature logs.\n\nAli Juell - project lead\nPearson Neal\nJohan Villatoro\nKarina Kumar\n\nThose transcribing the outdoor logs included:\n\nEmily deMotte\nTeresa Do\nNicolas Pinto\nDiego Torrealba",
     "crumbs": [
       "Overview"
     ]
@@ -129,529 +119,144 @@
   {
     "objectID": "02-indoor-analysis.html",
     "href": "02-indoor-analysis.html",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "",
-    "text": "Tasks for Emily on this:\n\nMake sure there isn’t anything important from your previous work that isn’t in the newer section.\nGo through the newer section and make sure you understand it. Read through the takeaways and correct as needed. Add anything you might thing is important that I might have missed.\nRemove all my notes that start with &gt;\nWrite a section near the top of the index.qmd that highlights the most important things we find here.\nThen remove this callout section ;-)\nWe have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024 and April through July 25 (day the info request was filled) of 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3pm every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.",
+    "text": "We have recorded indoor temperatures for each unit April 1 through Sept. 30 of 2022, 2023, 2024 and 2025. According to the Texas Department of Criminal Justice, indoor temperatures are taken at 3 p.m. every day from April through September at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. All temperatures are recorded in Fahrenheit.",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#goals-of-this-notebook",
     "href": "02-indoor-analysis.html#goals-of-this-notebook",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "Goals of this notebook",
-    "text": "Goals of this notebook\nIn this notebook, we will explore the following questions:\n\nWhat was the highest temperature reached each year, and where?\n\nHow many days was the indoor temperature at least X degrees (85, 90, 95, 100+) each year from 2022 to 2025.\nHow many consecutive days in those measures? (Not tackled yet)",
+    "text": "Goals of this notebook\nIn this notebook, we will explore the following questions:\n\nWhat was the highest temperature reached each year, and where?\n\nHow many days was the indoor temperature at least X degrees (85, 90, 95, 100+) each year from 2022 to 2025?\nWhich units consistently recorded the highest temperatures?\nHow many consecutive days in those measures? (Not tackled yet)",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
-    "objectID": "02-indoor-analysis.html#setup",
-    "href": "02-indoor-analysis.html#setup",
-    "title": "Indoor logs analysis",
-    "section": "Setup",
-    "text": "Setup\nLoading our libraries\n\n\nClick to show code\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(ggthemes)\nlibrary(DT)\nlibrary(ggwaffle)\n\n# suppress group warning\noptions(dplyr.summarise.inform = FALSE)",
+    "objectID": "02-indoor-analysis.html#setup-import-and-preparation",
+    "href": "02-indoor-analysis.html#setup-import-and-preparation",
+    "title": "Indoor logs",
+    "section": "Setup, import and preparation",
+    "text": "Setup, import and preparation\n\n\nClick to show code\n# Loading our libraries\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(ggthemes)\nlibrary(DT)\nlibrary(ggwaffle)\n\n\n# suppress group warning\noptions(dplyr.summarise.inform = FALSE)\n\n# Reading in the cleaned and combined indoor logs.\nindoor_logs_clean &lt;- read_rds(\"data-processed/01-indoor-temps-all-cleaned.rds\")\n\n# Adding variables to help analysis by date.\nindoor_logs &lt;- indoor_logs_clean |&gt; mutate(\n  flo_mo = floor_date(date, unit = \"month\"),\n  year = year(date)\n) \n\n\n\nRecords per unit, year\nChecking where we might have missing data … Here we show the year without 183 recorded days in red so you can see them.\n\n\nClick to show code\nindoor_logs |&gt; \n  group_by(unit, year) |&gt; \n  summarize(days_recorded = n()) |&gt; \n  pivot_wider(names_from = year, values_from = days_recorded) |&gt; \n  datatable() |&gt;\n  formatStyle(\n    columns = c(\"2022\", \"2023\", \"2024\", \"2025\"),\n    backgroundColor = styleInterval(\n      c(182.5, 183.5),\n      c(\"#f8d7da\", NA, \"#f8d7da\")\n    )\n  )\n\n\n\n\n\n\nData takeaway: For each year, we have 183 total days of indoor temperature recordings. For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. Sixty-three units appear in all four years of data. The 11 units that differ by year are as follows:\n\nBartlett: 2025 only, April, May, June and July only (does not appear in August or September data)\nBaten: 2025 only\nGarza East: 2024 and 2025 only\nGurney: 2025 only\nJohnston: 2022 and 2023 only\nMountain View: 2022 and 2023 only\nO’Daniel: 2024 only (note: the Mountain View unit was renamed to Patrick O’Daniel in January 2024, which appears as O’Daniel in the data. They are the same unit.)\nPlane: 2022, 2023 and 2024 only\nSayle: appears in 2022 only\nSegovia: 2023 (June, July and August and September only), 2024 and 2025 only\nYoung: 2022, 2023 and 2024 only",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#import",
-    "href": "02-indoor-analysis.html#import",
-    "title": "Indoor logs analysis",
-    "section": "Import",
-    "text": "Import\nReading in the cleaned and combined indoor logs.\n\n\nClick to show code\nindoor_logs_clean &lt;- read_rds(\"data-processed/01-indoor-temps-all-cleaned.rds\")\n\n\n\nCreating date parts\nAdding variables to help analysis by date.\n\n\nClick to show code\nindoor_logs &lt;- indoor_logs_clean |&gt; mutate(\n  flo_mo = floor_date(date, unit = \"month\"),\n  year = year(date)\n) \n\nindoor_logs\n\n\n\n  \n\n\n\n\n\nRecords per unit, year\nChecking where we might have missing data …\n\n\nClick to show code\nindoor_logs |&gt; \n  group_by(unit, year) |&gt; \n  summarize(days_recorded = n()) |&gt; \n  pivot_wider(names_from = year, values_from = days_recorded)\n\n\n\n  \n\n\n\nData takeaway: For 2022, 2023 and 2024, we have 183 total days of indoor temperature recordings. As of Oct. 17, 2025, we only have 122 days of 2025 recordings (April 1 through July 25) because we are waiting for the rest of the data to come in via a public information request. For each year of data, there are 68 TDCJ units that recorded indoor temperatures. However, the units recorded differ by year, with 74 total units appearing across all four years of data. 63 units appear in all four years of data. The 11 units that differ by year are as follows:\n\nBartlett: 2025 only\nBaten: 2025 only\nGarza East: 2024 and 2025 only\nGurney: 2025 only\nJohnston: 2022 and 2023 only\nMountain View: 2022 and 2023 only\nO’Daniel: 2024 only\nPlane: 2022, 2023 and 2024 only\nSayle: appears in 2022 only\nSegovia: 2023 (June, July and August and September only), 2024 and 2025 only\nYoung: 2022, 2023 and 2024 only",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#hottest-temps-each-year",
     "href": "02-indoor-analysis.html#hottest-temps-each-year",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "Hottest temps each year",
-    "text": "Hottest temps each year\nThe top 5 hottest days indoors for each year.\n\n\nClick to show code\nindoor_logs |&gt; \n  group_by(year) |&gt; \n  slice_max(temperature, n = 5) |&gt; \n  select(year, unit, date, temperature)\n\n\n\n  \n\n\n\n\n\nClick to show code\nindoor_logs |&gt; \n  group_by(year) |&gt; \n  select(year, unit, date, temperature) |&gt; \n  filter(temperature &gt;= 105)\n\n\n\n  \n\n\n\nData takeaway: - It reached 100 degrees indoors 210 times across all units between 2022 and 2025. Twice, it reached 105 or above. The hottest temperatured recorded was the Mountain View unit on June 19, 2023, which reached 106.8 degrees.",
+    "text": "Hottest temps each year\nThe top 10 hottest days indoors for each year.\n\n\nClick to show code\nindoor_logs |&gt; \n  group_by(year) |&gt; \n  slice_max(temperature, n = 10) |&gt; \n  select(year, unit, date, temperature)\n\n\n\n  \n\n\n\nSummarizing how many times each unit appears in the top 10 hottest temperature recordings each year.\n\n\nClick to show code\nindoor_logs |&gt; \n  group_by(year) |&gt; \n  slice_max(temperature, n = 10) |&gt; \n  select(year, unit, date, temperature) |&gt; \n  group_by(unit, year) |&gt; \n  summarize(n = n()) |&gt; \n  arrange(desc(n))\n\n\n\n  \n\n\n\nNote - several years include more than 10 recordings for the top 10 because of days/units where the temperature recorded was the same.\nData takeaways:\n\nFor 2022, 2023 and 2024, the 10 hottest indoor temperatures recorded each year exceeded 101 degrees across all units. In 2025, the 10 hottest temperatures fell between 100 and 98.5 degrees.\nThe units that appeared in the 10 hottest recordings each year largely varied, with the exception of Garza West in 2025, which made up 10 of the 13 recordings.\n\n\nDays at 100+\n\n\nClick to show code\ndays100 &lt;- indoor_logs |&gt; \n  group_by(year) |&gt; \n  select(year, unit, date, temperature) |&gt; \n  filter(temperature &gt;= 100) |&gt; \n  arrange(desc(temperature))\n\ndays100 |&gt; \n  datatable()\n\n\n\n\n\n\nData takeaway: It reached 100 degrees indoors 211 times across all units between 2022 and 2025, 108 of which occurred in 2023. Twice, it reached 105 or above. The hottest temperature across all years was recorded at the Mountain View unit on June 19, 2023, which reached 106.8 degrees. The Mountain View unit was renamed to Patrick O’Daniel (appears as O’Daniel in the data) in January 2024 and houses female prisoners in Gatesville, Texas, about 45 miles west of Waco. It houses up to 644 prisoners at full capacity.\n\n\nReaching 100 in 2023\nIt reached 100 degrees more than 100 times in 2003.\n\n\nClick to show code\ndays100 |&gt; \n  filter(year == 2023)",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#temp-ranges-by-month-year",
     "href": "02-indoor-analysis.html#temp-ranges-by-month-year",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "Temp ranges by month, year",
-    "text": "Temp ranges by month, year\nThis shows how many days a unit reached a specific indoor temperature each month.\n\n\nClick to show code\ncount_temps_unit_month &lt;- indoor_logs|&gt; \n  group_by(unit, flo_mo) |&gt; \n  summarize(\n    total_days = n(),\n    cnt_85 = sum(temperature &gt;= 85, na.rm = T),\n    cnt_90 = sum(temperature &gt;= 90, na.rm = T),\n    cnt_95 = sum(temperature &gt;= 95, na.rm = T),\n    cnt_100 = sum(temperature &gt;= 100, na.rm = T),\n    cnt_105 = sum(temperature &gt;= 105, na.rm = T),\n    .groups = \"drop\"\n  )\n\ncount_temps_unit_month",
+    "text": "Temp ranges by month, year\nThis shows how many days per month a unit reached a specific indoor temperature.\n\n\nClick to show code\ncount_temps_unit_month &lt;- indoor_logs|&gt; \n  group_by(unit, flo_mo) |&gt; \n  summarize(\n    total_days = n(),\n    cnt_85 = sum(temperature &gt;= 85, na.rm = T),\n    cnt_90 = sum(temperature &gt;= 90, na.rm = T),\n    cnt_95 = sum(temperature &gt;= 95, na.rm = T),\n    cnt_100 = sum(temperature &gt;= 100, na.rm = T),\n    cnt_105 = sum(temperature &gt;= 105, na.rm = T),\n    .groups = \"drop\"\n  )\n\ncount_temps_unit_month |&gt; datatable()",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#temp-ranges-by-unit-year",
     "href": "02-indoor-analysis.html#temp-ranges-by-unit-year",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "Temp ranges by unit, year",
-    "text": "Temp ranges by unit, year\nNumber of days unit reached a certain temperature within a year (which is really a 6-month period). Also the percentage of recorded days it was reached.\n\n\nClick to show code\ncount_temps_unit_year &lt;- indoor_logs |&gt; \n  group_by(unit, year) |&gt; \n  summarize(\n    total_days = n(),\n    cnt_n85 = sum(temperature &lt; 85, na.rm = T),\n    cnt_85 = sum(temperature &gt;= 85, na.rm = T),\n    cnt_90 = sum(temperature &gt;= 90, na.rm = T),\n    cnt_95 = sum(temperature &gt;= 95, na.rm = T),\n    cnt_100 = sum(temperature &gt;= 100, na.rm = T),\n    .groups = \"drop\"\n  ) |&gt; mutate(\n    pct_85 = cnt_85/total_days,\n    pct_90 = cnt_90/total_days,\n    pct_95 = cnt_95/total_days,\n    pct_100 = cnt_100/total_days\n  ) |&gt; \n  mutate(across(starts_with(\"pct\"), round, 2)) # rounds percentage\n\n\nWarning: There was 1 warning in `mutate()`.\nℹ In argument: `across(starts_with(\"pct\"), round, 2)`.\nCaused by warning:\n! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.\nSupply arguments directly to `.fns` through an anonymous function instead.\n\n  # Previously\n  across(a:b, mean, na.rm = TRUE)\n\n  # Now\n  across(a:b, \\(x) mean(x, na.rm = TRUE))\n\n\nClick to show code\ncount_temps_unit_year |&gt; arrange(cnt_100 |&gt; desc())",
+    "text": "Temp ranges by unit, year\nNumber of days unit reached a certain temperature within a year (which is really a 6-month period). Also the percentage of recorded days it was reached.\n\n\nClick to show code\ncount_temps_unit_year &lt;- indoor_logs |&gt; \n  group_by(unit, year) |&gt; \n  summarize(\n    total_days = n(),\n    cnt_n85 = sum(temperature &lt; 85, na.rm = T),\n    cnt_85 = sum(temperature &gt;= 85, na.rm = T),\n    cnt_90 = sum(temperature &gt;= 90, na.rm = T),\n    cnt_95 = sum(temperature &gt;= 95, na.rm = T),\n    cnt_100 = sum(temperature &gt;= 100, na.rm = T),\n    .groups = \"drop\"\n  ) |&gt; mutate(\n    pct_85 = cnt_85/total_days,\n    pct_90 = cnt_90/total_days,\n    pct_95 = cnt_95/total_days,\n    pct_100 = cnt_100/total_days\n  )  |&gt; \n  mutate(across(starts_with(\"pct\"), \\(x) round(x, 2))) # rounds percentage\n\ncount_temps_unit_year  |&gt; \n  datatable()",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#temp-ranges-by-year",
     "href": "02-indoor-analysis.html#temp-ranges-by-year",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "Temp ranges by year",
-    "text": "Temp ranges by year\nHow many “prison days” it reached a certain temperature each year.\n\n\nClick to show code\ncount_temps_year &lt;- indoor_logs|&gt; \n  group_by(year) |&gt; \n  summarize(\n    total_days = n(),\n    cnt_85 = sum(temperature &gt;= 85, na.rm = T),\n    cnt_90 = sum(temperature &gt;= 90, na.rm = T),\n    cnt_95 = sum(temperature &gt;= 95, na.rm = T),\n    cnt_100 = sum(temperature &gt;= 100, na.rm = T)\n  ) |&gt; mutate(\n    pct_85 = cnt_85/total_days,\n    pct_90 = cnt_90/total_days,\n    pct_95 = cnt_95/total_days,\n    pct_100 = cnt_100/total_days\n  )  |&gt; \n  mutate(across(starts_with(\"pct\"), round, 2)) # rounds percentage\n\ncount_temps_year  \n\n\n\n  \n\n\n\nData takeaways:\n\nAcross all prisons in the data in from 2022-2024, it reached 85 degrees at least half the time.\nIt reached 90 degrees at least a quarter of the time. (Doesn’t include 2025 since we don’t have full data.)\nIt reached 100 degrees inside prisons more than 100 times in 2023.",
+    "text": "Temp ranges by year\nHow many “prison days” it reached a certain temperature each year. “Prison days” include all days recorded across all units each year.\n\n\nClick to show code\ncount_temps_year &lt;- indoor_logs|&gt; \n  group_by(year) |&gt; \n  summarize(\n    total_days = n(),\n    cnt_85 = sum(temperature &gt;= 85, na.rm = T),\n    cnt_90 = sum(temperature &gt;= 90, na.rm = T),\n    cnt_95 = sum(temperature &gt;= 95, na.rm = T),\n    cnt_100 = sum(temperature &gt;= 100, na.rm = T)\n  ) |&gt; mutate(\n    pct_85 = cnt_85/total_days,\n    pct_90 = cnt_90/total_days,\n    pct_95 = cnt_95/total_days,\n    pct_100 = cnt_100/total_days\n  )  |&gt; \n  mutate(across(starts_with(\"pct\"), \\(x) round(x, 2))) # rounds percentage\n\ncount_temps_year  \n\n\n\n  \n\n\n\nData takeaways:\n\nAcross all prisons in the data in from 2022-2025, it reached 85 degrees indoors at least half the time between April 1 and Sept. 30.\nIt reached 90 degrees at least a quarter of the time in 2022, 2023 and 2024. In 2025, it was nearly 20% of the time.\nIt reached 100 degrees inside prisons more than 100 times in 2023 alone. Across all prisons, 37% of days between April and September reached 90 degrees in 2023.",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#crit",
-    "href": "02-indoor-analysis.html#crit",
-    "title": "Indoor logs analysis",
-    "section": "Crit",
-    "text": "Crit",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#degree-threshold",
     "href": "02-indoor-analysis.html#degree-threshold",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "85 degree threshold",
-    "text": "85 degree threshold\n\nCount units reaching 85 at least once\nStarting with the 85 threshold data above, we find total units, then subtract a count units that didn’t reach 85.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_units = n(),\n    units_met_85 = total_units - sum(cnt_85 == 0),\n  )\n\n\n\n  \n\n\n\nTakeaway: Every unit hit 85 degrees at least once every year with one exception in 2022.\nLet’s find that unit that didn’t reach 85 degrees. These are the lowest of the “highest temperature for each unit” where we can see Sayle didn’t reach 85 degrees twice. We only have 2022 data for the Sayle unit.\n\n\nClick to show code\nindoor_logs |&gt; \n  filter(year == 2022) |&gt;\n  group_by(unit) |&gt; \n  slice_max(temperature) |&gt; # find highest temp each unit\n  arrange(temperature) |&gt; # find lowest of those\n  select(unit, date, temperature) |&gt; \n  filter(temperature &lt;= 90) # cutting here to show the next units for comparison\n\n\n\n  \n\n\n\n\n\nUnits reaching 85 half the time\nThis counts the number of units that reached 85 degrees for half of the days measured. We also calculate for 75% of the days measured.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;\n  select(year, total_days, cnt_85, pct_85) |&gt; arrange(desc(cnt_85)) |&gt; \n  summarize(\n    total_units = n(),\n    cnt_half_85 = sum(pct_85 &gt;= .50),\n    cnt_34ths_85 = sum(pct_85 &gt;= .75)\n  )\n\n\n\n  \n\n\n\nExample takeaways:\n\nIn 2022, 53 of 68 units reached 85 degrees at least half of the days measured.\nIn 2023, 54 of 68 units reached 85 degrees at least half of the days measured.\nTwelve units reached 85 degrees on 75% of days measured in 2022.\nTen units reached 85 degrees on 75% of days measured in 2023.\n\n\n\nUnits most at 85\nThis shows units each year with the most days to reach 85.\n\n\nClick to show code\ncount_temps_unit_year |&gt; \n  group_by(year) |&gt; \n  slice_max(pct_85, n = 3) |&gt; # n argument adjust number per year\n  select(unit, year, total_days, cnt_85, pct_85)\n\n\n\n  \n\n\n\nTakeaways:\n\nIn the Segovia unit in 2023, 94% of the days reached 85 degrees.\nGarza West reached 85 degrees on at least 80% of days each year since 2022. In 2022, 92% of days reached 85 degrees.\n\n\n\nMinimum days 85 threshold met\nHere we find the fewest number of days it reached the 85-degree threshold within each year. We remove the Sayle unit that didn’t ever reach 85 in 2022.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  filter(cnt_85 &gt; 0) |&gt; # removes Sayle in 2022\n  group_by(year) |&gt; \n  slice_min(cnt_85, n = 1) |&gt; \n  select(unit, year, total_days, cnt_85, pct_85)\n\n\n\n  \n\n\n\nTakeaways\n\nWith the exception of the Sayle unit, it reached 85 degrees inside every other unit for at least 43 days in 2022.\nIn 2023, every unit saw at least 40 days reaching 85 degrees.\nEven in the relatively cool 2024 summer, it reached 85 degrees inside every unit at least 27 times.",
+    "text": "85 degree threshold\n\nCount units reaching 85 at least once\nStarting with the 85 threshold data above, we find total units, then subtract a count units that didn’t reach 85.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_units = n(),\n    units_met_85 = total_units - sum(cnt_85 == 0),\n  )\n\n\n\n  \n\n\n\nLet’s find that unit in 2022 that didn’t reach 85 degrees. These are the lowest of the “highest temperature for each unit” where we can see Sayle didn’t reach 85 degrees twice. We only have 2022 data for the Sayle unit.\n\n\nClick to show code\nindoor_logs |&gt; \n  filter(year == 2022) |&gt;\n  group_by(unit) |&gt; \n  slice_max(temperature) |&gt; # find highest temp each unit\n  arrange(temperature) |&gt; # find lowest of those\n  select(unit, date, temperature) |&gt; \n  filter(temperature &lt;= 90) # cutting here to show the next units for comparison\n\n\n\n  \n\n\n\nTakeaway: Every unit hit 85 degrees at least once every year with one exception in 2022, where the Sayle unit recorded 84.6 degrees as its highest temperature on two separate days. The Sayle unit is located a little over 100 miles west of Forth Worth and was not included in the data for 2023, 2024 or 2025.\n\n\nUnits reaching 85 half the time\nThis counts the number of units that reached 85 degrees for half of the days measured. We also calculate for 75% of the days measured.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;\n  select(year, total_days, cnt_85, pct_85) |&gt; arrange(desc(cnt_85))  |&gt; \n  summarize(\n    total_units = n(),\n    cnt_half_85 = sum(pct_85 &gt;= .50),\n    cnt_34ths_85 = sum(pct_85 &gt;= .75)\n  )\n\n\n\n  \n\n\n\nData takeaways:\n\nIn 2022, 53 of 68 units reached 85 degrees or above on at least half of the days measured. In 2023, it was 54 of 68, in 2024, it was 48 of 68, and in 2025, it was 47 out of 68.\nTwelve units reached 85 degrees on 75% of days measured in 2022. In 2023, it was 10 units, and in 2024 and 2025, it was eight units.\n\n\n\nUnits most at 85\nThis shows units each year with the most days to reach 85.\n\n\nClick to show code\nat85_unit_year &lt;- count_temps_unit_year |&gt; \n  group_by(year) |&gt; \n  slice_max(pct_85, n = 3) |&gt; # n argument adjust number per year\n  select(unit, year, total_days, cnt_85, pct_85)\n\nat85_unit_year\n\n\n\n  \n\n\n\n\nGarza West at 85\nWe’re taking the results above and focusing on Garza West for clarity.\n\n\nClick to show code\nat85_unit_year |&gt; \n  filter(unit == \"Garza West\")\n\n\n\n  \n\n\n\nData takeaway:\n\nGarza West reached 85 degrees on at least 80% of days between April and September each year since 2022. In 2025, only 11 days between April 1 and Sept. 30 did not reach at least 85 degrees indoors. In other words, 94% of days reached 85 degrees or higher. In 2022, it was 92% of days. Every year, Garza West was among the top three units with the highest percentage of days that reached 85 degrees or higher indoors. Garza West is a male prison located in Beeville, Texas, about 100 miles southeast of San Antonio. At full capacity, it houses 2,278 prisoners.\nThe Garza East and Segovia units reached 85 or above indoors for 92% and 89% of days between April and September in 2025, respectively.\nIn the Segovia unit in 2023, 94% of recorded days between June and September, or 115 days, reached 85 degrees. No data was recorded for April and May. The Segovia unit is located in South Texas outside of Edinburgh, about 20 miles north of McAllen.\n\n\n\n\nMinimum days 85 threshold met\nHere we find the fewest number of days it reached the 85-degree threshold within each year. We remove the Sayle unit that didn’t ever reach 85 in 2022.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  filter(cnt_85 &gt; 0) |&gt; # removes Sayle in 2022\n  group_by(year) |&gt; \n  slice_min(cnt_85, n = 1) |&gt; \n  select(unit, year, total_days, cnt_85, pct_85)\n\n\n\n  \n\n\n\nData takeaways:\n\nWith the exception of the Sayle unit, it reached 85 degrees inside every unit for at least 43 days between April 1 and Sept. 30 in 2022.\nIn 2023, every unit saw at least 40 days reaching 85 degrees.\nEven in the relatively cool 2024 and 2025 summers, it reached 85 degrees inside every unit for at least 27 and 24 days, respectively.",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#degree-threshold-1",
     "href": "02-indoor-analysis.html#degree-threshold-1",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "90 degree threshold",
-    "text": "90 degree threshold\n\nUnits reaching 90 at least once\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_units = n(),\n    units_met_90 = total_units - sum(cnt_90 == 0),\n  )\n\n\n\n  \n\n\n\nAlmost every unit also reached 90 degrees inside at least once each year. All but three units in 2022 and one in 2023.\n\n\nUnits that hit 90° half the time\nThis counts the number of units that reached 90 degrees for half of the days measured. We also calculate for 75% of the days measured.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;\n  select(year, total_days, cnt_90, pct_90) |&gt; arrange(desc(cnt_90)) |&gt; \n  summarize(\n    total_units = n(),\n    cnt_half_90 = sum(pct_90 &gt;= .50),\n    cnt_34th_90 = sum(pct_90 &gt;= .75)\n  )\n\n\n\n  \n\n\n\nExample takeaway:\n\nIn 2023, 19 of 68 units reached 90 degrees at least half of the days measured.\nTwo units reached 90 degrees for at least 75% of days measured, one in 2023 and one in 2024.\n\nLet’s find those units that reach 90 for 75% of the time.\n\n\nClick to show code\ncount_temps_unit_year |&gt; \n  # filter(year == 2023) |&gt; \n  select(unit, year, total_days, cnt_90, pct_90) |&gt; \n  filter(pct_90 &gt;= .75) |&gt; \n  arrange(year)\n\n\n\n  \n\n\n\nSegovia has fewer days measured in 2023, but it still reached 90 degrees more than 100 times. - In 2024, Garza West reached 90 degrees 137 times, or 75% of days between April 1 and Sept. 30.\n\n\nUnits with most days at 90\nThis shows units with the most days to reach 95 within each year.\n\n\nClick to show code\nunits_at_90 &lt;- count_temps_unit_year |&gt; \n  group_by(year) |&gt; \n  slice_max(pct_90, n = 3) |&gt; # n argument adjust number per year\n  select(unit, year, total_days, cnt_90, pct_90)\n\nunits_at_90\n\n\n\n  \n\n\n\nClick to show code\nunits_at_90 |&gt; filter(unit == \"Garza West\")\n\n\n\n  \n\n\n\nTakeaways:\n\nIn the Garza West unit, the temperature reached at least 90 degrees at least 3 out of 5 days each year from 2022 to 2024. In 2024 it was 3 out of 4 days measured between April and September.",
+    "text": "90 degree threshold\n\nUnits reaching 90 at least once\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_units = n(),\n    units_met_90 = total_units - sum(cnt_90 == 0),\n  )\n\n\n\n  \n\n\n\nData takeaway: Almost every unit also reached 90 degrees inside at least once each year, all but three units in 2022, one in 2023 and six in 2025.\n\n\nUnits that hit 90° half the time\nThis counts the number of units that reached 90 degrees for half of the days measured. We also calculate for 75% of the days measured.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;\n  select(year, total_days, cnt_90, pct_90) |&gt; arrange(desc(cnt_90)) |&gt; \n  summarize(\n    total_units = n(),\n    cnt_half_90 = sum(pct_90 &gt;= .50),\n    cnt_34th_90 = sum(pct_90 &gt;= .75)\n  )\n\n\n\n  \n\n\n\nLet’s find those units that reach 90 for 75% of the time.\n\n\nClick to show code\ncount_temps_unit_year |&gt; \n  # filter(year == 2023) |&gt; \n  select(unit, year, total_days, cnt_90, pct_90) |&gt; \n  filter(pct_90 &gt;= .75) |&gt; \n  arrange(year)\n\n\n\n  \n\n\n\nData takeaways:\n\nIn 2023, 19 of 68 units reached 90 degrees at least half of the days measured. This was also true for nine units in 2022 and six units in 2024.\nAcross all years of data, two units reached 90 degrees for at least 75% of days measured, Segovia in 2023 and Garza West in 2024. -Segovia has fewer days measured in 2023, but it still reached 90 degrees more than 100 times. In 2024, Garza West reached 90 degrees 137 times, or 75% of days between April 1 and Sept. 30.\n\n\n\nUnits with most days at 90\nThis shows units with the most days to reach 95 within each year.\n\n\nClick to show code\nunits_at_90 &lt;- count_temps_unit_year |&gt; \n  group_by(year) |&gt; \n  slice_max(pct_90, n = 3) |&gt; # n argument adjust number per year\n  select(unit, year, total_days, cnt_90, pct_90)\n\nunits_at_90\n\n\n\n  \n\n\n\nClick to show code\nunits_at_90 |&gt; filter(unit == \"Garza West\")\n\n\n\n  \n\n\n\nData takeaway: In the Garza West unit, the temperature reached at least 90 degrees indoors on at least 65% of days recorded each year from 2022 to 2025. In 2023 and 2024, 73% and 75% of days reached 90 degrees, respectively.",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#threshold",
     "href": "02-indoor-analysis.html#threshold",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "95 threshold",
-    "text": "95 threshold\n\nUnits reaching 95 at least once\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_units = n(),\n    units_met_95 = total_units - sum(cnt_95 == 0),\n  )\n\n\n\n  \n\n\n\nTakeaway: In each year from 2022-2024, at least 50 units reached 95 degrees inside.\n\n\nUnits that reach 95 quarter of time\nHere we calculate the number of units that reach 95 degrees at least a quarter of recorded days each year. This is a lower percentage than other thresholds.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt; \n  summarize(\n    total_units = n(),\n    cnt_quarter_95 = sum(pct_95 &gt;= .25)\n  )\n\n\n\n  \n\n\n\nIn 2023, there were 13 units where it reached 95 degrees inside a quarter of the time between April and September.\n\n\nUnits most at 95\nThis shows units with the most days to reach 95 within each year.\n\n\nClick to show code\nunits_at_95 &lt;- count_temps_unit_year |&gt; \n  group_by(year) |&gt; \n  slice_max(pct_95, n = 1) |&gt; # n argument adjust number per year\n  select(unit, year, total_days, cnt_95, pct_95)\n\nunits_at_95\n\n\n\n  \n\n\n\nTakeaway: At the Garza West in 2023 it reached 95 degrees more than a 100 times. In other words, nearly 3 out of every 5 days reached 95 degrees indoors between April and September.",
+    "text": "95 threshold\n\nUnits reaching 95 at least once\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_units = n(),\n    units_met_95 = total_units - sum(cnt_95 == 0),\n  )\n\n\n\n  \n\n\n\nTakeaway: In each year from 2022 to 2024, at least 50 of 68 units reached 95 degrees inside at least once between April 1 and Sept. 30. In 2025, 26 units reached 95 degrees at least once.\n\n\nUnits that reach 95 quarter of time\nHere we calculate the number of units that reach 95 degrees at least a quarter of recorded days each year. This is a lower percentage than other thresholds.\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt; \n  summarize(\n    total_units = n(),\n    cnt_quarter_95 = sum(pct_95 &gt;= .25)\n  )\n\n\n\n  \n\n\n\nData takeaway: In 2023, there were 13 units where it reached 95 degrees inside a quarter of the time, or one in every four days between April and September. This was true for six units in 2022, three units in 2024, and one in 2025.\n\n\nUnits most at 95\nThis shows units with the most days to reach 95 within each year.\n\n\nClick to show code\nunits_at_95 &lt;- count_temps_unit_year |&gt; \n  group_by(year) |&gt; \n  slice_max(pct_95, n = 1) |&gt; # n argument adjust number per year\n  select(unit, year, total_days, cnt_95, pct_95)\n\nunits_at_95\n\n\n\n  \n\n\n\nData takeaway: At the Garza West unit in 2023, it reached 95 degrees indoors more than 100 times, or individual days. In other words, nearly three out of every five days between April 1 and Sept. 30. reached 95 degrees indoors.",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#threshold-1",
     "href": "02-indoor-analysis.html#threshold-1",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "100 threshold",
-    "text": "100 threshold\n\nUnits reaching 100\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_units = n(),\n    units_met_100 = total_units - sum(cnt_100 == 0),\n  )\n\n\n\n  \n\n\n\nTakeaways:\n\nBetween 2022 and 2024, each year more than a dozen units reach 100 degrees inside at least once. In 2023, 18 units reached 100 degrees inside at least once between April and September.\n\n\nPlot attempt\n\nThis section is experimental\n\nThis attempts to show how many units reached 100 degrees at least once in a given year.\nSince we’ll want to make this chart for several years, I’ll make it into a function to reuse.\n\n\nClick to show code\nprison_waffle &lt;- function(.data, yr) {\n  .data |&gt; \n    select(unit, year, cnt_100) |&gt; \n    mutate(r_100 = if_else(cnt_100 &gt; 0, \"At least 100°\", \"High below 100°\")) |&gt; \n    filter(year == yr) |&gt;\n    waffle_iron(aes_d(group = r_100)) |&gt; \n    ggplot(aes(x, y, fill = group)) + \n    geom_waffle() +\n    theme_waffle() +\n    labs(\n      title = paste(\"Number of units to reach 100 in\", yr),\n      x = \"\", y = \"\", fill = \"High temp\"\n    )\n}\n\ncount_temps_unit_year |&gt; prison_waffle(2022)\n\n\n\n\n\n\n\n\n\nClick to show code\ncount_temps_unit_year |&gt; prison_waffle(2023)\n\n\n\n\n\n\n\n\n\nClick to show code\ncount_temps_unit_year |&gt; prison_waffle(2024)\n\n\n\n\n\n\n\n\n\n\n\n\nUnits that hit 100 inside\nHow many times each year a unit hit 100 degrees inside.\n\n\nClick to show code\nunit_days_100 &lt;- count_temps_unit_year |&gt; \n  filter(cnt_100 &gt; 0) |&gt; \n  select(unit, year, total_days, cnt_100, pct_100) |&gt; \n  arrange(year, cnt_100 |&gt; desc())\n\nunit_days_100\n\n\n\n  \n\n\n\nLet’s date that and peek at just Garza West\n\n\nClick to show code\nunit_days_100 |&gt; filter(unit == \"Garza West\")\n\n\n\n  \n\n\n\nTakeaway: Garza West reached 100 degrees inside the unit on 46 days in 2023.",
+    "text": "100 threshold\n\nUnits reaching 100\n\n\nClick to show code\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_units = n(),\n    units_met_100 = total_units - sum(cnt_100 == 0),\n  )\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_unit_year |&gt; \n  group_by(unit, year) |&gt; \n  arrange(desc(cnt_100))\n\n\n\n  \n\n\n\n\n\nClick to show code\nindoor_logs |&gt; \n  filter(unit == \"Garza West\", temperature == 100)\n\n\n\n  \n\n\n\nData takeaways: Between 2022 and 2024, at least a dozen units each year reached 100 degrees inside at least once. In 2023, 18 units reached 100 degrees indoors at least once between April and September. In 2025, only one unit reached 100 degrees - Garza West on August 29.\n\n\nPlot units at 100\nThis attempts to show how many units reached 100 degrees at least once in a given year.\nSince we’ll want to make this chart for several years, I’ll make it into a function to reuse.\n\n\nClick to show code\nprison_waffle &lt;- function(.data, yr) {\n  .data |&gt; \n    select(unit, year, cnt_100) |&gt; \n    mutate(r_100 = if_else(cnt_100 &gt; 0, \"At least 100°\", \"High below 100°\")) |&gt; \n    filter(year == yr) |&gt;\n    waffle_iron(aes_d(group = r_100)) |&gt; \n    ggplot(aes(x, y, fill = group)) + \n    geom_waffle() +\n    theme_waffle() +\n    labs(\n      title = paste(\"Number of units to reach 100 in\", yr),\n      x = \"\", y = \"\", fill = \"High temp\"\n    )\n  \n  ggsave(paste0(\"figures/waffle_plot_\", yr, \".png\"))\n\n}\n\ncount_temps_unit_year |&gt; prison_waffle(2022)\ncount_temps_unit_year |&gt; prison_waffle(2023)\ncount_temps_unit_year |&gt; prison_waffle(2024)\ncount_temps_unit_year |&gt; prison_waffle(2025)\n\n\n\n2022202320242025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnits that hit 100 inside\nHow many times each year a unit hit 100 degrees inside.\n\n\nClick to show code\nunit_days_100 &lt;- count_temps_unit_year |&gt; \n  filter(cnt_100 &gt; 0) |&gt; \n  select(unit, year, total_days, cnt_100, pct_100) |&gt; \n  arrange(year, cnt_100 |&gt; desc())\n\nunit_days_100\n\n\n\n  \n\n\n\n\nGarza at 100\nLet’s take that and peek at just Garza West\n\n\nClick to show code\nunit_days_100 |&gt; filter(unit == \"Garza West\")\n\n\n\n  \n\n\n\nTakeaway: Garza West reached 100 degrees inside on 46 days between April 1 and Sept. 30 in 2023. In other words, 25%, or one in four days, reached 100 degrees.",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
     "objectID": "02-indoor-analysis.html#plot-thresholds-by-year",
     "href": "02-indoor-analysis.html#plot-thresholds-by-year",
-    "title": "Indoor logs analysis",
+    "title": "Indoor logs",
     "section": "Plot thresholds by year",
-    "text": "Plot thresholds by year\nHere we’ll attempt to plot how many days a unit reached a certain temperature within a given year. We need to recalculate our thresholds.\nHere we bin the number of days at certain temperatures, which is different than we we’ve been doing previously (which was total days at/above a temp).\n\n\nClick to show code\ntemp_thrsh_unit_year &lt;- indoor_logs |&gt; \n  group_by(unit, year) |&gt; \n  summarize(\n    cnt_n85 = sum(temperature &lt; 85, na.rm = T),\n    cnt_85 = sum(temperature &gt;= 85 & temperature &lt; 90, na.rm = T),\n    cnt_90 = sum(temperature &gt;= 90 & temperature &lt; 95, na.rm = T),\n    cnt_95 = sum(temperature &gt;= 95 & temperature &lt; 100, na.rm = T),\n    cnt_100 = sum(temperature &gt;= 100, na.rm = T),\n    .groups = \"drop\"\n  )\n\ntemp_thrsh_unit_year\n\n\n\n  \n\n\n\nTo plot this we have to reshape the data, then plot as a bar chart. We save the chart before displaying it so we can control the size since there are so many units to show.\nThe plotting has been turned into a function to keep it dRy.\n\n\nClick to show code\n# pivoting the data\nthresh_data &lt;- temp_thrsh_unit_year |&gt; \n  pivot_longer(\n    cols = starts_with(\"cnt\"),\n    names_to = \"threshold\",\n    values_to = \"days\"\n  ) |&gt; \n  mutate(threshold = fct_inorder(threshold))\n\n# plot the data into an object and then save that object into the figures folder.\nplot_thresh_data &lt;- function(yr) {\n  thresh_plot &lt;- thresh_data |&gt; \n  filter(year == yr) |&gt; \n  ggplot(aes(x = days, y = fct_rev(unit), fill = threshold)) +\n  geom_bar(stat = \"identity\", position = position_stack(reverse = TRUE)) +\n  scale_fill_brewer(\n    palette='OrRd',\n    labels = c(\n      cnt_n85  = \"Under 85°\",\n      cnt_85   = \"85° to 89°\",\n      cnt_90   = \"90° to 94°\",\n      cnt_95   = \"95° to 99°\",\n      cnt_100  = \"100° or more\"\n    )) +\n  # theme(legend.position = \"bottom\") +\n  labs(\n    title = paste(\"Tracking indoor heat in prisons,\", yr),\n    x = \"Number of days at each temperature\", y = \"\",\n    fill = \"Indoor high\"\n  )\n  \n  ggsave(paste0(\"figures/thresh_plot_\", yr, \".png\"), width = 6, height = 12)\n\n}\n\nplot_thresh_data(2022)\nplot_thresh_data(2023)\nplot_thresh_data(2024)\nplot_thresh_data(2025)\n\n\nWe’ll print out each of the plots, though they will be big.",
+    "text": "Plot thresholds by year\nHere we’ll attempt to plot how many days a unit reached a certain temperature within a given year. We need to recalculate our thresholds.\nHere we bin the number of days at certain temperatures, which is different than we we’ve been doing previously (which was total days at/above a temp).\n\n\nClick to show code\ntemp_thrsh_unit_year &lt;- indoor_logs |&gt; \n  group_by(unit, year) |&gt; \n  summarize(\n    cnt_n85 = sum(temperature &lt; 85, na.rm = T),\n    cnt_85 = sum(temperature &gt;= 85 & temperature &lt; 90, na.rm = T),\n    cnt_90 = sum(temperature &gt;= 90 & temperature &lt; 95, na.rm = T),\n    cnt_95 = sum(temperature &gt;= 95 & temperature &lt; 100, na.rm = T),\n    cnt_100 = sum(temperature &gt;= 100, na.rm = T),\n    .groups = \"drop\"\n  )\n\ntemp_thrsh_unit_year\n\n\n\n  \n\n\n\nTo plot this we have to reshape the data, then plot as a bar chart. We save the chart before displaying it so we can control the size since there are so many units to show.\nThe plotting has been turned into a function to keep it dRy.\n\n\nClick to show code\n# pivoting the data\nthresh_data &lt;- temp_thrsh_unit_year |&gt; \n  pivot_longer(\n    cols = starts_with(\"cnt\"),\n    names_to = \"threshold\",\n    values_to = \"days\"\n  ) |&gt; \n  mutate(threshold = fct_inorder(threshold))\n\n# plot the data into an object and then save that object into the figures folder.\nplot_thresh_data &lt;- function(yr) {\n  thresh_plot &lt;- thresh_data |&gt; \n  filter(year == yr) |&gt; \n  ggplot(aes(x = days, y = fct_rev(unit), fill = threshold)) +\n  geom_bar(stat = \"identity\", position = position_stack(reverse = TRUE)) +\n  scale_fill_brewer(\n    palette='OrRd',\n    labels = c(\n      cnt_n85  = \"Under 85°\",\n      cnt_85   = \"85° to 89°\",\n      cnt_90   = \"90° to 94°\",\n      cnt_95   = \"95° to 99°\",\n      cnt_100  = \"100° or more\"\n    )) +\n  # theme(legend.position = \"bottom\") +\n  labs(\n    title = paste(\"Tracking indoor heat in prisons,\", yr),\n    x = \"Number of days at each temperature\", y = \"\",\n    fill = \"Indoor high\"\n  )\n  \n  ggsave(paste0(\"figures/thresh_plot_\", yr, \".png\"), width = 6, height = 12)\n\n}\n\nplot_thresh_data(2022)\nplot_thresh_data(2023)\nplot_thresh_data(2024)\nplot_thresh_data(2025)\n\n\n\n2022202320242025",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
+      "Indoor logs"
     ]
   },
   {
-    "objectID": "02-indoor-analysis.html#emily",
-    "href": "02-indoor-analysis.html#emily",
-    "title": "Indoor logs analysis",
-    "section": "Emily",
-    "text": "Emily\nI started to rearrange and rename what was here, but decided we needed to look at each threshold first, then see how those changed over time (instead of breaking it up by year first.) I’m keeping this for now but",
+    "objectID": "02-indoor-analysis.html#prisoner-deaths",
+    "href": "02-indoor-analysis.html#prisoner-deaths",
+    "title": "Indoor logs",
+    "section": "Prisoner deaths",
+    "text": "Prisoner deaths\nDetermining the indoor temperatures on the days and unit where prisoners died.\n\nHagerty at Murray unit, 2023\n\n\nClick to show code\nindoor_logs |&gt; \n  select(unit, date, temperature) |&gt; \n  filter(unit == \"Murray\", date == \"2023-06-30\")\n\n\n\n  \n\n\n\nData takeaway: On June 30, 2023, Elizabeth Hagerty died in her cell at the Murray unit, located in Gatesville, Texas, about 100 miles north of Austin. According to the autopsy report, she died at 12:48 a.m. The temperature in her cell was 95.7 degrees. The recorded indoor temperature for the Murray unit that day, reportedly taken at 3 p.m., was 90 degrees. Hagerty was 37 years old.\nTDCJ hand-recorded outdoor temperature log for 12:30 a.m. on June 30, 2023 at the Murray unit: 83 degrees with a heat index of 87.\nNWS log for Gatesville (station ID KGOP) at 12:15 a.m.: 82 degrees with a heat index of 85.6.\n\n\nCastillo at Hughes unit, 2023\n\n\nClick to show code\nindoor_logs |&gt; \n  select(unit, date, temperature) |&gt; \n  filter(unit == \"Hughes\", date == \"2023-08-05\")\n\n\n\n  \n\n\n\nData takeaway: On Aug. 5, 2023, John Castillo died indoors at the Hughes unit, located in Gatesville, Texas, about 100 miles north of Austin. According to the autopsy report, he died at 11:33 p.m. His core body temperature was 107.5 degrees. The recorded indoor temperature for the Hughes unit that day, reportedly taken at 3 p.m., was 94.4 degrees. Castillo was 32 years old.\nTDCJ hand-recorded outdoor temperature log for 11:30 p.m. on Aug. 5, 2023 at the Hughes unit: 88 degrees with a heat index of 89.\nNWS log for Gatesville (station ID KGOP) at 11:15 p.m.: 86 degrees with a heat index of 86.8.\n\n\nWomack at Coffield, 2023\n\n\nClick to show code\nindoor_logs |&gt; \n  select(unit, date, temperature) |&gt; \n  filter(unit == \"Coffield\", date == \"2023-08-21\")\n\n\n\n  \n\n\n\nData takeaway: On Aug. 21, 2023, Patrick Womack died in his cell at the Coffield unit, located in Tennessee Colony, Texas, about 100 miles northwest of Waco. According to the autopsy report, he died at 1:53 p.m. His core body temperature was 106.9 degrees. The recorded indoor temperature for the Coffield unit that day, reportedly taken at 3 p.m., was 96.6 degrees. Womack was 50 years old.\nTDCJ hand-recorded outdoor temperature log for 1:30 p.m. on Aug. 21, 2023 at the Coffield unit: 104 degrees with a heat index of 113.\nNWS log for Palestine (station ID KPSN) at 2:15 p.m.: 104 degrees with a heat index of 105.3. Note: the Palestine Municipal Airport station is located 15 miles away from the Coffield unit.\n\n\nCortez at Goree unit, 2024\n\n\nClick to show code\nindoor_logs |&gt; \n  select(unit, date, temperature) |&gt; \n  filter(unit == \"Goree\", date == \"2024-06-07\")\n\n\n\n  \n\n\n\nData takeaway: On June 7, 2024, Oscar R. Cortez died outdoors at the Goree unit, located in Hunstville, Texas, about 65 north of Houston. According to the Death in Custody report, he died at 5:20 p.m. The recorded indoor temperature for the Goree unit that day, reportedly taken at 3 p.m., was 86.6 degrees. Cortez was 44 years old.\nNWS log for Hunstville (station ID KUTS) at 4:53 p.m.: 91 degrees with a heat index of 93.",
     "crumbs": [
       "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#plotting-days-above-each-temp-per-unit-per-year",
-    "href": "02-indoor-analysis.html#plotting-days-above-each-temp-per-unit-per-year",
-    "title": "Indoor logs analysis",
-    "section": "Plotting days above each temp per unit per year",
-    "text": "Plotting days above each temp per unit per year\nNote: there is a substantial dip in the number of days recorded in 2025 because the dataset is only complete through July 25.\n\nEdits on first title, subtitle for conciseness. Would want to carry through. Perhaps visualize these differently, but I’m not sure how yet.\n\n\n85° and above\n\n\nClick to show code\ncount_temps_unit_year |&gt; \n  # filter(year != 2025) |&gt; \n  ggplot(aes(x = year, y= cnt_85, group = unit)) +\n    geom_line(aes(group = unit)) +\n    theme(legend.position = \"none\") +\n    labs(\n      title = \"Number of days each prison reached 85°F\",\n      subtitle = str_wrap(\"Indoor temperatures recorded from April 1 to Sept. 30, taken at 3 p.m. in units without air conditioning. 2025 data is incomplete (122 days vs 183 days in other years.\"),\n      x = \"Year\", y = \"Days at or above 85°F\",\n      caption = \"Source: Texas Department of Criminal Justice\"\n    ) +\n    theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n90° and above\n\n\nClick to show code\nggplot(\n  count_temps_unit_year,\naes(x = year, y= cnt_90, group = unit)\n) +\ngeom_line(aes(group = unit)) +\n  theme(legend.position = \"none\") +\n  labs(\n    title = \"Number of days with indoor temperature recordings at or above 90°F\",\n    # subtitle = str_wrap(\"According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025.\"),\n    x = \"Year\", y = \"Number of days at or above 90°F\",\n    caption = \"Source: Texas Department of Criminal Justice\n    2025 has fewer days\"\n  ) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n95° and above\n\n\nClick to show code\nggplot(\n  count_temps_unit_year,\naes(x = year, y= cnt_95, group = unit)\n) +\ngeom_line(aes(group = unit)) +\n  theme(legend.position = \"none\") +\n  labs(\n    title = \"Number of days with indoor temperature recordings at or above 95°F\",\n    # subtitle = str_wrap(\"According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025.\"),\n    x = \"Year\", y = \"Number of days at or above 95°F\",\n    caption = \"Source: Texas Department of Criminal Justice\"\n  ) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n100° and above\n\n\nClick to show code\nggplot(\n  count_temps_unit_year,\naes(x = year, y= cnt_100, group = unit)\n) +\ngeom_line(aes(group = unit)) +\n  theme(legend.position = \"none\") +\n  labs(\n    title = \"Number of days with indoor temperature recordings at or above 100°F\",\n    # subtitle = str_wrap(\"According to the Texas Department of Criminal Justice, indoor temperature recordings are taken at 3 p.m. every day from April 1 to Sept. 30 at all units that do not have air conditioning. There are 183 days of temperature recordings in 2022, 2023 and 2024, and 122 days of recordings in 2025.\"),\n    x = \"Year\", y = \"Number of days at or above 100°F\",\n    caption = \"Source: Texas Department of Criminal Justice\"\n  ) +\n  theme_bw()",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#at-85",
-    "href": "02-indoor-analysis.html#at-85",
-    "title": "Indoor logs analysis",
-    "section": "2022 at 85°",
-    "text": "2022 at 85°\nFiltering the indoor log data to include only readings taken in 2022 where the temperature was above 85°F.\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2022) |&gt; select(year, total_days, cnt_85, pct_85) |&gt; arrange(desc(cnt_85))\n\n\n\n  \n\n\n\n\nIn 2022, 67 out of 68 units without air conditioning recorded indoor temperatures at or above 85 degrees for at least 43 days between April 1 and Sept. 30.\nThe Sayle unit, located in Breckenridge, was the only unit to not record temperatures at or above 85 degrees.\n51 units recorded indoor temperatures at or above 85 degrees for over 50% of days, or at least 92 days.\nTen units recorded indoor temperatures at or above 85 degrees for over 75% of days, or at least 138 days.\nThe Garza West unit, located in Beeville, recorded the most days with indoor temperatures at or above 85 degrees, with 168 days, or 92% of days between April 1 and Sept. 30.\n[I DONT UNDERSTAND THIS ONE] Of the days where temperatures were measured in all prisons across the year, only 38.4% didn’t reach 85 degrees.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#at-90",
-    "href": "02-indoor-analysis.html#at-90",
-    "title": "Indoor logs analysis",
-    "section": "2022 at 90°",
-    "text": "2022 at 90°\nFiltering the indoor log data to include only readings taken in 2022 where the temperature was above 90°F.\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2022) |&gt; select(year, total_days, cnt_90, pct_90) |&gt; arrange(desc(cnt_90)) |&gt; filter(pct_90 &gt;= .5)\n\n\n\n  \n\n\n\nData takeaway: In 2022, 65 out of 68 units without air conditioning recorded indoor temperatures at or above 90 degrees at least once between April 1 and Sept. 30. 41 units recorded indoor temperatures at or above 90 degrees for over 25% of days, or at least 46 days. Nine units recorded indoor temperatures at or above 90 degrees for over 50% of days, or at least 92 days. The Dominguez unit, located in San Antonio, Texas, recorded the most days with indoor temperatures at or above 90 degrees, with 122 days, or two-thirds of days between April 1. and Sept. 30. Of the days where temperatures were measured in all prisons across the year, 30.6% reached 90 degrees.\n\n\nClick to show code\n# crit\ncount_temps_unit_year |&gt;\n  group_by(year) |&gt;   \n  summarise(\n    total_days = n(),\n    days_not_90 = sum(cnt_90 == 0),\n    days_met_90 = total_days - days_not_90\n  )",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#at-95",
-    "href": "02-indoor-analysis.html#at-95",
-    "title": "Indoor logs analysis",
-    "section": "2022 at 95°",
-    "text": "2022 at 95°\nFiltering the indoor log data to include only readings taken in 2022 where the temperature was above 95°F.\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2022) |&gt; select(year, total_days, cnt_95, pct_95) |&gt; arrange(desc(cnt_95)) |&gt; filter(pct_95 &gt;= .25)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2022) |&gt; select(year, total_days, cnt_95, pct_95)\n\n\n\n  \n\n\n\nData takeaway: In 2022, 51 out of 68 units without air conditioning recorded indoor temperatures at or above 95 degrees at least once between April 1 and Sept. 30. Six units recorded indoor temperatures at or above 95 degrees for over 25% of days, or at least 46 days. The Stevenson unit, located in Cuero, Texas, recorded the most days with indoor temperatures at or above 95 with 74 days, or over 40% of days between April 1. and Sept. 30. Of the days where temperatures were measured in all prisons across the year, 8.1% reached 95 degrees.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#at-100",
-    "href": "02-indoor-analysis.html#at-100",
-    "title": "Indoor logs analysis",
-    "section": "2022 at 100°",
-    "text": "2022 at 100°\nFiltering the indoor log data to include only readings taken in 2022 where the temperature was above 100°F.\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2022) |&gt; select(year, total_days, cnt_100, pct_100) |&gt; arrange(desc(cnt_100)) |&gt; filter(cnt_100 &gt;= 1)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2022) |&gt; select(year, total_days, cnt_100, pct_100)\n\n\n\n  \n\n\n\nData takeaway: In 2022, 15 out of 68 units without air conditioning recorded indoor temperatures at or above 100 degrees at least once between April 1 and Sept. 30. The Stevenson unit, located in Cuero, Texas, recorded the most days with indoor temperatures at or above 100 degrees with 13 days between April 1 and Sept. 30. This includes four consecutive days between July 10 and July 13.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#at-85-1",
-    "href": "02-indoor-analysis.html#at-85-1",
-    "title": "Indoor logs analysis",
-    "section": "2023 at 85°",
-    "text": "2023 at 85°\nFiltering the indoor log data to include only readings taken in 2023 where the temperature was above 85°F.\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2023) |&gt; select(year, total_days, cnt_85, pct_85) |&gt; arrange(desc(cnt_85)) \n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2023) |&gt; select(year, total_days, cnt_85, pct_85)\n\n\n\n  \n\n\n\nData takeaway: In 2023, all 68 units without air conditioning recorded indoor temperatures at or above 85 degrees for at least 40, or 21.9% of days between April 1 and Sept. 30. 54 units recorded temperatures at or above 85 for over 50% of recorded days, and seven units recorded temperatures at or above 85 for over 75% of days. The Lopez unit, located in Edinburg, Texas just north of McAllen, recorded the the most days with indoor temperatures at or above 85, with 152, or 83.1% of days. Of the days where temperatures were measured in all prisons across the year, only 39.4% didn’t reach 85 degrees.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#at-90-1",
-    "href": "02-indoor-analysis.html#at-90-1",
-    "title": "Indoor logs analysis",
-    "section": "2023 at 90",
-    "text": "2023 at 90\nFiltering the indoor log data to include only readings taken in 2023 where the temperature was above 90°F.\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2023) |&gt; select(year, total_days, cnt_90, pct_90) |&gt; arrange(desc(cnt_90)) \n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2023) |&gt; select(year, total_days, cnt_90, pct_90)\n\n\n\n  \n\n\n\nData takeaway: In 2023, 67 out of 68 units without air conditioning recorded indoor temperatures at or above 90 degrees for at least 9, or 5% of days between April 1 and Sept. 30. Just one unit did not record temperatures at or above 90, the Clements unit located east of Amarillo, Texas. 50 units recorded temperatures at or above 90 for over 25% of recorded days, and 18 units recorded temperatures at or above 90 for over 50% of days. The Garza West unit, located near Beeville, Texas, recorded the the most days with indoor temperatures at or above 90, with 133, or 72.7% of days. Of the days where temperatures were measured in all prisons across the year, 36.8% reached 90 degrees.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#at-95-1",
-    "href": "02-indoor-analysis.html#at-95-1",
-    "title": "Indoor logs analysis",
-    "section": "2023 at 95",
-    "text": "2023 at 95\nFiltering the indoor log data to include only readings taken in 2023 where the temperature was above 95°F.\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2023) |&gt; select(year, total_days, cnt_95, pct_95) |&gt; arrange(desc(cnt_95)) |&gt; filter(pct_95 &gt;= .5)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2023) |&gt; select(year, total_days, cnt_95, pct_95)\n\n\n\n  \n\n\n\nData takeaway: In 2023, 61 out of 68 units without air conditioning recorded indoor temperatures at or above 95 degrees for at least 1 day between April 1 and Sept. 30. 13 units recorded temperatures at or above 95 for at least 48 days, or 25.2% of the time. Garza West recorded the the most days with indoor temperatures at or above 95, with 108, or 59% of days. Of the days where temperatures were measured in all prisons across the year, 11.5% reached 95 degrees.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#at-100-1",
-    "href": "02-indoor-analysis.html#at-100-1",
-    "title": "Indoor logs analysis",
-    "section": "2023 at 100",
-    "text": "2023 at 100\nFiltering the indoor log data to include only readings taken in 2023 where the temperature was above 100°F.\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2023) |&gt; select(year, total_days, cnt_100, pct_100) |&gt; arrange(desc(cnt_100)) |&gt; filter(cnt_100 &gt;= 1)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2023) |&gt; select(year, total_days, cnt_100, pct_100)\n\n\n\n  \n\n\n\nData takeaway: In 2023, 18 out of 68 units without air conditioning recorded indoor temperatures at or above 100 degrees for at least 1 day between April 1 and Sept. 30. Garza West recorded the most days with indoor temperatures at or above 100, with 46, or 25.1% of days.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#indoor-logs-analysis",
-    "href": "02-indoor-analysis.html#indoor-logs-analysis",
-    "title": "Indoor logs analysis",
-    "section": "2024 indoor logs analysis",
-    "text": "2024 indoor logs analysis",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#days-at-or-above-85",
-    "href": "02-indoor-analysis.html#days-at-or-above-85",
-    "title": "Indoor logs analysis",
-    "section": "Days at or above 85",
-    "text": "Days at or above 85\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2024) |&gt; select(year, total_days, cnt_85, pct_85) |&gt; arrange(desc(cnt_85)) |&gt; filter(pct_85 &gt;= .75)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2024) |&gt; select(year, total_days, cnt_85, pct_85)\n\n\n\n  \n\n\n\nData takeaway: In 2024, all 68 units without air conditioning recorded indoor temperatures at or above 85 degrees for at least 27, or 14.8% of days between April 1 and Sept. 30. 46 units recorded temperatures at or above 85 for over 50% of recorded days, and eight units recorded temperatures at or above 85 for over 75% of days. Garza West recorded the most days with indoor temperatures at or above 85, with 163, or 89.1% of days. Of the days where temperatures were measured in all prisons across the year, 56.4% reached 85 degrees.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#days-at-or-above-90",
-    "href": "02-indoor-analysis.html#days-at-or-above-90",
-    "title": "Indoor logs analysis",
-    "section": "Days at or above 90",
-    "text": "Days at or above 90\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2024) |&gt; select(year, total_days, cnt_90, pct_90) |&gt; arrange(desc(cnt_90)) |&gt; filter(pct_90 &gt;= .5)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2024) |&gt; select(year, total_days, cnt_90, pct_90)\n\n\n\n  \n\n\n\nData takeaway: In 2024, all 68 units without air conditioning recorded indoor temperatures at or above 90 degrees for at least one day between April 1 and Sept. 30. 33 units recorded temperatures at or above 90 for over 25% recorded days, and five units recorded temperatures at or above 85 for over 50% of days. Garza West recorded the most days with indoor temperatures at or above 90, with 137, or 74.8% of days. Of the days where temperatures were measured in all prisons across the year, 25.5% reached 90 degrees.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#days-at-or-above-95",
-    "href": "02-indoor-analysis.html#days-at-or-above-95",
-    "title": "Indoor logs analysis",
-    "section": "Days at or above 95",
-    "text": "Days at or above 95\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2024) |&gt; select(year, total_days, cnt_95, pct_95) |&gt; arrange(desc(cnt_95)) |&gt; filter(pct_95 &gt;= .25)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2024) |&gt; select(year, total_days, cnt_95, pct_95)\n\n\n\n  \n\n\n\nData takeaway: In 2024, 52 out of 68 units without air conditioning recorded indoor temperatures at or above 95 degrees for at least one day between April 1 and Sept. 30. Two units recorded temperatures at or above 90 for over 25% recorded days. Garza West recorded the most days with indoor temperatures at or above 95, with 98, or 53.6% of days. Of the days where temperatures were measured in all prisons across the year, 5.5% reached 95 degrees.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#days-at-or-above-100",
-    "href": "02-indoor-analysis.html#days-at-or-above-100",
-    "title": "Indoor logs analysis",
-    "section": "Days at or above 100",
-    "text": "Days at or above 100\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2024) |&gt; select(year, total_days, cnt_100, pct_100) |&gt; arrange(desc(cnt_100)) |&gt; filter(cnt_100 &gt;= 1)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2024) |&gt; select(year, total_days, cnt_100, pct_100)\n\n\n\n  \n\n\n\nData takeaway: In 2024, 12 out of 68 units without air conditioning recorded indoor temperatures at or above 100 degrees for at least 1 day between April 1 and Sept. 30. Garza West recorded the most days with indoor temperatures at or above 100, with 16, or 8.7% of days.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#indoor-log-analysis",
-    "href": "02-indoor-analysis.html#indoor-log-analysis",
-    "title": "Indoor logs analysis",
-    "section": "2025 indoor log analysis",
-    "text": "2025 indoor log analysis\nNote: As of Nov. 24, we do not have data for 2025 past July 25. The code below will be updated and the data takeaways will be written when this data comes in.",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#days-at-or-above-85-1",
-    "href": "02-indoor-analysis.html#days-at-or-above-85-1",
-    "title": "Indoor logs analysis",
-    "section": "Days at or above 85",
-    "text": "Days at or above 85\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2025) |&gt; select(year, total_days, cnt_85, pct_85) |&gt; arrange(desc(cnt_85)) |&gt; filter(cnt_85 &gt;= 1)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2025) |&gt; select(year, total_days, cnt_85, pct_85)",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#days-at-or-above-90-1",
-    "href": "02-indoor-analysis.html#days-at-or-above-90-1",
-    "title": "Indoor logs analysis",
-    "section": "Days at or above 90",
-    "text": "Days at or above 90\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2025) |&gt; select(year, total_days, cnt_90, pct_90) |&gt; arrange(desc(cnt_90)) |&gt; filter(cnt_90 &gt;= 1)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2025) |&gt; select(year, total_days, cnt_90, pct_90)",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#days-at-or-above-95-1",
-    "href": "02-indoor-analysis.html#days-at-or-above-95-1",
-    "title": "Indoor logs analysis",
-    "section": "Days at or above 95",
-    "text": "Days at or above 95\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2025) |&gt; select(year, total_days, cnt_95, pct_95) |&gt; arrange(desc(cnt_95)) |&gt; filter(cnt_95 &gt;= 1)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2025) |&gt; select(year, total_days, cnt_95, pct_95)",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "02-indoor-analysis.html#days-at-or-above-100-1",
-    "href": "02-indoor-analysis.html#days-at-or-above-100-1",
-    "title": "Indoor logs analysis",
-    "section": "Days at or above 100",
-    "text": "Days at or above 100\n\n\nClick to show code\ncount_temps_unit_year |&gt; filter(year == 2025) |&gt; select(year, total_days, cnt_100, pct_100) |&gt; arrange(desc(cnt_100)) |&gt; filter(cnt_100 &gt;= 1)\n\n\n\n  \n\n\n\n\n\nClick to show code\ncount_temps_year |&gt; filter(year == 2025) |&gt; select(year, total_days, cnt_100, pct_100)",
-    "crumbs": [
-      "Analysis",
-      "Indoor logs analysis"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html",
-    "href": "01-updated-activation-cleaning.html",
-    "title": "Updated activations cleaning",
-    "section": "",
-    "text": "This data is a record of every time a TDCJ was under ICS protocols, like providing extra ice water and access to cooler areas during extreme heat events, in 2022, 2023 and 2024. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#goals-of-this-notebook",
-    "href": "01-updated-activation-cleaning.html#goals-of-this-notebook",
-    "title": "Updated activations cleaning",
-    "section": "Goals of this notebook",
-    "text": "Goals of this notebook\nWhat we’ll do to prepare the data:\n\nDownload the data using read_excel\nImport it into our notebook\nClean up data types and columns\nCombine all three years into one data frame\nExport data into our next notebook",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#setup",
-    "href": "01-updated-activation-cleaning.html#setup",
-    "title": "Updated activations cleaning",
-    "section": "Setup",
-    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(data.table)\nlibrary(readxl)\nlibrary(hms)",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#downloading-the-data",
-    "href": "01-updated-activation-cleaning.html#downloading-the-data",
-    "title": "Updated activations cleaning",
-    "section": "Downloading the data",
-    "text": "Downloading the data\nThis data includes all instances where units were under ICS protocols for 2022, 2023 and 2024, as reported by the TDCJ from a public information request. The data is limited by when the information request was filled each year: 2022/08/07, 2023/09/12 and 2024/08/29.\nDownloading the xlsx files using read_excel, specifying the sheet, skipping the first row, and specifying column types.\n\nactivations_2022_raw &lt;- read_excel(\"data-original/08.07.22 ICS Seasonal Spreadsheet.xlsx\", sheet = \"FY22 ICS\", skip = 1, col_types = c(\"date\", \"date\", \"text\", \"text\", \"date\", \"date\", \"date\", \"date\")) |&gt; \n  clean_names()\n\nNew names:\n• `Date` -&gt; `Date...5`\n• `Time` -&gt; `Time...6`\n• `Date` -&gt; `Date...7`\n• `Time` -&gt; `Time...8`\n\nactivations_2022_raw\n\n\n  \n\n\n\n** Note on 2022 sheet: we reformatted cells F11 and F21 in the original xlsx file because it was formatted as text rather than time and read in as NA. We also corrected\n\nactivations_2023_raw &lt;- read_excel(\"data-original/09.12.23 ICS Seasonal Spreadsheet .xlsx\", sheet = \"FY 23\", skip = 1, col_types = c(\"date\", \"date\", \"text\", \"text\", \"date\", \"numeric\", \"date\", \"numeric\")) |&gt; \n  clean_names()\n\nNew names:\n• `Date` -&gt; `Date...5`\n• `Time` -&gt; `Time...6`\n• `Date` -&gt; `Date...7`\n• `Time` -&gt; `Time...8`\n\nactivations_2023_raw\n\n\n  \n\n\n\n** Note on 2023 sheet: we reformatted cells E24, E92 and B65 in the original xlsx file because the year was recorded as 2023 rather than 23, causing these cells to read in as NA.\n\nactivations_2024_raw &lt;- read_excel(\"data-original/08.29.24_ICS Seasonal Spreadsheet .xlsx\", sheet = \"CY24\", skip = 1, col_types = c(\"date\", \"date\", \"text\", \"text\", \"date\", \"numeric\", \"date\", \"numeric\")) |&gt; \n  clean_names()\n\nNew names:\n• `Date` -&gt; `Date...5`\n• `Time` -&gt; `Time...6`\n• `Date` -&gt; `Date...7`\n• `Time` -&gt; `Time...8`",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#clean-column-names",
-    "href": "01-updated-activation-cleaning.html#clean-column-names",
-    "title": "Updated activations cleaning",
-    "section": "Clean column names",
-    "text": "Clean column names\n\nactivations_2022_names &lt;- activations_2022_raw |&gt; select(\n  initial_extreme_temp = initial_date_of_extreme_temperature,\n  initiation_date = ics_implementation_date,\n  county,\n  unit = unit_affected,\n  activation_date = date_5, \n  activation_time = time_6,\n  deactivation_date = date_7,\n  deactivation_time = time_8 \n  )\n\n\nactivations_2023_names &lt;- activations_2023_raw |&gt; select(\n  initial_extreme_temp = initial_date_of_extreme_temperature,\n  initiation_date = ics_implementation_date,\n  county,\n  unit = unit_affected,\n  activation_date = date_5, \n  activation_time = time_6,\n  deactivation_date = date_7,\n  deactivation_time = time_8 \n  )\n\n\nactivations_2024_names &lt;- activations_2024_raw |&gt; select(\n  initial_extreme_temp = initial_date_of_extreme_temperature,\n  initiation_date = ics_implementation_date,\n  county,\n  unit = unit_affected,\n  activation_date = date_5, \n  activation_time = time_6,\n  deactivation_date = date_7,\n  deactivation_time = time_8 \n  )",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#fix-the-2022-log-activation-and-deactivation-time-columns",
-    "href": "01-updated-activation-cleaning.html#fix-the-2022-log-activation-and-deactivation-time-columns",
-    "title": "Updated activations cleaning",
-    "section": "Fix the 2022 log activation and deactivation time columns",
-    "text": "Fix the 2022 log activation and deactivation time columns\nBecause the 2022 log had the the activation and deactivation time columns formatted as hh:mm rather than the hhmm format used in the 2023 and 2024 logs, we had to specify those column types as dates for them to read in properly, which generated a date of 1899-12-31 for each time. We’re using mutate() and the hms() function to pull just the time from this datetime.\n\nactivations_2022_clean &lt;- activations_2022_names |&gt; \n  mutate(\n    activation_time = hms(\n    hour = hour(activation_time),\n    minute = minute(activation_time),\n    second = second(activation_time),\n    )\n  ) |&gt; \n  mutate(\n      deactivation_time = hms(\n      hour = hour(deactivation_time),\n      minute = minute(deactivation_time),\n      second = second(deactivation_time)\n    ))",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#reformat-2023-log-activation-and-deactivation-time-columns",
-    "href": "01-updated-activation-cleaning.html#reformat-2023-log-activation-and-deactivation-time-columns",
-    "title": "Updated activations cleaning",
-    "section": "Reformat 2023 log activation and deactivation time columns",
-    "text": "Reformat 2023 log activation and deactivation time columns\nIn the 2023 and 2024 logs, the activation and deactivation times were recorded in hhmm format (i.e. 1539 instead of 15:39:00). Reformatting to hh:mm:ss by using str_pad to restore the leading zeros that were removed when we read in the original file with read_excel, using parse_hms from the lubridate package, using substr to specify which digits are hours, minutes and seconds, and removing unnecessary columns.\n\nactivations_2023_time &lt;- activations_2023_names|&gt; \n  mutate(\n    activation_time_new = str_pad(activation_time, width = 4, side = \"left\", pad = \"0\"),\n    deactivation_time_new = str_pad(deactivation_time, width = 4, side = \"left\", pad = \"0\"))\n\n\nactivations_2023_clean &lt;- activations_2023_time |&gt; \n  mutate(\n    activation_time_clean = parse_hms(paste0(substr(activation_time_new, 1, 2), \":\", substr(activation_time_new, 3, 4), \":00\")),\n    deactivation_time_clean = parse_hms(paste0(substr(deactivation_time_new, 1, 2), \":\", substr(deactivation_time_new, 3, 4), \":00\"))\n  ) |&gt; \n  select(initial_extreme_temp,\n         initiation_date,\n         county,\n         unit,\n         activation_date,\n         activation_time = activation_time_clean,\n         deactivation_date,\n         deactivation_time = deactivation_time_clean)\n\nactivations_2023_clean",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#reformat-2024-log-activation-and-deactivation-time-columns",
-    "href": "01-updated-activation-cleaning.html#reformat-2024-log-activation-and-deactivation-time-columns",
-    "title": "Updated activations cleaning",
-    "section": "Reformat 2024 log activation and deactivation time columns",
-    "text": "Reformat 2024 log activation and deactivation time columns\nSame process as above but for the 2024 log.\n\nactivations_2024_time &lt;- activations_2024_names|&gt; \n  mutate(\n    activation_time_new = str_pad(activation_time, width = 4, side = \"left\", pad = \"0\"),\n    deactivation_time_new = str_pad(deactivation_time, width = 4, side = \"left\", pad = \"0\"))\n\n\nactivations_2024_clean &lt;- activations_2024_time |&gt; \n  mutate(\n    activation_time_clean = parse_hms(paste0(substr(activation_time_new, 1, 2), \":\", substr(activation_time_new, 3, 4), \":00\")),\n    deactivation_time_clean = parse_hms(paste0(substr(deactivation_time_new, 1, 2), \":\", substr(deactivation_time_new, 3, 4), \":00\"))\n  ) |&gt; \n  select(initial_extreme_temp,\n         initiation_date,\n         county,\n         unit,\n         activation_date,\n         activation_time = activation_time_clean,\n         deactivation_date,\n         deactivation_time = deactivation_time_clean)\n\nactivations_2024_clean",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#combining-three-years-of-activations-logs-into-one-data-frame",
-    "href": "01-updated-activation-cleaning.html#combining-three-years-of-activations-logs-into-one-data-frame",
-    "title": "Updated activations cleaning",
-    "section": "Combining three years of activations logs into one data frame",
-    "text": "Combining three years of activations logs into one data frame\n\nactivations_all &lt;- bind_rows(activations_2022_clean, activations_2023_clean, activations_2024_clean)\n\nactivations_all",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#change-date-columns",
-    "href": "01-updated-activation-cleaning.html#change-date-columns",
-    "title": "Updated activations cleaning",
-    "section": "Change date columns",
-    "text": "Change date columns\nUsing the as.Date function to convert the POSIX date columns into real date columns.\n\nactivations_all_dates &lt;- activations_all |&gt; \n  mutate(\n    initial_extreme_temp = as.Date(initial_extreme_temp),\n    initiation_date = as.Date(initiation_date),\n    activation_date = as.Date(activation_date),\n    deactivation_date = as.Date(deactivation_date)\n  ) \n\nactivations_all_dates",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#activation-datestimes",
-    "href": "01-updated-activation-cleaning.html#activation-datestimes",
-    "title": "Updated activations cleaning",
-    "section": "Activation dates/times",
-    "text": "Activation dates/times\nCode from Prof. McDonald:\nLooking at how many days there typically were between the initial extreme temperature and the activation.\n\nactivations_all_dates |&gt; \n  mutate(activation_gap = initiation_date - initial_extreme_temp,\n         .after = initiation_date) |&gt; \n  arrange(activation_gap |&gt; desc()) |&gt; \n  count(activation_gap) |&gt; \n  adorn_totals(\"row\") |&gt; \n  # as_tibble() |&gt; \n  rename(\n    gap_days = activation_gap,\n    cnt_records = n\n  )\n\n\n  \n\n\n\nOut of 143 activations between 2022-2024, only one of them took place more than the 3rd day after the “initial extreme temp”.",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#document-active-days",
-    "href": "01-updated-activation-cleaning.html#document-active-days",
-    "title": "Updated activations cleaning",
-    "section": "Document active days",
-    "text": "Document active days\nCode from Prof. McDonald:\nIn our data, a single row is an activation period with a start and end date. What we want is a row of data for each activated day … so if is three days between the start and end date, we want a row for each of the three days, with a variable activated that includes that date.\nWe do this by creating a new “list column” that includes a sequence of dates starting at activation and ending at deactivation. We then unnest that list to create a row for each item in the list.\n\nunnested_actives &lt;- activations_all_dates |&gt; \n1  mutate(activated = map2(\n2    activation_date, deactivation_date,\n3    ~seq(from = .x, to = .y, by = \"day\")\n  )) |&gt; \n4  unnest(activated)\n\nunnested_actives\n\n\n1\n\nWe create a column called activated, and that will be filled with the result of the map2() function. What map2() allows us to do is take two variables from our data (our dates) and provide it to a function (seq()).\n\n2\n\nHere we list the two variables, our start and end dates.\n\n3\n\nThis seq() function creates a list of dates in sequence by day, starting with our activation_date (.x) and ending with our deactivation_date (.y). The end result is a nested “list column” activated that holds all the dates. At this point we still have one row for each activation period.\n\n4\n\nHere the unnest() function creates a new copy of each row with one of the dates in our activated list column. So if an activation period was 4 days, here we end up for 4 rows of the same data except for the date in activated.",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#clean-up-our-active-days",
-    "href": "01-updated-activation-cleaning.html#clean-up-our-active-days",
-    "title": "Updated activations cleaning",
-    "section": "Clean up our active days",
-    "text": "Clean up our active days\nCode from Prof. McDonald:\nHere we simplify our activations data so we can join it with other data. We get just the unit, date and a protocol_active flag.\n\nclean_actives &lt;- unnested_actives |&gt; \n  select(c(unit, date = activated)) |&gt; \n  mutate(protocol_active = T)\n\nclean_actives",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-updated-activation-cleaning.html#export",
-    "href": "01-updated-activation-cleaning.html#export",
-    "title": "Updated activations cleaning",
-    "section": "Export",
-    "text": "Export\n\nclean_actives |&gt; write_rds(\"data-processed/01-activation-cleaned.rds\")",
-    "crumbs": [
-      "Cleaning",
-      "Updated activations cleaning"
+      "Indoor logs"
     ]
   },
   {
@@ -659,7 +264,7 @@
     "href": "01-station-protocols.html",
     "title": "Stations cleaning",
     "section": "",
-    "text": "THIS HAS SOME ISSUES. IF WE ARE FOLLOWING THE EXCESSIVE HEAT WARNING CRITERIA, THEN WE ARE NOT LOOKING AT 105 FOR 2 DAYS.\nHere we enhance our weather station data to include prison protocol data. We do this both for our hourly readings and our daily summaries.\nWill decide later if we add the prison info. That may need to be in more specific analysis.\nlibrary(tidyverse)\nlibrary(janitor)",
+    "text": "Note: The heat warning criteria we used here is not the same as when we studied precautionary measures. It does not consider how many days the temperatures or heat index value was reached.\nHere we enhance our weather station data to include prison protocol data. We do this both for our hourly readings and our daily summaries.\nWill decide later if we add the prison info. That may need to be in more specific analysis.\nlibrary(tidyverse)\nlibrary(janitor)",
     "crumbs": [
       "Cleaning",
       "Stations cleaning"
@@ -692,7 +297,18 @@
     "href": "01-station-protocols.html#daily-summarized-data",
     "title": "Stations cleaning",
     "section": "Daily summarized data",
-    "text": "Daily summarized data\n\nImport daily summaries\n\nstations_daily &lt;- read_rds(\"data-processed/weather-logs/01-station-daily-summary.rds\")\n\nstations_daily |&gt; glimpse()\n\nRows: 17,453\nColumns: 5\n$ station_id &lt;chr&gt; \"KABI\", \"KABI\", \"KABI\", \"KABI\", \"KABI\", \"KABI\", \"KABI\", \"KA…\n$ name       &lt;chr&gt; \"ABILENE REGIONAL AIRPORT, TX US\", \"ABILENE REGIONAL AIRPOR…\n$ date       &lt;date&gt; 2023-01-01, 2023-01-02, 2023-01-03, 2023-01-04, 2023-01-05…\n$ tmp_high   &lt;dbl&gt; 78, 76, 60, 64, 63, 77, 63, 63, 77, 83, 83, 60, 64, 67, 67,…\n$ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 80.4,…\n\n\n\n\nAdd daily protocols\n\nstations_daily_protocol &lt;- stations_daily |&gt; \n  mutate(\n    tmp_flag = (case_when(\n      tmp_high &gt;= 105 ~ TRUE,\n      .default = FALSE)),\n    hi_flag = (case_when(\n      hi_high &gt;= 113 ~ TRUE,\n      .default = FALSE)),\n    protocol_flag = case_when(\n      tmp_flag == \"TRUE\" | hi_flag == \"TRUE\" ~ TRUE,\n      .default = FALSE)\n  )\n\n# check results\nstations_daily_protocol |&gt; \n  select(-name) |&gt; \n  filter(tmp_high &gt; 100) |&gt; \n  slice_sample(n = 10)\n\n\n  \n\n\n\n\n\nExport daily\n\nstations_daily_protocol |&gt; write_rds(\"data-processed/01-station-daily-protocols.rds\")",
+    "text": "Daily summarized data\n\nImport daily summaries\n\nstations_daily &lt;- read_rds(\"data-processed/weather-logs/01-station-daily-summary.rds\")\n\nstations_daily |&gt; glimpse()\n\nRows: 17,453\nColumns: 5\n$ station_id &lt;chr&gt; \"KABI\", \"KABI\", \"KABI\", \"KABI\", \"KABI\", \"KABI\", \"KABI\", \"KA…\n$ name       &lt;chr&gt; \"ABILENE REGIONAL AIRPORT, TX US\", \"ABILENE REGIONAL AIRPOR…\n$ date       &lt;date&gt; 2023-01-01, 2023-01-02, 2023-01-03, 2023-01-04, 2023-01-05…\n$ tmp_high   &lt;dbl&gt; 78, 76, 60, 64, 63, 77, 63, 63, 77, 83, 83, 60, 64, 67, 67,…\n$ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 80.4,…\n\n\n\n\nAdd daily protocols\n\nstations_daily_protocol &lt;- stations_daily |&gt; \n  mutate(\n    tmp_flag = (case_when(\n      tmp_high &gt;= 105 ~ TRUE,\n      .default = FALSE)),\n    hi_flag = (case_when(\n      hi_high &gt;= 113 ~ TRUE,\n      .default = FALSE)),\n    protocol_flag = case_when(\n      tmp_flag == \"TRUE\" | hi_flag == \"TRUE\" ~ TRUE,\n      .default = FALSE)\n  )\n\n# check results\nstations_daily_protocol |&gt; \n  select(-name) |&gt; \n  filter(tmp_high &gt; 100) |&gt; \n  slice_sample(n = 10)",
+    "crumbs": [
+      "Cleaning",
+      "Stations cleaning"
+    ]
+  },
+  {
+    "objectID": "01-station-protocols.html#finding-hourly-temps-for-prisoner-deaths",
+    "href": "01-station-protocols.html#finding-hourly-temps-for-prisoner-deaths",
+    "title": "Stations cleaning",
+    "section": "Finding hourly temps for prisoner deaths",
+    "text": "Finding hourly temps for prisoner deaths\n\nstations_hourly_protocol |&gt; \n  filter(\n    station_id == \"KUTS\", date == \"2023-06-07\"\n  )\n\n\n  \n\n\n\n\nExport daily\n\nstations_daily_protocol |&gt; write_rds(\"data-processed/01-station-daily-protocols.rds\")",
     "crumbs": [
       "Cleaning",
       "Stations cleaning"
@@ -703,7 +319,7 @@
     "href": "01-indoor-all-cleaning.html",
     "title": "All indoor logs cleaning",
     "section": "",
-    "text": "We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024, and April through July 25 (day the info request was filled) of 2025. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.\nThe original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in ‘data-original/indoor_all_csv’ as ‘SB1R56 - April 2022 (Table 1).csv’ and so on for each month and year. The original documents are found in ‘data-original’ under ‘2022_indoor’, ‘2023_indoor’ and so on for each year.",
+    "text": "We have recorded indoor temperatures for each unit April through September of 2022, 2023, 2024 and 2025. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.\nThe original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in ‘data-original/indoor_all_csv’ as ‘SB1R56 - April 2022 (Table 1).csv’ and so on for each month and year. An exception to this is the data for July-September of 2025, which were originally provided in xlsx form and follow the naming convention ‘07.2025 - SB1R56.xlsx’ and so on. These spreadsheets and all other original documents are found in ‘data-original’ under ‘2022_indoor’, ‘2023_indoor’ and so on for each year.",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -714,7 +330,7 @@
     "href": "01-indoor-all-cleaning.html#goals-of-this-notebook",
     "title": "All indoor logs cleaning",
     "section": "Goals of this notebook",
-    "text": "Goals of this notebook\nWe have already cleaned the data for each year individually in separate notebooks. In this notebook, we will consolidate the cleaning code for each year of data and combine all the years of data into one data frame. This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above.\nClean and combine the 2022, 2023 and 2024 indoor logs for April, May, June, July, August and September and 2025 logs for April, May, June and part of July.",
+    "text": "Goals of this notebook\nWe have already cleaned the data for each year individually in separate notebooks. In this notebook, we will consolidate the cleaning code for each year of data and combine all the years of data into one data frame. This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above. In 2025, the data was given to us in spreadsheet form for July through September, which we will read in using read_excel and follow the same process above.\nClean and combine the 2022, 2023, 2024 and 2025 indoor logs for April, May, June, July, August and September.",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -725,7 +341,7 @@
     "href": "01-indoor-all-cleaning.html#setup",
     "title": "All indoor logs cleaning",
     "section": "Setup",
-    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(lubridate)",
+    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(lubridate)\nlibrary(readxl)\n\nshow_col_types = FALSE",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -747,7 +363,7 @@
     "href": "01-indoor-all-cleaning.html#indoor-logs",
     "title": "All indoor logs cleaning",
     "section": "2022 indoor logs",
-    "text": "2022 indoor logs\n**Note: for the April 2022 csv only, we do not need to skip the first row because for some reason it converted differently when we put the original pdf into Adobe Acrobat. For all other logs, we will skip the first row in the read_csv() function to avoid formatting problems.",
+    "text": "2022 indoor logs\n**Note: For the April 2022 csv only, we do not need to skip the first row because for some reason it converted differently when we put the original pdf into Adobe Acrobat. For all other logs, we will skip the first row in the read_csv() function to avoid formatting problems.",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -780,7 +396,7 @@
     "href": "01-indoor-all-cleaning.html#indoor-logs-1",
     "title": "All indoor logs cleaning",
     "section": "2023 indoor logs",
-    "text": "2023 indoor logs\n**Note: There are two dates for units in 2023 where the temperature value is NA: - Huntsville 2023-08-25 - Segovia 2023-06-01 For these dates and units, there was no value included the original pdfs from TDCJ (the cells are blank).",
+    "text": "2023 indoor logs\n**Note: There are two dates for units in 2023 where the temperature value is NA:\n\nHuntsville 2023-08-25\nSegovia 2023-06-01\n\nFor these dates and units, there was no value included the original pdfs from TDCJ (the cells are blank).",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -824,7 +440,7 @@
     "href": "01-indoor-all-cleaning.html#downloading-data-and-applying-function-2",
     "title": "All indoor logs cleaning",
     "section": "Downloading data and applying function",
-    "text": "Downloading data and applying function\n\napril_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - April 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"April\", \"2024\") |&gt; filter(!unit == \"April 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\nmay_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - May 2024(Table 1).csv\", \n         skip = 1) |&gt; pivot_date(\"May\", \"2024\") |&gt; filter(!unit == \"May 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\njune_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - June 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"June\", \"2024\") |&gt; filter(!unit == \"June 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n**Important note: we manually removed an apostrophe from cell Memorial:22 in the original June 2024 csv because it was causing the column to read as characters instead of doubles.\n\njuly_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - July 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"July\", \"2024\") |&gt;  filter(!unit == \"July 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\naugust_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - August 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"August\", \"2024\") |&gt; filter(!unit == \"August 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\nseptember_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - September 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"September\", \"2024\") |&gt; filter(!unit == \"September 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n**Important note: we manually removed an extra space from Connally:21 and 22 in the original September 2024 csv because it was causing the column to read as characters instead of doubles",
+    "text": "Downloading data and applying function\n\napril_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - April 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"April\", \"2024\") |&gt; filter(!unit == \"April 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\nmay_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - May 2024(Table 1).csv\", \n         skip = 1) |&gt; pivot_date(\"May\", \"2024\") |&gt; filter(!unit == \"May 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\njune_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - June 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"June\", \"2024\") |&gt; filter(!unit == \"June 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n**Important note: we manually removed an apostrophe from cell Memorial:22 in the original June 2024 csv because it was causing the column to read as characters instead of doubles.\n\njuly_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - July 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"July\", \"2024\") |&gt;  filter(!unit == \"July 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\naugust_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - August 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"August\", \"2024\") |&gt; filter(!unit == \"August 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\nseptember_2024_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - September 2024(Table 1).csv\", skip = 1) |&gt; pivot_date(\"September\", \"2024\") |&gt; filter(!unit == \"September 2024\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n**Important note: we manually removed an extra space from Connally:21 and 22 in the original September 2024 csv because it was causing the column to read as characters instead of doubles.",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -857,7 +473,7 @@
     "href": "01-indoor-all-cleaning.html#downloading-data-and-applying-function-3",
     "title": "All indoor logs cleaning",
     "section": "Downloading data and applying function",
-    "text": "Downloading data and applying function\n** Because of when this public information request was filled, we only have data through July 25, 2025. Thus, all units will show “NA” for temperature between July 26 and July 31, 2025. As of Oct. 14, 2025, Lauren is still trying to get the updated data through September 2025.\n\napril_2025_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - April 2025(Table 1).csv\", skip = 1) |&gt; pivot_date(\"April\", \"2025\") |&gt; filter(!unit == \"April 2025\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\nmay_2025_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - May 2025(Table 1) (1).csv\", skip = 1) |&gt; pivot_date(\"May\", \"2025\") |&gt; filter(!unit == \"May 2025\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\njune_2025_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - June 2025(Table 1).csv\", skip = 1) |&gt; pivot_date(\"June\", \"2025\") |&gt; filter(!unit == \"June 2025\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n**Important note: we manually removed an extra space from Bartlett:8 in the original June 2025 csv because it was causing the column to read as characters instead of doubles.\n\njuly_2025_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - July 2025(Table 1).csv\", skip = 1) |&gt; pivot_date(\"July\", \"2025\") |&gt; filter(!unit == \"July 2025\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`",
+    "text": "Downloading data and applying function\n\napril_2025_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - April 2025(Table 1).csv\", skip = 1) |&gt; pivot_date(\"April\", \"2025\") |&gt; filter(!unit == \"April 2025\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\nmay_2025_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - May 2025(Table 1) (1).csv\", skip = 1) |&gt; pivot_date(\"May\", \"2025\") |&gt; filter(!unit == \"May 2025\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 32\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\njune_2025_clean &lt;- read_csv(\"data-original/indoor_all_csv/SB1R56 - June 2025(Table 1).csv\", skip = 1) |&gt; pivot_date(\"June\", \"2025\") |&gt; filter(!unit == \"June 2025\", !is.na(unit))\n\nNew names:\nRows: 70 Columns: 31\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(1): ...1 dbl (30): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,\n18, 19,...\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n**Important note: we manually removed an extra space from Bartlett:8 in the original June 2025 csv because it was causing the column to read as characters instead of doubles.\n\njuly_2025_clean &lt;- read_excel(\"data-original/2025_indoor/07.2025 - SB1R56.xlsx\", skip = 1, range = \"A2:AF70\") |&gt; pivot_date(\"July\", \"2025\") |&gt; filter(!unit == \"July 2025\", !is.na(unit))\n\nNew names:\n• `` -&gt; `...1`\n\n\n\naugust_2025_clean &lt;- read_excel(\"data-original/2025_indoor/08.2025 - SB1R56.xlsx\", skip = 1, range = \"A2:AF70\") |&gt; pivot_date(\"August\", \"2025\") |&gt; filter(!unit == \"August 2025\", !is.na(unit))\n\nNew names:\n• `` -&gt; `...1`\n\n\n\nseptember_2025_clean &lt;- read_excel(\"data-original/2025_indoor/09.2025 - SB1R56.xlsx\", skip = 1, range = \"A2:AE70\") |&gt; pivot_date(\"September\", \"2025\") |&gt; filter(!unit == \"September 2025\", !is.na(unit))\n\nNew names:\n• `` -&gt; `...1`\n\n\n**Important note: we manually removed an extra space from cell O58 (Stevenson:14) in the original September 2025 csv because it was causing the column to read as characters instead of doubles.",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -868,7 +484,7 @@
     "href": "01-indoor-all-cleaning.html#combining-each-month-into-one-data-frame-3",
     "title": "All indoor logs cleaning",
     "section": "Combining each month into one data frame",
-    "text": "Combining each month into one data frame\n\nindoor_2025_combined &lt;- bind_rows(april_2025_clean, may_2025_clean, june_2025_clean, july_2025_clean)",
+    "text": "Combining each month into one data frame\n\nindoor_2025_combined &lt;- bind_rows(april_2025_clean, may_2025_clean, june_2025_clean, july_2025_clean, august_2025_clean, september_2025_clean)",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -879,7 +495,7 @@
     "href": "01-indoor-all-cleaning.html#combining-all-years-of-indoor-data-into-one-data-frame",
     "title": "All indoor logs cleaning",
     "section": "Combining all years of indoor data into one data frame",
-    "text": "Combining all years of indoor data into one data frame\n\nindoor_temps_all_combined &lt;- bind_rows(indoor_2022_combined, indoor_2023_combined, indoor_2024_combined, indoor_2025_combined)\n\nindoor_temps_all_combined |&gt; head(50)",
+    "text": "Combining all years of indoor data into one data frame\n\nindoor_temps_all_combined &lt;- bind_rows(indoor_2022_combined, indoor_2023_combined, indoor_2024_combined, indoor_2025_combined) \n\nindoor_temps_all_combined |&gt; head(50)",
     "crumbs": [
       "Cleaning",
       "All indoor logs cleaning"
@@ -897,121 +513,154 @@
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html",
-    "href": "01-activation-cleaning-old.html",
+    "objectID": "01-activation-cleaning.html",
+    "href": "01-activation-cleaning.html",
     "title": "Activations cleaning",
     "section": "",
-    "text": "Things to check\n\n\n\nI need to check some things with Lauren:\n\nWhere is the original file from TDCJ with the activations data?\nConfirm what these dates are for.",
+    "text": "This data is a record of every time a TDCJ was under ICS protocols, like providing extra ice water and access to cooler areas during extreme heat events, in 2022, 2023 and 2024. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.\nQuestions as of 9/27/2025:",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html#overview",
-    "href": "01-activation-cleaning-old.html#overview",
+    "objectID": "01-activation-cleaning.html#goals-of-this-notebook",
+    "href": "01-activation-cleaning.html#goals-of-this-notebook",
     "title": "Activations cleaning",
-    "section": "Overview",
-    "text": "Overview\nThese are the days that a unit was under ICS protocols like providing extra ice water and access to cooler areas during extreme heat events. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.",
+    "section": "Goals of this notebook",
+    "text": "Goals of this notebook\nWhat we’ll do to prepare the data:\n\nDownload the data using read_excel\nImport it into our notebook\nClean up data types and columns\nCombine all three years into one data frame\nExport data into our next notebook",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html#possible-update",
-    "href": "01-activation-cleaning-old.html#possible-update",
+    "objectID": "01-activation-cleaning.html#setup",
+    "href": "01-activation-cleaning.html#setup",
     "title": "Activations cleaning",
-    "section": "Possible update",
-    "text": "Possible update\nWe don’t have a complete record of where the activations CSV comes from. Pretty sure this came from Lauren.\nIn our tracking Google sheet we do have the same data, except there are errors on the last line.",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(data.table)\nlibrary(readxl)\nlibrary(hms)",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html#set-up",
-    "href": "01-activation-cleaning-old.html#set-up",
+    "objectID": "01-activation-cleaning.html#downloading-the-data",
+    "href": "01-activation-cleaning.html#downloading-the-data",
     "title": "Activations cleaning",
-    "section": "Set up",
-    "text": "Set up\nYou know the drill!\n\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(data.table)",
+    "section": "Downloading the data",
+    "text": "Downloading the data\nThis data includes all instances where units were under ICS protocols for 2022, 2023 and 2024, as reported by the TDCJ from a public information request. The data is limited by when the information request was filled each year: 2022/08/07, 2023/09/12 and 2024/08/29.\nDownloading the xlsx files using read_excel, specifying the sheet, skipping the first row, and specifying column types.\n\nactivations_2022_raw &lt;- read_excel(\"data-original/08.07.22 ICS Seasonal Spreadsheet.xlsx\", sheet = \"FY22 ICS\", skip = 1, col_types = c(\"date\", \"date\", \"text\", \"text\", \"date\", \"date\", \"date\", \"date\")) |&gt; \n  clean_names()\n\nNew names:\n• `Date` -&gt; `Date...5`\n• `Time` -&gt; `Time...6`\n• `Date` -&gt; `Date...7`\n• `Time` -&gt; `Time...8`\n\nactivations_2022_raw\n\n\n  \n\n\n\n** Note on 2022 sheet: we reformatted cells F11 and F21 in the original xlsx file because it was formatted as text rather than time and read in as NA. We also corrected\n\nactivations_2023_raw &lt;- read_excel(\"data-original/09.12.23 ICS Seasonal Spreadsheet .xlsx\", sheet = \"FY 23\", skip = 1, col_types = c(\"date\", \"date\", \"text\", \"text\", \"date\", \"numeric\", \"date\", \"numeric\")) |&gt; \n  clean_names()\n\nNew names:\n• `Date` -&gt; `Date...5`\n• `Time` -&gt; `Time...6`\n• `Date` -&gt; `Date...7`\n• `Time` -&gt; `Time...8`\n\nactivations_2023_raw\n\n\n  \n\n\n\n** Note on 2023 sheet: we reformatted cells E24, E92 and B65 in the original xlsx file because the year was recorded as 2023 rather than 23, causing these cells to read in as NA.\n\nactivations_2024_raw &lt;- read_excel(\"data-original/08.29.24_ICS Seasonal Spreadsheet .xlsx\", sheet = \"CY24\", skip = 1, col_types = c(\"date\", \"date\", \"text\", \"text\", \"date\", \"numeric\", \"date\", \"numeric\")) |&gt; \n  clean_names()\n\nNew names:\n• `Date` -&gt; `Date...5`\n• `Time` -&gt; `Time...6`\n• `Date` -&gt; `Date...7`\n• `Time` -&gt; `Time...8`",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html#comparison-activation-log",
-    "href": "01-activation-cleaning-old.html#comparison-activation-log",
-    "title": "Activations cleaning",
-    "section": "Comparison activation log",
-    "text": "Comparison activation log\nWe’ll check about the original CSV with Lauren, but in the meantime we’ll compare that with the Activation records we also have in our tracking sheet. This copy was downloaded from our MIG = TDCJ Basic Information on the “Activation” tab. The Google Sheet has errors on the last record for 9/5/2023, but that record is in full in our csv log.\n\n# download.file(\n#   \"https://docs.google.com/spreadsheets/d/e/2PACX-1vRebFs9O2i0HoygXTtIvuzdVTmyrjX3MeUorU9d4fpYkGX7Bb026OradFQ1MMk2ltcGnyILih6ow4F4/pub?gid=1968960884&single=true&output=csv\",\n#   \"data-original/unit-activation-direct.csv\"\n#       )\n\nImport direct log\n\nraw_activation_direct &lt;- read_csv(\"data-original/unit-activation-direct.csv\") |&gt; \n  clean_names()\n\nRows: 102 Columns: 6\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (6): Initial Date of Extreme Temperature, ICS Implementation Date, Count...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nraw_activation_direct\n\n\n  \n\n\n\nThis original files lacks on activation that is in our already-downloaded unit-activation-log.csv. We’ll continue to use the -log version while we track down an original.",
-    "crumbs": [
-      "Cleaning",
-      "Activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-activation-cleaning-old.html#import-activation-log",
-    "href": "01-activation-cleaning-old.html#import-activation-log",
-    "title": "Activations cleaning",
-    "section": "Import activation log",
-    "text": "Import activation log\nLet’s add our activation log file in. (This file was downloaded directly into the repo, but we lost track of the original file. It has an additional record or other copies don’t have.)\n\nraw_activation_log &lt;- read_csv(\"data-original/unit-activation-log.csv\", skip = 1) |&gt; \n  clean_names()\n\nNew names:\nRows: 102 Columns: 10\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(6): Initial Date of Extreme Temperature, ICS Implementation Date, Count... dbl\n(2): Time...6, Time...8 lgl (2): ...9, ...10\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `Date` -&gt; `Date...5`\n• `Time` -&gt; `Time...6`\n• `Date` -&gt; `Date...7`\n• `Time` -&gt; `Time...8`\n• `` -&gt; `...9`\n• `` -&gt; `...10`\n\nraw_activation_log",
-    "crumbs": [
-      "Cleaning",
-      "Activations cleaning"
-    ]
-  },
-  {
-    "objectID": "01-activation-cleaning-old.html#clean-column-names",
-    "href": "01-activation-cleaning-old.html#clean-column-names",
+    "objectID": "01-activation-cleaning.html#clean-column-names",
+    "href": "01-activation-cleaning.html#clean-column-names",
     "title": "Activations cleaning",
     "section": "Clean column names",
-    "text": "Clean column names\nOur column names didn’t translate perfectly, so let’s work on cleaning them up and remove the last two unnecessary columns.\n\nclean_activation_log &lt;- raw_activation_log |&gt; \n  select(\n    initial_extreme_temp = initial_date_of_extreme_temperature,\n    initiation_date = ics_implementation_date,\n    county,\n    unit = unit_affected,\n    activation_date = date_5, \n    activation_time = time_6,\n    deactivation_date = date_7,\n    deactivation_time = time_8 \n  )",
+    "text": "Clean column names\n\nactivations_2022_names &lt;- activations_2022_raw |&gt; select(\n  initial_extreme_temp = initial_date_of_extreme_temperature,\n  initiation_date = ics_implementation_date,\n  county,\n  unit = unit_affected,\n  activation_date = date_5, \n  activation_time = time_6,\n  deactivation_date = date_7,\n  deactivation_time = time_8 \n  )\n\n\nactivations_2023_names &lt;- activations_2023_raw |&gt; select(\n  initial_extreme_temp = initial_date_of_extreme_temperature,\n  initiation_date = ics_implementation_date,\n  county,\n  unit = unit_affected,\n  activation_date = date_5, \n  activation_time = time_6,\n  deactivation_date = date_7,\n  deactivation_time = time_8 \n  )\n\n\nactivations_2024_names &lt;- activations_2024_raw |&gt; select(\n  initial_extreme_temp = initial_date_of_extreme_temperature,\n  initiation_date = ics_implementation_date,\n  county,\n  unit = unit_affected,\n  activation_date = date_5, \n  activation_time = time_6,\n  deactivation_date = date_7,\n  deactivation_time = time_8 \n  )",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html#change-date-columns",
-    "href": "01-activation-cleaning-old.html#change-date-columns",
+    "objectID": "01-activation-cleaning.html#fix-the-2022-log-activation-and-deactivation-time-columns",
+    "href": "01-activation-cleaning.html#fix-the-2022-log-activation-and-deactivation-time-columns",
+    "title": "Activations cleaning",
+    "section": "Fix the 2022 log activation and deactivation time columns",
+    "text": "Fix the 2022 log activation and deactivation time columns\nBecause the 2022 log had the the activation and deactivation time columns formatted as hh:mm rather than the hhmm format used in the 2023 and 2024 logs, we had to specify those column types as dates for them to read in properly, which generated a date of 1899-12-31 for each time. We’re using mutate() and the hms() function to pull just the time from this datetime.\n\nactivations_2022_clean &lt;- activations_2022_names |&gt; \n  mutate(\n    activation_time = hms(\n    hour = hour(activation_time),\n    minute = minute(activation_time),\n    second = second(activation_time),\n    )\n  ) |&gt; \n  mutate(\n      deactivation_time = hms(\n      hour = hour(deactivation_time),\n      minute = minute(deactivation_time),\n      second = second(deactivation_time)\n    ))",
+    "crumbs": [
+      "Cleaning",
+      "Activations cleaning"
+    ]
+  },
+  {
+    "objectID": "01-activation-cleaning.html#reformat-2023-log-activation-and-deactivation-time-columns",
+    "href": "01-activation-cleaning.html#reformat-2023-log-activation-and-deactivation-time-columns",
+    "title": "Activations cleaning",
+    "section": "Reformat 2023 log activation and deactivation time columns",
+    "text": "Reformat 2023 log activation and deactivation time columns\nIn the 2023 and 2024 logs, the activation and deactivation times were recorded in hhmm format (i.e. 1539 instead of 15:39:00). Reformatting to hh:mm:ss by using str_pad to restore the leading zeros that were removed when we read in the original file with read_excel, using parse_hms from the lubridate package, using substr to specify which digits are hours, minutes and seconds, and removing unnecessary columns.\n\nactivations_2023_time &lt;- activations_2023_names|&gt; \n  mutate(\n    activation_time_new = str_pad(activation_time, width = 4, side = \"left\", pad = \"0\"),\n    deactivation_time_new = str_pad(deactivation_time, width = 4, side = \"left\", pad = \"0\"))\n\n\nactivations_2023_clean &lt;- activations_2023_time |&gt; \n  mutate(\n    activation_time_clean = parse_hms(paste0(substr(activation_time_new, 1, 2), \":\", substr(activation_time_new, 3, 4), \":00\")),\n    deactivation_time_clean = parse_hms(paste0(substr(deactivation_time_new, 1, 2), \":\", substr(deactivation_time_new, 3, 4), \":00\"))\n  ) |&gt; \n  select(initial_extreme_temp,\n         initiation_date,\n         county,\n         unit,\n         activation_date,\n         activation_time = activation_time_clean,\n         deactivation_date,\n         deactivation_time = deactivation_time_clean)\n\nactivations_2023_clean",
+    "crumbs": [
+      "Cleaning",
+      "Activations cleaning"
+    ]
+  },
+  {
+    "objectID": "01-activation-cleaning.html#reformat-2024-log-activation-and-deactivation-time-columns",
+    "href": "01-activation-cleaning.html#reformat-2024-log-activation-and-deactivation-time-columns",
+    "title": "Activations cleaning",
+    "section": "Reformat 2024 log activation and deactivation time columns",
+    "text": "Reformat 2024 log activation and deactivation time columns\nSame process as above but for the 2024 log.\n\nactivations_2024_time &lt;- activations_2024_names|&gt; \n  mutate(\n    activation_time_new = str_pad(activation_time, width = 4, side = \"left\", pad = \"0\"),\n    deactivation_time_new = str_pad(deactivation_time, width = 4, side = \"left\", pad = \"0\"))\n\n\nactivations_2024_clean &lt;- activations_2024_time |&gt; \n  mutate(\n    activation_time_clean = parse_hms(paste0(substr(activation_time_new, 1, 2), \":\", substr(activation_time_new, 3, 4), \":00\")),\n    deactivation_time_clean = parse_hms(paste0(substr(deactivation_time_new, 1, 2), \":\", substr(deactivation_time_new, 3, 4), \":00\"))\n  ) |&gt; \n  select(initial_extreme_temp,\n         initiation_date,\n         county,\n         unit,\n         activation_date,\n         activation_time = activation_time_clean,\n         deactivation_date,\n         deactivation_time = deactivation_time_clean)\n\nactivations_2024_clean",
+    "crumbs": [
+      "Cleaning",
+      "Activations cleaning"
+    ]
+  },
+  {
+    "objectID": "01-activation-cleaning.html#combining-three-years-of-activations-logs-into-one-data-frame",
+    "href": "01-activation-cleaning.html#combining-three-years-of-activations-logs-into-one-data-frame",
+    "title": "Activations cleaning",
+    "section": "Combining three years of activations logs into one data frame",
+    "text": "Combining three years of activations logs into one data frame\n\nactivations_all &lt;- bind_rows(activations_2022_clean, activations_2023_clean, activations_2024_clean)\n\nactivations_all",
+    "crumbs": [
+      "Cleaning",
+      "Activations cleaning"
+    ]
+  },
+  {
+    "objectID": "01-activation-cleaning.html#change-date-columns",
+    "href": "01-activation-cleaning.html#change-date-columns",
     "title": "Activations cleaning",
     "section": "Change date columns",
-    "text": "Change date columns\nWe need our dates to be date columns instead of character columns. Let’s adjust.\n\nactivation_log_dates &lt;- clean_activation_log |&gt; \n  mutate(\n    initial_extreme_temp = mdy(initial_extreme_temp),\n    initiation_date = mdy(initiation_date),\n    activation_date = mdy(activation_date),\n    deactivation_date = mdy(deactivation_date)\n  ) \n\nactivation_log_dates",
+    "text": "Change date columns\nUsing the as.Date function to convert the POSIX date columns into real date columns.\n\nactivations_all_dates &lt;- activations_all |&gt; \n  mutate(\n    initial_extreme_temp = as.Date(initial_extreme_temp),\n    initiation_date = as.Date(initiation_date),\n    activation_date = as.Date(activation_date),\n    deactivation_date = as.Date(deactivation_date)\n  ) \n\nactivations_all_dates",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html#document-active-days",
-    "href": "01-activation-cleaning-old.html#document-active-days",
+    "objectID": "01-activation-cleaning.html#activation-datestimes",
+    "href": "01-activation-cleaning.html#activation-datestimes",
+    "title": "Activations cleaning",
+    "section": "Activation dates/times",
+    "text": "Activation dates/times\nCode from Prof. McDonald:\nLooking at how many days there typically were between the initial extreme temperature and the activation.\n\nactivations_all_dates |&gt; \n  mutate(activation_gap = initiation_date - initial_extreme_temp,\n         .after = initiation_date) |&gt; \n  arrange(activation_gap |&gt; desc()) |&gt; \n  count(activation_gap) |&gt; \n  adorn_totals(\"row\") |&gt; \n  # as_tibble() |&gt; \n  rename(\n    gap_days = activation_gap,\n    cnt_records = n\n  )\n\n\n  \n\n\n\nOut of 143 activations between 2022-2024, only one of them took place more than the 3rd day after the “initial extreme temp”.",
+    "crumbs": [
+      "Cleaning",
+      "Activations cleaning"
+    ]
+  },
+  {
+    "objectID": "01-activation-cleaning.html#document-active-days",
+    "href": "01-activation-cleaning.html#document-active-days",
     "title": "Activations cleaning",
     "section": "Document active days",
-    "text": "Document active days\nWe need to turn our initial_extreme_temp column, implementation_date column and our deactivation_date column into date ranges.\n\ndirty_actives &lt;- activation_log_dates |&gt; \n  group_by(unit) |&gt; \n  mutate(occurence = dense_rank(initial_extreme_temp)) |&gt; \n  mutate(start = as.Date(activation_date), end = as.Date(deactivation_date)) |&gt; \n  mutate(\n    activated = map2(start, end, ~seq(from = .x, to = .y, by = \"day\"))\n    ) |&gt; \n  unnest(activated) \n\ndirty_actives",
+    "text": "Document active days\nCode from Prof. McDonald:\nIn our data, a single row is an activation period with a start and end date. What we want is a row of data for each activated day … so if is three days between the start and end date, we want a row for each of the three days, with a variable activated that includes that date.\nWe do this by creating a new “list column” that includes a sequence of dates starting at activation and ending at deactivation. We then unnest that list to create a row for each item in the list.\n\nunnested_actives &lt;- activations_all_dates |&gt; \n1  mutate(activated = map2(\n2    activation_date, deactivation_date,\n3    ~seq(from = .x, to = .y, by = \"day\")\n  )) |&gt; \n4  unnest(activated)\n\nunnested_actives\n\n\n1\n\nWe create a column called activated, and that will be filled with the result of the map2() function. What map2() allows us to do is take two variables from our data (our dates) and provide it to a function (seq()).\n\n2\n\nHere we list the two variables, our start and end dates.\n\n3\n\nThis seq() function creates a list of dates in sequence by day, starting with our activation_date (.x) and ending with our deactivation_date (.y). The end result is a nested “list column” activated that holds all the dates. At this point we still have one row for each activation period.\n\n4\n\nHere the unnest() function creates a new copy of each row with one of the dates in our activated list column. So if an activation period was 4 days, here we end up for 4 rows of the same data except for the date in activated.",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html#clean-up-our-active-dates",
-    "href": "01-activation-cleaning-old.html#clean-up-our-active-dates",
+    "objectID": "01-activation-cleaning.html#clean-up-our-active-days",
+    "href": "01-activation-cleaning.html#clean-up-our-active-days",
     "title": "Activations cleaning",
-    "section": "Clean up our active dates",
-    "text": "Clean up our active dates\nWe need to create a status column, so let’s remove everything other than unit and active dates.\n\nclean_actives &lt;- dirty_actives |&gt; \n  select(c(unit, activated)) |&gt; \n  mutate(protocol_active = T) |&gt; \n  mutate(date = activated) |&gt; \n  select(!activated)\n\nclean_actives |&gt; \n  filter(unit == \"Byrd\")",
+    "section": "Clean up our active days",
+    "text": "Clean up our active days\nCode from Prof. McDonald:\nHere we simplify our activations data so we can join it with other data. We get just the unit, date and a protocol_active flag.\n\nclean_actives &lt;- unnested_actives |&gt; \n  select(c(unit, date = activated)) |&gt; \n  mutate(protocol_active = T)\n\nclean_actives",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
     ]
   },
   {
-    "objectID": "01-activation-cleaning-old.html#export",
-    "href": "01-activation-cleaning-old.html#export",
+    "objectID": "01-activation-cleaning.html#export",
+    "href": "01-activation-cleaning.html#export",
     "title": "Activations cleaning",
     "section": "Export",
-    "text": "Export\n\nclean_actives |&gt; write_rds(\"data-processed/01-activation-cleaned-old.rds\")",
+    "text": "Export\n\nclean_actives |&gt; write_rds(\"data-processed/01-activation-cleaned.rds\")",
     "crumbs": [
       "Cleaning",
       "Activations cleaning"
@@ -1143,7 +792,7 @@
     "href": "01-unit-info-cleaning.html",
     "title": "Unit info cleaning",
     "section": "",
-    "text": "This data piece will help us join together our unit-focused data and our weather station-focused data. The data was compiled by Media Innovation Group data fellows. The information came from the Texas Department of Criminal Justice website, a TDCJ unit prototype list and the National Weather Service website.",
+    "text": "This notebook helps us join together our unit-focused data and our weather station-focused data. The data was compiled by Media Innovation Group data fellows. The information came from the Texas Department of Criminal Justice website, a TDCJ unit prototype list and the National Weather Service website.",
     "crumbs": [
       "Cleaning",
       "Unit info cleaning"
@@ -1214,104 +863,6 @@
       "Cleaning",
       "Unit info cleaning"
     ]
-  },
-  {
-    "objectID": "01.1-indoor-combining.html",
-    "href": "01.1-indoor-combining.html",
-    "title": "Combine indoor logs",
-    "section": "",
-    "text": "I’ve created station files that already have the protocol flags. This notebook could bring those in, but I’m not sure it is any more clear. I might trash those protocol data files."
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#to-do",
-    "href": "01.1-indoor-combining.html#to-do",
-    "title": "Combine indoor logs",
-    "section": "",
-    "text": "I’ve created station files that already have the protocol flags. This notebook could bring those in, but I’m not sure it is any more clear. I might trash those protocol data files."
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#overview",
-    "href": "01.1-indoor-combining.html#overview",
-    "title": "Combine indoor logs",
-    "section": "Overview",
-    "text": "Overview\nHere we bring together our indoor readings together with our station readings, and then create our protocol flags.\nWe’ll compare two ways to handle the station data:\n\nFind the 3 p.m. hours to match when the prison is supposed to record their records.\nThe daily summaries that have the hottest temp/heat index."
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#load-our-libraries",
-    "href": "01.1-indoor-combining.html#load-our-libraries",
-    "title": "Combine indoor logs",
-    "section": "Load our libraries",
-    "text": "Load our libraries\nlibrary(data.table)\n\nlibrary(tidyverse)\nlibrary(janitor)"
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#downloading-weather-logs-files",
-    "href": "01.1-indoor-combining.html#downloading-weather-logs-files",
-    "title": "Combine indoor logs",
-    "section": "Downloading weather-logs files",
-    "text": "Downloading weather-logs files\nWe’ll download a copy of our cleaned weather-logs into this repo so we don’t have to rely on the original.\nThe station files come from the weather-logs repo. That repo is currently private, so we’ll manually download the files into data-processed/weather-logs."
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#import-our-files",
-    "href": "01.1-indoor-combining.html#import-our-files",
-    "title": "Combine indoor logs",
-    "section": "Import our files",
-    "text": "Import our files\n\nstations_daily &lt;- read_rds(\"data-processed/weather-logs/01-station-daily-summary.rds\")\nstations_hourly &lt;- read_rds(\"data-processed/weather-logs/01-station-hourly-readings.rds\")\nheat_warnings &lt;- read_rds(\"data-processed/weather-logs/01-heat-warning-cleaned.rds\")\nactivation &lt;- read_rds(\"data-processed/01-activation-cleaned.rds\")\nindoor &lt;-  read_rds(\"data-processed/01-indoor-cleaned.rds\")\nunit_info&lt;- read_rds(\"data-processed/01-unit-info-cleaned.rds\")"
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#combine-data-files",
-    "href": "01.1-indoor-combining.html#combine-data-files",
-    "title": "Combine indoor logs",
-    "section": "Combine data files",
-    "text": "Combine data files\nNow that we’ve brought all of the files into our environment, it’s time to put them all together!\nThe process we’ll use is this:\n\nstart with indoor readings\njoin with unit-info to get the station ids\njoin with the stations to get that information\ncreate our protocol flags\nexport\n\nFirst we’ll combine our unit temperature logs with our activation status. We’ll also take this time to fill in our inactives because our original file only denoted activation."
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#indoor-unit-info",
-    "href": "01.1-indoor-combining.html#indoor-unit-info",
-    "title": "Combine indoor logs",
-    "section": "Indoor + unit info",
-    "text": "Indoor + unit info\n\nindoor_unit &lt;- indoor |&gt; \n  left_join(unit_info, by = join_by(unit == unit_name)) |&gt; \n  select(unit, date, unit_temp, nws_id, county) |&gt; \n  arrange(unit, date)\n\n# sample of data\nindoor_unit |&gt; slice_sample(n = 10)\n\n\n  \n\n\n# total row count\nindoor_unit |&gt; nrow()\n\n[1] 12323\n\n# missing join count\nindoor_unit |&gt; filter(is.na(nws_id))"
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#add-stations",
-    "href": "01.1-indoor-combining.html#add-stations",
-    "title": "Combine indoor logs",
-    "section": "Add stations",
-    "text": "Add stations\nI did check and the daily summaries have more possible matches than pulling 3p-only values. Here we join by both the station id and date.\n\nindoor_stations &lt;- indoor_unit |&gt; \n  left_join(stations_daily, by = join_by(nws_id == station_id, date))\n\nindoor_stations |&gt; nrow()\n\n[1] 12323\n\nindoor_stations |&gt; head()\n\n\n  \n\n\n\nUnfortunately there are There are 1580 indoor records (out of 12323) without a matching station record.\n\nindoor_stations_peek &lt;- indoor_stations |&gt; \n  group_by(unit, nws_id) |&gt;\n  summarize(\n    total_cnt = n(),\n    na_cnt = sum(is.na(name))\n  ) |&gt; \n  ungroup() |&gt; \n  adorn_totals(\"row\") |&gt; \n  tibble()\n\n`summarise()` has grouped output by 'unit'. You can override using the\n`.groups` argument.\n\nindoor_stations_peek\n\n\n  \n\n\n\nIn some cases there are just missing days of readings, which could be for any number of reasons, like the observation station was down.\nBut there are a number of prison units where we could not find a NWS weather data within 40 miles. These fit into that category.\n\nindoor_stations_peek |&gt; \n  filter(na_cnt &gt; 0,\n         total_cnt == na_cnt) |&gt; \n  arrange(unit)\n\n\n  \n\n\n\n\nRemove non-matches\nWe’ll remove indoor records where we don’t have a matching weather temperature since we can’t do any comparison here. (May decide later we need this, but later code might have to change to deal with missing variables.)\n\nindoor_clipped &lt;- indoor_stations |&gt; \n  filter(!is.na(name))\n\nindoor_clipped |&gt; nrow()\n\n[1] 10743"
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#create-a-flag",
-    "href": "01.1-indoor-combining.html#create-a-flag",
-    "title": "Combine indoor logs",
-    "section": "Create a flag",
-    "text": "Create a flag\nWe know that one form of criteria for our heat protocol is if the feels like is greater than or equal to 113 for three days. Let’s create a flag for days greater than or equal to 113 and then count the number of consecutive days.\n\nindoor_flags &lt;- indoor_clipped |&gt; \n  mutate(\n    tmp_flag = (case_when(\n      tmp_high &gt;= 105 ~ TRUE,\n      .default = FALSE)),\n    hi_flag = (case_when(\n      hi_high &gt;= 113 ~ TRUE,\n      .default = FALSE)),\n    protocol_flag = case_when(\n      tmp_flag == \"TRUE\" | hi_flag == \"TRUE\" ~ TRUE,\n      .default = FALSE)\n    )\n  \nindoor_flags"
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#look-for-runs",
-    "href": "01.1-indoor-combining.html#look-for-runs",
-    "title": "Combine indoor logs",
-    "section": "Look for runs",
-    "text": "Look for runs\nCreate if either are true column Add another column that showsd if true is along with active\n\nindoor_protocol &lt;- indoor_flags |&gt; \n  group_by(unit) |&gt; \n  mutate(\n    protocol_run = accumulate(protocol_flag, ~if_else(.y, .x + 1, 0))\n  ) |&gt; \n  mutate(\n    protocol_met = case_when(\n    protocol_run &gt;= 3 ~ TRUE,\n    .default = FALSE\n  )) |&gt; \n  ungroup()\n\nindoor_protocol |&gt; \n  select(unit, date, starts_with(\"protocol\")) |&gt; \n  # skipping lines to get to true values\n  slice(80:100)"
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#add-activation-days",
-    "href": "01.1-indoor-combining.html#add-activation-days",
-    "title": "Combine indoor logs",
-    "section": "Add activation days",
-    "text": "Add activation days\nNow we’ll add a column that shows which prisons were actively under heat protocols.\n\nindoor_active &lt;- indoor_protocol |&gt; \n  left_join(activation) |&gt; \n  mutate(protocol_active = if_else(is.na(protocol_active), F, T),\n         protocol_fail = case_when(\n           protocol_met == T & protocol_active == F ~ T,\n           .default = F\n         ))\n\nJoining with `by = join_by(unit, date)`\n\nindoor_active |&gt; filter(protocol_met == T)"
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#consider-heat-warnings",
-    "href": "01.1-indoor-combining.html#consider-heat-warnings",
-    "title": "Combine indoor logs",
-    "section": "Consider heat warnings",
-    "text": "Consider heat warnings\nThere are only six cases where we’ve found a heat warning in effect. This could be because we don’t have a good match on these warnings unless it is set for the whole county.\nWe won’t save this join since it is of little use.\n\n# add later\nindoor_active |&gt;\n  left_join(heat_warnings, by = join_by(nws_id == station_code, date)) |&gt; \n  filter(ehw_active == T)"
-  },
-  {
-    "objectID": "01.1-indoor-combining.html#export",
-    "href": "01.1-indoor-combining.html#export",
-    "title": "Combine indoor logs",
-    "section": "Export",
-    "text": "Export\nWe’ve put everything together! Now let’s export it into data-processed.\n\nindoor_protocol |&gt;\n  write_rds(\"data-processed/02-indoor-combined.rds\")"
   },
   {
     "objectID": "02-outdoor-protocols.html",

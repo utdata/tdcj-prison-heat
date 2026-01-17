@@ -107,7 +107,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -119,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning-old.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-indoor-all-cleaning.html">All indoor logs cleaning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-indoor-all-cleaning.html">All indoor logs cleaning</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-activation-cleaning-old.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-activation-cleaning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Activations cleaning</span></a>
   </div>
 </li>
@@ -193,27 +192,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Unit info cleaning</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-updated-activation-cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Updated activations cleaning</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-indoor-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indoor logs analysis</span></a>
+ <span class="menu-text">Indoor logs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -269,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning-old.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-indoor-all-cleaning.html">All indoor logs cleaning</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-activation-cleaning.html">Cleaning</a></li><li class="breadcrumb-item"><a href="./01-indoor-all-cleaning.html">All indoor logs cleaning</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">All indoor logs cleaning</h1>
 </div>
@@ -294,19 +287,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We have recorded indoor temperatures for each unit April through September of 2022, 2023 and 2024, and April through July 25 (day the info request was filled) of 2025. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.</p>
-<p>The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in ‘data-original/indoor_all_csv’ as ‘SB1R56 - April 2022 (Table 1).csv’ and so on for each month and year. The original documents are found in ‘data-original’ under ‘2022_indoor’, ‘2023_indoor’ and so on for each year.</p>
+<p>We have recorded indoor temperatures for each unit April through September of 2022, 2023, 2024 and 2025. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice.</p>
+<p>The original PDFs were converted into xlsx files and downloaded as csv files using Adobe Acrobat, resulting in the csv files found in ‘data-original/indoor_all_csv’ as ‘SB1R56 - April 2022 (Table 1).csv’ and so on for each month and year. An exception to this is the data for July-September of 2025, which were originally provided in xlsx form and follow the naming convention ‘07.2025 - SB1R56.xlsx’ and so on. These spreadsheets and all other original documents are found in ‘data-original’ under ‘2022_indoor’, ‘2023_indoor’ and so on for each year.</p>
 <section id="goals-of-this-notebook" class="level2">
 <h2 class="anchored" data-anchor-id="goals-of-this-notebook">Goals of this notebook</h2>
-<p>We have already cleaned the data for each year individually in separate notebooks. In this notebook, we will consolidate the cleaning code for each year of data and combine all the years of data into one data frame. This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above.</p>
-<p>Clean and combine the 2022, 2023 and 2024 indoor logs for April, May, June, July, August and September and 2025 logs for April, May, June and part of July.</p>
+<p>We have already cleaned the data for each year individually in separate notebooks. In this notebook, we will consolidate the cleaning code for each year of data and combine all the years of data into one data frame. This data comes from a public information request to the Texas Department of Criminal Justice. We have a separate csv file for each month from April to September, so we will import each in individually and pipe it into the function we created above. In 2025, the data was given to us in spreadsheet form for July through September, which we will read in using read_excel and follow the same process above.</p>
+<p>Clean and combine the 2022, 2023, 2024 and 2025 indoor logs for April, May, June, July, August and September.</p>
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>show_col_types <span class="ot">=</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="creating-a-function" class="level2">
@@ -330,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="indoor-logs" class="level2">
 <h2 class="anchored" data-anchor-id="indoor-logs">2022 indoor logs</h2>
-<p>**Note: for the April 2022 csv only, we do not need to skip the first row because for some reason it converted differently when we put the original pdf into Adobe Acrobat. For all other logs, we will skip the first row in the read_csv() function to avoid formatting problems.</p>
+<p>**Note: For the April 2022 csv only, we do not need to skip the first row because for some reason it converted differently when we put the original pdf into Adobe Acrobat. For all other logs, we will skip the first row in the read_csv() function to avoid formatting problems.</p>
 </section>
 <section id="downloading-data-and-applying-function" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-data-and-applying-function">Downloading data and applying function</h2>
@@ -436,7 +432,12 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </section>
 <section id="indoor-logs-1" class="level2">
 <h2 class="anchored" data-anchor-id="indoor-logs-1">2023 indoor logs</h2>
-<p>**Note: There are two dates for units in 2023 where the temperature value is NA: - Huntsville 2023-08-25 - Segovia 2023-06-01 For these dates and units, there was no value included the original pdfs from TDCJ (the cells are blank).</p>
+<p>**Note: There are two dates for units in 2023 where the temperature value is NA:</p>
+<ul>
+<li>Huntsville 2023-08-25</li>
+<li>Segovia 2023-06-01</li>
+</ul>
+<p>For these dates and units, there was no value included the original pdfs from TDCJ (the cells are blank).</p>
 </section>
 <section id="downloading-data-and-applying-function-1" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-data-and-applying-function-1">Downloading data and applying function</h2>
@@ -627,7 +628,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 • `` -&gt; `...1`</code></pre>
 </div>
 </div>
-<p>**Important note: we manually removed an extra space from Connally:21 and 22 in the original September 2024 csv because it was causing the column to read as characters instead of doubles</p>
+<p>**Important note: we manually removed an extra space from Connally:21 and 22 in the original September 2024 csv because it was causing the column to read as characters instead of doubles.</p>
 </section>
 <section id="combining-each-month-into-one-data-frame-2" class="level2">
 <h2 class="anchored" data-anchor-id="combining-each-month-into-one-data-frame-2">Combining each month into one data frame</h2>
@@ -640,7 +641,6 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </section>
 <section id="downloading-data-and-applying-function-3" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-data-and-applying-function-3">Downloading data and applying function</h2>
-<p>** Because of when this public information request was filled, we only have data through July 25, 2025. Thus, all units will show “NA” for temperature between July 26 and July 31, 2025. As of Oct.&nbsp;14, 2025, Lauren is still trying to get the updated data through September 2025.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>april_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - April 2025(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"April"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"April 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -685,32 +685,40 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <p>**Important note: we manually removed an extra space from Bartlett:8 in the original June 2025 csv because it was causing the column to read as characters instead of doubles.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>july_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - July 2025(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"July"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"July 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>july_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data-original/2025_indoor/07.2025 - SB1R56.xlsx"</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="st">"A2:AF70"</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"July"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"July 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
-Rows: 70 Columns: 32
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): ...1 dbl (31): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
-18, 19,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
 • `` -&gt; `...1`</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>august_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data-original/2025_indoor/08.2025 - SB1R56.xlsx"</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="st">"A2:AF70"</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"August"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"August 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...1`</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>september_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data-original/2025_indoor/09.2025 - SB1R56.xlsx"</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="st">"A2:AE70"</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"September"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"September 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...1`</code></pre>
+</div>
+</div>
+<p>**Important note: we manually removed an extra space from cell O58 (Stevenson:14) in the original September 2025 csv because it was causing the column to read as characters instead of doubles.</p>
 </section>
 <section id="combining-each-month-into-one-data-frame-3" class="level2">
 <h2 class="anchored" data-anchor-id="combining-each-month-into-one-data-frame-3">Combining each month into one data frame</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>indoor_2025_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(april_2025_clean, may_2025_clean, june_2025_clean, july_2025_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>indoor_2025_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(april_2025_clean, may_2025_clean, june_2025_clean, july_2025_clean, august_2025_clean, september_2025_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="combining-all-years-of-indoor-data-into-one-data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="combining-all-years-of-indoor-data-into-one-data-frame">Combining all years of indoor data into one data frame</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(indoor_2022_combined, indoor_2023_combined, indoor_2024_combined, indoor_2025_combined)</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(indoor_2022_combined, indoor_2023_combined, indoor_2024_combined, indoor_2025_combined) </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -723,7 +731,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="export" class="level2">
 <h2 class="anchored" data-anchor-id="export">Export</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="sc">|&gt;</span> <span class="fu">write_rds</span>(<span class="st">"data-processed/01-indoor-temps-all-cleaned.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="sc">|&gt;</span> <span class="fu">write_rds</span>(<span class="st">"data-processed/01-indoor-temps-all-cleaned.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
