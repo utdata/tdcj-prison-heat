@@ -34,7 +34,7 @@ For each year, we have 183 total days of indoor temperature recordings.
 
 We wanted to _show_ how many days it reached different temperature breaks, so we counted the days within each range. In this example from 2023, there is a bar for each prison unit, which the colors representing the number of days within that temperature range.
 
-![2023 Temperatures by unit](figures/thresh_plot_2023.png)
+![2023 Temperatures by unit](figures/prison-heat-2023.png){width=50%}
 
 ## Outdoor logs
 
@@ -110,7 +110,7 @@ The following students analyzed outdoor logs and weather station data and explor
 
 Those transcribing the outdoor logs included:
 
-- Emily deMotte
+- Emily DeMotte
 - Teresa Do
 - Nicolas Pinto
 - Diego Torrealba

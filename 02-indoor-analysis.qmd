@@ -612,6 +612,64 @@ plot_thresh_data(2025)
 
 :::
 
+### 2023 to print
+
+```{r}
+thresh_pot_2023_print <- thresh_data |> 
+  filter(year == 2023) |> 
+  ggplot(aes(x = days, y = fct_rev(unit), fill = threshold)) +
+  geom_bar(stat = "identity", position = position_stack(reverse = TRUE)) +
+  scale_fill_brewer(
+    palette='OrRd',
+    labels = c(
+      cnt_n85  = "Under 85°",
+      cnt_85   = "85° to 89°",
+      cnt_90   = "90° to 94°",
+      cnt_95   = "95° to 99°",
+      cnt_100  = "100° or more"
+    )) +
+  # theme(legend.position = "bottom") +
+  labs(
+    title = str_wrap("More often than not, temperatures reached 85 degrees inside unair-conditioned prisons in the summer of 2023", width = 55),
+    subtitle = str_wrap("The Texas Department of Criminal Justice records temperatures at 3 p.m. every day from April 1 through Sept. 30 at all prison units that do not have air conditioning. We plotted how many of those days in 2023 fell into different temperatures ranges for each prison.", width = 68),
+    x = "Number of days at each temperature", y = "",
+    fill = "Indoor high
+temperature",
+    caption = "The Manuel A. Segovia Unit did not have data for all days.
+By: Media Innovation Group; Source: TDCJ"
+  )
+  
+  ggsave("figures/thresh_pot_2023_print.png", width = 6, height = 12)
+
+```
+
+
+Now we'll work on reformatting this day to build this chart in datawrapper.
+
+```{r}
+thresh_2023_dw <- thresh_data |> 
+  filter(year == 2023) |> # remove for all years
+  pivot_wider(names_from = threshold, values_from = days) |>
+  mutate(
+    cnt_na = 183 - (cnt_n85 + cnt_85 + cnt_90 + cnt_95 + cnt_100)
+  ) |> 
+  select(
+    Unit = unit,
+    # Year = year,
+    `Missing` = cnt_na,
+    `Under 85°` = cnt_n85,
+    `85° to 89°` = cnt_85,
+    `90° to 94°` = cnt_90,
+    `95° to 99°` = cnt_95,
+    `100° or more` = cnt_100
+  )
+  
+thresh_2023_dw
+
+thresh_2023_dw |> write_csv("data-processed/thresh_2023_dw.csv")
+  
+```
+
 
 ## Prisoner deaths
 
