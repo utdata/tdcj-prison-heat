@@ -9,10 +9,6 @@ code-summary: "Expand this to see code"
 
 - Can we find a NWS for Jordan that is close but has readings? Are there other cases like this were we don't have readings, but can find an alternative station? Let's try using virtualcrossing.
 
-Questions for LM:
-
-- We filter to 1 week in July, but have 8 days. Should we include the 8th day?
-
 ## Reliability questions
 
 - How do log temperature readings compare to the nearest weather station?

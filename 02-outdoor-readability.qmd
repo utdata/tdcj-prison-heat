@@ -15,8 +15,6 @@ We hand-coded eight days of temperatures logs (7/24/2023 to 7/31/2023) for 82 Te
 
 > Something we've yet to look at: there are cases where the log does not have a heat index `hi_wc1` recorded, but there is a temperature and humidity. We could calculate that heat index when we have the data (and then compare to what the prison log has when it is present.)
 
-> Also, we perhaps need to go back to cleaning to see when units recorded `hi_wc` as categories, which would 
-
 ## Setup
 
 ```{r}
