@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Media Innovation Group">
 
 <title>Stations cleaning – Prison Heat Analysis</title>
 <style>
@@ -269,6 +270,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Media Innovation Group </p>
+          </div>
+  </div>
     
   
     
@@ -285,13 +292,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here we enhance our weather station data to include prison protocol data. We do this both for our hourly readings and our daily summaries.</p>
 <p>Will decide later if we add the prison info. That may need to be in more specific analysis.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="flag-function" class="level2">
 <h2 class="anchored" data-anchor-id="flag-function">Flag function</h2>
 <p>Here we want a function that will create the flags, once fed a tmp and heat index.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>set_protocol_flag <span class="ot">&lt;-</span> <span class="cf">function</span>(df, tmp_name, hi_name) {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tmp_flag =</span> (<span class="fu">case_when</span>(</span>
@@ -305,6 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">.default =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="hourly-data" class="level2">
@@ -312,12 +325,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-hourly-data" class="level3">
 <h3 class="anchored" data-anchor-id="import-hourly-data">Import hourly data</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>stations_hourly <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/weather-logs/01-station-hourly-readings.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="add-protocol-flags" class="level3">
 <h3 class="anchored" data-anchor-id="add-protocol-flags">Add protocol flags</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stations_hourly_protocol <span class="ot">&lt;-</span> stations_hourly <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tmp_flag =</span> (<span class="fu">case_when</span>(</span>
@@ -336,10 +354,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>name) <span class="sc">|&gt;</span> </span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tmp <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["time"],"name":[3],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["hr"],"name":[7],"type":["int"],"align":["right"]},{"label":["tmp_flag"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[10],"type":["lgl"],"align":["right"]}],"data":[{"1":"KRBD","2":"2023-07-17","3":"13:53:00","4":"103","5":"28","6":"106.3","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KBWD","2":"2023-08-12","3":"15:15:00","4":"104","5":"16","6":"100.9","7":"15","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KRBD","2":"2023-08-25","3":"18:53:00","4":"101","5":"28","6":"102.8","7":"18","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KRFI","2":"2023-08-19","3":"17:15:00","4":"108","5":"22","6":"110.4","7":"17","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KSGR","2":"2023-07-31","3":"14:53:00","4":"101","5":"41","6":"112.4","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KCOT","2":"2023-07-20","3":"12:53:00","4":"103","5":"30","6":"107.7","7":"12","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KLBB","2":"2023-07-17","3":"16:53:00","4":"101","5":"17","6":"97.6","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KRFI","2":"2023-08-02","3":"13:15:00","4":"104","5":"29","6":"108.9","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KELP","2":"2023-07-28","3":"14:00:00","4":"102","5":"12","6":"97.0","7":"14","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KUTS","2":"2023-08-12","3":"18:53:00","4":"102","5":"35","6":"109.6","7":"18","8":"FALSE","9":"FALSE","10":"FALSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["time"],"name":[3],"type":["time"],"align":["right"]},{"label":["tmp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["rh"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["hi"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["hr"],"name":[7],"type":["int"],"align":["right"]},{"label":["tmp_flag"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[10],"type":["lgl"],"align":["right"]}],"data":[{"1":"KBMQ","2":"2023-09-05","3":"16:53:00","4":"101","5":"28","6":"102.8","7":"16","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KXBP","2":"2023-08-10","3":"18:10:00","4":"103","5":"27","6":"105.6","7":"18","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KPWG","2":"2023-08-17","3":"15:56:00","4":"109","5":"21","6":"111.2","7":"15","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KPWG","2":"2023-08-18","3":"10:56:00","4":"103","5":"24","6":"103.7","7":"10","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KALI","2":"2023-08-16","3":"11:53:00","4":"101","5":"32","6":"105.4","7":"11","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KABI","2":"2023-08-12","3":"18:00:00","4":"105","5":"17","6":"102.6","7":"18","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KBEA","2":"2023-07-16","3":"13:15:00","4":"101","5":"23","6":"100.1","7":"13","8":"FALSE","9":"FALSE","10":"FALSE"},{"1":"KRBD","2":"2023-08-02","3":"15:53:00","4":"105","5":"23","6":"106.2","7":"15","8":"TRUE","9":"FALSE","10":"TRUE"},{"1":"KCOT","2":"2023-07-10","3":"15:53:00","4":"105","5":"35","6":"116.2","7":"15","8":"TRUE","9":"TRUE","10":"TRUE"},{"1":"KXBP","2":"2023-07-19","3":"13:10:00","4":"106","5":"18","6":"104.5","7":"13","8":"TRUE","9":"FALSE","10":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -348,8 +367,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="export-hourly" class="level3">
 <h3 class="anchored" data-anchor-id="export-hourly">Export hourly</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stations_hourly_protocol <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_rds</span>(<span class="st">"data-processed/01-station-hourly-protocols.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 </section>
@@ -358,9 +380,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-daily-summaries" class="level3">
 <h3 class="anchored" data-anchor-id="import-daily-summaries">Import daily summaries</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>stations_daily <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data-processed/weather-logs/01-station-daily-summary.rds"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>stations_daily <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 17,453
 Columns: 5
@@ -375,6 +400,8 @@ $ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 8
 <section id="add-daily-protocols" class="level3">
 <h3 class="anchored" data-anchor-id="add-daily-protocols">Add daily protocols</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>stations_daily_protocol <span class="ot">&lt;-</span> stations_daily <span class="sc">|&gt;</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tmp_flag =</span> (<span class="fu">case_when</span>(</span>
@@ -393,10 +420,11 @@ $ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 8
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>name) <span class="sc">|&gt;</span> </span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tmp_high <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["tmp_high"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hi_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"KXBP","2":"2023-08-06","3":"105","4":"105.6","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KXBP","2":"2023-07-31","3":"105","4":"103.7","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KJAS","2":"2023-08-25","3":"102","4":"109.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KLXY","2":"2023-08-17","3":"107","4":"108.0","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KXBP","2":"2023-08-23","3":"101","4":"101.1","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KUTS","2":"2023-08-20","3":"112","4":"114.3","5":"TRUE","6":"TRUE","7":"TRUE"},{"1":"KALI","2":"2023-09-12","3":"101","4":"104.1","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KABI","2":"2023-08-05","3":"107","4":"105.9","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KCLL","2":"2023-08-17","3":"108","4":"110.4","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KELP","2":"2023-07-18","3":"108","4":"100.1","5":"TRUE","6":"FALSE","7":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["station_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["tmp_high"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hi_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["tmp_flag"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["hi_flag"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["protocol_flag"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"KDKR","2":"2023-08-24","3":"108","4":"108.1","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KBPT","2":"2023-08-24","3":"107","4":"116.7","5":"TRUE","6":"TRUE","7":"TRUE"},{"1":"KJDD","2":"2023-08-18","3":"106","4":"107.9","5":"TRUE","6":"FALSE","7":"TRUE"},{"1":"KABI","2":"2023-07-25","3":"103","4":"102.0","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KFST","2":"2023-06-12","3":"102","4":"99.5","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KMFE","2":"2023-09-09","3":"103","4":"109.3","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KPSN","2":"2023-08-08","3":"102","4":"104.2","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KHOU","2":"2023-07-31","3":"101","4":"110.1","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KSNK","2":"2023-09-07","3":"101","4":"97.6","5":"FALSE","6":"FALSE","7":"FALSE"},{"1":"KBKD","2":"2023-07-11","3":"101","4":"107.8","5":"FALSE","6":"FALSE","7":"FALSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -406,10 +434,13 @@ $ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 8
 <section id="finding-hourly-temps-for-prisoner-deaths" class="level2">
 <h2 class="anchored" data-anchor-id="finding-hourly-temps-for-prisoner-deaths">Finding hourly temps for prisoner deaths</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>stations_hourly_protocol <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    station_id <span class="sc">==</span> <span class="st">"KUTS"</span>, date <span class="sc">==</span> <span class="st">"2023-06-07"</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -421,7 +452,10 @@ $ hi_high    &lt;dbl&gt; 76.7, 74.8, 56.9, 61.0, 60.2, 76.1, 62.1, 60.5, 75.3, 8
 <section id="export-daily" class="level3">
 <h3 class="anchored" data-anchor-id="export-daily">Export daily</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>stations_daily_protocol <span class="sc">|&gt;</span> <span class="fu">write_rds</span>(<span class="st">"data-processed/01-station-daily-protocols.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 
 

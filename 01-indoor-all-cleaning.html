@@ -297,18 +297,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>show_col_types <span class="ot">=</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="creating-a-function" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-function">Creating a function</h2>
 <p>This function streamlines the process of pivoting the data longer, skipping the first row, creating a real date and renaming/selecting columns for each month of data.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pivot_date <span class="ot">&lt;-</span> <span class="cf">function</span>(df, mo, yr) {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="dv">1</span></span>
@@ -321,6 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">temperature =</span> value</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>*Note: this function leaves a row for each day of the month where unit = “Month Year” and temperature = NA. For the 2022 logs only, unit = “Month Year - Daily Temperature Log”. i.e.&nbsp;for April 2023, there are 30 rows where the unit is “April 2023” and the temperature is NA, one for each day of the month. The only month where this does not apply is April 2022 because of the different way it was read in.</p>
 </section>
@@ -331,7 +337,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="downloading-data-and-applying-function" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-data-and-applying-function">Downloading data and applying function</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>april_2022_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - April 2022&nbsp;(1)(Table 1).csv"</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"April"</span>, <span class="st">"2022"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"April 2022 - Daily Temperature Log"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 69 Columns: 31
@@ -343,7 +352,10 @@ Rows: 69 Columns: 31
 Specify the column types or set `show_col_types = FALSE` to quiet this message.
 • `` -&gt; `...1`</code></pre>
 </div>
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>april_2022_clean </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -353,8 +365,11 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>may_2022_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - May 2022(Table 1).csv"</span>, </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"May"</span>, <span class="st">"2022"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"May 2022 - Daily Temperature Log"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -368,7 +383,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>june_2022_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - June 2022(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"June"</span>, <span class="st">"2022"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"June 2022 - Daily Temperature Log"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -382,7 +400,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>july_2022_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - July 2022(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"July"</span>, <span class="st">"2022"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"July 2022 - Daily Temperature Log"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -396,7 +417,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>august_2022_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - August 2022(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"August"</span>, <span class="st">"2022"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"August 2022 - Daily Temperature Log"</span>,<span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -410,7 +434,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>september_2022_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - September 2022(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"September"</span>, <span class="st">"2022"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"September 2022 - Daily Temperature Log"</span>,<span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -427,7 +454,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="combining-each-month-into-one-data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="combining-each-month-into-one-data-frame">Combining each month into one data frame</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>indoor_2022_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(april_2022_clean, may_2022_clean, june_2022_clean, july_2022_clean, august_2022_clean, september_2022_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="indoor-logs-1" class="level2">
@@ -442,7 +472,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="downloading-data-and-applying-function-1" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-data-and-applying-function-1">Downloading data and applying function</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>april_2023_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - April 2023(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"April"</span>, <span class="st">"2023"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"April 2023"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 69 Columns: 31
@@ -456,8 +489,11 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>may_2023_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - May 2023(Table 1).csv"</span>, </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"May"</span>, <span class="st">"2023"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"May 2023"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 69 Columns: 32
@@ -472,7 +508,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <p>**Important note: we manually removed an extra space from cell Young:26 in the original May 2023 csv because it was causing the column to read as characters instead of doubles.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>june_2023_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - June 2023(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"June"</span>, <span class="st">"2023"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"June 2023"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -487,7 +526,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <p>**Important note: we manually removed an extra space from cell Murray:30 in the original June 2023 csv because it was causing the column to read as characters instead of doubles.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>july_2023_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - July 2023(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"July"</span>, <span class="st">"2023"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"July 2023"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -501,7 +543,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>august_2023_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - August 2023(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"August"</span>, <span class="st">"2023"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"August 2023"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -515,7 +560,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>september_2023_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - September 2023(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"September"</span>, <span class="st">"2023"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"September 2023"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -532,7 +580,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="combining-each-month-into-one-data-frame-1" class="level2">
 <h2 class="anchored" data-anchor-id="combining-each-month-into-one-data-frame-1">Combining each month into one data frame</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>indoor_2023_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(april_2023_clean, may_2023_clean, june_2023_clean, july_2023_clean, august_2023_clean, september_2023_clean) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="indoor-logs-2" class="level2">
@@ -543,7 +594,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="downloading-data-and-applying-function-2" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-data-and-applying-function-2">Downloading data and applying function</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>april_2024_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - April 2024(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"April"</span>, <span class="st">"2024"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"April 2024"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -557,8 +611,11 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>may_2024_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - May 2024(Table 1).csv"</span>, </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"May"</span>, <span class="st">"2024"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"May 2024"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -572,7 +629,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>june_2024_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - June 2024(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"June"</span>, <span class="st">"2024"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"June 2024"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -587,7 +647,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <p>**Important note: we manually removed an apostrophe from cell Memorial:22 in the original June 2024 csv because it was causing the column to read as characters instead of doubles.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>july_2024_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - July 2024(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"July"</span>, <span class="st">"2024"</span>) <span class="sc">|&gt;</span>  <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"July 2024"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -601,7 +664,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>august_2024_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - August 2024(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"August"</span>, <span class="st">"2024"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"August 2024"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -615,7 +681,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>september_2024_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - September 2024(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"September"</span>, <span class="st">"2024"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"September 2024"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -633,7 +702,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="combining-each-month-into-one-data-frame-2" class="level2">
 <h2 class="anchored" data-anchor-id="combining-each-month-into-one-data-frame-2">Combining each month into one data frame</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>indoor_2024_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(april_2024_clean, may_2024_clean, june_2024_clean, july_2024_clean, august_2024_clean, september_2024_clean) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="indoor-logs-3" class="level2">
@@ -642,7 +714,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="downloading-data-and-applying-function-3" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-data-and-applying-function-3">Downloading data and applying function</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>april_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - April 2025(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"April"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"April 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -656,7 +731,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>may_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - May 2025(Table 1) (1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"May"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"May 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 32
@@ -670,7 +748,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>june_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-original/indoor_all_csv/SB1R56 - June 2025(Table 1).csv"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"June"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"June 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 70 Columns: 31
@@ -685,21 +766,30 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <p>**Important note: we manually removed an extra space from Bartlett:8 in the original June 2025 csv because it was causing the column to read as characters instead of doubles.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>july_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data-original/2025_indoor/07.2025 - SB1R56.xlsx"</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="st">"A2:AF70"</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"July"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"July 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 • `` -&gt; `...1`</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>august_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data-original/2025_indoor/08.2025 - SB1R56.xlsx"</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="st">"A2:AF70"</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"August"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"August 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 • `` -&gt; `...1`</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>september_2025_clean <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data-original/2025_indoor/09.2025 - SB1R56.xlsx"</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="st">"A2:AE70"</span>) <span class="sc">|&gt;</span> <span class="fu">pivot_date</span>(<span class="st">"September"</span>, <span class="st">"2025"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>unit <span class="sc">==</span> <span class="st">"September 2025"</span>, <span class="sc">!</span><span class="fu">is.na</span>(unit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 • `` -&gt; `...1`</code></pre>
@@ -710,15 +800,21 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="combining-each-month-into-one-data-frame-3" class="level2">
 <h2 class="anchored" data-anchor-id="combining-each-month-into-one-data-frame-3">Combining each month into one data frame</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>indoor_2025_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(april_2025_clean, may_2025_clean, june_2025_clean, july_2025_clean, august_2025_clean, september_2025_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="combining-all-years-of-indoor-data-into-one-data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="combining-all-years-of-indoor-data-into-one-data-frame">Combining all years of indoor data into one data frame</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(indoor_2022_combined, indoor_2023_combined, indoor_2024_combined, indoor_2025_combined) </span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -731,7 +827,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="export" class="level2">
 <h2 class="anchored" data-anchor-id="export">Export</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Expand this to see code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>indoor_temps_all_combined <span class="sc">|&gt;</span> <span class="fu">write_rds</span>(<span class="st">"data-processed/01-indoor-temps-all-cleaned.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 
 
