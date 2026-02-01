@@ -1,6 +1,8 @@
 ---
 title: "Unit info cleaning"
 author: "Media Innovation Group"
+code-fold: true
+code-summary: "Expand this to see code"
 ---
 
 This notebook helps us join together our unit-focused data and our weather station-focused data. The data was compiled by Media Innovation Group data fellows. The information came from the Texas Department of Criminal Justice website, a TDCJ unit prototype list and the National Weather Service website.

@@ -1,7 +1,6 @@
 ---
 title: "Indoor logs"
 author: "Emily DeMotte & the Media Innovation Group"
-format: html
 code-fold: true
 code-summary: "Click to show code"
 ---
@@ -527,7 +526,7 @@ Takeaway: Garza West reached 100 degrees inside on 46 days between April 1 and S
 
 Here we'll attempt to plot how many days a unit reached a certain temperature within a given year. We need to recalculate our thresholds.
 
-Here we bin the number of days at certain temperatures, which is different than we we've been doing previously (which was total days at/above a temp).
+Here we bin the number of days at certain temperatures, which is different than we we've been doing previously (which was total days at/above a temp). We also have to account for missing data, so we create cnt_na to add any missing days to the data.
 
 ```{r}
 temp_thrsh_unit_year <- indoor_logs |> 
@@ -539,7 +538,9 @@ temp_thrsh_unit_year <- indoor_logs |>
     cnt_95 = sum(temperature >= 95 & temperature < 100, na.rm = T),
     cnt_100 = sum(temperature >= 100, na.rm = T),
     .groups = "drop"
-  )
+  ) |> 
+  mutate(cnt_na = 183 - (cnt_n85 + cnt_85 + cnt_90 + cnt_95 + cnt_100)) |> 
+  relocate(cnt_na, .before = cnt_n85)
 
 temp_thrsh_unit_year
 ```
@@ -548,9 +549,10 @@ To plot this we have to reshape the data, then plot as a bar chart. We save the 
 
 The plotting has been turned into a function to keep it dRy.
 
+First we pivot the data and turn the thresholds into a factor.
+
 ```{r}
-# pivoting the data
-thresh_data <- temp_thrsh_unit_year |> 
+thresh_data <- temp_thrsh_unit_year |>
   pivot_longer(
     cols = starts_with("cnt"),
     names_to = "threshold",
@@ -558,6 +560,12 @@ thresh_data <- temp_thrsh_unit_year |>
   ) |> 
   mutate(threshold = fct_inorder(threshold))
 
+thresh_data |> glimpse()
+```
+
+
+
+```{r}
 # plot the data into an object and then save that object into the figures folder.
 plot_thresh_data <- function(yr) {
   thresh_plot <- thresh_data |> 
@@ -567,6 +575,7 @@ plot_thresh_data <- function(yr) {
   scale_fill_brewer(
     palette='OrRd',
     labels = c(
+      cnt_na   = "Missing",
       cnt_n85  = "Under 85°",
       cnt_85   = "85° to 89°",
       cnt_90   = "90° to 94°",
@@ -612,7 +621,11 @@ plot_thresh_data(2025)
 
 :::
 
-### 2023 to print
+## 2023 for publication
+
+We are using the 2023 version of this threshold chart for a story on KUT.org, so we'll work out the language, etc.
+
+### Draft the chart
 
 ```{r}
 thresh_pot_2023_print <- thresh_data |> 
@@ -643,8 +656,11 @@ By: Media Innovation Group; Source: TDCJ"
 
 ```
 
+![2023 chart for print](figures/thresh_pot_2023_print.png)
 
-Now we'll work on reformatting this day to build this chart in datawrapper.
+### Format for Datawrapper
+
+Here we reformat this data to build this chart in datawrapper.
 
 ```{r}
 thresh_2023_dw <- thresh_data |> 
@@ -674,7 +690,6 @@ thresh_2023_dw |> write_csv("data-processed/thresh_2023_dw.csv")
 ## Prisoner deaths
 
 Determining the indoor temperatures on the days and unit where prisoners died.
-
 
 ### Hagerty at Murray unit, 2023
 
