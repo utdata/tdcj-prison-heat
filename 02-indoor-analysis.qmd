@@ -635,6 +635,7 @@ thresh_pot_2023_print <- thresh_data |>
   scale_fill_brewer(
     palette='OrRd',
     labels = c(
+      cnt_na  = "Missing",
       cnt_n85  = "Under 85°",
       cnt_85   = "85° to 89°",
       cnt_90   = "90° to 94°",
