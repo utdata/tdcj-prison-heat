@@ -2,17 +2,15 @@
 title: "TDCJ Prison Heat"
 ---
 
-This is for a group project under UT's Media Innovation Group. 
+This project is an examination of heat conditions recorded in Texas prisons using documents obtained through the Texas Department of Criminal Justice. It supports reporting by Lauren McGaughy at KUT/The Texas Newsroom.
 
-It is an examination of heat conditions recorded in prisons across the state of Texas using documents obtained through the Texas Department of Criminal Justice. More extensive sourcing information can be found on the project's cleaning files.
-
-Looking at the navigation of this site, you'll mainly want to look at the files under the Analysis heading.
+The work is a group project under the Media Innovation Group, an experiential learning opportunity for students in the School of Journalism and Media in the Moody College of Communication at the University of Texas at Austin. It is funded by the Dallas Morning News Journalism Innovation Endowment.
 
 ## Indoor logs 
 
 **January 2025**
 
-We have records of indoor temperatures recorded for units without air conditioning from April through September of 2022, 2023, 2024 and 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3 p.m. every day from April 1 through Sept. 30 at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT/The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.
+We have records of indoor temperatures recorded for units without air conditioning from April through September for years 2022 through 2025. According to the Texas Department of Criminal Justice, indoor temps are taken at 3 p.m. every day from April 1 through Sept. 30 at all units that do not have air conditioning. The data was acquired by Lauren McGaughy at KUT/The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.
 
 For each year, we have 183 total days of indoor temperature recordings.  
 
@@ -32,13 +30,13 @@ For each year, we have 183 total days of indoor temperature recordings.
 
 ### Visualzing temperatures
 
-We wanted to _show_ how many days it reached different temperature breaks, so we counted the days within each range. In this example from 2023, there is a bar for each prison unit, which the colors representing the number of days within that temperature range.
+We wanted to _show_ how many days it reached different temperature breaks, so we counted the days within each range. In this example from 2023, there is a bar for each prison unit, which the colors representing the number of days within each temperature range.
 
-![2023 Temperatures by unit](figures/thresh_plot_2023.png)
+![2023 Temperatures by unit](figures/prison-heat-2023.png){width=50%}
 
 ## Outdoor logs
 
-Lauren McGaughy of the Texas Newsroom public radio collaborative used a public information act to obtain the outdoor temperature logs kept by Texas prisons. The logs are hand-written and the data could not be accurately pulled through mechanical means, so a group of Media Innovation Group fellows transcribed a sample set of logs from each prison, from **July 24, 2023 through July 31, 2023**.
+McGaughy also used public information requests to obtain outdoor temperature logs kept by Texas prisons. The logs are hand-written and the data could not be accurately pulled through programattic means, so a group of Media Innovation Group fellows transcribed a sample set of logs from each prison, from **July 24, 2023 through July 31, 2023**.
 
 Here is what we found:
 
@@ -47,7 +45,7 @@ Here is what we found:
 **May 2025**
 
 - We transcribed 8 days of logs for 82 units, making up about [15,700 rows of data](02-outdoor-readability.qmd#basic-information).
-- If we found a row of the data was corrected or there was a question about the legibility, [we included a note](02-outdoor-readability.qmd#records-with-notes) within that row. We included some consistent-worded notes so we could count them, but also had some more free-form when those categories didn't fit. We tried to be consistent, but different humans were involved, so variability is inevitable. These based on the last seven days of July 2023.
+- If we found a row of the data was corrected or there was a question about the legibility, [we included a note](02-outdoor-readability.qmd#records-with-notes) within that row. We included some consistently-worded notes so we could count them, but also had some more free-form notes when those categories didn't fit. We tried to be consistent, but variability was inevitable. These facts are based on the last seven days of July 2023.
     - About 15% of the records had notes.
     - About 1,300 records (7.5%) had corrections.
     - About 1,000 records (6.5%) we marked with legibility issues.
@@ -55,7 +53,7 @@ Here is what we found:
     - There were about 650 notes concerning the heat index/wind chill column. That column is challenging because it captures two different things (though not at the same time). Some records also include what we determined was a heat risk category category, which we recorded in a separate column.
     - There were about 590 notes about the temperature column.
 - We wanted to see [for which units we added notes](02-outdoor-readability.qmd#notes-by-unit).
-    - More than 60% of the records for the Stevenson unit had notes, and many of those were flagged as "corrections". However, when you look at the [original document](https://drive.google.com/file/d/1s3pSZ7aU7lZHyKedz-P7DmVJIRmSUkSg/view?usp=drive_link), it appears the unit reviews the logs and clears up any legibility issues. i.e. having more corrections could be a positive thing.
+    - More than 60% of the records for the Stevenson unit had notes, and many of those we flagged as "corrections". However, when you look at the [original document](https://drive.google.com/file/d/1s3pSZ7aU7lZHyKedz-P7DmVJIRmSUkSg/view?usp=drive_link), it appears the unit reviews the logs and clears up any legibility issues. i.e. having more corrections could be a positive thing.
     - In some cases we recorded an overall note about the unit as opposed to notes for each individual line. [They are printed in browsable form here](02-outdoor-readability.qmd#unit-notes).
 
 ### Precautionary measures
@@ -90,7 +88,6 @@ To gauge the accuracy of recorded temperature and humidity/heat index we paired 
     - You can [peruse these ranges by unit](02-outdoor-reliability.qmd#within-range-degrees-by-unit).
 - The [heat index differences](02-outdoor-reliability.qmd#heat-index) are a little harder because of so much missing data, but we've charted them.
 
-
 ## Collaborators
 
 This project supports reporting by Lauren McGaughy of The Texas Newsroom public radio collaborative. Christian McDonald served as editor and mentor for the many Media Innovation Group fellows who worked on this project.
@@ -110,9 +107,7 @@ The following students analyzed outdoor logs and weather station data and explor
 
 Those transcribing the outdoor logs included:
 
-- Emily deMotte
+- Emily DeMotte
 - Teresa Do
 - Nicolas Pinto
 - Diego Torrealba
-
-

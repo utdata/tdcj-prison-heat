@@ -1,7 +1,8 @@
 ---
 title: "All indoor logs cleaning"
 author: "Media Innovation Group"
-format: html
+code-fold: true
+code-summary: "Expand this to see code"
 ---
 
 We have recorded indoor temperatures for each unit April through September of 2022, 2023, 2024 and 2025. This information was acquired by Lauren McGaughy at KUT through a public information request to the Texas Department of Criminal Justice. 

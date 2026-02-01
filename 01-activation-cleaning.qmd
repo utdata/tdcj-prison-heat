@@ -1,7 +1,8 @@
 ---
 title: "Activations cleaning"
 author: "Media Innovation Group"
-format: html
+code-fold: true
+code-summary: "Expand this to see code"
 ---
 
 This data is a record of every time a TDCJ was under ICS protocols, like providing extra ice water and access to cooler areas during extreme heat events, in 2022, 2023 and 2024. This data was acquired by Lauren McGaughy of The Texas Newsroom through a public information request to the Texas Department of Criminal Justice.

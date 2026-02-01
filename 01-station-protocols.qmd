@@ -1,5 +1,8 @@
 ---
 title: "Stations cleaning"
+author: "Media Innovation Group"
+code-fold: true
+code-summary: "Expand this to see code"
 ---
 
 > Note: The heat warning criteria we used here is not the same as when we studied precautionary measures. It does not consider how many days the temperatures or heat index value was reached.
