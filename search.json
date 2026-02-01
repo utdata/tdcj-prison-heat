@@ -55,7 +55,7 @@
     "href": "02-outdoor-readability.html#questions-to-answer",
     "title": "Outdoor log readability",
     "section": "Questions to answer",
-    "text": "Questions to answer\n\nIn the logs, how many cases did we find where the records were hard to read or had problems?\nWhat were those problems, generally?\nDo certain units have more legibility problems?\n\n\nSomething we’ve yet to look at: there are cases where the log does not have a heat index hi_wc1 recorded, but there is a temperature and humidity. We could calculate that heat index when we have the data (and then compare to what the prison log has when it is present.)\n\n\nAlso, we perhaps need to go back to cleaning to see when units recorded hi_wc as categories, which would",
+    "text": "Questions to answer\n\nIn the logs, how many cases did we find where the records were hard to read or had problems?\nWhat were those problems, generally?\nDo certain units have more legibility problems?\n\n\nSomething we’ve yet to look at: there are cases where the log does not have a heat index hi_wc1 recorded, but there is a temperature and humidity. We could calculate that heat index when we have the data (and then compare to what the prison log has when it is present.)",
     "crumbs": [
       "Analysis",
       "Outdoor log readability"
@@ -990,7 +990,7 @@
     "href": "02-outdoor-reliability.html",
     "title": "Outdoor log reliability",
     "section": "",
-    "text": "Can we find a NWS for Jordan that is close but has readings? Are there other cases like this were we don’t have readings, but can find an alternative station? Let’s try using virtualcrossing.\n\nQuestions for LM:\n\nWe filter to 1 week in July, but have 8 days. Should we include the 8th day?",
+    "text": "Can we find a NWS for Jordan that is close but has readings? Are there other cases like this were we don’t have readings, but can find an alternative station? Let’s try using virtualcrossing.",
     "crumbs": [
       "Analysis",
       "Outdoor log reliability"
