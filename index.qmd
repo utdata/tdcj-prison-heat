@@ -2,7 +2,7 @@
 title: "TDCJ Prison Heat"
 ---
 
-This project is an examination of heat conditions recorded in Texas prisons using documents obtained through the Texas Department of Criminal Justice. It supports reporting by Lauren McGaughy at KUT/The Texas Newsroom.
+This project is an examination of heat conditions recorded in Texas prisons using documents obtained through the Texas Department of Criminal Justice. The findings informed and supported reporting by Lauren McGaughy at KUT/The Texas Newsroom for the story [Many Texas prisons are regularly topping 90 degrees. The state is about to defend itself in court.](https://www.kut.org/crime-justice/2026-02-02/texas-prison-heat-ac-lawsuit-data-analysis)
 
 The work is a group project under the Media Innovation Group, an experiential learning opportunity for students in the School of Journalism and Media in the Moody College of Communication at the University of Texas at Austin. It is funded by the Dallas Morning News Journalism Innovation Endowment.
 
