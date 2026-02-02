@@ -35,3 +35,5 @@ format:
     toc: true
     df-print: paged
     code-overflow: wrap
+    link-external-icon: true
+    link-external-newwindow: true
