@@ -645,8 +645,8 @@ thresh_pot_2023_print <- thresh_data |>
   # theme(legend.position = "bottom") +
   labs(
     title = str_wrap("More often than not, temperatures reached 85 degrees inside unair-conditioned prisons in the summer of 2023", width = 55),
-    subtitle = str_wrap("The Texas Department of Criminal Justice records temperatures at 3 p.m. every day from April 1 through Sept. 30 at all prison units that do not have air conditioning. We plotted how many of those days in 2023 fell into different temperature ranges for each prison.", width = 68),
-    x = "Number of days at each temperature", y = "",
+    subtitle = str_wrap("The Texas Department of Criminal Justice records temperatures at 3 p.m. every day from April 1 through Sept. 30 at all prison units that do not have air conditioning. We took the 2023 temperature readings and counted how many days each prison measured within different temperature ranges. Each bar below is a prison unit, and each segment is how many days measured within each temperature range.", width = 68),
+    x = "Number of days in each temperature range", y = "Prison units without air conditioning",
     fill = "Indoor high
 temperature",
     caption = "The Manuel A. Segovia Unit did not have data for all days.
